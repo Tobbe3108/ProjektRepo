@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Bol_IT.UserControls
+namespace Bol_IT
 {
     public partial class Sag_Create : UserControl
     {

@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Bol_IT.UserControls
-{
+namespace Bol_IT
+{ 
     public partial class OpenHouse_Distribution : UserControl
     {
         public OpenHouse_Distribution()

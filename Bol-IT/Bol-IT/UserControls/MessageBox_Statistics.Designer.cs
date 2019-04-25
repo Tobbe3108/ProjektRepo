@@ -1,4 +1,4 @@
-﻿namespace Bol_IT.UserControls
+﻿namespace Bol_IT
 {
     partial class MessageBox_Statistics
     {
