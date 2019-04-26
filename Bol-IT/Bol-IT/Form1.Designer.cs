@@ -36,36 +36,40 @@
             // pnlMenuBarTop
             // 
             this.pnlMenuBarTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlMenuBarTop.Location = new System.Drawing.Point(0, 0);
+            this.pnlMenuBarTop.Location = new System.Drawing.Point(176, 0);
+            this.pnlMenuBarTop.Margin = new System.Windows.Forms.Padding(6);
             this.pnlMenuBarTop.Name = "pnlMenuBarTop";
-            this.pnlMenuBarTop.Size = new System.Drawing.Size(960, 54);
-            this.pnlMenuBarTop.TabIndex = 1;
+            this.pnlMenuBarTop.Size = new System.Drawing.Size(1584, 100);
+            this.pnlMenuBarTop.TabIndex = 2;
             // 
             // pnlMenuBarLeft
             // 
             this.pnlMenuBarLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlMenuBarLeft.Location = new System.Drawing.Point(0, 54);
+            this.pnlMenuBarLeft.Location = new System.Drawing.Point(0, 0);
+            this.pnlMenuBarLeft.Margin = new System.Windows.Forms.Padding(6);
             this.pnlMenuBarLeft.Name = "pnlMenuBarLeft";
-            this.pnlMenuBarLeft.Size = new System.Drawing.Size(96, 486);
-            this.pnlMenuBarLeft.TabIndex = 2;
+            this.pnlMenuBarLeft.Size = new System.Drawing.Size(176, 997);
+            this.pnlMenuBarLeft.TabIndex = 1;
             // 
             // pnlContainer
             // 
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContainer.Location = new System.Drawing.Point(96, 54);
+            this.pnlContainer.Location = new System.Drawing.Point(176, 100);
+            this.pnlContainer.Margin = new System.Windows.Forms.Padding(6);
             this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(864, 486);
+            this.pnlContainer.Size = new System.Drawing.Size(1584, 897);
             this.pnlContainer.TabIndex = 3;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(960, 540);
+            this.ClientSize = new System.Drawing.Size(1760, 997);
             this.Controls.Add(this.pnlContainer);
-            this.Controls.Add(this.pnlMenuBarLeft);
             this.Controls.Add(this.pnlMenuBarTop);
+            this.Controls.Add(this.pnlMenuBarLeft);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -75,9 +79,7 @@
 
         #endregion
         private System.Windows.Forms.Panel pnlMenuBarTop;
-        private MenuBar_Top menuBar_Top1;
         private System.Windows.Forms.Panel pnlMenuBarLeft;
-        private MenuBar_Left menuBar_Left1;
         private System.Windows.Forms.Panel pnlContainer;
     }
 }

@@ -16,5 +16,60 @@ namespace Bol_IT
         {
             InitializeComponent();
         }
+
+
+
+        //Button select color change
+        private void lblSager_Click(object sender, EventArgs e)
+        {
+            tlpOpenHouse.BackColor = ColorTranslator.FromHtml("#2368A2");
+            tlpSager.BackColor = ColorTranslator.FromHtml("#1A4971");
+            tlpSignOut.BackColor = ColorTranslator.FromHtml("#2368A2");
+        }
+
+        private void lblOpenHouse_Click(object sender, EventArgs e)
+        {
+            tlpOpenHouse.BackColor = ColorTranslator.FromHtml("#1A4971");
+            tlpSager.BackColor = ColorTranslator.FromHtml("#2368A2");
+            tlpSignOut.BackColor = ColorTranslator.FromHtml("#2368A2");
+        }
+
+        private void lblSignOut_Click(object sender, EventArgs e)
+        {
+            tlpOpenHouse.BackColor = ColorTranslator.FromHtml("#2368A2");
+            tlpSager.BackColor = ColorTranslator.FromHtml("#2368A2");
+            tlpSignOut.BackColor = ColorTranslator.FromHtml("#1A4971");
+        }
+
+        private void pbSager_Click(object sender, EventArgs e)
+        {
+            tlpOpenHouse.BackColor = ColorTranslator.FromHtml("#2368A2");
+            tlpSager.BackColor = ColorTranslator.FromHtml("#1A4971");
+            tlpSignOut.BackColor = ColorTranslator.FromHtml("#2368A2");
+        }
+
+        private void pbOpenHouse_Click(object sender, EventArgs e)
+        {
+            tlpOpenHouse.BackColor = ColorTranslator.FromHtml("#1A4971");
+            tlpSager.BackColor = ColorTranslator.FromHtml("#2368A2");
+            tlpSignOut.BackColor = ColorTranslator.FromHtml("#2368A2");
+        }
+
+        private void pbSignOut_Click(object sender, EventArgs e)
+        {
+            tlpOpenHouse.BackColor = ColorTranslator.FromHtml("#2368A2");
+            tlpSager.BackColor = ColorTranslator.FromHtml("#2368A2");
+            tlpSignOut.BackColor = ColorTranslator.FromHtml("#1A4971");
+        }
+
+
+
+        //FontAutoSize
+        private void MenuBar_Left_SizeChanged(object sender, EventArgs e)
+        {
+            lblOpenHouse.Font = new Font(lblOpenHouse.Font.FontFamily, this.Size.Height / 40);
+            lblSager.Font = new Font(lblSager.Font.FontFamily, this.Size.Height / 40);
+            lblSignOut.Font = new Font(lblSignOut.Font.FontFamily, this.Size.Height / 40);
+        }
     }
 }
