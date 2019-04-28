@@ -61,15 +61,5 @@ namespace Bol_IT
             tlpSager.BackColor = ColorTranslator.FromHtml("#2368A2");
             tlpSignOut.BackColor = ColorTranslator.FromHtml("#1A4971");
         }
-
-
-
-        //FontAutoSize
-        private void MenuBar_Left_SizeChanged(object sender, EventArgs e)
-        {
-            lblOpenHouse.Font = new Font(lblOpenHouse.Font.FontFamily, this.Size.Height / 40);
-            lblSager.Font = new Font(lblSager.Font.FontFamily, this.Size.Height / 40);
-            lblSignOut.Font = new Font(lblSignOut.Font.FontFamily, this.Size.Height / 40);
-        }
     }
 }

@@ -32,12 +32,11 @@
             // 
             // Sag_Create
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.Margin = new System.Windows.Forms.Padding(6);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.Name = "Sag_Create";
-            this.Size = new System.Drawing.Size(1584, 897);
+            this.Size = new System.Drawing.Size(864, 486);
             this.ResumeLayout(false);
 
         }

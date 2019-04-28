@@ -22,12 +22,5 @@ namespace Bol_IT
         {
             Process.GetCurrentProcess().Kill();
         }
-
-        private void MenuBar_Top_SizeChanged(object sender, EventArgs e)
-        {
-            lblDate.Font = new Font(lblDate.Font.FontFamily, this.Size.Height / 4);
-            lblSlogan.Font = new Font(lblSlogan.Font.FontFamily, this.Size.Height / 4);
-            lblTime.Font = new Font(lblTime.Font.FontFamily, this.Size.Height / 4);
-        }
     }
 }

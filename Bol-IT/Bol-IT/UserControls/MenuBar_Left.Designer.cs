@@ -61,6 +61,7 @@
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -68,7 +69,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(176, 997);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(96, 540);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tlpSignOut
@@ -80,21 +81,22 @@
             this.tlpSignOut.Controls.Add(this.pbSignOut, 1, 0);
             this.tlpSignOut.Controls.Add(this.lblSignOut, 2, 0);
             this.tlpSignOut.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSignOut.Location = new System.Drawing.Point(0, 796);
+            this.tlpSignOut.Location = new System.Drawing.Point(0, 432);
             this.tlpSignOut.Margin = new System.Windows.Forms.Padding(0);
             this.tlpSignOut.Name = "tlpSignOut";
             this.tlpSignOut.RowCount = 1;
             this.tlpSignOut.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpSignOut.Size = new System.Drawing.Size(176, 201);
+            this.tlpSignOut.Size = new System.Drawing.Size(96, 108);
             this.tlpSignOut.TabIndex = 6;
             // 
             // pbSignOut
             // 
             this.pbSignOut.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbSignOut.Image = global::Bol_IT.Properties.Resources.noun_account_1345319;
-            this.pbSignOut.Location = new System.Drawing.Point(11, 3);
+            this.pbSignOut.Location = new System.Drawing.Point(6, 2);
+            this.pbSignOut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbSignOut.Name = "pbSignOut";
-            this.pbSignOut.Size = new System.Drawing.Size(46, 195);
+            this.pbSignOut.Size = new System.Drawing.Size(24, 104);
             this.pbSignOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbSignOut.TabIndex = 0;
             this.pbSignOut.TabStop = false;
@@ -104,12 +106,13 @@
             // 
             this.lblSignOut.AutoSize = true;
             this.lblSignOut.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblSignOut.Font = new System.Drawing.Font("Tahoma", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSignOut.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.lblSignOut.ForeColor = System.Drawing.Color.White;
-            this.lblSignOut.Location = new System.Drawing.Point(63, 0);
+            this.lblSignOut.Location = new System.Drawing.Point(34, 0);
+            this.lblSignOut.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSignOut.Name = "lblSignOut";
             this.lblSignOut.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblSignOut.Size = new System.Drawing.Size(110, 201);
+            this.lblSignOut.Size = new System.Drawing.Size(60, 108);
             this.lblSignOut.TabIndex = 1;
             this.lblSignOut.Text = "Log af";
             this.lblSignOut.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -124,21 +127,22 @@
             this.tlpOpenHouse.Controls.Add(this.pbOpenHouse, 1, 0);
             this.tlpOpenHouse.Controls.Add(this.lblOpenHouse, 2, 0);
             this.tlpOpenHouse.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpOpenHouse.Location = new System.Drawing.Point(0, 398);
+            this.tlpOpenHouse.Location = new System.Drawing.Point(0, 216);
             this.tlpOpenHouse.Margin = new System.Windows.Forms.Padding(0);
             this.tlpOpenHouse.Name = "tlpOpenHouse";
             this.tlpOpenHouse.RowCount = 1;
             this.tlpOpenHouse.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpOpenHouse.Size = new System.Drawing.Size(176, 199);
+            this.tlpOpenHouse.Size = new System.Drawing.Size(96, 108);
             this.tlpOpenHouse.TabIndex = 4;
             // 
             // pbOpenHouse
             // 
             this.pbOpenHouse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbOpenHouse.Image = global::Bol_IT.Properties.Resources.noun_Door_126847;
-            this.pbOpenHouse.Location = new System.Drawing.Point(11, 3);
+            this.pbOpenHouse.Location = new System.Drawing.Point(6, 2);
+            this.pbOpenHouse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbOpenHouse.Name = "pbOpenHouse";
-            this.pbOpenHouse.Size = new System.Drawing.Size(46, 193);
+            this.pbOpenHouse.Size = new System.Drawing.Size(24, 104);
             this.pbOpenHouse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbOpenHouse.TabIndex = 0;
             this.pbOpenHouse.TabStop = false;
@@ -148,12 +152,13 @@
             // 
             this.lblOpenHouse.AutoSize = true;
             this.lblOpenHouse.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblOpenHouse.Font = new System.Drawing.Font("Tahoma", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOpenHouse.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.lblOpenHouse.ForeColor = System.Drawing.Color.White;
-            this.lblOpenHouse.Location = new System.Drawing.Point(63, 0);
+            this.lblOpenHouse.Location = new System.Drawing.Point(34, 0);
+            this.lblOpenHouse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblOpenHouse.Name = "lblOpenHouse";
             this.lblOpenHouse.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblOpenHouse.Size = new System.Drawing.Size(110, 199);
+            this.lblOpenHouse.Size = new System.Drawing.Size(60, 108);
             this.lblOpenHouse.TabIndex = 1;
             this.lblOpenHouse.Text = "Åbent hus";
             this.lblOpenHouse.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -168,21 +173,22 @@
             this.tlpSager.Controls.Add(this.pbSager, 1, 0);
             this.tlpSager.Controls.Add(this.lblSager, 2, 0);
             this.tlpSager.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSager.Location = new System.Drawing.Point(0, 199);
+            this.tlpSager.Location = new System.Drawing.Point(0, 108);
             this.tlpSager.Margin = new System.Windows.Forms.Padding(0);
             this.tlpSager.Name = "tlpSager";
             this.tlpSager.RowCount = 1;
             this.tlpSager.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpSager.Size = new System.Drawing.Size(176, 199);
+            this.tlpSager.Size = new System.Drawing.Size(96, 108);
             this.tlpSager.TabIndex = 3;
             // 
             // pbSager
             // 
             this.pbSager.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbSager.Image = global::Bol_IT.Properties.Resources.House;
-            this.pbSager.Location = new System.Drawing.Point(11, 3);
+            this.pbSager.Location = new System.Drawing.Point(6, 2);
+            this.pbSager.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbSager.Name = "pbSager";
-            this.pbSager.Size = new System.Drawing.Size(46, 193);
+            this.pbSager.Size = new System.Drawing.Size(24, 104);
             this.pbSager.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbSager.TabIndex = 0;
             this.pbSager.TabStop = false;
@@ -192,12 +198,13 @@
             // 
             this.lblSager.AutoSize = true;
             this.lblSager.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblSager.Font = new System.Drawing.Font("Tahoma", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSager.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.lblSager.ForeColor = System.Drawing.Color.White;
-            this.lblSager.Location = new System.Drawing.Point(63, 0);
+            this.lblSager.Location = new System.Drawing.Point(34, 0);
+            this.lblSager.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSager.Name = "lblSager";
             this.lblSager.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblSager.Size = new System.Drawing.Size(110, 199);
+            this.lblSager.Size = new System.Drawing.Size(60, 108);
             this.lblSager.TabIndex = 1;
             this.lblSager.Text = "Sager";
             this.lblSager.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -207,24 +214,22 @@
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(10);
+            this.pictureBox1.Location = new System.Drawing.Point(5, 5);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(156, 179);
+            this.pictureBox1.Size = new System.Drawing.Size(86, 98);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
             // MenuBar_Left
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "MenuBar_Left";
-            this.Size = new System.Drawing.Size(176, 997);
-            this.SizeChanged += new System.EventHandler(this.MenuBar_Left_SizeChanged);
+            this.Size = new System.Drawing.Size(96, 540);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tlpSignOut.ResumeLayout(false);
             this.tlpSignOut.PerformLayout();

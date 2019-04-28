@@ -15,6 +15,21 @@ namespace Bol_IT
         public Sag_ViewAll()
         {
             InitializeComponent();
+
+            //Form autosize
+            Sag_ViewAll_SizeChanged(this, new EventArgs());
+        }
+
+
+        //Form autosize
+        private void Sag_ViewAll_SizeChanged(object sender, EventArgs e)
+        {
+            btnSag.Font = new Font(btnSag.Font.FontFamily, this.Size.Height / 50);
+            btnSearch.Font = new Font(btnSearch.Font.FontFamily, this.Size.Height / 50);
+            btnStatistic.Font = new Font(btnStatistic.Font.FontFamily, this.Size.Height / 50);
+            btnToFile.Font = new Font(btnToFile.Font.FontFamily, this.Size.Height / 50);
+            lblSearch.Font = new Font(lblSearch.Font.FontFamily, this.Size.Height / 50);
+            rtbSearch.Font = new Font(rtbSearch.Font.FontFamily, this.Size.Height / 50);
         }
     }
 }

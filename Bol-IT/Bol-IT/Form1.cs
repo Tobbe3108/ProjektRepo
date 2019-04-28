@@ -12,6 +12,7 @@ namespace Bol_IT
 {
     public partial class Form1 : Form
     {
+        //Singleton instance af Form1
         static Form1 _instance;
         public static Form1 Instance
         {
@@ -25,6 +26,7 @@ namespace Bol_IT
             }
         }
 
+        //Public reference til pnlContainerl
         public Panel pnlContainerl
         {
             get { return pnlContainer; }
@@ -39,19 +41,21 @@ namespace Bol_IT
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Eager initialization af singleton instance
             _instance = this;
 
+            //User control initialization
             MenuBar_Left menuBar_Left = new MenuBar_Left();
             MenuBar_Top menuBar_Top = new MenuBar_Top();
-            Sag_Create sag_Create = new Sag_Create();
+            Sag_ViewAll sag_ViewAll = new Sag_ViewAll();
 
             menuBar_Left.Dock = DockStyle.Fill;
             menuBar_Top.Dock = DockStyle.Fill;
-            sag_Create.Dock = DockStyle.Fill;
+            sag_ViewAll.Dock = DockStyle.Fill;
 
             pnlMenuBarLeft.Controls.Add(menuBar_Left);
             pnlMenuBarTop.Controls.Add(menuBar_Top);
-            pnlContainer.Controls.Add(sag_Create);
+            pnlContainer.Controls.Add(sag_ViewAll);
         }
     }
 }
