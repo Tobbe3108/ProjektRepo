@@ -74,11 +74,11 @@
     <Compile Include="UserControls\MenuBar_Top.Designer.cs">
       <DependentUpon>MenuBar_Top.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\MessageBox_Statistics.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="UserControls\Messagebox_Statistic.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserControls\MessageBox_Statistics.Designer.cs">
-      <DependentUpon>MessageBox_Statistics.cs</DependentUpon>
+    <Compile Include="UserControls\Messagebox_Statistic.Designer.cs">
+      <DependentUpon>Messagebox_Statistic.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\OpenHouse_Distribution.cs">
       <SubType>UserControl</SubType>
@@ -118,8 +118,8 @@
     <EmbeddedResource Include="UserControls\MenuBar_Top.resx">
       <DependentUpon>MenuBar_Top.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\MessageBox_Statistics.resx">
-      <DependentUpon>MessageBox_Statistics.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\Messagebox_Statistic.resx">
+      <DependentUpon>Messagebox_Statistic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\OpenHouse_Distribution.resx">
       <DependentUpon>OpenHouse_Distribution.cs</DependentUpon>

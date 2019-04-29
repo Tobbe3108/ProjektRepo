@@ -31,5 +31,11 @@ namespace Bol_IT
             lblSearch.Font = new Font(lblSearch.Font.FontFamily, this.Size.Height / 50);
             rtbSearch.Font = new Font(rtbSearch.Font.FontFamily, this.Size.Height / 50);
         }
+
+        private void btnStatistic_Click(object sender, EventArgs e)
+        {
+            Messagebox_Statistic messagebox_Statistic = new Messagebox_Statistic();
+            messagebox_Statistic.Show();
+        }
     }
 }

@@ -116,6 +116,7 @@
             this.btnSag.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSag.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
             this.btnSag.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSag.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.btnSag.Location = new System.Drawing.Point(3, 3);
             this.btnSag.Name = "btnSag";
@@ -130,6 +131,7 @@
             this.btnToFile.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnToFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
             this.btnToFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnToFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnToFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.btnToFile.Location = new System.Drawing.Point(167, 3);
             this.btnToFile.Name = "btnToFile";
@@ -144,6 +146,7 @@
             this.btnStatistic.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnStatistic.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
             this.btnStatistic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatistic.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStatistic.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.btnStatistic.Location = new System.Drawing.Point(331, 3);
             this.btnStatistic.Name = "btnStatistic";
@@ -151,6 +154,7 @@
             this.btnStatistic.TabIndex = 2;
             this.btnStatistic.Text = "Udskriv statistik";
             this.btnStatistic.UseVisualStyleBackColor = false;
+            this.btnStatistic.Click += new System.EventHandler(this.btnStatistic_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -174,6 +178,7 @@
             // rtbSearch
             // 
             this.rtbSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbSearch.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbSearch.Location = new System.Drawing.Point(167, 26);
             this.rtbSearch.Name = "rtbSearch";
             this.rtbSearch.Size = new System.Drawing.Size(322, 40);
@@ -184,6 +189,7 @@
             // 
             this.lblSearch.AutoSize = true;
             this.lblSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSearch.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.lblSearch.Location = new System.Drawing.Point(167, 0);
             this.lblSearch.Name = "lblSearch";
@@ -198,6 +204,7 @@
             this.btnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.btnSearch.Location = new System.Drawing.Point(3, 26);
             this.btnSearch.Name = "btnSearch";
