@@ -58,5 +58,104 @@ namespace Bol_IT
             pnlMenuBarTop.Controls.Add(menuBar_Top);
             pnlContainer.Controls.Add(sag_ViewAll);
         }
+
+
+
+        //Form resize
+        int Mx;
+        int My;
+        int Sw;
+        int Sh;
+        bool mov;
+
+        private void pnlSizerBottom_MouseDown(object sender, MouseEventArgs e)
+        {
+            SizerMouseDown();
+        }
+
+        private void pnlSizerBottom_MouseMove(object sender, MouseEventArgs e)
+        {
+            SizerMouseMoveDown();
+        }
+
+        private void pnlSizerBottom_MouseUp(object sender, MouseEventArgs e)
+        {
+            SizerMouseUp();
+        }
+
+        private void pnlSizerCorner_MouseDown(object sender, MouseEventArgs e)
+        {
+            SizerMouseDown();
+        }
+
+        private void pnlSizerCorner_MouseMove(object sender, MouseEventArgs e)
+        {
+            SizerMouseMoveCorner();
+        }
+
+        private void pnlSizerCorner_MouseUp(object sender, MouseEventArgs e)
+        {
+            SizerMouseUp();
+        }
+
+        private void pnlSizerRight_MouseDown(object sender, MouseEventArgs e)
+        {
+            SizerMouseDown();
+        }
+
+        private void pnlSizerRight_MouseMove(object sender, MouseEventArgs e)
+        {
+            SizerMouseMoveRight();
+        }
+
+        private void pnlSizerRight_MouseUp(object sender, MouseEventArgs e)
+        {
+            SizerMouseUp();
+        }
+
+        private void SizerMouseDown()
+        {
+            mov = true;
+            My = MousePosition.Y;
+            Mx = MousePosition.X;
+            Sw = Width;
+            Sh = Height;
+        }
+
+        private void SizerMouseMoveDown()
+        {
+            if (mov == true)
+            {
+                //Width = MousePosition.X - Mx + Sw;
+                Height = MousePosition.Y - My + Sh;
+            }
+        }
+
+        private void SizerMouseMoveRight()
+        {
+            if (mov == true)
+            {
+                Width = MousePosition.X - Mx + Sw;
+                //Height = MousePosition.Y - My + Sh;
+            }
+        }
+
+        private void SizerMouseMoveCorner()
+        {
+            if (mov == true)
+            {
+                Width = MousePosition.X - Mx + Sw;
+                Height = MousePosition.Y - My + Sh;
+            }
+        }
+
+        private void SizerMouseUp()
+        {
+            mov = false;
+        }
+        //---//
+
+
+
     }
 }

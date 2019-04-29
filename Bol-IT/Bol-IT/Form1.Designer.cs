@@ -31,6 +31,10 @@
             this.pnlMenuBarTop = new System.Windows.Forms.Panel();
             this.pnlMenuBarLeft = new System.Windows.Forms.Panel();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.pnlSizerBottom = new System.Windows.Forms.Panel();
+            this.pnlSizerRight = new System.Windows.Forms.Panel();
+            this.pnlSizerCorner = new System.Windows.Forms.Panel();
+            this.pnlSizerBottom.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenuBarTop
@@ -57,11 +61,52 @@
             this.pnlContainer.Size = new System.Drawing.Size(864, 486);
             this.pnlContainer.TabIndex = 3;
             // 
+            // pnlSizerBottom
+            // 
+            this.pnlSizerBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(104)))), ((int)(((byte)(162)))));
+            this.pnlSizerBottom.Controls.Add(this.pnlSizerCorner);
+            this.pnlSizerBottom.Cursor = System.Windows.Forms.Cursors.SizeNS;
+            this.pnlSizerBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlSizerBottom.Location = new System.Drawing.Point(96, 535);
+            this.pnlSizerBottom.Name = "pnlSizerBottom";
+            this.pnlSizerBottom.Size = new System.Drawing.Size(864, 5);
+            this.pnlSizerBottom.TabIndex = 4;
+            this.pnlSizerBottom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlSizerBottom_MouseDown);
+            this.pnlSizerBottom.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlSizerBottom_MouseMove);
+            this.pnlSizerBottom.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlSizerBottom_MouseUp);
+            // 
+            // pnlSizerRight
+            // 
+            this.pnlSizerRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(104)))), ((int)(((byte)(162)))));
+            this.pnlSizerRight.Cursor = System.Windows.Forms.Cursors.SizeWE;
+            this.pnlSizerRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlSizerRight.Location = new System.Drawing.Point(955, 54);
+            this.pnlSizerRight.Name = "pnlSizerRight";
+            this.pnlSizerRight.Size = new System.Drawing.Size(5, 481);
+            this.pnlSizerRight.TabIndex = 5;
+            this.pnlSizerRight.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlSizerRight_MouseDown);
+            this.pnlSizerRight.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlSizerRight_MouseMove);
+            this.pnlSizerRight.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlSizerRight_MouseUp);
+            // 
+            // pnlSizerCorner
+            // 
+            this.pnlSizerCorner.Cursor = System.Windows.Forms.Cursors.SizeNWSE;
+            this.pnlSizerCorner.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlSizerCorner.Location = new System.Drawing.Point(859, 0);
+            this.pnlSizerCorner.Name = "pnlSizerCorner";
+            this.pnlSizerCorner.Size = new System.Drawing.Size(5, 5);
+            this.pnlSizerCorner.TabIndex = 0;
+            this.pnlSizerCorner.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlSizerCorner_MouseDown);
+            this.pnlSizerCorner.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlSizerCorner_MouseMove);
+            this.pnlSizerCorner.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlSizerCorner_MouseUp);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 540);
+            this.Controls.Add(this.pnlSizerRight);
+            this.Controls.Add(this.pnlSizerBottom);
             this.Controls.Add(this.pnlContainer);
             this.Controls.Add(this.pnlMenuBarTop);
             this.Controls.Add(this.pnlMenuBarLeft);
@@ -69,6 +114,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.pnlSizerBottom.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -77,6 +123,9 @@
         private System.Windows.Forms.Panel pnlMenuBarTop;
         private System.Windows.Forms.Panel pnlMenuBarLeft;
         private System.Windows.Forms.Panel pnlContainer;
+        private System.Windows.Forms.Panel pnlSizerBottom;
+        private System.Windows.Forms.Panel pnlSizerCorner;
+        private System.Windows.Forms.Panel pnlSizerRight;
     }
 }
 

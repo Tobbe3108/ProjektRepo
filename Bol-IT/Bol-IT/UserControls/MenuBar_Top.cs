@@ -42,7 +42,7 @@ namespace Bol_IT
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Process.GetCurrentProcess().Kill();
+            ParentForm.Close();
         }
 
         private void btnMaximize_Click(object sender, EventArgs e)

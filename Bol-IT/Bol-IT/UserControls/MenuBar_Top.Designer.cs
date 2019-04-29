@@ -65,7 +65,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(860, 47);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(855, 47);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // lblDate
@@ -75,7 +75,7 @@
             this.lblDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDate.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
-            this.lblDate.Location = new System.Drawing.Point(510, 0);
+            this.lblDate.Location = new System.Drawing.Point(505, 0);
             this.lblDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(106, 47);
@@ -90,7 +90,7 @@
             this.lblTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTime.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
-            this.lblTime.Location = new System.Drawing.Point(620, 0);
+            this.lblTime.Location = new System.Drawing.Point(615, 0);
             this.lblTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(106, 47);
@@ -108,7 +108,7 @@
             this.lblSlogan.Location = new System.Drawing.Point(2, 0);
             this.lblSlogan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSlogan.Name = "lblSlogan";
-            this.lblSlogan.Size = new System.Drawing.Size(504, 47);
+            this.lblSlogan.Size = new System.Drawing.Size(499, 47);
             this.lblSlogan.TabIndex = 2;
             this.lblSlogan.Text = "Slogan";
             this.lblSlogan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -120,7 +120,7 @@
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.Transparent;
-            this.btnClose.Location = new System.Drawing.Point(814, 0);
+            this.btnClose.Location = new System.Drawing.Point(809, 0);
             this.btnClose.Margin = new System.Windows.Forms.Padding(0);
             this.btnClose.Name = "btnClose";
             this.btnClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -136,7 +136,7 @@
             this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.ForeColor = System.Drawing.Color.Transparent;
-            this.btnMinimize.Location = new System.Drawing.Point(728, 0);
+            this.btnMinimize.Location = new System.Drawing.Point(723, 0);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(43, 47);
@@ -151,7 +151,7 @@
             this.btnMaximize.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximize.ForeColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.Location = new System.Drawing.Point(771, 0);
+            this.btnMaximize.Location = new System.Drawing.Point(766, 0);
             this.btnMaximize.Margin = new System.Windows.Forms.Padding(0);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(43, 47);
@@ -172,7 +172,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(864, 54);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(859, 54);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // panel1
@@ -182,7 +182,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 51);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(864, 3);
+            this.panel1.Size = new System.Drawing.Size(859, 3);
             this.panel1.TabIndex = 1;
             // 
             // dragControl1
@@ -204,7 +204,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "MenuBar_Top";
-            this.Size = new System.Drawing.Size(864, 54);
+            this.Size = new System.Drawing.Size(859, 54);
             this.Load += new System.EventHandler(this.MenuBar_Top_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
