@@ -115,6 +115,7 @@ namespace Bol_IT
 
         private void SizerMouseDown()
         {
+            SuspendLayout();
             mov = true;
             My = MousePosition.Y;
             Mx = MousePosition.X;
@@ -151,6 +152,7 @@ namespace Bol_IT
 
         private void SizerMouseUp()
         {
+            ResumeLayout();
             mov = false;
         }
         //---//
