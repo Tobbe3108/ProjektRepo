@@ -58,13 +58,14 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.51509F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.48491F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.48491F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.51509F));
+            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.5F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.5F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.5F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 3, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -95,7 +96,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(410, 461);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(399, 461);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // lblSearch
@@ -108,7 +109,7 @@
             this.lblSearch.Location = new System.Drawing.Point(3, 0);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblSearch.Size = new System.Drawing.Size(404, 46);
+            this.lblSearch.Size = new System.Drawing.Size(393, 46);
             this.lblSearch.TabIndex = 0;
             this.lblSearch.Text = "Søg efter: Mægler, sagsnummer mm.";
             this.lblSearch.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -126,7 +127,7 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(410, 46);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(399, 46);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // btnSearch
@@ -138,7 +139,7 @@
             this.btnSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.btnSearch.Location = new System.Drawing.Point(3, 3);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(96, 40);
+            this.btnSearch.Size = new System.Drawing.Size(93, 40);
             this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "Søg";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -148,9 +149,9 @@
             this.rtbSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbSearch.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.rtbSearch.Location = new System.Drawing.Point(105, 3);
+            this.rtbSearch.Location = new System.Drawing.Point(102, 3);
             this.rtbSearch.Name = "rtbSearch";
-            this.rtbSearch.Size = new System.Drawing.Size(302, 40);
+            this.rtbSearch.Size = new System.Drawing.Size(294, 40);
             this.rtbSearch.TabIndex = 2;
             this.rtbSearch.Text = "";
             // 
@@ -160,7 +161,7 @@
             this.dgvSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSearch.Location = new System.Drawing.Point(3, 95);
             this.dgvSearch.Name = "dgvSearch";
-            this.dgvSearch.Size = new System.Drawing.Size(404, 270);
+            this.dgvSearch.Size = new System.Drawing.Size(393, 270);
             this.dgvSearch.TabIndex = 2;
             // 
             // tableLayoutPanel6
@@ -176,7 +177,7 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(410, 46);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(399, 46);
             this.tableLayoutPanel6.TabIndex = 3;
             // 
             // lblDistribute
@@ -187,7 +188,7 @@
             this.lblDistribute.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.lblDistribute.Location = new System.Drawing.Point(3, 0);
             this.lblDistribute.Name = "lblDistribute";
-            this.lblDistribute.Size = new System.Drawing.Size(96, 46);
+            this.lblDistribute.Size = new System.Drawing.Size(93, 46);
             this.lblDistribute.TabIndex = 0;
             this.lblDistribute.Text = "Fordeling:";
             // 
@@ -200,9 +201,9 @@
             this.cbDistribution.Items.AddRange(new object[] {
             "Prioritet",
             "Tilfældigt"});
-            this.cbDistribution.Location = new System.Drawing.Point(105, 3);
+            this.cbDistribution.Location = new System.Drawing.Point(102, 3);
             this.cbDistribution.Name = "cbDistribution";
-            this.cbDistribution.Size = new System.Drawing.Size(302, 21);
+            this.cbDistribution.Size = new System.Drawing.Size(294, 21);
             this.cbDistribution.TabIndex = 1;
             // 
             // tableLayoutPanel7
@@ -218,7 +219,7 @@
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(410, 47);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(399, 47);
             this.tableLayoutPanel7.TabIndex = 4;
             // 
             // btnDistribute
@@ -228,9 +229,9 @@
             this.btnDistribute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDistribute.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDistribute.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnDistribute.Location = new System.Drawing.Point(105, 3);
+            this.btnDistribute.Location = new System.Drawing.Point(102, 3);
             this.btnDistribute.Name = "btnDistribute";
-            this.btnDistribute.Size = new System.Drawing.Size(199, 41);
+            this.btnDistribute.Size = new System.Drawing.Size(193, 41);
             this.btnDistribute.TabIndex = 5;
             this.btnDistribute.Text = "Fordel";
             this.btnDistribute.UseVisualStyleBackColor = true;
@@ -243,14 +244,14 @@
             this.tableLayoutPanel3.Controls.Add(this.dgvDistribution, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(431, 12);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(441, 12);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(410, 461);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(399, 461);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // lblDistribution
@@ -261,7 +262,7 @@
             this.lblDistribution.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.lblDistribution.Location = new System.Drawing.Point(3, 0);
             this.lblDistribution.Name = "lblDistribution";
-            this.lblDistribution.Size = new System.Drawing.Size(404, 46);
+            this.lblDistribution.Size = new System.Drawing.Size(393, 46);
             this.lblDistribution.TabIndex = 0;
             this.lblDistribution.Text = "Fordeling";
             this.lblDistribution.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -272,7 +273,7 @@
             this.dgvDistribution.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDistribution.Location = new System.Drawing.Point(3, 49);
             this.dgvDistribution.Name = "dgvDistribution";
-            this.dgvDistribution.Size = new System.Drawing.Size(404, 362);
+            this.dgvDistribution.Size = new System.Drawing.Size(393, 362);
             this.dgvDistribution.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -289,7 +290,7 @@
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(410, 47);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(399, 47);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // btnToFile
@@ -299,9 +300,9 @@
             this.btnToFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnToFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnToFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnToFile.Location = new System.Drawing.Point(105, 3);
+            this.btnToFile.Location = new System.Drawing.Point(102, 3);
             this.btnToFile.Name = "btnToFile";
-            this.btnToFile.Size = new System.Drawing.Size(199, 41);
+            this.btnToFile.Size = new System.Drawing.Size(193, 41);
             this.btnToFile.TabIndex = 0;
             this.btnToFile.Text = "Udskriv fil";
             this.btnToFile.UseVisualStyleBackColor = true;
@@ -314,6 +315,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "OpenHouse_Distribution";
             this.Size = new System.Drawing.Size(864, 486);
+            this.Load += new System.EventHandler(this.OpenHouse_Distribution_Load);
             this.SizeChanged += new System.EventHandler(this.OpenHouse_Distribution_SizeChanged);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

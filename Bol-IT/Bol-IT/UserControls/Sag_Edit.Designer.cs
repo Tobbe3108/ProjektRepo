@@ -44,6 +44,8 @@
             this.lblAddress = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnToFile = new System.Windows.Forms.Button();
+            this.btnCreateAd = new System.Windows.Forms.Button();
             this.tableLayoutPanel25 = new System.Windows.Forms.TableLayoutPanel();
             this.richTextBox19 = new System.Windows.Forms.RichTextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -98,8 +100,6 @@
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.richTextBox9 = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnCreateAd = new System.Windows.Forms.Button();
-            this.btnToFile = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -384,6 +384,37 @@
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel26.Size = new System.Drawing.Size(294, 46);
             this.tableLayoutPanel26.TabIndex = 1;
+            // 
+            // btnToFile
+            // 
+            this.btnToFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.btnToFile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnToFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
+            this.btnToFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnToFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnToFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.btnToFile.Location = new System.Drawing.Point(150, 3);
+            this.btnToFile.Name = "btnToFile";
+            this.btnToFile.Size = new System.Drawing.Size(141, 40);
+            this.btnToFile.TabIndex = 3;
+            this.btnToFile.Text = "Udskriv fil";
+            this.btnToFile.UseVisualStyleBackColor = false;
+            // 
+            // btnCreateAd
+            // 
+            this.btnCreateAd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.btnCreateAd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCreateAd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
+            this.btnCreateAd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateAd.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateAd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.btnCreateAd.Location = new System.Drawing.Point(3, 3);
+            this.btnCreateAd.Name = "btnCreateAd";
+            this.btnCreateAd.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCreateAd.Size = new System.Drawing.Size(141, 40);
+            this.btnCreateAd.TabIndex = 2;
+            this.btnCreateAd.Text = "Opret annonce";
+            this.btnCreateAd.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel25
             // 
@@ -1143,37 +1174,6 @@
             this.label9.Text = "Temp";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnCreateAd
-            // 
-            this.btnCreateAd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.btnCreateAd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCreateAd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
-            this.btnCreateAd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateAd.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateAd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnCreateAd.Location = new System.Drawing.Point(3, 3);
-            this.btnCreateAd.Name = "btnCreateAd";
-            this.btnCreateAd.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnCreateAd.Size = new System.Drawing.Size(141, 40);
-            this.btnCreateAd.TabIndex = 2;
-            this.btnCreateAd.Text = "Opret annonce";
-            this.btnCreateAd.UseVisualStyleBackColor = false;
-            // 
-            // btnToFile
-            // 
-            this.btnToFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.btnToFile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnToFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
-            this.btnToFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnToFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnToFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnToFile.Location = new System.Drawing.Point(150, 3);
-            this.btnToFile.Name = "btnToFile";
-            this.btnToFile.Size = new System.Drawing.Size(141, 40);
-            this.btnToFile.TabIndex = 3;
-            this.btnToFile.Text = "Udskriv fil";
-            this.btnToFile.UseVisualStyleBackColor = false;
-            // 
             // Sag_Edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1182,6 +1182,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Sag_Edit";
             this.Size = new System.Drawing.Size(864, 486);
+            this.Load += new System.EventHandler(this.Sag_Edit_Load);
             this.SizeChanged += new System.EventHandler(this.Sag_Edit_SizeChanged);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

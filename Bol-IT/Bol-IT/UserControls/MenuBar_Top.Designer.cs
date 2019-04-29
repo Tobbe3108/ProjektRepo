@@ -75,10 +75,10 @@
             this.lblDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDate.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
-            this.lblDate.Location = new System.Drawing.Point(512, 0);
+            this.lblDate.Location = new System.Drawing.Point(510, 0);
             this.lblDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(105, 47);
+            this.lblDate.Size = new System.Drawing.Size(106, 47);
             this.lblDate.TabIndex = 0;
             this.lblDate.Text = "26/04/2019";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -90,10 +90,10 @@
             this.lblTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTime.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
-            this.lblTime.Location = new System.Drawing.Point(621, 0);
+            this.lblTime.Location = new System.Drawing.Point(620, 0);
             this.lblTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(105, 47);
+            this.lblTime.Size = new System.Drawing.Size(106, 47);
             this.lblTime.TabIndex = 1;
             this.lblTime.Text = "09:06";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -108,7 +108,7 @@
             this.lblSlogan.Location = new System.Drawing.Point(2, 0);
             this.lblSlogan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSlogan.Name = "lblSlogan";
-            this.lblSlogan.Size = new System.Drawing.Size(506, 47);
+            this.lblSlogan.Size = new System.Drawing.Size(504, 47);
             this.lblSlogan.TabIndex = 2;
             this.lblSlogan.Text = "Slogan";
             this.lblSlogan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -142,6 +142,7 @@
             this.btnMinimize.Size = new System.Drawing.Size(43, 47);
             this.btnMinimize.TabIndex = 4;
             this.btnMinimize.UseVisualStyleBackColor = true;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
             // btnMaximize
             // 
@@ -156,6 +157,7 @@
             this.btnMaximize.Size = new System.Drawing.Size(43, 47);
             this.btnMaximize.TabIndex = 5;
             this.btnMaximize.UseVisualStyleBackColor = true;
+            this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -203,6 +205,7 @@
             this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "MenuBar_Top";
             this.Size = new System.Drawing.Size(864, 54);
+            this.Load += new System.EventHandler(this.MenuBar_Top_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

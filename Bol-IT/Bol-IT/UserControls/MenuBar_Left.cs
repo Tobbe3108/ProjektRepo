@@ -12,11 +12,32 @@ namespace Bol_IT
 {
     public partial class MenuBar_Left : UserControl
     {
+        //Singleton instance af MenuBar_Left
+        static MenuBar_Left _instance;
+        public static MenuBar_Left Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new MenuBar_Left();
+                }
+                return _instance;
+            }
+        }
+
         public MenuBar_Left()
         {
             InitializeComponent();
+
+            lblSager_Click(this, new EventArgs());
         }
 
+        private void MenuBar_Left_Load(object sender, EventArgs e)
+        {
+            //Eager initialization af singleton instance
+            _instance = this;
+        }
 
 
         //Button select color change
@@ -25,6 +46,8 @@ namespace Bol_IT
             tlpOpenHouse.BackColor = ColorTranslator.FromHtml("#2368A2");
             tlpSager.BackColor = ColorTranslator.FromHtml("#1A4971");
             tlpSignOut.BackColor = ColorTranslator.FromHtml("#2368A2");
+
+            LoadSagViewAll();
         }
 
         private void lblOpenHouse_Click(object sender, EventArgs e)
@@ -32,6 +55,8 @@ namespace Bol_IT
             tlpOpenHouse.BackColor = ColorTranslator.FromHtml("#1A4971");
             tlpSager.BackColor = ColorTranslator.FromHtml("#2368A2");
             tlpSignOut.BackColor = ColorTranslator.FromHtml("#2368A2");
+
+            LoadOpenHouse();
         }
 
         private void lblSignOut_Click(object sender, EventArgs e)
@@ -46,6 +71,8 @@ namespace Bol_IT
             tlpOpenHouse.BackColor = ColorTranslator.FromHtml("#2368A2");
             tlpSager.BackColor = ColorTranslator.FromHtml("#1A4971");
             tlpSignOut.BackColor = ColorTranslator.FromHtml("#2368A2");
+
+            LoadSagViewAll();
         }
 
         private void pbOpenHouse_Click(object sender, EventArgs e)
@@ -53,6 +80,8 @@ namespace Bol_IT
             tlpOpenHouse.BackColor = ColorTranslator.FromHtml("#1A4971");
             tlpSager.BackColor = ColorTranslator.FromHtml("#2368A2");
             tlpSignOut.BackColor = ColorTranslator.FromHtml("#2368A2");
+
+            LoadOpenHouse();
         }
 
         private void pbSignOut_Click(object sender, EventArgs e)
@@ -60,6 +89,30 @@ namespace Bol_IT
             tlpOpenHouse.BackColor = ColorTranslator.FromHtml("#2368A2");
             tlpSager.BackColor = ColorTranslator.FromHtml("#2368A2");
             tlpSignOut.BackColor = ColorTranslator.FromHtml("#1A4971");
+        }
+
+
+
+        private void LoadSagViewAll()
+        {
+            //Load Sag_ViewAll User control når tryk på knap
+            if (!Form1.Instance.PnlContainer.Controls.ContainsKey("Sag_ViewAll"))
+            {
+                Sag_ViewAll.Instance.Dock = DockStyle.Fill;
+                Form1.Instance.PnlContainer.Controls.Add(Sag_ViewAll.Instance);
+            }
+            Form1.Instance.PnlContainer.Controls["Sag_ViewAll"].BringToFront();
+        }
+
+        private void LoadOpenHouse()
+        {
+            //Load Sag_ViewAll User control når tryk på knap
+            if (!Form1.Instance.PnlContainer.Controls.ContainsKey("OpenHouse_Distribution"))
+            {
+                OpenHouse_Distribution.Instance.Dock = DockStyle.Fill;
+                Form1.Instance.PnlContainer.Controls.Add(OpenHouse_Distribution.Instance);
+            }
+            Form1.Instance.PnlContainer.Controls["OpenHouse_Distribution"].BringToFront();
         }
     }
 }

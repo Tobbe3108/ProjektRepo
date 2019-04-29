@@ -32,7 +32,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSag = new System.Windows.Forms.Button();
+            this.btnCreateSag = new System.Windows.Forms.Button();
             this.btnToFile = new System.Windows.Forms.Button();
             this.btnStatistic = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -98,7 +98,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel3.Controls.Add(this.btnSag, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnCreateSag, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnToFile, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnStatistic, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -110,20 +110,21 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(820, 47);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
-            // btnSag
+            // btnCreateSag
             // 
-            this.btnSag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.btnSag.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSag.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
-            this.btnSag.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSag.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnSag.Location = new System.Drawing.Point(3, 3);
-            this.btnSag.Name = "btnSag";
-            this.btnSag.Size = new System.Drawing.Size(158, 41);
-            this.btnSag.TabIndex = 0;
-            this.btnSag.Text = "Tilføj sag";
-            this.btnSag.UseVisualStyleBackColor = false;
+            this.btnCreateSag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.btnCreateSag.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCreateSag.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
+            this.btnCreateSag.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateSag.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateSag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.btnCreateSag.Location = new System.Drawing.Point(3, 3);
+            this.btnCreateSag.Name = "btnCreateSag";
+            this.btnCreateSag.Size = new System.Drawing.Size(158, 41);
+            this.btnCreateSag.TabIndex = 0;
+            this.btnCreateSag.Text = "Tilføj sag";
+            this.btnCreateSag.UseVisualStyleBackColor = false;
+            this.btnCreateSag.Click += new System.EventHandler(this.btnCreateSag_Click);
             // 
             // btnToFile
             // 
@@ -221,6 +222,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Sag_ViewAll";
             this.Size = new System.Drawing.Size(864, 486);
+            this.Load += new System.EventHandler(this.Sag_ViewAll_Load);
             this.SizeChanged += new System.EventHandler(this.Sag_ViewAll_SizeChanged);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -241,7 +243,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.RichTextBox rtbSearch;
         private System.Windows.Forms.Label lblSearch;
-        private System.Windows.Forms.Button btnSag;
+        private System.Windows.Forms.Button btnCreateSag;
         private System.Windows.Forms.Button btnStatistic;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnToFile;

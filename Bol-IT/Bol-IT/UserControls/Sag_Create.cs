@@ -12,6 +12,20 @@ namespace Bol_IT
 {
     public partial class Sag_Create : UserControl
     {
+        //Singleton instance af Sag_Create
+        static Sag_Create _instance;
+        public static Sag_Create Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new Sag_Create();
+                }
+                return _instance;
+            }
+        }
+
         public Sag_Create()
         {
             InitializeComponent();
@@ -19,6 +33,27 @@ namespace Bol_IT
             //Form autosize
             Sag_Create_SizeChanged(this, new EventArgs());
         }
+
+        private void Sag_Create_Load(object sender, EventArgs e)
+        {
+            //Eager initialization af singleton instance
+            _instance = this;
+        }
+
+
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            //Load Sag_ViewAll User control når tryk på knap
+            if (!Form1.Instance.PnlContainer.Controls.ContainsKey("Sag_ViewAll"))
+            {
+                Sag_ViewAll.Instance.Dock = DockStyle.Fill;
+                Form1.Instance.PnlContainer.Controls.Add(Sag_ViewAll.Instance);
+            }
+            Form1.Instance.PnlContainer.Controls["Sag_ViewAll"].BringToFront();
+        }
+
+
 
         //Form autosize
         private void Sag_Create_SizeChanged(object sender, EventArgs e)
@@ -32,5 +67,6 @@ namespace Bol_IT
             rtbHouseDescription.Font = new Font(rtbHouseDescription.Font.FontFamily, this.Size.Height / 50);
             rtbPrice.Font = new Font(rtbPrice.Font.FontFamily, this.Size.Height / 50);
         }
+        //---//
     }
 }

@@ -12,6 +12,20 @@ namespace Bol_IT
 {
     public partial class Sag_Edit : UserControl
     {
+        //Singleton instance af Sag_Edit
+        static Sag_Edit _instance;
+        public static Sag_Edit Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new Sag_Edit();
+                }
+                return _instance;
+            }
+        }
+
         public Sag_Edit()
         {
             InitializeComponent();
@@ -19,6 +33,14 @@ namespace Bol_IT
             //Form autosize
             Sag_Edit_SizeChanged(this, new EventArgs());
         }
+
+        private void Sag_Edit_Load(object sender, EventArgs e)
+        {
+            //Eager initialization af singleton instance
+            _instance = this;
+        }
+
+
 
         //Form autosize
         private void Sag_Edit_SizeChanged(object sender, EventArgs e)
@@ -33,5 +55,6 @@ namespace Bol_IT
             rtbHouseDescription.Font = new Font(rtbHouseDescription.Font.FontFamily, this.Size.Height / 50);
             rtbPrice.Font = new Font(rtbPrice.Font.FontFamily, this.Size.Height / 50);
         }
+        //---//
     }
 }

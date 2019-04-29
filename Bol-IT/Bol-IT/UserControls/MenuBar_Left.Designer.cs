@@ -61,7 +61,7 @@
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -94,7 +94,7 @@
             this.pbSignOut.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbSignOut.Image = global::Bol_IT.Properties.Resources.noun_account_1345319;
             this.pbSignOut.Location = new System.Drawing.Point(6, 2);
-            this.pbSignOut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbSignOut.Margin = new System.Windows.Forms.Padding(2);
             this.pbSignOut.Name = "pbSignOut";
             this.pbSignOut.Size = new System.Drawing.Size(24, 104);
             this.pbSignOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -140,7 +140,7 @@
             this.pbOpenHouse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbOpenHouse.Image = global::Bol_IT.Properties.Resources.noun_Door_126847;
             this.pbOpenHouse.Location = new System.Drawing.Point(6, 2);
-            this.pbOpenHouse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbOpenHouse.Margin = new System.Windows.Forms.Padding(2);
             this.pbOpenHouse.Name = "pbOpenHouse";
             this.pbOpenHouse.Size = new System.Drawing.Size(24, 104);
             this.pbOpenHouse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -186,7 +186,7 @@
             this.pbSager.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbSager.Image = global::Bol_IT.Properties.Resources.House;
             this.pbSager.Location = new System.Drawing.Point(6, 2);
-            this.pbSager.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbSager.Margin = new System.Windows.Forms.Padding(2);
             this.pbSager.Name = "pbSager";
             this.pbSager.Size = new System.Drawing.Size(24, 104);
             this.pbSager.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -215,7 +215,7 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(5, 5);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(86, 98);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -230,6 +230,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MenuBar_Left";
             this.Size = new System.Drawing.Size(96, 540);
+            this.Load += new System.EventHandler(this.MenuBar_Left_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tlpSignOut.ResumeLayout(false);
             this.tlpSignOut.PerformLayout();

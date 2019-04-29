@@ -27,11 +27,12 @@ namespace Bol_IT
         }
 
         //Public reference til pnlContainerl
-        public Panel pnlContainerl
+        public Panel PnlContainer
         {
             get { return pnlContainer; }
             set { pnlContainer = value; }
         }
+
 
 
         public Form1()
