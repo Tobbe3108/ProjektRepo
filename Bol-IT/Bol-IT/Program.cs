@@ -16,7 +16,8 @@ namespace Bol_IT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Form mainWindow = Form1.Instance;
+            Application.Run(mainWindow);
         }
     }
 }

@@ -148,12 +148,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLib_Bol-IT\ClassLib_Bol-IT.csproj">
-      <Project>{d964c1a1-202f-4367-b424-0a8c7fabba62}</Project>
-      <Name>ClassLib_Bol-IT</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\House.png" />
   </ItemGroup>
   <ItemGroup>
