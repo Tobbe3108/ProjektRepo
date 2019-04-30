@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataAccessLayer.Classes
 {
-    class SaleDataAccessLayer : DataAccessLayerAbstract
+    class SaleDataAccessLayer : IDataAccessLayer
     {
     }
 }
