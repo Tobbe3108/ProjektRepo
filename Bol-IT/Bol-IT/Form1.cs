@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Bol_IT
 {
@@ -25,6 +27,8 @@ namespace Bol_IT
                 return _instance;
             }
         }
+
+
 
         //Public reference til pnlContainerl
         public Panel PnlContainer
