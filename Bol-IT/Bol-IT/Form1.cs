@@ -39,7 +39,7 @@ namespace Bol_IT
 
 
 
-        public Form1()
+        private Form1()
         {
             InitializeComponent();
         }
@@ -50,17 +50,14 @@ namespace Bol_IT
             _instance = this;
 
             //User control initialization
-            MenuBar_Left menuBar_Left = new MenuBar_Left();
-            MenuBar_Top menuBar_Top = new MenuBar_Top();
-            Sag_ViewAll sag_ViewAll = new Sag_ViewAll();
+            MenuBar_Left.Instance.Dock = DockStyle.Fill;
+            pnlMenuBarLeft.Controls.Add(MenuBar_Left.Instance);
 
-            menuBar_Left.Dock = DockStyle.Fill;
-            menuBar_Top.Dock = DockStyle.Fill;
-            sag_ViewAll.Dock = DockStyle.Fill;
+            MenuBar_Top.Instance.Dock = DockStyle.Fill;
+            pnlMenuBarTop.Controls.Add(MenuBar_Top.Instance);
 
-            pnlMenuBarLeft.Controls.Add(menuBar_Left);
-            pnlMenuBarTop.Controls.Add(menuBar_Top);
-            pnlContainer.Controls.Add(sag_ViewAll);
+            Sag_ViewAll.Instance.Dock = DockStyle.Fill;
+            pnlContainer.Controls.Add(Sag_ViewAll.Instance);
         }
 
 

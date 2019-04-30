@@ -26,7 +26,7 @@ namespace Bol_IT
             }
         }
 
-        public MenuBar_Left()
+        private MenuBar_Left()
         {
             InitializeComponent();
 

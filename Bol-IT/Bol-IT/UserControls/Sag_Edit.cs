@@ -26,7 +26,7 @@ namespace Bol_IT
             }
         }
 
-        public Sag_Edit()
+        private Sag_Edit()
         {
             InitializeComponent();
 

@@ -26,7 +26,7 @@ namespace Bol_IT
             }
         }
 
-        public Sag_ViewAll()
+        private Sag_ViewAll()
         {
             InitializeComponent();
 

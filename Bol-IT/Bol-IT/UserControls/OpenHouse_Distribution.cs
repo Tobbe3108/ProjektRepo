@@ -26,7 +26,7 @@ namespace Bol_IT
             }
         }
 
-        public OpenHouse_Distribution()
+        private OpenHouse_Distribution()
         {
             InitializeComponent();
 
