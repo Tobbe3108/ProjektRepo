@@ -116,12 +116,21 @@ namespace Bol_IT
 
         private void SizerMouseDown()
         {
-            SuspendLayout();
-            mov = true;
-            My = MousePosition.Y;
-            Mx = MousePosition.X;
-            Sw = Width;
-            Sh = Height;
+            try
+            {
+                SuspendLayout();
+                mov = true;
+                My = MousePosition.Y;
+                Mx = MousePosition.X;
+                Sw = Width;
+                Sh = Height;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void SizerMouseMoveDown()

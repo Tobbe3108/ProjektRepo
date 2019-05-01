@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BusinessLayer.Classes
 {
-    class Property : DataType
+    public class Property
     {
     }
 }

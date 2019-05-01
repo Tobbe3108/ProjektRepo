@@ -33,5 +33,16 @@ namespace DataAccesLayer.Properties {
                 return ((string)(this["ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=myservertobbe.database.windows.net;Initial Catalog=mydatabasetobbe;Us" +
+            "er ID=GuestLogin;Password=Zxasqw12")]
+        public string mydatabasetobbeConnectionString {
+            get {
+                return ((string)(this["mydatabasetobbeConnectionString"]));
+            }
+        }
     }
 }
