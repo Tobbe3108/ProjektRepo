@@ -32,9 +32,15 @@
             this.pnlMenuBarLeft = new System.Windows.Forms.Panel();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.pnlSizerBottom = new System.Windows.Forms.Panel();
-            this.pnlSizerRight = new System.Windows.Forms.Panel();
             this.pnlSizerCorner = new System.Windows.Forms.Panel();
+            this.pnlSizerRight = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.MaxPriceRtb = new System.Windows.Forms.RichTextBox();
+            this.MinPriceRtb = new System.Windows.Forms.RichTextBox();
+            this.PropertyTypeCb = new System.Windows.Forms.ComboBox();
+            this.pnlContainer.SuspendLayout();
             this.pnlSizerBottom.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenuBarTop
@@ -55,6 +61,7 @@
             // 
             // pnlContainer
             // 
+            this.pnlContainer.Controls.Add(this.panel1);
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContainer.Location = new System.Drawing.Point(96, 54);
             this.pnlContainer.Name = "pnlContainer";
@@ -75,6 +82,18 @@
             this.pnlSizerBottom.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlSizerBottom_MouseMove);
             this.pnlSizerBottom.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlSizerBottom_MouseUp);
             // 
+            // pnlSizerCorner
+            // 
+            this.pnlSizerCorner.Cursor = System.Windows.Forms.Cursors.SizeNWSE;
+            this.pnlSizerCorner.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlSizerCorner.Location = new System.Drawing.Point(859, 0);
+            this.pnlSizerCorner.Name = "pnlSizerCorner";
+            this.pnlSizerCorner.Size = new System.Drawing.Size(5, 5);
+            this.pnlSizerCorner.TabIndex = 0;
+            this.pnlSizerCorner.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlSizerCorner_MouseDown);
+            this.pnlSizerCorner.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlSizerCorner_MouseMove);
+            this.pnlSizerCorner.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlSizerCorner_MouseUp);
+            // 
             // pnlSizerRight
             // 
             this.pnlSizerRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(104)))), ((int)(((byte)(162)))));
@@ -88,17 +107,45 @@
             this.pnlSizerRight.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlSizerRight_MouseMove);
             this.pnlSizerRight.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlSizerRight_MouseUp);
             // 
-            // pnlSizerCorner
+            // panel1
             // 
-            this.pnlSizerCorner.Cursor = System.Windows.Forms.Cursors.SizeNWSE;
-            this.pnlSizerCorner.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlSizerCorner.Location = new System.Drawing.Point(859, 0);
-            this.pnlSizerCorner.Name = "pnlSizerCorner";
-            this.pnlSizerCorner.Size = new System.Drawing.Size(5, 5);
-            this.pnlSizerCorner.TabIndex = 0;
-            this.pnlSizerCorner.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlSizerCorner_MouseDown);
-            this.pnlSizerCorner.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlSizerCorner_MouseMove);
-            this.pnlSizerCorner.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlSizerCorner_MouseUp);
+            this.panel1.Controls.Add(this.MaxPriceRtb);
+            this.panel1.Controls.Add(this.MinPriceRtb);
+            this.panel1.Controls.Add(this.PropertyTypeCb);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(864, 486);
+            this.panel1.TabIndex = 5;
+            // 
+            // MaxPriceRtb
+            // 
+            this.MaxPriceRtb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.MaxPriceRtb.Location = new System.Drawing.Point(764, 0);
+            this.MaxPriceRtb.Name = "MaxPriceRtb";
+            this.MaxPriceRtb.Size = new System.Drawing.Size(97, 38);
+            this.MaxPriceRtb.TabIndex = 2;
+            this.MaxPriceRtb.Text = "";
+            // 
+            // MinPriceRtb
+            // 
+            this.MinPriceRtb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.MinPriceRtb.Location = new System.Drawing.Point(666, 0);
+            this.MinPriceRtb.Name = "MinPriceRtb";
+            this.MinPriceRtb.Size = new System.Drawing.Size(97, 38);
+            this.MinPriceRtb.TabIndex = 1;
+            this.MinPriceRtb.Text = "";
+            // 
+            // PropertyTypeCb
+            // 
+            this.PropertyTypeCb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PropertyTypeCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PropertyTypeCb.FormattingEnabled = true;
+            this.PropertyTypeCb.Location = new System.Drawing.Point(3, 1);
+            this.PropertyTypeCb.Name = "PropertyTypeCb";
+            this.PropertyTypeCb.Size = new System.Drawing.Size(657, 39);
+            this.PropertyTypeCb.TabIndex = 0;
             // 
             // Form1
             // 
@@ -114,7 +161,9 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.pnlContainer.ResumeLayout(false);
             this.pnlSizerBottom.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -126,6 +175,10 @@
         private System.Windows.Forms.Panel pnlSizerBottom;
         private System.Windows.Forms.Panel pnlSizerCorner;
         private System.Windows.Forms.Panel pnlSizerRight;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RichTextBox MaxPriceRtb;
+        private System.Windows.Forms.RichTextBox MinPriceRtb;
+        private System.Windows.Forms.ComboBox PropertyTypeCb;
     }
 }
 

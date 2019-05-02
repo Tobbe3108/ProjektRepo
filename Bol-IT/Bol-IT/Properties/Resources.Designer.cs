@@ -121,6 +121,24 @@ namespace Bol_IT.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Villa
+        ///Ejerlejlighed
+        ///Rækkehus
+        ///Helårsgrund
+        ///Villalejlighed
+        ///Fritidsgrund
+        ///Andelsbolig
+        ///Landejendom
+        ///Fritidsbolig
+        ///Erhverv.
+        /// </summary>
+        internal static string PropertyTypes {
+            get {
+                return ResourceManager.GetString("PropertyTypes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap real {
