@@ -4,6 +4,10 @@
 
     partial class mydatabasetobbeDataSet
     {
+        partial class personalDataDataTable
+        {
+        }
+
         partial class agentDataTable
         {
         }

@@ -25,6 +25,9 @@ namespace DataAccessLayer
 
         public static SqlConnection GetConnection()
         {
+            int id = personalDataTableAdapter.
+            personalDataTableAdapter.GetDataByNames();
+            agentTableAdapter.Insert(id, 87);
 
             return new SqlConnection(connectionString: ConfigurationManager.AppSettings["AzureDB"]);
         }
