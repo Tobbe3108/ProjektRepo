@@ -6,5 +6,7 @@ namespace BusinessLayer.Classes
 {
     public class Seller : Person
     {
+        public int SId { get; set; }
+        public int AId { get; set; }
     }
 }

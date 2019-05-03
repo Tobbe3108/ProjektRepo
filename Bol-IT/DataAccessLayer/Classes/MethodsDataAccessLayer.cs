@@ -57,17 +57,30 @@ namespace DataAccessLayer
             propertyTableAdapter.Fill(adt);
             return adt;
         }
-
+        #region ReturnObjects
         public static Agent GetAgent(int id)
         {
-            Agent agent = new Agent();
             agentDataTable adt = new agentDataTable();
             agentTableAdapter.FillById(adt, id);
-            //agentDataTable adt = agentTableAdapter.GetDataById(id);
-            //object pdt = personalDataTableAdapter.GetDataById(id);
-            
+            personalDataDataTable pddt = new personalDataDataTable();
+            personalDataTableAdapter.FillById(pddt, id);
+
+            Agent agent = new Agent
+            {
+                AId = (int)adt.Rows[0][0],
+                NrOfSales = (int)adt.Rows[0][1],
+                FName = (string)pddt.Rows[0][1],
+                MName = (string)pddt.Rows[0][2],
+                LName = (string)pddt.Rows[0][3],
+                PhoneNr = (int)pddt.Rows[0][4],
+                Address = (string)pddt.Rows[0][5],
+                Zipcode = (int)pddt.Rows[0][6],
+                Mail = (string)pddt.Rows[0][7],
+
+            };
             return agent;
         }
+        #endregion
         #endregion
     }
 }
