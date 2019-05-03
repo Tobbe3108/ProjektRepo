@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace DataAccessLayer {
+namespace DataAccesLayer {
     
     
     /// <summary>
@@ -5703,7 +5703,7 @@ namespace DataAccessLayer {
         }
     }
 }
-namespace DataAccessLayer.mydatabasetobbeDataSetTableAdapters {
+namespace DataAccesLayer.mydatabasetobbeDataSetTableAdapters {
     
     
     /// <summary>
@@ -7733,7 +7733,7 @@ SELECT id, fName, mName, lName, phoneNr, address, zipcode, mail FROM personalDat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(mydatabasetobbeDataSet.personalDataDataTable dataTable, int id) {
+        public virtual int FillById(mydatabasetobbeDataSet.personalDataDataTable dataTable, int id) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id));
             if ((this.ClearBeforeFill == true)) {

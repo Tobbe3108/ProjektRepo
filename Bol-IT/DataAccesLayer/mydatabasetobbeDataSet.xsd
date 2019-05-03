@@ -399,7 +399,7 @@ SELECT id, fName, mName, lName, phoneNr, address, zipcode, mail FROM personalDat
               <Mapping SourceColumn="mail" DataSetColumn="mail" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="mydatabasetobbeConnectionString (Settings)" DbObjectName="MyDatabaseTobbe.dbo.personalData" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataById" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataById" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataById" UserSourceName="FillBy">
+              <DbSource ConnectionRef="mydatabasetobbeConnectionString (Settings)" DbObjectName="MyDatabaseTobbe.dbo.personalData" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillById" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataById" GeneratorSourceName="FillById" GetMethodModifier="Public" GetMethodName="GetDataById" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataById" UserSourceName="FillById">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT fName, mName, lName, phoneNr, address, zipcode, mail FROM dbo.personalData WHERE id=@id </CommandText>

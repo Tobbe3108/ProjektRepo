@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BusinessLayer.Classes;
 using DataAccessLayer.mydatabasetobbeDataSetTableAdapters;
+using static DataAccessLayer.mydatabasetobbeDataSet;
 
 namespace DataAccessLayer
 {
@@ -44,13 +45,27 @@ namespace DataAccessLayer
         #endregion CreateMethods
 
         #region SearchMethods
+        public static agentDataTable GetAgentDataTable()
+        {
+            agentDataTable adt = new agentDataTable();
+            agentTableAdapter.Fill(adt);
+            return adt;
+        }
+        public static propertyDataTable GetPropertyDataTable()
+        {
+            propertyDataTable adt = new propertyDataTable();
+            propertyTableAdapter.Fill(adt);
+            return adt;
+        }
+
         public static Agent GetAgent(int id)
         {
             Agent agent = new Agent();
+            agentDataTable adt = new agentDataTable();
+            agentTableAdapter.FillById(adt, id);
+            //agentDataTable adt = agentTableAdapter.GetDataById(id);
+            //object pdt = personalDataTableAdapter.GetDataById(id);
             
-            agentTableAdapter.GetDataById(id);
-            personalDataTableAdapter.GetDataById(id);
-
             return agent;
         }
         #endregion
