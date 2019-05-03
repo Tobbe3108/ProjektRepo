@@ -60,9 +60,19 @@ namespace DataAccessLayer
 
         public static Agent GetAgent(int id)
         {
-            Agent agent = new Agent();
             agentDataTable adt = new agentDataTable();
             agentTableAdapter.FillById(adt, id);
+            personalDataDataTable pddt = new personalDataDataTable();
+            personalDataTableAdapter.FillById(pddt, id);
+
+            Agent agent = new Agent
+            {
+                AId = (int)adt.Rows[0][0],
+                NrOfSales = (int)adt.Rows[0][1]
+            };
+
+            
+
             //agentDataTable adt = agentTableAdapter.GetDataById(id);
             //object pdt = personalDataTableAdapter.GetDataById(id);
             
