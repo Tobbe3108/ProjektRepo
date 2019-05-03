@@ -124,7 +124,6 @@ namespace Bol_IT
                 Mx = MousePosition.X;
                 Sw = Width;
                 Sh = Height;
-
             }
             catch (Exception)
             {
