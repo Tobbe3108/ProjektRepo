@@ -69,12 +69,6 @@ namespace Bol_IT
                 btnSearch.Font = new Font(btnSearch.Font.FontFamily, this.Size.Height / 50);
                 btnToFile.Font = new Font(btnToFile.Font.FontFamily, this.Size.Height / 50);
                 btnStatistic.Font = new Font(btnStatistic.Font.FontFamily, this.Size.Height / 50);
-                //PropertyTypeCb.Font = new Font(PropertyTypeCb.Font.FontFamily, this.Size.Height / 50);
-                //PropertyTypeSelectLbl.Font = new Font(PropertyTypeSelectLbl.Font.FontFamily, this.Size.Height / 50);
-                //MinPriceLbl.Font = new Font(MinPriceLbl.Font.FontFamily, this.Size.Height / 50);
-                //MaxPriceLbl.Font = new Font(MaxPriceLbl.Font.FontFamily, this.Size.Height / 50);
-                //MinPriceRtb.Font = new Font(MinPriceRtb.Font.FontFamily, this.Size.Height / 50);
-                //MaxPriceRtb.Font = new Font(MaxPriceRtb.Font.FontFamily, this.Size.Height / 50);
                 lblSearch.Font = new Font(lblSearch.Font.FontFamily, this.Size.Height / 50);
                 rtbSearch.Font = new Font(rtbSearch.Font.FontFamily, this.Size.Height / 50);
             }
