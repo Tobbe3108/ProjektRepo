@@ -204,7 +204,7 @@
             this.cbDistribution.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.cbDistribution.FormattingEnabled = true;
             this.cbDistribution.Items.AddRange(new object[] {
-            "Prioritet",
+            "Efter pris",
             "Tilfældigt"});
             this.cbDistribution.Location = new System.Drawing.Point(189, 6);
             this.cbDistribution.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
