@@ -1,4 +1,4 @@
-﻿namespace DataAccesLayer
+﻿namespace DataAccessLayer
 {
 
 
@@ -14,7 +14,7 @@
     }
 }
 
-namespace DataAccesLayer.mydatabasetobbeDataSetTableAdapters
+namespace DataAccessLayer.mydatabasetobbeDataSetTableAdapters
 {
     partial class sellerTableAdapter
     {
@@ -23,7 +23,8 @@ namespace DataAccesLayer.mydatabasetobbeDataSetTableAdapters
     partial class agentTableAdapter
     {
     }
-     
-    public partial class personalDataTableAdapter {
+
+    public partial class personalDataTableAdapter
+    {
     }
 }

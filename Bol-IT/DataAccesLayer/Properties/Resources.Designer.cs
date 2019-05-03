@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DataAccesLayer.Properties {
+namespace DataAccessLayer.Properties {
     using System;
     
     

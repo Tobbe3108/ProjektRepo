@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BusinessLayer.Classes
 {
-    class Person
+    public abstract class Person
     {
     }
 }
