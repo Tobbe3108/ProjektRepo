@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace DataAccesLayer {
+namespace DataAccessLayer {
     
     
     /// <summary>
@@ -5703,7 +5703,7 @@ namespace DataAccesLayer {
         }
     }
 }
-namespace DataAccesLayer.mydatabasetobbeDataSetTableAdapters {
+namespace DataAccessLayer.mydatabasetobbeDataSetTableAdapters {
     
     
     /// <summary>
@@ -5860,7 +5860,7 @@ namespace DataAccesLayer.mydatabasetobbeDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DataAccesLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
+            this._connection.ConnectionString = global::DataAccessLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6180,7 +6180,7 @@ namespace DataAccesLayer.mydatabasetobbeDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DataAccesLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
+            this._connection.ConnectionString = global::DataAccessLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6464,7 +6464,7 @@ namespace DataAccesLayer.mydatabasetobbeDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DataAccesLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
+            this._connection.ConnectionString = global::DataAccessLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6800,7 +6800,7 @@ SELECT companyName, phoneNr, mail FROM externalContacts WHERE (companyName = @co
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DataAccesLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
+            this._connection.ConnectionString = global::DataAccessLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7196,7 +7196,7 @@ SELECT caseNr, nameOfFile, extOfFile, dataOfFile FROM files WHERE (nameOfFile = 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DataAccesLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
+            this._connection.ConnectionString = global::DataAccessLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7632,7 +7632,7 @@ SELECT id, fName, mName, lName, phoneNr, address, zipcode, mail FROM personalDat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DataAccesLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
+            this._connection.ConnectionString = global::DataAccessLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8320,7 +8320,7 @@ SELECT caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, add
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DataAccesLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
+            this._connection.ConnectionString = global::DataAccessLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9014,7 +9014,7 @@ WHERE address = '%' + @address +'%' OR zipcode = '%' + @zipcode + '%' OR caseNr 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DataAccesLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
+            this._connection.ConnectionString = global::DataAccessLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9301,7 +9301,7 @@ WHERE address = '%' + @address +'%' OR zipcode = '%' + @zipcode + '%' OR caseNr 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DataAccesLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
+            this._connection.ConnectionString = global::DataAccessLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9619,7 +9619,7 @@ WHERE address = '%' + @address +'%' OR zipcode = '%' + @zipcode + '%' OR caseNr 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DataAccesLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
+            this._connection.ConnectionString = global::DataAccessLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9883,7 +9883,7 @@ WHERE address = '%' + @address +'%' OR zipcode = '%' + @zipcode + '%' OR caseNr 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::DataAccesLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
+            this._connection.ConnectionString = global::DataAccessLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
