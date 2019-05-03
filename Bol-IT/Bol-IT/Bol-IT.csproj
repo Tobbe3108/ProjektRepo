@@ -173,6 +173,10 @@
       <Project>{2d853293-026a-459a-9d05-6beb8c86787f}</Project>
       <Name>BusinessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DataAccesLayer\DataAccessLayer.csproj">
+      <Project>{f5926625-0389-40f0-82f6-40701e4d1a42}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PropertyTypes.txt" />
