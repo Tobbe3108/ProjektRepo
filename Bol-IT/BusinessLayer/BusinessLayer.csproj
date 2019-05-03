@@ -45,7 +45,6 @@
     <Compile Include="CaseMethods.cs" />
     <Compile Include="Classes\Agent.cs" />
     <Compile Include="Classes\Buyer.cs" />
-    <Compile Include="Classes\DataType.cs" />
     <Compile Include="Classes\Person.cs" />
     <Compile Include="Classes\Property.cs" />
     <Compile Include="Classes\Seller.cs" />

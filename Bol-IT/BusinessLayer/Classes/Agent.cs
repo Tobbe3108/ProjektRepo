@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BusinessLayer.Classes
 {
-    class Agent : Person
+    public class Agent : Person
     {
     }
 }
