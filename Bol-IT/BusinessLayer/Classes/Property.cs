@@ -12,20 +12,26 @@ namespace BusinessLayer.Classes
         public int OwnerExpenses { get; set; }
         public int CashPrice { get; set; }
         public int DepositPrice { get; set; }
-        public string Adress { get; set; }
+        public string Address { get; set; }
         public int ZipCode { get; set; }
         public int NrOfRooms { get; set; }
         public bool GarageFlag { get; set; }
-        public int BuiltRebuild { get; set; }
+        public string BuiltRebuild { get; set; }
         public string HouseType { get; set; }
         public char EnergyRating { get; set; }
         public int ResSquareMeters { get; set; }
+        public int PropSquareMeters { get; set; }
         public int Floors { get; set; }
         public bool SoldFlag { get; set; }
         public string Description { get; set; }
 
+        public Property()
+        {
+
+        }
+
         public Property(int caseNr, int netPrice, int grossPrice, int ownerExpenses, int cashPrice, int depositPrice, string adress, int zipCode, int nrOfRooms, 
-                        bool garageFlag, int builtRebuild, string houseType, char energyRating, int resSquareMeters, int floors, bool soldFlag, string description)
+                        bool garageFlag, string builtRebuild, string houseType, char energyRating, int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
         {
             CaseNr = caseNr;
             NetPrice = netPrice;
@@ -33,7 +39,7 @@ namespace BusinessLayer.Classes
             OwnerExpenses = ownerExpenses;
             CashPrice = cashPrice;
             DepositPrice = depositPrice;
-            Adress = adress;
+            Address = adress;
             ZipCode = zipCode;
             NrOfRooms = nrOfRooms;
             GarageFlag = garageFlag;
@@ -41,6 +47,7 @@ namespace BusinessLayer.Classes
             HouseType = houseType;
             EnergyRating = energyRating;
             ResSquareMeters = resSquareMeters;
+            PropSquareMeters = propSquareMeters;
             Floors = floors;
             SoldFlag = soldFlag;
             Description = description;

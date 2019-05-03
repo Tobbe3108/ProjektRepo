@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using BusinessLayer.Classes;
 using System.Configuration;
 using DataAccessLayer.mydatabasetobbeDataSetTableAdapters;
+using static DataAccessLayer.mydatabasetobbeDataSet;
 
 namespace DataAccessLayer
 {
@@ -30,7 +31,15 @@ namespace DataAccessLayer
             MethodsDataAccessLayer.CreateBuyer(fName, mName, lName, phoneNr, address, zipcode, mail, aId);
         }
 
+        public static agentDataTable GetAgentDataTable()
+        {
+            return MethodsDataAccessLayer.GetAgentDataTable();
+        }
 
+        public static propertyDataTable GetPropertyDataTable()
+        {
+            return MethodsDataAccessLayer.GetPropertyDataTable();
+        }
 
     }
 }
