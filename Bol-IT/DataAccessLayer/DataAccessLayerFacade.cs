@@ -10,45 +10,73 @@ using static DataAccessLayer.mydatabasetobbeDataSet;
 namespace DataAccessLayer
 {
     public class DataAccessLayerFacade
-    {        
+    {
+        #region SQL
+
+        //Christoffer
         public static SqlConnection GetConnection()
         {
             return new SqlConnection(connectionString: ConfigurationManager.AppSettings["AzureDB"]);
         }
 
-        public static void CreateAgent(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int nrOfSales)
-        {
-            MethodsDataAccessLayer.CreateAgent(fName, mName, lName, phoneNr, address, zipcode, mail, nrOfSales);
-        }
+        #endregion
 
+        #region Seller
+
+        //Christoffer
         public static void CreateSeller(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
         {
             MethodsDataAccessLayer.CreateSeller(fName, mName, lName, phoneNr, address, zipcode, mail, aId);
         }
 
+        #endregion
+
+        #region Buyer
+
+        //Christoffer
         public static void CreateBuyer(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
         {
             MethodsDataAccessLayer.CreateBuyer(fName, mName, lName, phoneNr, address, zipcode, mail, aId);
         }
 
+        #endregion
+
+        #region Agent
+
+        //Christoffer
+        public static void CreateAgent(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int nrOfSales)
+        {
+            MethodsDataAccessLayer.CreateAgent(fName, mName, lName, phoneNr, address, zipcode, mail, nrOfSales);
+        }
+
+        //Tobias
         public static agentDataTable GetAgentDataTable()
         {
             return MethodsDataAccessLayer.GetAgentDataTable();
         }
 
+        //Tobias
         public static agentDataTable GetAgentDataTableByLike(int searchParameters)
         {
             return MethodsDataAccessLayer.GetAgentDataTableByLike(searchParameters);
         }
 
+        #endregion
+
+        #region Property
+
+        //Tobias
         public static propertyDataTable GetPropertyDataTable()
         {
             return MethodsDataAccessLayer.GetPropertyDataTable();
         }
 
+        //Tobias
         public static propertyDataTable GetPropertyDataTableByLike(string searchParameters)
         {
             return MethodsDataAccessLayer.GetPropertyDataTableByLike(searchParameters);
         }
+
+        #endregion
     }
 }

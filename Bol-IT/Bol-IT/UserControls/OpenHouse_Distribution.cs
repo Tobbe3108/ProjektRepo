@@ -15,10 +15,16 @@ namespace Bol_IT
 { 
     public partial class OpenHouse_Distribution : UserControl
     {
+        #region Fields
+
         //Tobias
         //Datatables til brug i dgvDistribution
         public static DataTable agentDistributionTable = new DataTable();
         public static DataTable propDistributionTable = new DataTable();
+
+        #endregion
+
+        #region Init
 
         //Tobias
         //Singleton instance af OpenHouse_Distribution
@@ -35,7 +41,6 @@ namespace Bol_IT
             }
         }
 
-        //Tobias
         private OpenHouse_Distribution()
         {
             InitializeComponent();
@@ -58,15 +63,17 @@ namespace Bol_IT
             propDistributionTable.Columns.Add("houseType");
         }
 
-        //Tobias
         private void OpenHouse_Distribution_Load(object sender, EventArgs e)
         {
             //Eager initialization af singleton instance
             _instance = this;
         }
 
+        #endregion
+
+        #region FormAutoSize
+
         //Tobias
-        //Form autosize
         private void OpenHouse_Distribution_SizeChanged(object sender, EventArgs e)
         {
             lblDistribute.Font = new Font(lblDistribute.Font.FontFamily, this.Size.Height / 50);
@@ -83,8 +90,10 @@ namespace Bol_IT
         {
             dgvSearch.Font = new Font(dgvSearch.Font.FontFamily, this.Size.Height / 60);
         }
-        //---//
 
+        #endregion
+
+        #region Methods
 
         //Tobias
         //Kalder fasaden til DAL laget for at få fat i data fra agent og property tabellerne samt lidt data formatering
@@ -129,6 +138,10 @@ namespace Bol_IT
             }
             catch (Exception){}
         }
+
+        #endregion
+
+        #region Events
 
         //Tobias
         //Laver en thread der loader data fra databasen hver gang man ændre teksten i tekst boxen
@@ -210,5 +223,7 @@ namespace Bol_IT
                 }
             }
         }
+
+        #endregion
     }
 }

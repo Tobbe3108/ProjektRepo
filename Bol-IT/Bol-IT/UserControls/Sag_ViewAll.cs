@@ -12,7 +12,9 @@ namespace Bol_IT
 {
     public partial class Sag_ViewAll : UserControl
     {
-        //Singleton instance af Sag_ViewAll
+        #region Init
+        //Tobias
+        //Singleton i
         static Sag_ViewAll _instance;
         public static Sag_ViewAll Instance
         {
@@ -40,14 +42,36 @@ namespace Bol_IT
             _instance = this;
         }
 
+        #endregion
 
+        #region FormAutoSize
+        
+        //Tobias
+        private void Sag_ViewAll_SizeChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                btnCreateSag.Font = new Font(btnCreateSag.Font.FontFamily, this.Size.Height / 50);
+                btnToFile.Font = new Font(btnToFile.Font.FontFamily, this.Size.Height / 50);
+                btnStatistic.Font = new Font(btnStatistic.Font.FontFamily, this.Size.Height / 50);
+                lblSearch.Font = new Font(lblSearch.Font.FontFamily, this.Size.Height / 50);
+                rtbSearch.Font = new Font(rtbSearch.Font.FontFamily, this.Size.Height / 50);
+            }
+            catch (Exception) { }
+        }
+        
+        #endregion
 
+        #region Events
+
+        //Tobias
         private void btnStatistic_Click(object sender, EventArgs e)
         {
             Messagebox_Statistic messagebox_Statistic = new Messagebox_Statistic();
             messagebox_Statistic.Show();
         }
 
+        //Tobias
         private void btnCreateSag_Click(object sender, EventArgs e)
         {
             //Load Sag_Create User control når tryk på knap
@@ -59,21 +83,12 @@ namespace Bol_IT
             Form1.Instance.PnlContainer.Controls["Sag_Create"].BringToFront();
         }
 
-
-        //Form autosize
-        private void Sag_ViewAll_SizeChanged(object sender, EventArgs e)
+        //Tobias
+        private void rtbSearch_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                btnCreateSag.Font = new Font(btnCreateSag.Font.FontFamily, this.Size.Height / 50);
-                btnSearch.Font = new Font(btnSearch.Font.FontFamily, this.Size.Height / 50);
-                btnToFile.Font = new Font(btnToFile.Font.FontFamily, this.Size.Height / 50);
-                btnStatistic.Font = new Font(btnStatistic.Font.FontFamily, this.Size.Height / 50);
-                lblSearch.Font = new Font(lblSearch.Font.FontFamily, this.Size.Height / 50);
-                rtbSearch.Font = new Font(rtbSearch.Font.FontFamily, this.Size.Height / 50);
-            }
-            catch (Exception) { }
+
         }
-        //---//
+
+        #endregion
     }
 }

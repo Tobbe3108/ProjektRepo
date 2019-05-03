@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 namespace Bol_IT
 {
+    //Tobias
     //Selvdefineret komponent til brug i vores form til håndtering af user drag input
     class DragControl : Component
     {

@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using BusinessLayer;
 
 namespace Bol_IT
 {
     public partial class MenuBar_Top : UserControl
     {
+        #region Init
+
+        //Tobias
         //Singleton instance af MenuBar_Top
         static MenuBar_Top _instance;
         public static MenuBar_Top Instance
@@ -36,15 +40,22 @@ namespace Bol_IT
         {
             //Eager initialization af singleton instance
             _instance = this;
+
+            //Start slogan threads
+            BusinessLayerFacade.SloganThreadStart(lblSlogan);
         }
 
+        #endregion
 
+        #region Events
 
+        //Tobias
         private void btnClose_Click(object sender, EventArgs e)
         {
             ParentForm.Close();
         }
 
+        //Tobias
         private void btnMaximize_Click(object sender, EventArgs e)
         {
             if (ParentForm.WindowState == FormWindowState.Maximized)
@@ -57,9 +68,12 @@ namespace Bol_IT
             }
         }
 
+        //Tobias
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             ParentForm.WindowState = FormWindowState.Minimized;
         }
+
+        #endregion
     }
 }

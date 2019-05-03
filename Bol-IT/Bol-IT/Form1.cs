@@ -14,6 +14,20 @@ namespace Bol_IT
 {
     public partial class Form1 : Form
     {
+        #region Fields
+
+        //Tobias
+        int Mx;
+        int My;
+        int Sw;
+        int Sh;
+        bool mov;
+
+        #endregion
+
+        #region Init
+
+        //Tobias
         //Singleton instance af Form1
         static Form1 _instance;
         public static Form1 Instance
@@ -27,17 +41,6 @@ namespace Bol_IT
                 return _instance;
             }
         }
-
-
-
-        //Public reference til pnlContainerl
-        public Panel PnlContainer
-        {
-            get { return pnlContainer; }
-            set { pnlContainer = value; }
-        }
-
-
 
         private Form1()
         {
@@ -60,15 +63,23 @@ namespace Bol_IT
             pnlContainer.Controls.Add(Sag_ViewAll.Instance);
         }
 
+        #endregion
 
+        #region Methods
+        
+        //Tobias
+        //Public reference til pnlContainerl
+        public Panel PnlContainer
+        {
+            get { return pnlContainer; }
+            set { pnlContainer = value; }
+        }
 
-        //Form resize
-        int Mx;
-        int My;
-        int Sw;
-        int Sh;
-        bool mov;
+        #endregion
 
+        #region FormAutoSize
+
+        //Tobias
         private void pnlSizerBottom_MouseDown(object sender, MouseEventArgs e)
         {
             SizerMouseDown();
@@ -164,9 +175,8 @@ namespace Bol_IT
             ResumeLayout();
             mov = false;
         }
-        //---//
 
 
-
+        #endregion
     }
 }

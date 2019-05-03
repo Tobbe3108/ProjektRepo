@@ -12,6 +12,9 @@ namespace Bol_IT
 {
     public partial class Sag_Create : UserControl
     {
+        #region Init
+
+        //Tobias
         //Singleton instance af Sag_Create
         static Sag_Create _instance;
         public static Sag_Create Instance
@@ -40,22 +43,11 @@ namespace Bol_IT
             _instance = this;
         }
 
+        #endregion
 
+        #region FormAutoSize
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            //Load Sag_ViewAll User control når tryk på knap
-            if (!Form1.Instance.PnlContainer.Controls.ContainsKey("Sag_ViewAll"))
-            {
-                Sag_ViewAll.Instance.Dock = DockStyle.Fill;
-                Form1.Instance.PnlContainer.Controls.Add(Sag_ViewAll.Instance);
-            }
-            Form1.Instance.PnlContainer.Controls["Sag_ViewAll"].BringToFront();
-        }
-
-
-
-        //Form autosize
+        //Tobias
         private void Sag_Create_SizeChanged(object sender, EventArgs e)
         {
             lblAddress.Font = new Font(lblAddress.Font.FontFamily, this.Size.Height / 25);
@@ -67,6 +59,25 @@ namespace Bol_IT
             rtbHouseDescription.Font = new Font(rtbHouseDescription.Font.FontFamily, this.Size.Height / 50);
             rtbPrice.Font = new Font(rtbPrice.Font.FontFamily, this.Size.Height / 50);
         }
-        //---//
+
+        #endregion
+
+        #region Events
+
+        //Tobias
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            //Load Sag_ViewAll User control når tryk på knap
+            if (!Form1.Instance.PnlContainer.Controls.ContainsKey("Sag_ViewAll"))
+            {
+                Sag_ViewAll.Instance.Dock = DockStyle.Fill;
+                Form1.Instance.PnlContainer.Controls.Add(Sag_ViewAll.Instance);
+            }
+            Form1.Instance.PnlContainer.Controls["Sag_ViewAll"].BringToFront();
+        }
+
+        #endregion
+
+
     }
 }

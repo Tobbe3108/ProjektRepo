@@ -12,6 +12,9 @@ namespace Bol_IT
 {
     public partial class Sag_Edit : UserControl
     {
+        #region Init
+
+        //Tobias
         //Singleton instance af Sag_Edit
         static Sag_Edit _instance;
         public static Sag_Edit Instance
@@ -40,9 +43,11 @@ namespace Bol_IT
             _instance = this;
         }
 
+        #endregion
 
+        #region FormAutoSize
 
-        //Form autosize
+        //Tobias
         private void Sag_Edit_SizeChanged(object sender, EventArgs e)
         {
             lblAddress.Font = new Font(lblAddress.Font.FontFamily, this.Size.Height / 25);
@@ -55,6 +60,8 @@ namespace Bol_IT
             rtbHouseDescription.Font = new Font(rtbHouseDescription.Font.FontFamily, this.Size.Height / 50);
             rtbPrice.Font = new Font(rtbPrice.Font.FontFamily, this.Size.Height / 50);
         }
-        //---//
+
+        #endregion
+
     }
 }

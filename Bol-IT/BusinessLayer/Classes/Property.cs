@@ -6,6 +6,9 @@ namespace BusinessLayer.Classes
 {
     public class Property
     {
+        #region Properties
+
+        //Caspar
         public int CaseNr { get; set; }
         public int NetPrice { get; set; }
         public int GrossPrice { get; set; }
@@ -25,13 +28,19 @@ namespace BusinessLayer.Classes
         public bool SoldFlag { get; set; }
         public string Description { get; set; }
 
+        #endregion
+
+        #region Constructors
+        
+        //Christoffer
         public Property()
         {
 
         }
 
-        public Property(int caseNr, int netPrice, int grossPrice, int ownerExpenses, int cashPrice, int depositPrice, string adress, int zipCode, int nrOfRooms, 
-                        bool garageFlag, string builtRebuild, string houseType, char energyRating, int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
+        public Property(int caseNr, int netPrice, int grossPrice, int ownerExpenses, int cashPrice, int depositPrice,
+            string adress, int zipCode, int nrOfRooms, bool garageFlag, string builtRebuild, string houseType,
+            char energyRating, int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
         {
             CaseNr = caseNr;
             NetPrice = netPrice;
@@ -52,5 +61,7 @@ namespace BusinessLayer.Classes
             SoldFlag = soldFlag;
             Description = description;
         }
+
+        #endregion
     }
 }

@@ -12,6 +12,9 @@ namespace Bol_IT
 {
     public partial class Messagebox_Statistic : Form
     {
+        #region Init
+
+        //Tobias
         public Messagebox_Statistic()
         {
             InitializeComponent();
@@ -20,7 +23,11 @@ namespace Bol_IT
             Messagebox_Statistic_SizeChanged(this, new EventArgs());
         }
 
-        //Form autosize
+        #endregion
+
+        #region FormAutoSize
+
+        //Tobias
         private void Messagebox_Statistic_SizeChanged(object sender, EventArgs e)
         {
             lblArea.Font = new Font(lblArea.Font.FontFamily, this.Size.Height / 15);
@@ -32,5 +39,7 @@ namespace Bol_IT
             cbStatistic.Font = new Font(cbStatistic.Font.FontFamily, this.Size.Height / 15);
             dudMonth.Font = new Font(dudMonth.Font.FontFamily, this.Size.Height / 15);
         }
+
+        #endregion
     }
 }

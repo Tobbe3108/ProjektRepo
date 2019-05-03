@@ -12,6 +12,8 @@ namespace DataAccessLayer
     public class MethodsDataAccessLayer
     {
         #region TableAdapters
+        
+        //Christoffer
         public static saleTableAdapter saleTableAdapter = new saleTableAdapter();
         public static agentTableAdapter agentTableAdapter = new agentTableAdapter();
         public static buyerTableAdapter buyerTableAdapter = new buyerTableAdapter();
@@ -24,27 +26,37 @@ namespace DataAccessLayer
         public static wantsToSellTableAdapter wantsToSellTableAdapter = new wantsToSellTableAdapter();
         public static personalDataTableAdapter personalDataTableAdapter = new personalDataTableAdapter();
         public static externalContactsTableAdapter externalContactsTableAdapter = new externalContactsTableAdapter();
+
         #endregion TableAdapters
 
         #region CreateMethods
+
+        //Christoffer
         public static void CreateAgent(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int nrOfSales)
         {
             int id = personalDataTableAdapter.InsertData(fName, mName, lName, phoneNr, address, zipcode, mail);
             agentTableAdapter.InsertData(id, nrOfSales);
         }
+
+        //Christoffer
         public static void CreateSeller(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
         {
             int id = personalDataTableAdapter.InsertData(fName, mName, lName, phoneNr, address, zipcode, mail);
             sellerTableAdapter.InsertData(id, aId);
         }
+
+        //Christoffer
         public static void CreateBuyer(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
         {
             int id = personalDataTableAdapter.InsertData(fName, mName, lName, phoneNr, address, zipcode, mail);
             buyerTableAdapter.InsertData(id, aId);
         }
+
         #endregion CreateMethods
 
         #region SearchMethods
+
+        //Christoffer
         public static agentDataTable GetAgentDataTable()
         {
             agentDataTable adt = new agentDataTable();
@@ -52,6 +64,7 @@ namespace DataAccessLayer
             return adt;
         }
 
+        //Tobias
         public static agentDataTable GetAgentDataTableByLike(int searchParameters)
         {
             agentDataTable adt = new agentDataTable();
@@ -59,7 +72,7 @@ namespace DataAccessLayer
             return adt;
         }
 
-
+        //Christoffer
         public static propertyDataTable GetPropertyDataTable()
         {
             propertyDataTable adt = new propertyDataTable();
@@ -67,6 +80,7 @@ namespace DataAccessLayer
             return adt;
         }
 
+        //Christoffer & Tobias
         public static propertyDataTable GetPropertyDataTableByLike(string searchParameters)
         {
             propertyDataTable pdt = new propertyDataTable();
@@ -75,6 +89,8 @@ namespace DataAccessLayer
         }
 
         #region ReturnObjects
+
+        //Christoffer
         public static Agent GetAgentById(int id)
         {
             agentDataTable adt = new agentDataTable();
@@ -96,6 +112,8 @@ namespace DataAccessLayer
             };
             return agent;
         }
+
+        //Christoffer
         public static List<Agent> GetAgents()
         {
             agentDataTable adt = new agentDataTable();
@@ -122,6 +140,8 @@ namespace DataAccessLayer
             }
             return agents;
         }
+
+        //Christoffer
         public static List<Seller> GetSellers()
         {
             sellerDataTable sdt = new sellerDataTable();
@@ -148,6 +168,8 @@ namespace DataAccessLayer
             }
             return sellers;
         }
+
+        //Christoffer
         public static Seller GetSellerById(int id)
         {
             sellerDataTable sdt = new sellerDataTable();
@@ -169,6 +191,8 @@ namespace DataAccessLayer
             };
             return seller;
         }
+
+        //Christoffer
         public static List<Buyer> GetBuyers()
         {
             buyerDataTable bdt = new buyerDataTable();
@@ -195,6 +219,8 @@ namespace DataAccessLayer
             }
             return buyers;
         }
+
+        //Christoffer
         public static Buyer GetBuyerById(int id)
         {
             buyerDataTable bdt = new buyerDataTable();
@@ -216,6 +242,8 @@ namespace DataAccessLayer
             };
             return buyer;
         }
+        
+        //Christoffer
         public static Property GetProperty(int id)
         {
             propertyDataTable pdt = new propertyDataTable();
@@ -244,6 +272,8 @@ namespace DataAccessLayer
             };
             return property;
         }
+
+        //Christoffer
         public static List<Property> GetProperties()
         {
             propertyDataTable pdt = new propertyDataTable();
@@ -277,6 +307,7 @@ namespace DataAccessLayer
             }
             return properties;
         }
+
         #endregion
         #endregion
     }

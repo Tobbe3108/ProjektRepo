@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sag_Create));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -205,7 +204,7 @@
             this.rtbHouseDescription.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.rtbHouseDescription.Size = new System.Drawing.Size(190, 132);
             this.rtbHouseDescription.TabIndex = 1;
-            this.rtbHouseDescription.Text = resources.GetString("rtbHouseDescription.Text");
+            this.rtbHouseDescription.Text = "Indsæt tekst";
             // 
             // tableLayoutPanel4
             // 

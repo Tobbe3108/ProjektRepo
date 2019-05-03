@@ -38,7 +38,6 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbSearch = new System.Windows.Forms.RichTextBox();
             this.lblSearch = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -159,13 +158,12 @@
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.ColumnCount = 3;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel4.Controls.Add(this.rtbSearch, 1, 1);
-            this.tableLayoutPanel4.Controls.Add(this.lblSearch, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.btnSearch, 0, 1);
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Controls.Add(this.rtbSearch, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.lblSearch, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
@@ -180,11 +178,12 @@
             // 
             this.rtbSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbSearch.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbSearch.Location = new System.Drawing.Point(167, 26);
+            this.rtbSearch.Location = new System.Drawing.Point(3, 25);
             this.rtbSearch.Name = "rtbSearch";
-            this.rtbSearch.Size = new System.Drawing.Size(322, 40);
+            this.rtbSearch.Size = new System.Drawing.Size(404, 41);
             this.rtbSearch.TabIndex = 1;
             this.rtbSearch.Text = "";
+            this.rtbSearch.TextChanged += new System.EventHandler(this.rtbSearch_TextChanged);
             // 
             // lblSearch
             // 
@@ -192,27 +191,12 @@
             this.lblSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSearch.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.lblSearch.Location = new System.Drawing.Point(167, 0);
+            this.lblSearch.Location = new System.Drawing.Point(3, 0);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(322, 23);
+            this.lblSearch.Size = new System.Drawing.Size(404, 22);
             this.lblSearch.TabIndex = 2;
             this.lblSearch.Text = "Søg efter: Navn (Mangler resten)";
             this.lblSearch.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.btnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnSearch.Location = new System.Drawing.Point(3, 26);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(158, 40);
-            this.btnSearch.TabIndex = 3;
-            this.btnSearch.Text = "Søg";
-            this.btnSearch.UseVisualStyleBackColor = false;
             // 
             // Sag_ViewAll
             // 
@@ -245,7 +229,6 @@
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.Button btnCreateSag;
         private System.Windows.Forms.Button btnStatistic;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnToFile;
     }
 }
