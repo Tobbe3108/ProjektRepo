@@ -17,6 +17,7 @@ namespace BusinessLayer
             {
 
             }
+            throw new NotImplementedException();
         }
 
         public static void Insert(int value)
