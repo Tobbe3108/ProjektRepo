@@ -46,7 +46,12 @@ namespace DataAccessLayer
         #region SearchMethods
         public static Agent GetAgent(int id)
         {
-            throw new NotImplementedException();
+            Agent agent = new Agent();
+            
+            agentTableAdapter.GetDataById(id);
+            personalDataTableAdapter.GetDataById(id);
+
+            return agent;
         }
         #endregion
     }
