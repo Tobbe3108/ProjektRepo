@@ -1,12 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using BusinessLayer.Classes;
 
 namespace BusinessLayer
 {
     class OpenHouseMethods
     {
         public static int[] maxHob = new int[0];
+
+        public static int[,] DistributeHouses(Agent[] agentsArray, Property[] propertiesArray)
+        {
+            int[,] distribution = new int[agentsArray.Length-1, propertiesArray.Length-1];
+
+            foreach (Property price in propertiesArray)
+            {
+
+            }
+        }
 
         public static void Insert(int value)
         {
@@ -36,11 +47,13 @@ namespace BusinessLayer
 
                 MaxHobSort(Parent(child));//Kalder sorterings algoritmen igen, nu med parent pladsen til det child vi startede med.
             }
-        } //Sorterer arrayet efter en ny værdi er indsat.
+        } //Sorterer arrayet.
 
-        public static void DeleteFirstNode()
+        public static int DeleteFirstNode()
         {
             List<int> tempList = new List<int>(maxHob);//Midlertidig liste til hob-arrayet.
+
+            int rootValue = tempList[0];
 
             tempList[0] = LastLeafValue();//Root værdien i hoben overskrives med den sidste værdi i hoben.
 
@@ -54,7 +67,9 @@ namespace BusinessLayer
             }
 
             MaxHobSortDeletion(0);//Kalder metoden med ansvaret for at sortere oppe fra og ned.
-        } //Fjerner den første node i træet.
+
+            return rootValue;//returnerer den største værdi i hoben.
+        } //Fjerner den første node i træet, og returnerer dens værdi.
 
         public static void MaxHobSortDeletion(int parent)
         {
@@ -90,7 +105,7 @@ namespace BusinessLayer
             }
             MaxHobSort(maxHob.Length - 1);
         } //Sorterer træet oppe fra og ned.
-
+         
         public static int FirstNodeValue() => maxHob[0]; //Bruges ikke. Finder den første værdi i hoben.
         public static int LastLeafValue() => maxHob[maxHob.Length - 1]; //Finder den sidste værdi i hoben.
         public static int Parent(int node)

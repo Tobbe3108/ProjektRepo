@@ -199,7 +199,7 @@
             this.cbDistribution.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.cbDistribution.FormattingEnabled = true;
             this.cbDistribution.Items.AddRange(new object[] {
-            "Prioritet",
+            "Efter pris",
             "Tilfældigt"});
             this.cbDistribution.Location = new System.Drawing.Point(102, 3);
             this.cbDistribution.Name = "cbDistribution";
