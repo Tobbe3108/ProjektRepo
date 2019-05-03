@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace DataAccessLayer {
+namespace DataAccesLayer {
     
     
     /// <summary>
@@ -5703,7 +5703,7 @@ namespace DataAccessLayer {
         }
     }
 }
-namespace DataAccessLayer.mydatabasetobbeDataSetTableAdapters {
+namespace DataAccesLayer.mydatabasetobbeDataSetTableAdapters {
     
     
     /// <summary>
