@@ -45,6 +45,8 @@
             this.dgvDistribution = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btnToFile = new System.Windows.Forms.Button();
+            this.Tilføj = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Slet = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
@@ -106,7 +108,7 @@
             this.rtbSearch.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbSearch.Location = new System.Drawing.Point(11, 96);
-            this.rtbSearch.Margin = new System.Windows.Forms.Padding(11, 11, 11, 11);
+            this.rtbSearch.Margin = new System.Windows.Forms.Padding(11);
             this.rtbSearch.Name = "rtbSearch";
             this.rtbSearch.Size = new System.Drawing.Size(710, 63);
             this.rtbSearch.TabIndex = 2;
@@ -115,13 +117,22 @@
             // 
             // dgvSearch
             // 
+            this.dgvSearch.AllowUserToAddRows = false;
+            this.dgvSearch.AllowUserToDeleteRows = false;
+            this.dgvSearch.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSearch.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSearch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Tilføj});
             this.dgvSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSearch.Location = new System.Drawing.Point(6, 176);
-            this.dgvSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dgvSearch.Margin = new System.Windows.Forms.Padding(6);
             this.dgvSearch.Name = "dgvSearch";
+            this.dgvSearch.ReadOnly = true;
             this.dgvSearch.Size = new System.Drawing.Size(720, 499);
             this.dgvSearch.TabIndex = 2;
+            this.dgvSearch.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearch_CellContentClick);
+            this.dgvSearch.SizeChanged += new System.EventHandler(this.dgvSearch_SizeChanged);
             // 
             // tableLayoutPanel6
             // 
@@ -162,7 +173,7 @@
             "Efter pris",
             "Tilfældigt"});
             this.cbDistribution.Location = new System.Drawing.Point(189, 6);
-            this.cbDistribution.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cbDistribution.Margin = new System.Windows.Forms.Padding(6);
             this.cbDistribution.Name = "cbDistribution";
             this.cbDistribution.Size = new System.Drawing.Size(537, 31);
             this.cbDistribution.TabIndex = 1;
@@ -191,7 +202,7 @@
             this.btnDistribute.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDistribute.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.btnDistribute.Location = new System.Drawing.Point(189, 6);
-            this.btnDistribute.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnDistribute.Margin = new System.Windows.Forms.Padding(6);
             this.btnDistribute.Name = "btnDistribute";
             this.btnDistribute.Size = new System.Drawing.Size(354, 74);
             this.btnDistribute.TabIndex = 5;
@@ -240,10 +251,11 @@
             "Mægler",
             "Sager"});
             this.cbSearchParam.Location = new System.Drawing.Point(372, 35);
-            this.cbSearchParam.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cbSearchParam.Margin = new System.Windows.Forms.Padding(6);
             this.cbSearchParam.Name = "cbSearchParam";
             this.cbSearchParam.Size = new System.Drawing.Size(354, 31);
             this.cbSearchParam.TabIndex = 2;
+            this.cbSearchParam.SelectedIndexChanged += new System.EventHandler(this.cbSearchParam_SelectedIndexChanged);
             // 
             // tableLayoutPanel3
             // 
@@ -279,13 +291,21 @@
             // 
             // dgvDistribution
             // 
+            this.dgvDistribution.AllowUserToAddRows = false;
+            this.dgvDistribution.AllowUserToDeleteRows = false;
+            this.dgvDistribution.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDistribution.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvDistribution.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDistribution.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Slet});
             this.dgvDistribution.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDistribution.Location = new System.Drawing.Point(6, 91);
-            this.dgvDistribution.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dgvDistribution.Margin = new System.Windows.Forms.Padding(6);
             this.dgvDistribution.Name = "dgvDistribution";
+            this.dgvDistribution.ReadOnly = true;
             this.dgvDistribution.Size = new System.Drawing.Size(720, 669);
             this.dgvDistribution.TabIndex = 1;
+            this.dgvDistribution.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDistribution_CellContentClick);
             // 
             // tableLayoutPanel4
             // 
@@ -312,12 +332,29 @@
             this.btnToFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnToFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.btnToFile.Location = new System.Drawing.Point(189, 6);
-            this.btnToFile.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnToFile.Margin = new System.Windows.Forms.Padding(6);
             this.btnToFile.Name = "btnToFile";
             this.btnToFile.Size = new System.Drawing.Size(354, 74);
             this.btnToFile.TabIndex = 0;
             this.btnToFile.Text = "Udskriv fil";
             this.btnToFile.UseVisualStyleBackColor = true;
+            // 
+            // Tilføj
+            // 
+            this.Tilføj.HeaderText = "Tilføj";
+            this.Tilføj.Name = "Tilføj";
+            this.Tilføj.ReadOnly = true;
+            this.Tilføj.Text = "Tilføj";
+            this.Tilføj.UseColumnTextForButtonValue = true;
+            // 
+            // Slet
+            // 
+            this.Slet.HeaderText = "Slet";
+            this.Slet.Name = "Slet";
+            this.Slet.ReadOnly = true;
+            this.Slet.Text = "Slet";
+            this.Slet.ToolTipText = "Slet fra tabel";
+            this.Slet.UseColumnTextForButtonValue = true;
             // 
             // OpenHouse_Distribution
             // 
@@ -325,7 +362,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "OpenHouse_Distribution";
             this.Size = new System.Drawing.Size(1584, 897);
             this.Load += new System.EventHandler(this.OpenHouse_Distribution_Load);
@@ -365,5 +402,7 @@
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.ComboBox cbSearchParam;
         private System.Windows.Forms.RichTextBox rtbSearch;
+        private System.Windows.Forms.DataGridViewButtonColumn Tilføj;
+        private System.Windows.Forms.DataGridViewButtonColumn Slet;
     }
 }

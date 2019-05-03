@@ -36,10 +36,19 @@ namespace DataAccessLayer
             return MethodsDataAccessLayer.GetAgentDataTable();
         }
 
+        public static agentDataTable GetAgentDataTableByLike(int searchParameters)
+        {
+            return MethodsDataAccessLayer.GetAgentDataTableByLike(searchParameters);
+        }
+
         public static propertyDataTable GetPropertyDataTable()
         {
             return MethodsDataAccessLayer.GetPropertyDataTable();
         }
 
+        public static propertyDataTable GetPropertyDataTableByLike(string searchParameters)
+        {
+            return MethodsDataAccessLayer.GetPropertyDataTableByLike(searchParameters);
+        }
     }
 }

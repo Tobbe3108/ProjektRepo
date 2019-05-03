@@ -52,6 +52,14 @@ namespace DataAccessLayer
             return adt;
         }
 
+        public static agentDataTable GetAgentDataTableByLike(int searchParameters)
+        {
+            agentDataTable adt = new agentDataTable();
+            agentTableAdapter.FillByLike(adt, searchParameters);
+            return adt;
+        }
+
+
         public static propertyDataTable GetPropertyDataTable()
         {
             propertyDataTable adt = new propertyDataTable();
