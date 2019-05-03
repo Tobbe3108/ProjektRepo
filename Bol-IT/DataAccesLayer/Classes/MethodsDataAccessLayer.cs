@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessLayer.Classes;
 using DataAccessLayer.mydatabasetobbeDataSetTableAdapters;
 
 namespace DataAccessLayer
@@ -41,5 +42,12 @@ namespace DataAccessLayer
             buyerTableAdapter.InsertData(id, aId);
         }
         #endregion CreateMethods
+
+        #region SearchMethods
+        public static Agent GetAgent(int id)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }
