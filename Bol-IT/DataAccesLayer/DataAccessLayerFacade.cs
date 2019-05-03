@@ -15,64 +15,14 @@ namespace DataAccessLayer
             return new SqlConnection(connectionString: ConfigurationManager.AppSettings["AzureDB"]);
         }
 
-        public static saleTableAdapter saleTableAdapter()
+        public static void CreateAgent(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int nrOfSales)
         {
-            return MethodsDataAccessLayer.saleTableAdapter;
+            MethodsDataAccessLayer.CreateAgent(fName, mName, lName, phoneNr, address, zipcode, mail, nrOfSales);
         }
 
-        public static agentTableAdapter agentTableAdapter()
+        public static void CreateSeller(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
         {
-            return MethodsDataAccessLayer.agentTableAdapter;
-        }
-
-        public static buyerTableAdapter buyerTableAdapter()
-        {
-            return MethodsDataAccessLayer.buyerTableAdapter;
-        }
-
-        public static filesTableAdapter filesTableAdapter()
-        {
-            return MethodsDataAccessLayer.filesTableAdapter;
-        }
-
-        public static sellerTableAdapter sellerTableAdapter()
-        {
-            return MethodsDataAccessLayer.sellerTableAdapter;
-        }
-
-        public static TableAdapterManager TableAdapterManager()
-        {
-            return MethodsDataAccessLayer.TableAdapterManager;
-        }
-
-        public static propertyTableAdapter propertyTableAdapter()
-        {
-            return MethodsDataAccessLayer.propertyTableAdapter;
-        }
-
-        public static worksWithTableAdapter worksWithTableAdapter()
-        {
-            return MethodsDataAccessLayer.worksWithTableAdapter;
-        }
-
-        public static assesmentTableAdapter assesmentTableAdapter()
-        {
-            return MethodsDataAccessLayer.assesmentTableAdapter;
-        }
-
-        public static wantsToSellTableAdapter wantsToSellTableAdapter()
-        {
-            return MethodsDataAccessLayer.wantsToSellTableAdapter;
-        }
-
-        public static personalDataTableAdapter personalDataTableAdapter()
-        {
-            return MethodsDataAccessLayer.personalDataTableAdapter;
-        }
-
-        public static externalContactsTableAdapter externalContactsTableAdapter()
-        {
-            return MethodsDataAccessLayer.externalContactsTableAdapter;
+            MethodsDataAccessLayer.CreateSeller(fName, mName, lName, phoneNr, address, zipcode, mail, aId);
         }
 
 
