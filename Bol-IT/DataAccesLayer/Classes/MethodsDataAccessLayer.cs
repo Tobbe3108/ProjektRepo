@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataAccesLayer.mydatabasetobbeDataSetTableAdapters;
+using DataAccessLayer.mydatabasetobbeDataSetTableAdapters;
 
-namespace DataAccesLayer
+namespace DataAccessLayer
 {
     class MethodsDataAccessLayer
     {
@@ -24,6 +24,7 @@ namespace DataAccesLayer
         public static externalContactsTableAdapter externalContactsTableAdapter = new externalContactsTableAdapter();
         #endregion TableAdapters
 
+        #region CreateMethods
         public static void CreateAgent(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int nrOfSales)
         {
             int id = personalDataTableAdapter.InsertData(fName, mName, lName, phoneNr, address, zipcode, mail);
@@ -39,5 +40,6 @@ namespace DataAccesLayer
             int id = personalDataTableAdapter.InsertData(fName, mName, lName, phoneNr, address, zipcode, mail);
             buyerTableAdapter.InsertData(id, aId);
         }
+        #endregion CreateMethods
     }
 }
