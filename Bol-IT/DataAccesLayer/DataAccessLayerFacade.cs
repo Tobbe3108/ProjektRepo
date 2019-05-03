@@ -8,7 +8,7 @@ using System.Configuration;
 namespace DataAccessLayer
 {
     public class DataAccessLayerFacade
-    {
+    {        
         public static SqlConnection GetConnection()
         {
             return new SqlConnection(connectionString: ConfigurationManager.AppSettings["AzureDB"]);
