@@ -139,7 +139,7 @@
             this.btnSearch.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.btnSearch.Location = new System.Drawing.Point(6, 6);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(6);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(171, 73);
             this.btnSearch.TabIndex = 1;
@@ -152,7 +152,7 @@
             this.rtbSearch.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbSearch.Location = new System.Drawing.Point(189, 6);
-            this.rtbSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rtbSearch.Margin = new System.Windows.Forms.Padding(6);
             this.rtbSearch.Name = "rtbSearch";
             this.rtbSearch.Size = new System.Drawing.Size(537, 73);
             this.rtbSearch.TabIndex = 2;
@@ -163,7 +163,7 @@
             this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSearch.Location = new System.Drawing.Point(6, 176);
-            this.dgvSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dgvSearch.Margin = new System.Windows.Forms.Padding(6);
             this.dgvSearch.Name = "dgvSearch";
             this.dgvSearch.Size = new System.Drawing.Size(720, 499);
             this.dgvSearch.TabIndex = 2;
@@ -207,7 +207,7 @@
             "Efter pris",
             "Tilfældigt"});
             this.cbDistribution.Location = new System.Drawing.Point(189, 6);
-            this.cbDistribution.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cbDistribution.Margin = new System.Windows.Forms.Padding(6);
             this.cbDistribution.Name = "cbDistribution";
             this.cbDistribution.Size = new System.Drawing.Size(537, 31);
             this.cbDistribution.TabIndex = 1;
@@ -236,7 +236,7 @@
             this.btnDistribute.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDistribute.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.btnDistribute.Location = new System.Drawing.Point(189, 6);
-            this.btnDistribute.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnDistribute.Margin = new System.Windows.Forms.Padding(6);
             this.btnDistribute.Name = "btnDistribute";
             this.btnDistribute.Size = new System.Drawing.Size(354, 74);
             this.btnDistribute.TabIndex = 5;
@@ -280,7 +280,7 @@
             this.dgvDistribution.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDistribution.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDistribution.Location = new System.Drawing.Point(6, 91);
-            this.dgvDistribution.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dgvDistribution.Margin = new System.Windows.Forms.Padding(6);
             this.dgvDistribution.Name = "dgvDistribution";
             this.dgvDistribution.Size = new System.Drawing.Size(720, 669);
             this.dgvDistribution.TabIndex = 1;
@@ -310,7 +310,7 @@
             this.btnToFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnToFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.btnToFile.Location = new System.Drawing.Point(189, 6);
-            this.btnToFile.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnToFile.Margin = new System.Windows.Forms.Padding(6);
             this.btnToFile.Name = "btnToFile";
             this.btnToFile.Size = new System.Drawing.Size(354, 74);
             this.btnToFile.TabIndex = 0;
@@ -323,7 +323,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "OpenHouse_Distribution";
             this.Size = new System.Drawing.Size(1584, 897);
             this.Load += new System.EventHandler(this.OpenHouse_Distribution_Load);
