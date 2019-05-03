@@ -42,12 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\CaseDataAccessLayer.cs" />
-    <Compile Include="Classes\ContactDataAccessLayer.cs" />
-    <Compile Include="Classes\EstimateDataAccessLayer.cs" />
-    <Compile Include="Classes\PersonDataAccessLayer.cs" />
-    <Compile Include="Classes\SaleDataAccessLayer.cs" />
-    <Compile Include="Classes\SaleOfferDataAccessLayer.cs" />
+    <Compile Include="Classes\MethodsDataAccessLayer.cs" />
     <Compile Include="DataAccessLayerFacade.cs" />
     <Compile Include="mydatabasetobbeDataSet.cs">
       <DependentUpon>mydatabasetobbeDataSet.xsd</DependentUpon>

@@ -38,12 +38,6 @@ namespace Bol_IT
         {
             //Eager initialization af singleton instance
             _instance = this;
-
-
-            foreach (string propertyType in Properties.Resources.PropertyTypes.Split(new[] {'\n' }))
-            {
-                //PropertyTypeCb.Items.Add(propertyType);
-            }
         }
 
 
