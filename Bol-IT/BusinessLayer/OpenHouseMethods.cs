@@ -11,7 +11,7 @@ namespace BusinessLayer
 
         public static object[,] DistributeHouses(Agent[] agentsArray, Property[] propertiesArray, bool sortMethod)
         {
-            object[,] distribution = new object[agentsArray.Length-1, (propertiesArray.Length-1/agentsArray.Length-1)];
+            object[,] distribution = new object[agentsArray.Length, (propertiesArray.Length - 1 / agentsArray.Length - 1)];
 
             if (sortMethod)
             {
@@ -20,20 +20,20 @@ namespace BusinessLayer
                     Insert(property);
                 }
 
-                for (int i = 0; i < agentsArray.Length - 1; i++)
+                for (int i = 0; i <= agentsArray.Length - 1; i++)
                 {
-                    distribution[i, 0] = agentsArray[i];
+                    distribution[i, 0] = agentsArray[i].AId;
                 }
 
                 while (maxHob.Length != 0)
                 {
-                    for (int i = 1; i < propertiesArray.Length - 1 / agentsArray.Length - 1; i++)
+                    for (int i = 1; i <= propertiesArray.Length - 1 / agentsArray.Length - 1; i++)
                     {
-                        for (int j = 0; j < agentsArray.Length - 1; j++)
+                        for (int j = 0; j <= agentsArray.Length - 1; j++)
                         {
                             if (maxHob.Length != 0)
                             {
-                                distribution[j, i] = DeleteFirstNode();
+                                distribution[j, i] = DeleteFirstNode().CashPrice;
                             }
                         }
                     }
@@ -65,16 +65,20 @@ namespace BusinessLayer
 
         public static void MaxHobSort(int child)
         {
-            if (maxHob[child].CashPrice > maxHob[Parent(child)].CashPrice)//Kontrollerer om child er større end parent til child.
+            if (child > 0)
             {
-                Property temp = maxHob[child];//Opretter midlertidig int.
+                if (maxHob[child].CashPrice > maxHob[Parent(child)].CashPrice)//Kontrollerer om child er større end parent til child.
+                {
+                    Property temp = maxHob[child];//Opretter midlertidig int.
 
-                maxHob[child] = maxHob[Parent(child)];//Child bliver = parent.
+                    maxHob[child] = maxHob[Parent(child)];//Child bliver = parent.
 
-                maxHob[Parent(child)] = temp;//Parent bliver = midlertidig child værdi.
+                    maxHob[Parent(child)] = temp;//Parent bliver = midlertidig child værdi.
 
-                MaxHobSort(Parent(child));//Kalder sorterings algoritmen igen, nu med parent pladsen til det child vi startede med.
+                    MaxHobSort(Parent(child));//Kalder sorterings algoritmen igen, nu med parent pladsen til det child vi startede med.
+                }
             }
+
         } //Sorterer arrayet.
 
         public static Property DeleteFirstNode()
@@ -133,7 +137,7 @@ namespace BusinessLayer
             }
             MaxHobSort(maxHob.Length - 1);
         } //Sorterer træet oppe fra og ned.
-         
+
         public static Property FirstNodeValue() => maxHob[0]; //Bruges ikke. Finder den første værdi i hoben.
         public static Property LastLeafValue() => maxHob[maxHob.Length - 1]; //Finder den sidste værdi i hoben.
         public static int Parent(int node)
