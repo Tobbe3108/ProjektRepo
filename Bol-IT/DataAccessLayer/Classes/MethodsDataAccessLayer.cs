@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BusinessLayer.Classes;
+using BusinessLayer;
 using DataAccessLayer.mydatabasetobbeDataSetTableAdapters;
 using static DataAccessLayer.mydatabasetobbeDataSet;
 
@@ -251,25 +252,26 @@ namespace DataAccessLayer
 
             Property property = new Property
             {
-                CaseNr = (int)pdt.Rows[0][1],
-                NetPrice = (int)pdt.Rows[0][2],
-                GrossPrice = (int)pdt.Rows[0][3],
-                OwnerExpenses = (int)pdt.Rows[0][4],
-                CashPrice = (int)pdt.Rows[0][5],
-                DepositPrice = (int)pdt.Rows[0][6],
-                Address = (string)pdt.Rows[0][7],
-                ZipCode = (int)pdt.Rows[0][8],
-                NrOfRooms = (int)pdt.Rows[0][9],
-                GarageFlag = (bool)pdt.Rows[0][10],
-                BuiltRebuild = (string)pdt.Rows[0][11],
-                HouseType = (string)pdt.Rows[0][12],
-                EnergyRating = (char)pdt.Rows[0][13],
-                ResSquareMeters = (int)pdt.Rows[0][14],
-                PropSquareMeters = (int)pdt.Rows[0][15],
-                Floors = (int)pdt.Rows[0][16],
-                SoldFlag = (bool)pdt.Rows[0][17],
-                Description = (string)pdt.Rows[0][18],
+                CaseNr = (int)pdt.Rows[0][0],
+                NetPrice = (int)pdt.Rows[0][1],
+                GrossPrice = (int)pdt.Rows[0][2],
+                OwnerExpenses = (int)pdt.Rows[0][3],
+                CashPrice = (int)pdt.Rows[0][4],
+                DepositPrice = (int)pdt.Rows[0][5],
+                Address = (string)pdt.Rows[0][6],
+                ZipCode = (int)pdt.Rows[0][7],
+                NrOfRooms = (int)pdt.Rows[0][8],
+                GarageFlag = (bool)pdt.Rows[0][9],
+                BuiltRebuild = (string)pdt.Rows[0][10],
+                HouseType = (string)pdt.Rows[0][11],
+                EnergyRating = (string)pdt.Rows[0][12],
+                ResSquareMeters = (int)pdt.Rows[0][13],
+                PropSquareMeters = (int)pdt.Rows[0][14],
+                Floors = (int)pdt.Rows[0][15],
+                SoldFlag = (bool)pdt.Rows[0][16],
+                Description = (string)pdt.Rows[0][17],
             };
+
             return property;
         }
 
@@ -296,7 +298,7 @@ namespace DataAccessLayer
                     GarageFlag = (bool)pdt.Rows[i][10],
                     BuiltRebuild = (string)pdt.Rows[i][11],
                     HouseType = (string)pdt.Rows[i][12],
-                    EnergyRating = (char)pdt.Rows[i][13],
+                    EnergyRating = (string)pdt.Rows[i][13],
                     ResSquareMeters = (int)pdt.Rows[i][14],
                     PropSquareMeters = (int)pdt.Rows[i][15],
                     Floors = (int)pdt.Rows[i][16],

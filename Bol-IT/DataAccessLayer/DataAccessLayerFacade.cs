@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
-using BusinessLayer.Classes;
+using BusinessLayer;
 using System.Configuration;
 using DataAccessLayer.mydatabasetobbeDataSetTableAdapters;
 using static DataAccessLayer.mydatabasetobbeDataSet;
@@ -75,6 +75,12 @@ namespace DataAccessLayer
         public static propertyDataTable GetPropertyDataTableByLike(string searchParameters)
         {
             return MethodsDataAccessLayer.GetPropertyDataTableByLike(searchParameters);
+        }
+
+        //Tobias
+        public static Property GetProperty(int id)
+        {
+            return MethodsDataAccessLayer.GetProperty(id);
         }
 
         #endregion

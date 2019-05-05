@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
+using DataAccessLayer;
 
 namespace Bol_IT
 {
@@ -59,7 +61,43 @@ namespace Bol_IT
             }
             catch (Exception) { }
         }
-        
+
+        #endregion
+
+        #region Methods
+
+        //Tobias
+        //Kalder fasaden til DAL laget for at få fat i data fra property tabellen samt lidt data formatering
+        private void LoadData()
+        {
+            try
+            {
+                DataTable dataTable = new DataTable();
+
+                string SearchParameters = "";
+                rtbSearch.Invoke((MethodInvoker)delegate { SearchParameters = rtbSearch.Text; });
+
+                dataTable = DataAccessLayerFacade.GetPropertyDataTableByLike(SearchParameters);
+
+                dataTable.Columns.Remove("netPrice");
+                dataTable.Columns.Remove("grossPrice");
+                dataTable.Columns.Remove("ownerExpenses");
+                dataTable.Columns.Remove("cashPrice");
+                dataTable.Columns.Remove("depositPrice");
+                dataTable.Columns.Remove("nrOfRooms");
+                dataTable.Columns.Remove("garageFlag");
+                dataTable.Columns.Remove("energyRating");
+                dataTable.Columns.Remove("resSquareMeters");
+                dataTable.Columns.Remove("propSquareMeters");
+                dataTable.Columns.Remove("floors");
+                dataTable.Columns.Remove("soldFlag");
+                dataTable.Columns.Remove("description");
+
+                dgvSager.Invoke((MethodInvoker)delegate { dgvSager.DataSource = dataTable; });
+            }
+            catch (Exception) { }
+        }
+
         #endregion
 
         #region Events
@@ -86,9 +124,35 @@ namespace Bol_IT
         //Tobias
         private void rtbSearch_TextChanged(object sender, EventArgs e)
         {
+            Thread LoadDataThread = new Thread(() => LoadData());
+            LoadDataThread.IsBackground = true;
+            LoadDataThread.Start();
+        }
 
+        //Tobias
+        private void dgvSager_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //---Hvis trykket på knap Rediger inde i datagridview---//
+            if (dgvSager.Columns[e.ColumnIndex].Name == "Rediger")
+            {
+                if (e.RowIndex >= 0)
+                {
+                    //Load Sag_Edit User control når tryk på knap med ID fra celle
+                    if (!Form1.Instance.PnlContainer.Controls.ContainsKey("Sag_Edit"))
+                    {
+                        Sag_Edit.Instance.Dock = DockStyle.Fill;
+                        Form1.Instance.PnlContainer.Controls.Add(Sag_Edit.Instance);
+                    }
+                    Form1.Instance.PnlContainer.Controls["Sag_Edit"].BringToFront();
+
+                    Sag_Edit.LoadData(dgvSager.Rows[e.RowIndex].Cells[1].Value.ToString());
+
+                }
+            }
         }
 
         #endregion
+
+
     }
 }

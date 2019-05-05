@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BusinessLayer.Classes
+namespace BusinessLayer
 {
     public abstract class Person
     {

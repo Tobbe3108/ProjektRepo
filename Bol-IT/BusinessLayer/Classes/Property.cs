@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BusinessLayer.Classes
+namespace BusinessLayer
 {
     public class Property
     {
@@ -21,7 +21,7 @@ namespace BusinessLayer.Classes
         public bool GarageFlag { get; set; }
         public string BuiltRebuild { get; set; }
         public string HouseType { get; set; }
-        public char EnergyRating { get; set; }
+        public string EnergyRating { get; set; }
         public int ResSquareMeters { get; set; }
         public int PropSquareMeters { get; set; }
         public int Floors { get; set; }
@@ -40,7 +40,7 @@ namespace BusinessLayer.Classes
 
         public Property(int caseNr, int netPrice, int grossPrice, int ownerExpenses, int cashPrice, int depositPrice,
             string adress, int zipCode, int nrOfRooms, bool garageFlag, string builtRebuild, string houseType,
-            char energyRating, int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
+            string energyRating, int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
         {
             CaseNr = caseNr;
             NetPrice = netPrice;

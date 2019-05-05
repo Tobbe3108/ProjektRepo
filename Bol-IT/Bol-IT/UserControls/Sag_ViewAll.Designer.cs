@@ -30,7 +30,7 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvSager = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCreateSag = new System.Windows.Forms.Button();
             this.btnToFile = new System.Windows.Forms.Button();
@@ -38,9 +38,10 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbSearch = new System.Windows.Forms.RichTextBox();
             this.lblSearch = new System.Windows.Forms.Label();
+            this.Rediger = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSager)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +68,7 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.dataGridView1, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.dgvSager, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -81,14 +82,22 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(820, 461);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgvSager
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 72);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(814, 339);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvSager.AllowUserToAddRows = false;
+            this.dgvSager.AllowUserToDeleteRows = false;
+            this.dgvSager.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSager.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dgvSager.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSager.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Rediger});
+            this.dgvSager.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSager.Location = new System.Drawing.Point(3, 72);
+            this.dgvSager.Name = "dgvSager";
+            this.dgvSager.ReadOnly = true;
+            this.dgvSager.Size = new System.Drawing.Size(814, 339);
+            this.dgvSager.TabIndex = 0;
+            this.dgvSager.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSager_CellContentClick);
             // 
             // tableLayoutPanel3
             // 
@@ -178,9 +187,9 @@
             // 
             this.rtbSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbSearch.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbSearch.Location = new System.Drawing.Point(3, 25);
+            this.rtbSearch.Location = new System.Drawing.Point(3, 26);
             this.rtbSearch.Name = "rtbSearch";
-            this.rtbSearch.Size = new System.Drawing.Size(404, 41);
+            this.rtbSearch.Size = new System.Drawing.Size(404, 40);
             this.rtbSearch.TabIndex = 1;
             this.rtbSearch.Text = "";
             this.rtbSearch.TextChanged += new System.EventHandler(this.rtbSearch_TextChanged);
@@ -193,10 +202,19 @@
             this.lblSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.lblSearch.Location = new System.Drawing.Point(3, 0);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(404, 22);
+            this.lblSearch.Size = new System.Drawing.Size(404, 23);
             this.lblSearch.TabIndex = 2;
             this.lblSearch.Text = "Søg efter: Navn (Mangler resten)";
             this.lblSearch.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // Rediger
+            // 
+            this.Rediger.HeaderText = "Rediger";
+            this.Rediger.Name = "Rediger";
+            this.Rediger.ReadOnly = true;
+            this.Rediger.Text = "Rediger";
+            this.Rediger.ToolTipText = "Rediger";
+            this.Rediger.UseColumnTextForButtonValue = true;
             // 
             // Sag_ViewAll
             // 
@@ -210,7 +228,7 @@
             this.SizeChanged += new System.EventHandler(this.Sag_ViewAll_SizeChanged);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSager)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
@@ -222,7 +240,7 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvSager;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.RichTextBox rtbSearch;
@@ -230,5 +248,6 @@
         private System.Windows.Forms.Button btnCreateSag;
         private System.Windows.Forms.Button btnStatistic;
         private System.Windows.Forms.Button btnToFile;
+        private System.Windows.Forms.DataGridViewButtonColumn Rediger;
     }
 }

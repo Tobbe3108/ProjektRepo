@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using BusinessLayer.Classes;
+using BusinessLayer;
 
 namespace BusinessLayer
 {
