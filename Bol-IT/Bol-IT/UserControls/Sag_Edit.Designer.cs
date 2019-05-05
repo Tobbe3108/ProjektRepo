@@ -191,8 +191,11 @@
             this.pbHouseImage.Location = new System.Drawing.Point(3, 3);
             this.pbHouseImage.Name = "pbHouseImage";
             this.pbHouseImage.Size = new System.Drawing.Size(190, 132);
+            this.pbHouseImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbHouseImage.TabIndex = 0;
             this.pbHouseImage.TabStop = false;
+            this.pbHouseImage.DragDrop += new System.Windows.Forms.DragEventHandler(this.pbHouseImage_DragDrop);
+            this.pbHouseImage.DragEnter += new System.Windows.Forms.DragEventHandler(this.pbHouseImage_DragEnter);
             // 
             // rtbHouseDescription
             // 

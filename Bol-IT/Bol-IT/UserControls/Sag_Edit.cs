@@ -35,6 +35,8 @@ namespace Bol_IT
 
             //Form autosize
             Sag_Edit_SizeChanged(this, new EventArgs());
+
+            pbHouseImage.AllowDrop = true;
         }
 
         private void Sag_Edit_Load(object sender, EventArgs e)
@@ -62,6 +64,27 @@ namespace Bol_IT
         }
 
         #endregion
+
+        #region Events
+
+        //Tobias
+        private void pbHouseImage_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+        }
+
+        //Tobias
+        private void pbHouseImage_DragDrop(object sender, DragEventArgs e)
+        {
+            foreach (string pic in ((string[])e.Data.GetData(DataFormats.FileDrop)))
+            {
+                Image image = Image.FromFile(pic);
+                pbHouseImage.Image = image;
+            }
+        }
+
+        #endregion
+
 
     }
 }
