@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sag_Edit));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -43,9 +42,6 @@
             this.rtbAddress = new System.Windows.Forms.RichTextBox();
             this.lblAddress = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnToFile = new System.Windows.Forms.Button();
-            this.btnCreateAd = new System.Windows.Forms.Button();
             this.tableLayoutPanel25 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbEnergyRating = new System.Windows.Forms.RichTextBox();
             this.lblEnergyRating = new System.Windows.Forms.Label();
@@ -98,6 +94,15 @@
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.lblGarageFlag = new System.Windows.Forms.Label();
             this.cbGarageFlag = new System.Windows.Forms.CheckBox();
+            this.ofdOpenPicture = new System.Windows.Forms.OpenFileDialog();
+            this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnToFile = new System.Windows.Forms.Button();
+            this.btnCreateAd = new System.Windows.Forms.Button();
+            this.tableLayoutPanel27 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.rtbTimeFrame = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.rtbDesiredPrice = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -106,13 +111,13 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
-            this.tableLayoutPanel26.SuspendLayout();
             this.tableLayoutPanel25.SuspendLayout();
             this.tableLayoutPanel24.SuspendLayout();
             this.tableLayoutPanel23.SuspendLayout();
             this.tableLayoutPanel22.SuspendLayout();
             this.tableLayoutPanel21.SuspendLayout();
             this.tableLayoutPanel20.SuspendLayout();
+            this.tableLayoutPanel19.SuspendLayout();
             this.tableLayoutPanel18.SuspendLayout();
             this.tableLayoutPanel17.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
@@ -124,6 +129,8 @@
             this.tableLayoutPanel14.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel16.SuspendLayout();
+            this.tableLayoutPanel26.SuspendLayout();
+            this.tableLayoutPanel27.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -191,6 +198,7 @@
             this.pbHouseImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbHouseImage.TabIndex = 0;
             this.pbHouseImage.TabStop = false;
+            this.pbHouseImage.Click += new System.EventHandler(this.pbHouseImage_Click);
             this.pbHouseImage.DragDrop += new System.Windows.Forms.DragEventHandler(this.pbHouseImage_DragDrop);
             this.pbHouseImage.DragEnter += new System.Windows.Forms.DragEventHandler(this.pbHouseImage_DragEnter);
             // 
@@ -203,11 +211,10 @@
             this.rtbHouseDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbHouseDescription.Location = new System.Drawing.Point(3, 141);
             this.rtbHouseDescription.Name = "rtbHouseDescription";
-            this.rtbHouseDescription.ReadOnly = true;
             this.rtbHouseDescription.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.rtbHouseDescription.Size = new System.Drawing.Size(190, 132);
             this.rtbHouseDescription.TabIndex = 1;
-            this.rtbHouseDescription.Text = resources.GetString("rtbHouseDescription.Text");
+            this.rtbHouseDescription.Text = "Indsæt tekst";
             // 
             // tableLayoutPanel4
             // 
@@ -333,7 +340,7 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.75F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.5F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.75F));
-            this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel26, 0, 9);
+            this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel27, 0, 9);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel25, 0, 8);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel24, 2, 8);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel23, 2, 7);
@@ -352,6 +359,7 @@
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel14, 0, 5);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel15, 0, 6);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel16, 0, 7);
+            this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel26, 2, 9);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 46);
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
@@ -370,53 +378,6 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(604, 415);
             this.tableLayoutPanel7.TabIndex = 1;
             // 
-            // tableLayoutPanel26
-            // 
-            this.tableLayoutPanel26.ColumnCount = 2;
-            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel26.Controls.Add(this.btnToFile, 0, 0);
-            this.tableLayoutPanel26.Controls.Add(this.btnCreateAd, 0, 0);
-            this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel26.Location = new System.Drawing.Point(0, 369);
-            this.tableLayoutPanel26.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel26.Name = "tableLayoutPanel26";
-            this.tableLayoutPanel26.RowCount = 1;
-            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel26.Size = new System.Drawing.Size(294, 46);
-            this.tableLayoutPanel26.TabIndex = 1;
-            // 
-            // btnToFile
-            // 
-            this.btnToFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.btnToFile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnToFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
-            this.btnToFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnToFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnToFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnToFile.Location = new System.Drawing.Point(150, 3);
-            this.btnToFile.Name = "btnToFile";
-            this.btnToFile.Size = new System.Drawing.Size(141, 40);
-            this.btnToFile.TabIndex = 3;
-            this.btnToFile.Text = "Udskriv fil";
-            this.btnToFile.UseVisualStyleBackColor = false;
-            // 
-            // btnCreateAd
-            // 
-            this.btnCreateAd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.btnCreateAd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCreateAd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
-            this.btnCreateAd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateAd.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateAd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnCreateAd.Location = new System.Drawing.Point(3, 3);
-            this.btnCreateAd.Name = "btnCreateAd";
-            this.btnCreateAd.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnCreateAd.Size = new System.Drawing.Size(141, 40);
-            this.btnCreateAd.TabIndex = 2;
-            this.btnCreateAd.Text = "Opret annonce";
-            this.btnCreateAd.UseVisualStyleBackColor = false;
-            // 
             // tableLayoutPanel25
             // 
             this.tableLayoutPanel25.ColumnCount = 2;
@@ -430,6 +391,7 @@
             this.tableLayoutPanel25.Name = "tableLayoutPanel25";
             this.tableLayoutPanel25.RowCount = 1;
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel25.Size = new System.Drawing.Size(294, 41);
             this.tableLayoutPanel25.TabIndex = 1;
             // 
@@ -674,6 +636,8 @@
             this.tableLayoutPanel19.ColumnCount = 2;
             this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel19.Controls.Add(this.rtbDesiredPrice, 0, 0);
+            this.tableLayoutPanel19.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel19.Location = new System.Drawing.Point(309, 123);
             this.tableLayoutPanel19.Margin = new System.Windows.Forms.Padding(0);
@@ -703,11 +667,11 @@
             // 
             this.cbSellerId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.cbSellerId.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbSellerId.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSellerId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSellerId.FormattingEnabled = true;
             this.cbSellerId.Location = new System.Drawing.Point(150, 3);
             this.cbSellerId.Name = "cbSellerId";
-            this.cbSellerId.Size = new System.Drawing.Size(142, 34);
+            this.cbSellerId.Size = new System.Drawing.Size(142, 21);
             this.cbSellerId.TabIndex = 11;
             // 
             // label12
@@ -1144,6 +1108,125 @@
             this.cbGarageFlag.TabIndex = 8;
             this.cbGarageFlag.UseVisualStyleBackColor = true;
             // 
+            // ofdOpenPicture
+            // 
+            this.ofdOpenPicture.FileName = "openFileDialog1";
+            // 
+            // tableLayoutPanel26
+            // 
+            this.tableLayoutPanel26.ColumnCount = 2;
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel26.Controls.Add(this.btnToFile, 0, 0);
+            this.tableLayoutPanel26.Controls.Add(this.btnCreateAd, 0, 0);
+            this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel26.Location = new System.Drawing.Point(309, 369);
+            this.tableLayoutPanel26.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel26.Name = "tableLayoutPanel26";
+            this.tableLayoutPanel26.RowCount = 1;
+            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel26.Size = new System.Drawing.Size(295, 46);
+            this.tableLayoutPanel26.TabIndex = 9;
+            // 
+            // btnToFile
+            // 
+            this.btnToFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.btnToFile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnToFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
+            this.btnToFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnToFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnToFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.btnToFile.Location = new System.Drawing.Point(150, 3);
+            this.btnToFile.Name = "btnToFile";
+            this.btnToFile.Size = new System.Drawing.Size(142, 40);
+            this.btnToFile.TabIndex = 3;
+            this.btnToFile.Text = "Udskriv fil";
+            this.btnToFile.UseVisualStyleBackColor = false;
+            // 
+            // btnCreateAd
+            // 
+            this.btnCreateAd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.btnCreateAd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCreateAd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
+            this.btnCreateAd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateAd.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateAd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.btnCreateAd.Location = new System.Drawing.Point(3, 3);
+            this.btnCreateAd.Name = "btnCreateAd";
+            this.btnCreateAd.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCreateAd.Size = new System.Drawing.Size(141, 40);
+            this.btnCreateAd.TabIndex = 2;
+            this.btnCreateAd.Text = "Opret annonce";
+            this.btnCreateAd.UseVisualStyleBackColor = false;
+            // 
+            // tableLayoutPanel27
+            // 
+            this.tableLayoutPanel27.ColumnCount = 2;
+            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel27.Controls.Add(this.rtbTimeFrame, 0, 0);
+            this.tableLayoutPanel27.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel27.Location = new System.Drawing.Point(0, 369);
+            this.tableLayoutPanel27.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel27.Name = "tableLayoutPanel27";
+            this.tableLayoutPanel27.RowCount = 1;
+            this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel27.Size = new System.Drawing.Size(294, 46);
+            this.tableLayoutPanel27.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(141, 46);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Boligsalgs tidsramme i dage";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // rtbTimeFrame
+            // 
+            this.rtbTimeFrame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.rtbTimeFrame.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbTimeFrame.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbTimeFrame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.rtbTimeFrame.Location = new System.Drawing.Point(150, 3);
+            this.rtbTimeFrame.Name = "rtbTimeFrame";
+            this.rtbTimeFrame.Size = new System.Drawing.Size(141, 40);
+            this.rtbTimeFrame.TabIndex = 10;
+            this.rtbTimeFrame.Text = "";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(141, 41);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Sælgers ønskede pris";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // rtbDesiredPrice
+            // 
+            this.rtbDesiredPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.rtbDesiredPrice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbDesiredPrice.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbDesiredPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.rtbDesiredPrice.Location = new System.Drawing.Point(150, 3);
+            this.rtbDesiredPrice.Name = "rtbDesiredPrice";
+            this.rtbDesiredPrice.Size = new System.Drawing.Size(142, 35);
+            this.rtbDesiredPrice.TabIndex = 12;
+            this.rtbDesiredPrice.Text = "";
+            // 
             // Sag_Edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1163,7 +1246,6 @@
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel26.ResumeLayout(false);
             this.tableLayoutPanel25.ResumeLayout(false);
             this.tableLayoutPanel25.PerformLayout();
             this.tableLayoutPanel24.ResumeLayout(false);
@@ -1176,6 +1258,8 @@
             this.tableLayoutPanel21.PerformLayout();
             this.tableLayoutPanel20.ResumeLayout(false);
             this.tableLayoutPanel20.PerformLayout();
+            this.tableLayoutPanel19.ResumeLayout(false);
+            this.tableLayoutPanel19.PerformLayout();
             this.tableLayoutPanel18.ResumeLayout(false);
             this.tableLayoutPanel18.PerformLayout();
             this.tableLayoutPanel17.ResumeLayout(false);
@@ -1198,6 +1282,9 @@
             this.tableLayoutPanel15.PerformLayout();
             this.tableLayoutPanel16.ResumeLayout(false);
             this.tableLayoutPanel16.PerformLayout();
+            this.tableLayoutPanel26.ResumeLayout(false);
+            this.tableLayoutPanel27.ResumeLayout(false);
+            this.tableLayoutPanel27.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1218,9 +1305,6 @@
         private System.Windows.Forms.RichTextBox rtbAddress;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel26;
-        private System.Windows.Forms.Button btnToFile;
-        private System.Windows.Forms.Button btnCreateAd;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel25;
         private System.Windows.Forms.RichTextBox rtbEnergyRating;
         private System.Windows.Forms.Label lblEnergyRating;
@@ -1273,5 +1357,14 @@
         private System.Windows.Forms.Label lblNrOfRooms;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox cbSellerId;
+        private System.Windows.Forms.OpenFileDialog ofdOpenPicture;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel27;
+        private System.Windows.Forms.RichTextBox rtbTimeFrame;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel26;
+        private System.Windows.Forms.Button btnToFile;
+        private System.Windows.Forms.Button btnCreateAd;
+        private System.Windows.Forms.RichTextBox rtbDesiredPrice;
+        private System.Windows.Forms.Label label2;
     }
 }

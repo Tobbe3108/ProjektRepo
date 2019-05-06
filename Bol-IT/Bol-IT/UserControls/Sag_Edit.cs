@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAccessLayer;
 using BusinessLayer;
+using System.IO;
 
 namespace Bol_IT
 {
@@ -126,6 +127,7 @@ namespace Bol_IT
             Instance.rtbZipCode.Text = property.ZipCode.ToString();
             Instance.cbGarageFlag.Checked = property.GarageFlag;
             Instance.cbSoldFlag.Checked = property.SoldFlag;
+            Instance.pbHouseImage.Image = BusinessLayerFacade.ConvertBinaryArrayToImage(DataAccessLayerFacade.GetPhotoFromId(int.Parse(id)));
         }
 
         #endregion
@@ -158,8 +160,102 @@ namespace Bol_IT
             }
             Form1.Instance.PnlContainer.Controls["Sag_ViewAll"].BringToFront();
         }
+        //Christoffer
+        private void CheckKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
 
+        //Christoffer
+        private void pbHouseImage_Click(object sender, EventArgs e)
+        {
+            if (ofdOpenPicture.ShowDialog() == DialogResult.OK)
+            {
+                Image image = Image.FromFile(ofdOpenPicture.FileName);
+                pbHouseImage.Image = image;
+            }
+        }
+
+        //Christoffer
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (AnyBoxIsEmpty())
+            {
+                MessageBox.Show("WHAT THE FUCK DID YOU JUST BRING UPON THIS CURSED LAND");
+                return;
+            }
+            else
+            {
+
+                int caseNr = DataAccessLayerFacade.CreateProperty
+                    (
+                    int.Parse(cbSellerId.Text),
+                    int.Parse(rtbDesiredPrice.Text),
+                    int.Parse(rtbTimeFrame.Text),
+                    int.Parse(rtbNetPrice.Text),
+                    int.Parse(rtbGrossPrice.Text),
+                    int.Parse(rtbOwnerExpences.Text),
+                    int.Parse(rtbCashPrice.Text),
+                    int.Parse(rtbDepositPrice.Text),
+                    rtbAddress.Text,
+                    int.Parse(rtbZipCode.Text),
+                    int.Parse(rtbNrOfRooms.Text),
+                    cbGarageFlag.Checked,
+                    rtbBuiltRebuilt.Text,
+                    rtbHouseType.Text,
+                    rtbEnergyRating.Text,
+                    int.Parse(rtbResSquareMeters.Text),
+                    int.Parse(rtbPropSquareMeters.Text),
+                    int.Parse(rtbFloors.Text),
+                    cbSoldFlag.Checked,
+                    rtbHouseDescription.Text
+                    );
+
+                DataAccessLayerFacade.CreateFile
+                    (
+                    caseNr,
+                    Path.GetFileName(pbHouseImage.ImageLocation),
+                    Path.GetExtension(pbHouseImage.ImageLocation),
+                    BusinessLayerFacade.GetPhotoFromPath(pbHouseImage.ImageLocation)
+                    );
+            }
+        }
+
+        private bool AnyBoxIsEmpty()
+        {
+            if (
+                cbSellerId.Text == string.Empty ||
+                rtbDesiredPrice.Text == string.Empty ||
+                rtbTimeFrame.Text == string.Empty ||
+                rtbNetPrice.Text == string.Empty ||
+                rtbGrossPrice.Text == string.Empty ||
+                rtbOwnerExpences.Text == string.Empty ||
+                rtbCashPrice.Text == string.Empty ||
+                rtbDepositPrice.Text == string.Empty ||
+                rtbAddress.Text == string.Empty ||
+                rtbZipCode.Text == string.Empty ||
+                rtbNrOfRooms.Text == string.Empty ||
+                rtbBuiltRebuilt.Text == string.Empty ||
+                rtbHouseType.Text == string.Empty ||
+                rtbEnergyRating.Text == string.Empty ||
+                rtbResSquareMeters.Text == string.Empty ||
+                rtbPropSquareMeters.Text == string.Empty ||
+                rtbFloors.Text == string.Empty ||
+                rtbHouseDescription.Text == string.Empty ||
+                pbHouseImage.Image == Image.FromFile("")
+                )
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         #endregion
-        
+
     }
 }

@@ -208,7 +208,6 @@
             this.rtbHouseDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbHouseDescription.Location = new System.Drawing.Point(3, 141);
             this.rtbHouseDescription.Name = "rtbHouseDescription";
-            this.rtbHouseDescription.ReadOnly = true;
             this.rtbHouseDescription.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.rtbHouseDescription.Size = new System.Drawing.Size(190, 132);
             this.rtbHouseDescription.TabIndex = 1;
@@ -711,12 +710,12 @@
             // 
             this.cbSellerId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
             this.cbSellerId.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbSellerId.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSellerId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSellerId.ForeColor = System.Drawing.SystemColors.ControlText;
             this.cbSellerId.FormattingEnabled = true;
             this.cbSellerId.Location = new System.Drawing.Point(150, 3);
             this.cbSellerId.Name = "cbSellerId";
-            this.cbSellerId.Size = new System.Drawing.Size(142, 34);
+            this.cbSellerId.Size = new System.Drawing.Size(142, 21);
             this.cbSellerId.TabIndex = 10;
             // 
             // tableLayoutPanel17

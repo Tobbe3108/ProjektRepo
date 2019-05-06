@@ -77,6 +77,15 @@ namespace DataAccessLayer
 
         #region Property
 
+        //Christoffer
+        public static int CreateProperty(int sId, int desiredPrice, int timeFrame, int netPrice, int grossPrice, int ownerExpenses, int cashPrice,
+            int depositPrice, string address, int zipcode, int nrOfRooms, bool garageFlag, string builtRebuild, string houseType, string energyRating,
+             int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
+        {
+            return MethodsDataAccessLayer.CreateProperty(sId, desiredPrice, timeFrame, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms,
+                garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description);
+        }
+
         //Tobias
         public static propertyDataTable GetPropertyDataTable()
         {
@@ -99,6 +108,20 @@ namespace DataAccessLayer
         public static propertyDataTable GetZipcodes()
         {
             return MethodsDataAccessLayer.GetZipcodes();
+        }
+
+        #endregion
+
+        #region File
+
+        public static void CreateFile(int caseNr, string nameOfFile, string extOfFile, byte[] dataOfFile)
+        {
+            MethodsDataAccessLayer.CreateFile(caseNr, nameOfFile, extOfFile, dataOfFile);
+        }
+        
+        public static byte[] GetPhotoFromId(int id)
+        {
+            return MethodsDataAccessLayer.GetPhotoFromId(id);
         }
 
         #endregion

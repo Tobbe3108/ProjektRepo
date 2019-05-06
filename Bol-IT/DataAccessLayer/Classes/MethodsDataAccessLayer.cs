@@ -54,14 +54,22 @@ namespace DataAccessLayer
         }
 
         //Christoffer
-        public static void CreateProperty(int sId, int desiredPrice, int timeFrame, int netPrice, int grossPrice, int ownerExpenses, int cashPrice,
+        public static int CreateProperty(int sId, int desiredPrice, int timeFrame, int netPrice, int grossPrice, int ownerExpenses, int cashPrice,
             int depositPrice, string address, int zipcode, int nrOfRooms, bool garageFlag, string builtRebuild, string houseType, string energyRating,
              int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
         {
-            int caseNr = propertyTableAdapter.InsertData(netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms,
+            int caseNr = propertyTableAdapter.InsertQuery(netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms,
                 garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description);
+            
 
             wantsToSellTableAdapter.InsertData(sId, caseNr, desiredPrice, timeFrame);
+
+            return caseNr;
+        }
+
+        public static void CreateFile(int caseNr, string nameOfFile, string extOfFile, byte[] dataOfFile)
+        {
+            filesTableAdapter.InsertData(caseNr, nameOfFile, extOfFile, dataOfFile);
         }
 
 
@@ -83,6 +91,22 @@ namespace DataAccessLayer
             agentDataTable adt = new agentDataTable();
             agentTableAdapter.FillByLike(adt, searchParameters);
             return adt;
+        }
+
+        //Christoffer
+        public static byte[] GetPhotoFromId(int id)
+        {
+            filesDataTable files = filesTableAdapter.GetDataByCaseNr(id);
+
+            for (int i = 0; i < files.Rows.Count; i++)
+            {
+                if ((string)files.Rows[i][2] == "jpg" || (string)files.Rows[i][2] == "png")
+                {
+                    return (byte[])files.Rows[i][3];
+                }
+            }
+
+            return null;
         }
 
         //Christoffer
