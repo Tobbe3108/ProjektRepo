@@ -42,7 +42,8 @@
             this.dudMonth = new System.Windows.Forms.DomainUpDown();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btnToFile = new System.Windows.Forms.Button();
-            this.btnStatistic = new System.Windows.Forms.Button();
+            this.lblYear = new System.Windows.Forms.Label();
+            this.dudYear = new System.Windows.Forms.DomainUpDown();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -83,8 +84,9 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(860, 203);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
@@ -124,11 +126,16 @@
             this.cbStatistic.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbStatistic.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.cbStatistic.FormattingEnabled = true;
+            this.cbStatistic.Items.AddRange(new object[] {
+            "Område salgsstatistik",
+            "Kvadratmeterpris salgsstatistik"});
             this.cbStatistic.Location = new System.Drawing.Point(221, 6);
             this.cbStatistic.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cbStatistic.Name = "cbStatistic";
             this.cbStatistic.Size = new System.Drawing.Size(633, 31);
             this.cbStatistic.TabIndex = 1;
+            this.cbStatistic.Text = "Vælg";
+            this.cbStatistic.SelectedIndexChanged += new System.EventHandler(this.cbStatistic_SelectedIndexChanged);
             // 
             // tableLayoutPanel4
             // 
@@ -143,7 +150,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(860, 50);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(860, 101);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // tableLayoutPanel6
@@ -159,7 +166,7 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(430, 50);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(430, 101);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // lblArea
@@ -171,7 +178,7 @@
             this.lblArea.Location = new System.Drawing.Point(6, 0);
             this.lblArea.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblArea.Name = "lblArea";
-            this.lblArea.Size = new System.Drawing.Size(95, 50);
+            this.lblArea.Size = new System.Drawing.Size(95, 101);
             this.lblArea.TabIndex = 0;
             this.lblArea.Text = "Område";
             this.lblArea.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -187,21 +194,25 @@
             this.cbArea.Name = "cbArea";
             this.cbArea.Size = new System.Drawing.Size(311, 31);
             this.cbArea.TabIndex = 1;
+            this.cbArea.Text = "Vælg";
             // 
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.ColumnCount = 2;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel7.Controls.Add(this.lblYear, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.lblMonth, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.dudMonth, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.dudYear, 1, 1);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(430, 0);
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(430, 50);
+            this.tableLayoutPanel7.RowCount = 2;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(430, 101);
             this.tableLayoutPanel7.TabIndex = 1;
             // 
             // lblMonth
@@ -244,18 +255,17 @@
             // 
             // tableLayoutPanel5
             // 
-            this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel5.Controls.Add(this.btnToFile, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.btnStatistic, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 100);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 151);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(860, 103);
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(860, 52);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // btnToFile
@@ -266,29 +276,52 @@
             this.btnToFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnToFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnToFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnToFile.Location = new System.Drawing.Point(436, 6);
-            this.btnToFile.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnToFile.Location = new System.Drawing.Point(6, 6);
+            this.btnToFile.Margin = new System.Windows.Forms.Padding(6);
             this.btnToFile.Name = "btnToFile";
-            this.btnToFile.Size = new System.Drawing.Size(418, 91);
+            this.btnToFile.Size = new System.Drawing.Size(848, 40);
             this.btnToFile.TabIndex = 3;
             this.btnToFile.Text = "Udskriv fil";
             this.btnToFile.UseVisualStyleBackColor = false;
+            this.btnToFile.Click += new System.EventHandler(this.btnToFile_Click);
             // 
-            // btnStatistic
+            // lblYear
             // 
-            this.btnStatistic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.btnStatistic.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnStatistic.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
-            this.btnStatistic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStatistic.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStatistic.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnStatistic.Location = new System.Drawing.Point(6, 6);
-            this.btnStatistic.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.btnStatistic.Name = "btnStatistic";
-            this.btnStatistic.Size = new System.Drawing.Size(418, 91);
-            this.btnStatistic.TabIndex = 2;
-            this.btnStatistic.Text = "Se statistik";
-            this.btnStatistic.UseVisualStyleBackColor = false;
+            this.lblYear.AutoSize = true;
+            this.lblYear.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblYear.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.lblYear.Location = new System.Drawing.Point(6, 50);
+            this.lblYear.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblYear.Name = "lblYear";
+            this.lblYear.Size = new System.Drawing.Size(95, 51);
+            this.lblYear.TabIndex = 2;
+            this.lblYear.Text = "År";
+            this.lblYear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dudYear
+            // 
+            this.dudYear.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dudYear.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dudYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.dudYear.Items.Add("Januar");
+            this.dudYear.Items.Add("Februar");
+            this.dudYear.Items.Add("Marts");
+            this.dudYear.Items.Add("April");
+            this.dudYear.Items.Add("Maj");
+            this.dudYear.Items.Add("Juni");
+            this.dudYear.Items.Add("Juli");
+            this.dudYear.Items.Add("August");
+            this.dudYear.Items.Add("September");
+            this.dudYear.Items.Add("Oktober");
+            this.dudYear.Items.Add("November");
+            this.dudYear.Items.Add("December");
+            this.dudYear.Location = new System.Drawing.Point(113, 56);
+            this.dudYear.Margin = new System.Windows.Forms.Padding(6);
+            this.dudYear.Name = "dudYear";
+            this.dudYear.Size = new System.Drawing.Size(311, 31);
+            this.dudYear.TabIndex = 3;
+            this.dudYear.Text = "Vælg";
             // 
             // Messagebox_Statistic
             // 
@@ -330,6 +363,7 @@
         private System.Windows.Forms.ComboBox cbStatistic;
         private System.Windows.Forms.ComboBox cbArea;
         private System.Windows.Forms.Button btnToFile;
-        private System.Windows.Forms.Button btnStatistic;
+        private System.Windows.Forms.Label lblYear;
+        private System.Windows.Forms.DomainUpDown dudYear;
     }
 }

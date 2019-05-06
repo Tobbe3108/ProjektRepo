@@ -8576,8 +8576,13 @@ WHERE (address LIKE '%' + @searchParameters + '%') OR
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
+            try
+            {
+                int returnValue = this.Adapter.Fill(dataTable);
+                return returnValue;
+            }
+            catch (System.Exception){}
+            return 0;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
