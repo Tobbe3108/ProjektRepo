@@ -66,7 +66,7 @@
             this.lblGrossPrice = new System.Windows.Forms.Label();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
-            this.SellerIdCb = new System.Windows.Forms.ComboBox();
+            this.cbSellerId = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
             this.lblSoldFlag = new System.Windows.Forms.Label();
@@ -688,7 +688,7 @@
             this.tableLayoutPanel18.ColumnCount = 2;
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel18.Controls.Add(this.SellerIdCb, 0, 0);
+            this.tableLayoutPanel18.Controls.Add(this.cbSellerId, 0, 0);
             this.tableLayoutPanel18.Controls.Add(this.label12, 0, 0);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel18.Location = new System.Drawing.Point(309, 82);
@@ -699,16 +699,16 @@
             this.tableLayoutPanel18.Size = new System.Drawing.Size(295, 41);
             this.tableLayoutPanel18.TabIndex = 1;
             // 
-            // SellerIdCb
+            // cbSellerId
             // 
-            this.SellerIdCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.SellerIdCb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SellerIdCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SellerIdCb.FormattingEnabled = true;
-            this.SellerIdCb.Location = new System.Drawing.Point(150, 3);
-            this.SellerIdCb.Name = "SellerIdCb";
-            this.SellerIdCb.Size = new System.Drawing.Size(142, 34);
-            this.SellerIdCb.TabIndex = 11;
+            this.cbSellerId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbSellerId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.cbSellerId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSellerId.FormattingEnabled = true;
+            this.cbSellerId.Location = new System.Drawing.Point(150, 17);
+            this.cbSellerId.Name = "cbSellerId";
+            this.cbSellerId.Size = new System.Drawing.Size(142, 21);
+            this.cbSellerId.TabIndex = 11;
             // 
             // label12
             // 
@@ -1272,6 +1272,6 @@
         private System.Windows.Forms.CheckBox cbGarageFlag;
         private System.Windows.Forms.Label lblNrOfRooms;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox SellerIdCb;
+        private System.Windows.Forms.ComboBox cbSellerId;
     }
 }

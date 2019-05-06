@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataAccessLayer;
+using BusinessLayer;
 
 namespace Bol_IT
 {
@@ -43,6 +45,10 @@ namespace Bol_IT
         {
             //Eager initialization af singleton instance
             _instance = this;
+
+            List<Seller> sellers = DataAccessLayerFacade.GetSellers();
+            sellers.ForEach(seller => cbSellerId.Items.Add(seller.SId));
+            sellers.ForEach(seller => cbSellerId.AutoCompleteCustomSource.Add(seller.SId.ToString()));
         }
 
         #endregion
@@ -94,8 +100,15 @@ namespace Bol_IT
             }
         }
 
+
         #endregion
 
-
+        private void CheckKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
