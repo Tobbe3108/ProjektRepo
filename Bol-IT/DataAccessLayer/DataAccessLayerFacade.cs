@@ -83,6 +83,12 @@ namespace DataAccessLayer
             return MethodsDataAccessLayer.GetProperty(id);
         }
 
+        //Tobias
+        public static propertyDataTable GetZipcodes()
+        {
+            return MethodsDataAccessLayer.GetZipcodes();
+        }
+
         #endregion
     }
 }
