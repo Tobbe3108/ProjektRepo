@@ -108,7 +108,7 @@
             this.rtbSearch.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbSearch.Location = new System.Drawing.Point(6, 52);
-            this.rtbSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rtbSearch.Margin = new System.Windows.Forms.Padding(6);
             this.rtbSearch.Name = "rtbSearch";
             this.rtbSearch.Size = new System.Drawing.Size(387, 34);
             this.rtbSearch.TabIndex = 2;
@@ -212,6 +212,7 @@
             this.btnDistribute.TabIndex = 5;
             this.btnDistribute.Text = "Fordel";
             this.btnDistribute.UseVisualStyleBackColor = true;
+            this.btnDistribute.Click += new System.EventHandler(this.btnDistribute_Click);
             // 
             // tableLayoutPanel8
             // 

@@ -52,11 +52,11 @@ namespace Bol_IT
             cbSearchParam.SelectedIndex = 0;
 
             //tilføjer kolonner til de 2 datatables til brug i dgvDistribution
-            agentDistributionTable.Columns.Add("aId");
+            agentDistributionTable.Columns.Add("aId", typeof(int));
             agentDistributionTable.Columns.Add("nrOfSales");
             dgvDistribution.DataSource = agentDistributionTable;
 
-            propDistributionTable.Columns.Add("caseNr");
+            propDistributionTable.Columns.Add("caseNr", typeof(int));
             propDistributionTable.Columns.Add("address");
             propDistributionTable.Columns.Add("zipcode");
             propDistributionTable.Columns.Add("builtRebuild");
@@ -225,5 +225,28 @@ namespace Bol_IT
         }
 
         #endregion
+
+        private void btnDistribute_Click(object sender, EventArgs e)
+        {
+            dgvDistribution.DataSource = null;
+            dgvDistribution.Columns.RemoveAt(0);
+
+            Agent[] agents = new Agent[agentDistributionTable.Rows.Count];
+            Property[] properties = new Property[propDistributionTable.Rows.Count];
+
+            for (int i = 0; i <= agentDistributionTable.Rows.Count-1; i++)
+            {
+                agents[i] = DataAccessLayerFacade.GetAgentById((int)agentDistributionTable.Rows[i][0]);
+            }
+
+            for (int i = 0; i <= propDistributionTable.Rows.Count-1; i++)
+            {
+                properties[i] = DataAccessLayerFacade.GetProperty((int)propDistributionTable.Rows[i][0]);
+            }
+
+            dgvDistribution.DataSource = OpenHouseMethods.DistributeHouses(agents,properties,cbDistribution.SelectedIndex);
+            dgvDistribution.Sort(dgvDistribution.Columns["aId"], ListSortDirection.Ascending);
+
+        }
     }
 }

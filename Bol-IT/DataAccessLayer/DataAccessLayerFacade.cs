@@ -61,6 +61,11 @@ namespace DataAccessLayer
             return MethodsDataAccessLayer.GetAgentDataTableByLike(searchParameters);
         }
 
+        public static Agent GetAgentById(int id)
+        {
+            return MethodsDataAccessLayer.GetAgentById(id);
+        }
+
         #endregion
 
         #region Property

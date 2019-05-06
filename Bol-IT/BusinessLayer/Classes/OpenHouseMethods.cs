@@ -2,48 +2,48 @@
 using System.Collections.Generic;
 using System.Text;
 using BusinessLayer;
+using System.Data;
 
 namespace BusinessLayer
 {
-    class OpenHouseMethods
+    public class OpenHouseMethods
     {
         public static Property[] maxHob = new Property[0];
 
-        public static object[,] DistributeHouses(Agent[] agentsArray, Property[] propertiesArray, bool sortMethod)
+        public static DataTable DistributeHouses(Agent[] agentsArray, Property[] propertiesArray, int sortMethod)
         {
-            object[,] distribution = new object[agentsArray.Length, (propertiesArray.Length - 1 / agentsArray.Length - 1)];
+            DataTable distribution = new DataTable();
 
-            if (sortMethod)
+            distribution.Columns.Add("AId");
+            distribution.Columns.Add("CaseNr");
+            distribution.Columns.Add("CashPrice");
+
+            switch (sortMethod)
             {
-                foreach (Property property in propertiesArray)
-                {
-                    Insert(property);
-                }
-
-                for (int i = 0; i <= agentsArray.Length - 1; i++)
-                {
-                    distribution[i, 0] = agentsArray[i].AId;
-                }
-
-                while (maxHob.Length != 0)
-                {
-                    for (int i = 1; i <= propertiesArray.Length - 1 / agentsArray.Length - 1; i++)
+                case 0:
+                    foreach (Property property in propertiesArray)
                     {
-                        for (int j = 0; j <= agentsArray.Length - 1; j++)
-                        {
-                            if (maxHob.Length != 0)
+                        Insert(property);
+                    }
+
+                    while (maxHob.Length != 0)
+                    {
+                            for (int j = 0; j <= agentsArray.Length - 1; j++)
                             {
-                                distribution[j, i] = DeleteFirstNode().CashPrice;
-                            }
+                                if (maxHob.Length != 0)
+                                {
+                                    Property property = DeleteFirstNode();
+                                    distribution.Rows.Add(agentsArray[j].AId, property.CaseNr, property.CashPrice);
+                                }
                         }
                     }
-                }
+                    break;
+                case 1:
+                    throw new NotImplementedException();
+                    break;
+                default:
+                    break;
             }
-            else
-            {
-
-            }
-
             return distribution;
         }
 
