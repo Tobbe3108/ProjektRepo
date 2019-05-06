@@ -59,7 +59,7 @@ namespace Bol_IT
             btnSave.Font = new Font(btnSave.Font.FontFamily, this.Size.Height / 50);
             rtbAddress.Font = new Font(rtbAddress.Font.FontFamily, this.Size.Height / 30);
             rtbHouseDescription.Font = new Font(rtbHouseDescription.Font.FontFamily, this.Size.Height / 50);
-            rtbPrice.Font = new Font(rtbPrice.Font.FontFamily, this.Size.Height / 50);
+            rtbCashPrice.Font = new Font(rtbCashPrice.Font.FontFamily, this.Size.Height / 50);
         }
 
         #endregion
