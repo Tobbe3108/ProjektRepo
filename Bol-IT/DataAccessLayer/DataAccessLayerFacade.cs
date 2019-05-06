@@ -49,6 +49,11 @@ namespace DataAccessLayer
             MethodsDataAccessLayer.CreateAgent(fName, mName, lName, phoneNr, address, zipcode, mail, nrOfSales);
         }
 
+        public static Agent GetAgentById(int id)
+        {
+            return MethodsDataAccessLayer.GetAgentById(id);
+        }
+
         //Tobias
         public static agentDataTable GetAgentDataTable()
         {

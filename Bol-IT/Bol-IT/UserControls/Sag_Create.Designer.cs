@@ -66,7 +66,6 @@
             this.richTextBox13 = new System.Windows.Forms.RichTextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
-            this.richTextBox12 = new System.Windows.Forms.RichTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
             this.richTextBox11 = new System.Windows.Forms.RichTextBox();
@@ -98,6 +97,7 @@
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.richTextBox9 = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -699,8 +699,8 @@
             this.tableLayoutPanel18.ColumnCount = 2;
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel18.Controls.Add(this.richTextBox12, 1, 0);
             this.tableLayoutPanel18.Controls.Add(this.label12, 0, 0);
+            this.tableLayoutPanel18.Controls.Add(this.comboBox1, 1, 0);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel18.Location = new System.Drawing.Point(309, 82);
             this.tableLayoutPanel18.Margin = new System.Windows.Forms.Padding(0);
@@ -709,18 +709,6 @@
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel18.Size = new System.Drawing.Size(295, 41);
             this.tableLayoutPanel18.TabIndex = 1;
-            // 
-            // richTextBox12
-            // 
-            this.richTextBox12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.richTextBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox12.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.richTextBox12.Location = new System.Drawing.Point(150, 3);
-            this.richTextBox12.Name = "richTextBox12";
-            this.richTextBox12.Size = new System.Drawing.Size(142, 35);
-            this.richTextBox12.TabIndex = 10;
-            this.richTextBox12.Text = "";
             // 
             // label12
             // 
@@ -733,7 +721,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(141, 41);
             this.label12.TabIndex = 9;
-            this.label12.Text = "Temp";
+            this.label12.Text = "Sælger";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel17
@@ -805,7 +793,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(141, 41);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Temp";
+            this.label2.Text = "Sags nummer";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // richTextBox2
@@ -889,7 +877,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(141, 41);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Temp";
+            this.label3.Text = "Boligtype";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // richTextBox3
@@ -943,7 +931,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(141, 41);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Temp";
+            this.label4.Text = "Boligareal";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel12
@@ -1158,6 +1146,18 @@
             this.label9.Text = "Temp";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(150, 3);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(142, 34);
+            this.comboBox1.TabIndex = 10;
+            // 
             // Sag_Create
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1267,7 +1267,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.RichTextBox richTextBox13;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.RichTextBox richTextBox12;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.RichTextBox richTextBox11;
         private System.Windows.Forms.Label label11;
@@ -1289,5 +1288,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RichTextBox richTextBox9;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
