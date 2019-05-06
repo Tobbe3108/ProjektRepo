@@ -53,6 +53,18 @@ namespace DataAccessLayer
             buyerTableAdapter.InsertData(id, aId);
         }
 
+        //Christoffer
+        public static void CreateProperty(int sId, int desiredPrice, int timeFrame, int netPrice, int grossPrice, int ownerExpenses, int cashPrice,
+            int depositPrice, string address, int zipcode, int nrOfRooms, bool garageFlag, string builtRebuild, string houseType, string energyRating,
+             int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
+        {
+            int caseNr = propertyTableAdapter.InsertData(netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms,
+                garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description);
+
+            wantsToSellTableAdapter.InsertData(sId, caseNr, desiredPrice, timeFrame);
+        }
+
+
         #endregion CreateMethods
 
         #region SearchMethods
@@ -86,6 +98,14 @@ namespace DataAccessLayer
         {
             propertyDataTable pdt = new propertyDataTable();
             propertyTableAdapter.FillByLike(pdt, searchParameters);
+            return pdt;
+        }
+
+        //Tobias
+        public static propertyDataTable GetZipcodes()
+        {
+            propertyDataTable pdt = new propertyDataTable();
+            propertyTableAdapter.GetZipcodes(pdt);
             return pdt;
         }
 

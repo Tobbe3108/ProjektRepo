@@ -66,8 +66,11 @@
             this.lblGrossPrice = new System.Windows.Forms.Label();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
+            this.cbSellerId = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
             this.lblSoldFlag = new System.Windows.Forms.Label();
+            this.cbSoldFlag = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.lblCaseNr = new System.Windows.Forms.Label();
             this.rtbCaseNr = new System.Windows.Forms.RichTextBox();
@@ -95,7 +98,6 @@
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.lblGarageFlag = new System.Windows.Forms.Label();
             this.cbGarageFlag = new System.Windows.Forms.CheckBox();
-            this.cbSoldFlag = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -111,6 +113,7 @@
             this.tableLayoutPanel22.SuspendLayout();
             this.tableLayoutPanel21.SuspendLayout();
             this.tableLayoutPanel20.SuspendLayout();
+            this.tableLayoutPanel18.SuspendLayout();
             this.tableLayoutPanel17.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
@@ -685,6 +688,8 @@
             this.tableLayoutPanel18.ColumnCount = 2;
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel18.Controls.Add(this.cbSellerId, 0, 0);
+            this.tableLayoutPanel18.Controls.Add(this.label12, 0, 0);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel18.Location = new System.Drawing.Point(309, 82);
             this.tableLayoutPanel18.Margin = new System.Windows.Forms.Padding(0);
@@ -693,6 +698,31 @@
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel18.Size = new System.Drawing.Size(295, 41);
             this.tableLayoutPanel18.TabIndex = 1;
+            // 
+            // cbSellerId
+            // 
+            this.cbSellerId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.cbSellerId.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbSellerId.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSellerId.FormattingEnabled = true;
+            this.cbSellerId.Location = new System.Drawing.Point(150, 3);
+            this.cbSellerId.Name = "cbSellerId";
+            this.cbSellerId.Size = new System.Drawing.Size(142, 34);
+            this.cbSellerId.TabIndex = 11;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label12.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.label12.Location = new System.Drawing.Point(3, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(141, 41);
+            this.label12.TabIndex = 10;
+            this.label12.Text = "Sælger";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel17
             // 
@@ -723,6 +753,16 @@
             this.lblSoldFlag.TabIndex = 9;
             this.lblSoldFlag.Text = "Solgt";
             this.lblSoldFlag.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // cbSoldFlag
+            // 
+            this.cbSoldFlag.AutoSize = true;
+            this.cbSoldFlag.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbSoldFlag.Location = new System.Drawing.Point(150, 3);
+            this.cbSoldFlag.Name = "cbSoldFlag";
+            this.cbSoldFlag.Size = new System.Drawing.Size(142, 35);
+            this.cbSoldFlag.TabIndex = 10;
+            this.cbSoldFlag.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel8
             // 
@@ -1104,16 +1144,6 @@
             this.cbGarageFlag.TabIndex = 8;
             this.cbGarageFlag.UseVisualStyleBackColor = true;
             // 
-            // cbSoldFlag
-            // 
-            this.cbSoldFlag.AutoSize = true;
-            this.cbSoldFlag.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbSoldFlag.Location = new System.Drawing.Point(150, 3);
-            this.cbSoldFlag.Name = "cbSoldFlag";
-            this.cbSoldFlag.Size = new System.Drawing.Size(142, 35);
-            this.cbSoldFlag.TabIndex = 10;
-            this.cbSoldFlag.UseVisualStyleBackColor = true;
-            // 
             // Sag_Edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1146,6 +1176,8 @@
             this.tableLayoutPanel21.PerformLayout();
             this.tableLayoutPanel20.ResumeLayout(false);
             this.tableLayoutPanel20.PerformLayout();
+            this.tableLayoutPanel18.ResumeLayout(false);
+            this.tableLayoutPanel18.PerformLayout();
             this.tableLayoutPanel17.ResumeLayout(false);
             this.tableLayoutPanel17.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
@@ -1239,5 +1271,7 @@
         private System.Windows.Forms.CheckBox cbSoldFlag;
         private System.Windows.Forms.CheckBox cbGarageFlag;
         private System.Windows.Forms.Label lblNrOfRooms;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cbSellerId;
     }
 }

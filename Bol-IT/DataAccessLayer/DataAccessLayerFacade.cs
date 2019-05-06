@@ -29,6 +29,12 @@ namespace DataAccessLayer
             MethodsDataAccessLayer.CreateSeller(fName, mName, lName, phoneNr, address, zipcode, mail, aId);
         }
 
+        //Christoffer
+        public static List<Seller> GetSellers()
+        {
+            return MethodsDataAccessLayer.GetSellers();
+        }
+
         #endregion
 
         #region Buyer
@@ -47,6 +53,12 @@ namespace DataAccessLayer
         public static void CreateAgent(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int nrOfSales)
         {
             MethodsDataAccessLayer.CreateAgent(fName, mName, lName, phoneNr, address, zipcode, mail, nrOfSales);
+        }
+
+        //Christoffer
+        public static Agent GetAgentById(int id)
+        {
+            return MethodsDataAccessLayer.GetAgentById(id);
         }
 
         //Tobias
@@ -86,6 +98,12 @@ namespace DataAccessLayer
         public static Property GetProperty(int id)
         {
             return MethodsDataAccessLayer.GetProperty(id);
+        }
+
+        //Tobias
+        public static propertyDataTable GetZipcodes()
+        {
+            return MethodsDataAccessLayer.GetZipcodes();
         }
 
         #endregion

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataAccessLayer;
+using BusinessLayer;
 
 namespace Bol_IT
 {
@@ -43,6 +45,10 @@ namespace Bol_IT
         {
             //Eager initialization af singleton instance
             _instance = this;
+
+            List<Seller> sellers = DataAccessLayerFacade.GetSellers();
+            sellers.ForEach(seller => cbSellerId.Items.Add(seller.SId));
+            sellers.ForEach(seller => cbSellerId.AutoCompleteCustomSource.Add(seller.SId.ToString()));
         }
 
         #endregion
@@ -59,7 +65,7 @@ namespace Bol_IT
             btnSave.Font = new Font(btnSave.Font.FontFamily, this.Size.Height / 50);
             rtbAddress.Font = new Font(rtbAddress.Font.FontFamily, this.Size.Height / 30);
             rtbHouseDescription.Font = new Font(rtbHouseDescription.Font.FontFamily, this.Size.Height / 50);
-            rtbPrice.Font = new Font(rtbPrice.Font.FontFamily, this.Size.Height / 50);
+            rtbCashPrice.Font = new Font(rtbCashPrice.Font.FontFamily, this.Size.Height / 50);
         }
 
         #endregion
@@ -94,8 +100,30 @@ namespace Bol_IT
             }
         }
 
+        //Christoffer
+        private void CheckKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        //Christoffer
+        private void pbHouseImage_Click(object sender, EventArgs e)
+        {
+            ofdOpenPicture.ShowDialog();
+            Image image = Image.FromFile(ofdOpenPicture.FileName);
+            pbHouseImage.Image = image;
+        }
+
+        //Christoffer
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            //DataAccessLayerFacade.CreateProperty(cbSellerId.Text, rtbDesiredPrice.Text, rtbTimeFrame.Text, rtbNetPrice.Text, );
+        }
+
+
         #endregion
-
-
     }
 }
