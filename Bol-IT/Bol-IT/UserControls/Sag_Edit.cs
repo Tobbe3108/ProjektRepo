@@ -48,6 +48,7 @@ namespace Bol_IT
 
             List<Seller> sellers = DataAccessLayerFacade.GetSellers();
             sellers.ForEach(seller => cbSellerId.Items.Add(seller.SId));
+            
         }
 
         #endregion

@@ -100,9 +100,7 @@ namespace Bol_IT
             }
         }
 
-
-        #endregion
-
+        //Christoffer
         private void CheckKeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsNumber(e.KeyChar))
@@ -110,5 +108,22 @@ namespace Bol_IT
                 e.Handled = true;
             }
         }
+
+        //Christoffer
+        private void pbHouseImage_Click(object sender, EventArgs e)
+        {
+            ofdOpenPicture.ShowDialog();
+            Image image = Image.FromFile(ofdOpenPicture.FileName);
+            pbHouseImage.Image = image;
+        }
+
+        //Christoffer
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            //DataAccessLayerFacade.CreateProperty(cbSellerId.Text, rtbDesiredPrice.Text, rtbTimeFrame.Text, rtbNetPrice.Text, );
+        }
+
+
+        #endregion
     }
 }

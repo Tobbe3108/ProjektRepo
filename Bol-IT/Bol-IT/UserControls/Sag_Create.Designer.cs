@@ -65,7 +65,7 @@
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.label12 = new System.Windows.Forms.Label();
-            this.SellerIdCb = new System.Windows.Forms.ComboBox();
+            this.cbSellerId = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
             this.cbSoldFlag = new System.Windows.Forms.CheckBox();
@@ -96,6 +96,11 @@
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
             this.cbGarageFlag = new System.Windows.Forms.CheckBox();
+            this.ofdOpenPicture = new System.Windows.Forms.OpenFileDialog();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.rtbTimeFrame = new System.Windows.Forms.RichTextBox();
+            this.rtbDesiredPrice = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -104,12 +109,14 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
+            this.tableLayoutPanel26.SuspendLayout();
             this.tableLayoutPanel25.SuspendLayout();
             this.tableLayoutPanel24.SuspendLayout();
             this.tableLayoutPanel23.SuspendLayout();
             this.tableLayoutPanel22.SuspendLayout();
             this.tableLayoutPanel21.SuspendLayout();
             this.tableLayoutPanel20.SuspendLayout();
+            this.tableLayoutPanel19.SuspendLayout();
             this.tableLayoutPanel18.SuspendLayout();
             this.tableLayoutPanel17.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
@@ -188,6 +195,7 @@
             this.pbHouseImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbHouseImage.TabIndex = 0;
             this.pbHouseImage.TabStop = false;
+            this.pbHouseImage.Click += new System.EventHandler(this.pbHouseImage_Click);
             this.pbHouseImage.DragDrop += new System.Windows.Forms.DragEventHandler(this.pbHouseImage_DragDrop);
             this.pbHouseImage.DragEnter += new System.Windows.Forms.DragEventHandler(this.pbHouseImage_DragEnter);
             // 
@@ -237,6 +245,7 @@
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Gem";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -388,6 +397,8 @@
             this.tableLayoutPanel26.ColumnCount = 2;
             this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel26.Controls.Add(this.rtbTimeFrame, 0, 0);
+            this.tableLayoutPanel26.Controls.Add(this.label13, 0, 0);
             this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel26.Location = new System.Drawing.Point(0, 369);
             this.tableLayoutPanel26.Margin = new System.Windows.Forms.Padding(0);
@@ -410,6 +421,7 @@
             this.tableLayoutPanel25.Name = "tableLayoutPanel25";
             this.tableLayoutPanel25.RowCount = 1;
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel25.Size = new System.Drawing.Size(294, 41);
             this.tableLayoutPanel25.TabIndex = 1;
             // 
@@ -654,6 +666,8 @@
             this.tableLayoutPanel19.ColumnCount = 2;
             this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel19.Controls.Add(this.rtbDesiredPrice, 0, 0);
+            this.tableLayoutPanel19.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel19.Location = new System.Drawing.Point(309, 123);
             this.tableLayoutPanel19.Margin = new System.Windows.Forms.Padding(0);
@@ -669,7 +683,7 @@
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel18.Controls.Add(this.label12, 0, 0);
-            this.tableLayoutPanel18.Controls.Add(this.SellerIdCb, 1, 0);
+            this.tableLayoutPanel18.Controls.Add(this.cbSellerId, 1, 0);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel18.Location = new System.Drawing.Point(309, 82);
             this.tableLayoutPanel18.Margin = new System.Windows.Forms.Padding(0);
@@ -693,17 +707,17 @@
             this.label12.Text = "Sælger";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // SellerIdCb
+            // cbSellerId
             // 
-            this.SellerIdCb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.SellerIdCb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SellerIdCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SellerIdCb.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.SellerIdCb.FormattingEnabled = true;
-            this.SellerIdCb.Location = new System.Drawing.Point(150, 3);
-            this.SellerIdCb.Name = "SellerIdCb";
-            this.SellerIdCb.Size = new System.Drawing.Size(142, 34);
-            this.SellerIdCb.TabIndex = 10;
+            this.cbSellerId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.cbSellerId.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbSellerId.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSellerId.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cbSellerId.FormattingEnabled = true;
+            this.cbSellerId.Location = new System.Drawing.Point(150, 3);
+            this.cbSellerId.Name = "cbSellerId";
+            this.cbSellerId.Size = new System.Drawing.Size(142, 34);
+            this.cbSellerId.TabIndex = 10;
             // 
             // tableLayoutPanel17
             // 
@@ -740,7 +754,7 @@
             this.cbSoldFlag.AutoSize = true;
             this.cbSoldFlag.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbSoldFlag.Location = new System.Drawing.Point(149, 2);
-            this.cbSoldFlag.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbSoldFlag.Margin = new System.Windows.Forms.Padding(2);
             this.cbSoldFlag.Name = "cbSoldFlag";
             this.cbSoldFlag.Size = new System.Drawing.Size(144, 37);
             this.cbSoldFlag.TabIndex = 10;
@@ -1119,11 +1133,63 @@
             this.cbGarageFlag.AutoSize = true;
             this.cbGarageFlag.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbGarageFlag.Location = new System.Drawing.Point(149, 2);
-            this.cbGarageFlag.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbGarageFlag.Margin = new System.Windows.Forms.Padding(2);
             this.cbGarageFlag.Name = "cbGarageFlag";
             this.cbGarageFlag.Size = new System.Drawing.Size(143, 37);
             this.cbGarageFlag.TabIndex = 8;
             this.cbGarageFlag.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(141, 41);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Sælgers ønskede pris";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label13.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.label13.Location = new System.Drawing.Point(3, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(141, 46);
+            this.label13.TabIndex = 11;
+            this.label13.Text = "Boligsalgs tidsramme i dage";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // rtbTimeFrame
+            // 
+            this.rtbTimeFrame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.rtbTimeFrame.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbTimeFrame.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbTimeFrame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.rtbTimeFrame.Location = new System.Drawing.Point(150, 3);
+            this.rtbTimeFrame.Name = "rtbTimeFrame";
+            this.rtbTimeFrame.Size = new System.Drawing.Size(141, 40);
+            this.rtbTimeFrame.TabIndex = 12;
+            this.rtbTimeFrame.Text = "";
+            // 
+            // rtbDesiredPrice
+            // 
+            this.rtbDesiredPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.rtbDesiredPrice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbDesiredPrice.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbDesiredPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.rtbDesiredPrice.Location = new System.Drawing.Point(150, 3);
+            this.rtbDesiredPrice.Name = "rtbDesiredPrice";
+            this.rtbDesiredPrice.Size = new System.Drawing.Size(142, 35);
+            this.rtbDesiredPrice.TabIndex = 11;
+            this.rtbDesiredPrice.Text = "";
             // 
             // Sag_Create
             // 
@@ -1144,6 +1210,8 @@
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel26.ResumeLayout(false);
+            this.tableLayoutPanel26.PerformLayout();
             this.tableLayoutPanel25.ResumeLayout(false);
             this.tableLayoutPanel25.PerformLayout();
             this.tableLayoutPanel24.ResumeLayout(false);
@@ -1156,6 +1224,8 @@
             this.tableLayoutPanel21.PerformLayout();
             this.tableLayoutPanel20.ResumeLayout(false);
             this.tableLayoutPanel20.PerformLayout();
+            this.tableLayoutPanel19.ResumeLayout(false);
+            this.tableLayoutPanel19.PerformLayout();
             this.tableLayoutPanel18.ResumeLayout(false);
             this.tableLayoutPanel18.PerformLayout();
             this.tableLayoutPanel17.ResumeLayout(false);
@@ -1249,8 +1319,13 @@
         private System.Windows.Forms.RichTextBox rtbFloors;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox SellerIdCb;
+        private System.Windows.Forms.ComboBox cbSellerId;
         private System.Windows.Forms.CheckBox cbSoldFlag;
         private System.Windows.Forms.CheckBox cbGarageFlag;
+        private System.Windows.Forms.OpenFileDialog ofdOpenPicture;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RichTextBox rtbTimeFrame;
+        private System.Windows.Forms.RichTextBox rtbDesiredPrice;
     }
 }
