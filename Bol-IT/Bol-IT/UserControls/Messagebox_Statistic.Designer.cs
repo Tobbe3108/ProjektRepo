@@ -39,11 +39,11 @@
             this.cbArea = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.lblMonth = new System.Windows.Forms.Label();
-            this.dudMonth = new System.Windows.Forms.DomainUpDown();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btnToFile = new System.Windows.Forms.Button();
             this.lblYear = new System.Windows.Forms.Label();
-            this.dudYear = new System.Windows.Forms.DomainUpDown();
+            this.cbMonth = new System.Windows.Forms.ComboBox();
+            this.cbYear = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -68,7 +68,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.5F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(906, 214);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(906, 236);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -86,7 +86,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(860, 203);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
@@ -164,8 +163,9 @@
             this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.RowCount = 2;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(430, 101);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
@@ -178,7 +178,7 @@
             this.lblArea.Location = new System.Drawing.Point(6, 0);
             this.lblArea.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblArea.Name = "lblArea";
-            this.lblArea.Size = new System.Drawing.Size(95, 101);
+            this.lblArea.Size = new System.Drawing.Size(95, 50);
             this.lblArea.TabIndex = 0;
             this.lblArea.Text = "Område";
             this.lblArea.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -203,8 +203,8 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel7.Controls.Add(this.lblYear, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.lblMonth, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.dudMonth, 1, 0);
-            this.tableLayoutPanel7.Controls.Add(this.dudYear, 1, 1);
+            this.tableLayoutPanel7.Controls.Add(this.cbMonth, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.cbYear, 1, 1);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(430, 0);
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
@@ -228,30 +228,6 @@
             this.lblMonth.TabIndex = 0;
             this.lblMonth.Text = "Måned";
             this.lblMonth.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // dudMonth
-            // 
-            this.dudMonth.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dudMonth.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dudMonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.dudMonth.Items.Add("Januar");
-            this.dudMonth.Items.Add("Februar");
-            this.dudMonth.Items.Add("Marts");
-            this.dudMonth.Items.Add("April");
-            this.dudMonth.Items.Add("Maj");
-            this.dudMonth.Items.Add("Juni");
-            this.dudMonth.Items.Add("Juli");
-            this.dudMonth.Items.Add("August");
-            this.dudMonth.Items.Add("September");
-            this.dudMonth.Items.Add("Oktober");
-            this.dudMonth.Items.Add("November");
-            this.dudMonth.Items.Add("December");
-            this.dudMonth.Location = new System.Drawing.Point(113, 6);
-            this.dudMonth.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.dudMonth.Name = "dudMonth";
-            this.dudMonth.Size = new System.Drawing.Size(311, 31);
-            this.dudMonth.TabIndex = 1;
-            this.dudMonth.Text = "Vælg";
             // 
             // tableLayoutPanel5
             // 
@@ -299,35 +275,44 @@
             this.lblYear.Text = "År";
             this.lblYear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // dudYear
+            // cbMonth
             // 
-            this.dudYear.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dudYear.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dudYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.dudYear.Items.Add("Januar");
-            this.dudYear.Items.Add("Februar");
-            this.dudYear.Items.Add("Marts");
-            this.dudYear.Items.Add("April");
-            this.dudYear.Items.Add("Maj");
-            this.dudYear.Items.Add("Juni");
-            this.dudYear.Items.Add("Juli");
-            this.dudYear.Items.Add("August");
-            this.dudYear.Items.Add("September");
-            this.dudYear.Items.Add("Oktober");
-            this.dudYear.Items.Add("November");
-            this.dudYear.Items.Add("December");
-            this.dudYear.Location = new System.Drawing.Point(113, 56);
-            this.dudYear.Margin = new System.Windows.Forms.Padding(6);
-            this.dudYear.Name = "dudYear";
-            this.dudYear.Size = new System.Drawing.Size(311, 31);
-            this.dudYear.TabIndex = 3;
-            this.dudYear.Text = "Vælg";
+            this.cbMonth.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbMonth.FormattingEnabled = true;
+            this.cbMonth.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
+            this.cbMonth.Location = new System.Drawing.Point(110, 3);
+            this.cbMonth.Name = "cbMonth";
+            this.cbMonth.Size = new System.Drawing.Size(317, 32);
+            this.cbMonth.TabIndex = 3;
+            this.cbMonth.Text = "Vælg";
+            // 
+            // cbYear
+            // 
+            this.cbYear.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbYear.FormattingEnabled = true;
+            this.cbYear.Location = new System.Drawing.Point(110, 53);
+            this.cbYear.Name = "cbYear";
+            this.cbYear.Size = new System.Drawing.Size(317, 32);
+            this.cbYear.TabIndex = 4;
+            this.cbYear.Text = "Vælg";
             // 
             // Messagebox_Statistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(906, 214);
+            this.ClientSize = new System.Drawing.Size(906, 236);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Messagebox_Statistic";
@@ -358,12 +343,12 @@
         private System.Windows.Forms.Label lblArea;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Label lblMonth;
-        private System.Windows.Forms.DomainUpDown dudMonth;
         private System.Windows.Forms.Label lblStatistic;
         private System.Windows.Forms.ComboBox cbStatistic;
         private System.Windows.Forms.ComboBox cbArea;
         private System.Windows.Forms.Button btnToFile;
         private System.Windows.Forms.Label lblYear;
-        private System.Windows.Forms.DomainUpDown dudYear;
+        private System.Windows.Forms.ComboBox cbMonth;
+        private System.Windows.Forms.ComboBox cbYear;
     }
 }

@@ -6,6 +6,7 @@ using BusinessLayer;
 using System.Configuration;
 using DataAccessLayer.mydatabasetobbeDataSetTableAdapters;
 using static DataAccessLayer.mydatabasetobbeDataSet;
+using System.Data;
 
 namespace DataAccessLayer
 {
@@ -99,6 +100,15 @@ namespace DataAccessLayer
         public static propertyDataTable GetZipcodes()
         {
             return MethodsDataAccessLayer.GetZipcodes();
+        }
+
+        #endregion
+
+        #region Sale
+
+        public static saleDataTable StatisticSquareMeterPrice(string SearchYear, string SearchMonth)
+        {
+            return MethodsDataAccessLayer.StatisticSquareMeterPrice(SearchYear, SearchMonth);
         }
 
         #endregion

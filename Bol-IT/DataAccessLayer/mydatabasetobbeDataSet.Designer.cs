@@ -8576,13 +8576,8 @@ WHERE (address LIKE '%' + @searchParameters + '%') OR
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
-            try
-            {
-                int returnValue = this.Adapter.Fill(dataTable);
-                return returnValue;
-            }
-            catch (System.Exception){}
-            return 0;
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9188,7 +9183,7 @@ WHERE (address LIKE '%' + @searchParameters + '%') OR
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT aId, caseNr, salesDate, salesPrice FROM dbo.sale";
@@ -9202,6 +9197,16 @@ WHERE (address LIKE '%' + @searchParameters + '%') OR
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@caseNr", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "caseNr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@salesDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "salesDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@salesPrice", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "salesPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT sale.salesDate, personalData.fName, personalData.lName, sale.aId, property.address, property.zipcode, sale.caseNr, property.propSquareMeters, sale.salesPrice, sale.salesPrice / property.propSquareMeters AS kvmPrice
+FROM   sale INNER JOIN
+           property ON property.caseNr = sale.caseNr INNER JOIN
+           personalData ON personalData.id = sale.aId
+WHERE (CAST(sale.salesDate AS VARCHAR(10)) LIKE @SearchYear + '%') AND (CAST(sale.salesDate AS VARCHAR(10)) LIKE @SearchMonth + '%_____')";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SearchYear", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SearchMonth", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9223,6 +9228,54 @@ WHERE (address LIKE '%' + @searchParameters + '%') OR
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual mydatabasetobbeDataSet.saleDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            mydatabasetobbeDataSet.saleDataTable dataTable = new mydatabasetobbeDataSet.saleDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int StatisticSquareMeterPrice(mydatabasetobbeDataSet.saleDataTable dataTable, string SearchYear, string SearchMonth) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((SearchYear == null)) {
+                throw new global::System.ArgumentNullException("SearchYear");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(SearchYear));
+            }
+            if ((SearchMonth == null)) {
+                throw new global::System.ArgumentNullException("SearchMonth");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(SearchMonth));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual mydatabasetobbeDataSet.saleDataTable GetDataBy1(string SearchYear, string SearchMonth) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((SearchYear == null)) {
+                throw new global::System.ArgumentNullException("SearchYear");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(SearchYear));
+            }
+            if ((SearchMonth == null)) {
+                throw new global::System.ArgumentNullException("SearchMonth");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(SearchMonth));
+            }
             mydatabasetobbeDataSet.saleDataTable dataTable = new mydatabasetobbeDataSet.saleDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

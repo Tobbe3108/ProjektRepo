@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -105,8 +106,21 @@ namespace DataAccessLayer
         public static propertyDataTable GetZipcodes()
         {
             propertyDataTable pdt = new propertyDataTable();
-            propertyTableAdapter.GetZipcodes(pdt);
+            try
+            {
+                propertyTableAdapter.GetZipcodes(pdt);
+            }
+            catch (Exception)
+            {}
+            
             return pdt;
+        }
+
+        public static saleDataTable StatisticSquareMeterPrice(string SearchYear, string SearchMonth)
+        {
+            saleDataTable sdt = new saleDataTable();
+            saleTableAdapter.StatisticSquareMeterPrice(sdt, SearchYear, SearchMonth);
+            return sdt;
         }
 
         #region ReturnObjects
