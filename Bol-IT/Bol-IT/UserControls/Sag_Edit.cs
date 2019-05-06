@@ -45,6 +45,9 @@ namespace Bol_IT
         {
             //Eager initialization af singleton instance
             _instance = this;
+
+            List<Seller> sellers = DataAccessLayerFacade.GetSellers();
+            sellers.ForEach(seller => cbSellerId.Items.Add(seller.SId));
         }
 
         #endregion
