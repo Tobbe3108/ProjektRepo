@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,8 @@ namespace Bol_IT
 
             //Form autosize
             Messagebox_Statistic_SizeChanged(this, new EventArgs());
+
+            DataAccessLayerFacade.GetPropertyDataTable();
         }
 
         #endregion
@@ -39,6 +42,18 @@ namespace Bol_IT
             cbStatistic.Font = new Font(cbStatistic.Font.FontFamily, this.Size.Height / 15);
             dudMonth.Font = new Font(dudMonth.Font.FontFamily, this.Size.Height / 15);
         }
+
+        #endregion
+
+        #region Methods
+
+
+
+        #endregion
+
+        #region Events
+
+
 
         #endregion
     }

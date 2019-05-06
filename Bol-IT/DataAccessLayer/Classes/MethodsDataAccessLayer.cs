@@ -101,6 +101,14 @@ namespace DataAccessLayer
             return pdt;
         }
 
+        //Tobias
+        public static propertyDataTable GetZipcodes()
+        {
+            propertyDataTable pdt = new propertyDataTable();
+            propertyTableAdapter.GetZipcodes(pdt);
+            return pdt;
+        }
+
         #region ReturnObjects
 
         //Christoffer

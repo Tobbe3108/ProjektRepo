@@ -67,7 +67,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.5F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(494, 116);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(906, 214);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -78,14 +78,14 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 0, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(12, 2);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(22, 5);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(469, 110);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(860, 203);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -101,7 +101,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(469, 27);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(860, 50);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // lblStatistic
@@ -110,9 +110,10 @@
             this.lblStatistic.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblStatistic.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatistic.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.lblStatistic.Location = new System.Drawing.Point(3, 0);
+            this.lblStatistic.Location = new System.Drawing.Point(6, 0);
+            this.lblStatistic.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblStatistic.Name = "lblStatistic";
-            this.lblStatistic.Size = new System.Drawing.Size(111, 27);
+            this.lblStatistic.Size = new System.Drawing.Size(203, 50);
             this.lblStatistic.TabIndex = 0;
             this.lblStatistic.Text = "Vælg statistik";
             this.lblStatistic.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -123,9 +124,10 @@
             this.cbStatistic.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbStatistic.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.cbStatistic.FormattingEnabled = true;
-            this.cbStatistic.Location = new System.Drawing.Point(120, 3);
+            this.cbStatistic.Location = new System.Drawing.Point(221, 6);
+            this.cbStatistic.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cbStatistic.Name = "cbStatistic";
-            this.cbStatistic.Size = new System.Drawing.Size(346, 21);
+            this.cbStatistic.Size = new System.Drawing.Size(633, 31);
             this.cbStatistic.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -136,12 +138,12 @@
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel6, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel7, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 27);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 50);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(469, 27);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(860, 50);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // tableLayoutPanel6
@@ -157,7 +159,7 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(234, 27);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(430, 50);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // lblArea
@@ -166,9 +168,10 @@
             this.lblArea.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblArea.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblArea.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.lblArea.Location = new System.Drawing.Point(3, 0);
+            this.lblArea.Location = new System.Drawing.Point(6, 0);
+            this.lblArea.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblArea.Name = "lblArea";
-            this.lblArea.Size = new System.Drawing.Size(52, 27);
+            this.lblArea.Size = new System.Drawing.Size(95, 50);
             this.lblArea.TabIndex = 0;
             this.lblArea.Text = "Område";
             this.lblArea.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -179,9 +182,10 @@
             this.cbArea.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbArea.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.cbArea.FormattingEnabled = true;
-            this.cbArea.Location = new System.Drawing.Point(61, 3);
+            this.cbArea.Location = new System.Drawing.Point(113, 6);
+            this.cbArea.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cbArea.Name = "cbArea";
-            this.cbArea.Size = new System.Drawing.Size(170, 21);
+            this.cbArea.Size = new System.Drawing.Size(311, 31);
             this.cbArea.TabIndex = 1;
             // 
             // tableLayoutPanel7
@@ -192,12 +196,12 @@
             this.tableLayoutPanel7.Controls.Add(this.lblMonth, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.dudMonth, 1, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(234, 0);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(430, 0);
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(235, 27);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(430, 50);
             this.tableLayoutPanel7.TabIndex = 1;
             // 
             // lblMonth
@@ -206,9 +210,10 @@
             this.lblMonth.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMonth.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.lblMonth.Location = new System.Drawing.Point(3, 0);
+            this.lblMonth.Location = new System.Drawing.Point(6, 0);
+            this.lblMonth.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblMonth.Name = "lblMonth";
-            this.lblMonth.Size = new System.Drawing.Size(52, 27);
+            this.lblMonth.Size = new System.Drawing.Size(95, 50);
             this.lblMonth.TabIndex = 0;
             this.lblMonth.Text = "Måned";
             this.lblMonth.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -230,9 +235,10 @@
             this.dudMonth.Items.Add("Oktober");
             this.dudMonth.Items.Add("November");
             this.dudMonth.Items.Add("December");
-            this.dudMonth.Location = new System.Drawing.Point(61, 3);
+            this.dudMonth.Location = new System.Drawing.Point(113, 6);
+            this.dudMonth.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dudMonth.Name = "dudMonth";
-            this.dudMonth.Size = new System.Drawing.Size(171, 21);
+            this.dudMonth.Size = new System.Drawing.Size(311, 31);
             this.dudMonth.TabIndex = 1;
             this.dudMonth.Text = "Vælg";
             // 
@@ -244,12 +250,12 @@
             this.tableLayoutPanel5.Controls.Add(this.btnToFile, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.btnStatistic, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 54);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 100);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(469, 56);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(860, 103);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // btnToFile
@@ -260,9 +266,10 @@
             this.btnToFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnToFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnToFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnToFile.Location = new System.Drawing.Point(237, 3);
+            this.btnToFile.Location = new System.Drawing.Point(436, 6);
+            this.btnToFile.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnToFile.Name = "btnToFile";
-            this.btnToFile.Size = new System.Drawing.Size(229, 50);
+            this.btnToFile.Size = new System.Drawing.Size(418, 91);
             this.btnToFile.TabIndex = 3;
             this.btnToFile.Text = "Udskriv fil";
             this.btnToFile.UseVisualStyleBackColor = false;
@@ -275,19 +282,21 @@
             this.btnStatistic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatistic.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStatistic.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnStatistic.Location = new System.Drawing.Point(3, 3);
+            this.btnStatistic.Location = new System.Drawing.Point(6, 6);
+            this.btnStatistic.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnStatistic.Name = "btnStatistic";
-            this.btnStatistic.Size = new System.Drawing.Size(228, 50);
+            this.btnStatistic.Size = new System.Drawing.Size(418, 91);
             this.btnStatistic.TabIndex = 2;
             this.btnStatistic.Text = "Se statistik";
             this.btnStatistic.UseVisualStyleBackColor = false;
             // 
             // Messagebox_Statistic
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 116);
+            this.ClientSize = new System.Drawing.Size(906, 214);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Messagebox_Statistic";
             this.Text = "Messagebox_Statistic";
             this.SizeChanged += new System.EventHandler(this.Messagebox_Statistic_SizeChanged);
