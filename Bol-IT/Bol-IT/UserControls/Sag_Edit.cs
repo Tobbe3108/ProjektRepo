@@ -214,11 +214,16 @@ namespace Bol_IT
                     rtbHouseDescription.Text
                     );
 
+                string[] temp = Path.GetFileName(pbHouseImage.ImageLocation).Split('.');
+
+                string fileName = temp[0];
+                string extName = temp[1];
+
                 DataAccessLayerFacade.CreateFile
                     (
                     caseNr,
-                    Path.GetFileName(pbHouseImage.ImageLocation),
-                    Path.GetExtension(pbHouseImage.ImageLocation),
+                    fileName,
+                    extName,
                     BusinessLayerFacade.GetPhotoFromPath(pbHouseImage.ImageLocation)
                     );
             }

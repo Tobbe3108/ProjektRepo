@@ -58,7 +58,7 @@ namespace DataAccessLayer
             int depositPrice, string address, int zipcode, int nrOfRooms, bool garageFlag, string builtRebuild, string houseType, string energyRating,
              int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
         {
-            int caseNr = propertyTableAdapter.InsertQuery(netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms,
+            int caseNr = (int)propertyTableAdapter.InsertData(netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms,
                 garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description);
             
 

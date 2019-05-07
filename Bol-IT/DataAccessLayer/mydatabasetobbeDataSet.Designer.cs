@@ -8452,7 +8452,7 @@ SELECT caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, add
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, addr" +
@@ -8514,28 +8514,6 @@ VALUES (@netPrice, @grossPrice, @ownerExpenses, @cashPrice, @depositPrice, @addr
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@floors", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "floors", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@soldFlag", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "soldFlag", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@description", global::System.Data.SqlDbType.Text, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = @"INSERT INTO [dbo].[property] ([netPrice], [grossPrice], [ownerExpenses], [cashPrice], [depositPrice], [address], [zipcode], [nrOfRooms], [garageFlag], [builtRebuild], [houseType], [energyRating], [resSquareMeters], [propSquareMeters], [floors], [soldFlag], [description]) VALUES (@netPrice, @grossPrice, @ownerExpenses, @cashPrice, @depositPrice, @address, @zipcode, @nrOfRooms, @garageFlag, @builtRebuild, @houseType, @energyRating, @resSquareMeters, @propSquareMeters, @floors, @soldFlag, @description);
-SELECT @@IDENTITY;";
-            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@netPrice", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "netPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@grossPrice", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "grossPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ownerExpenses", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ownerExpenses", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cashPrice", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "cashPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@depositPrice", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "depositPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zipcode", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "zipcode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nrOfRooms", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "nrOfRooms", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@garageFlag", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "garageFlag", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@builtRebuild", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "builtRebuild", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@houseType", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "houseType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@energyRating", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "energyRating", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@resSquareMeters", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "resSquareMeters", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@propSquareMeters", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "propSquareMeters", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@floors", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "floors", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@soldFlag", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "soldFlag", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@description", global::System.Data.SqlDbType.Text, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9014,7 +8992,7 @@ SELECT @@IDENTITY;";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertData(
+        public virtual object InsertData(
                     int netPrice, 
                     int grossPrice, 
                     int ownerExpenses, 
@@ -9080,98 +9058,22 @@ SELECT @@IDENTITY;";
                         != global::System.Data.ConnectionState.Open)) {
                 command.Connection.Open();
             }
-            int returnValue;
+            object returnValue;
             try {
-                returnValue = command.ExecuteNonQuery();
+                returnValue = command.ExecuteScalar();
             }
             finally {
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
                     command.Connection.Close();
                 }
             }
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQuery(
-                    int netPrice, 
-                    int grossPrice, 
-                    int ownerExpenses, 
-                    int cashPrice, 
-                    int depositPrice, 
-                    string address, 
-                    int zipcode, 
-                    int nrOfRooms, 
-                    bool garageFlag, 
-                    string builtRebuild, 
-                    string houseType, 
-                    string energyRating, 
-                    int resSquareMeters, 
-                    int propSquareMeters, 
-                    int floors, 
-                    bool soldFlag, 
-                    string description) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
-            command.Parameters[0].Value = ((int)(netPrice));
-            command.Parameters[1].Value = ((int)(grossPrice));
-            command.Parameters[2].Value = ((int)(ownerExpenses));
-            command.Parameters[3].Value = ((int)(cashPrice));
-            command.Parameters[4].Value = ((int)(depositPrice));
-            if ((address == null)) {
-                throw new global::System.ArgumentNullException("address");
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
             }
             else {
-                command.Parameters[5].Value = ((string)(address));
+                return ((object)(returnValue));
             }
-            command.Parameters[6].Value = ((int)(zipcode));
-            command.Parameters[7].Value = ((int)(nrOfRooms));
-            command.Parameters[8].Value = ((bool)(garageFlag));
-            if ((builtRebuild == null)) {
-                throw new global::System.ArgumentNullException("builtRebuild");
-            }
-            else {
-                command.Parameters[9].Value = ((string)(builtRebuild));
-            }
-            if ((houseType == null)) {
-                throw new global::System.ArgumentNullException("houseType");
-            }
-            else {
-                command.Parameters[10].Value = ((string)(houseType));
-            }
-            if ((energyRating == null)) {
-                throw new global::System.ArgumentNullException("energyRating");
-            }
-            else {
-                command.Parameters[11].Value = ((string)(energyRating));
-            }
-            command.Parameters[12].Value = ((int)(resSquareMeters));
-            command.Parameters[13].Value = ((int)(propSquareMeters));
-            command.Parameters[14].Value = ((int)(floors));
-            command.Parameters[15].Value = ((bool)(soldFlag));
-            if ((description == null)) {
-                throw new global::System.ArgumentNullException("description");
-            }
-            else {
-                command.Parameters[16].Value = ((string)(description));
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
         }
     }
     

@@ -61,14 +61,21 @@ namespace Bol_IT
         //Tobias
         private void Sag_Create_SizeChanged(object sender, EventArgs e)
         {
-            lblAddress.Font = new Font(lblAddress.Font.FontFamily, this.Size.Height / 25);
-            lblPrice.Font = new Font(lblPrice.Font.FontFamily, this.Size.Height / 50);
-            btnCalculatePrice.Font = new Font(btnCalculatePrice.Font.FontFamily, this.Size.Height / 50);
-            btnCancel.Font = new Font(btnCancel.Font.FontFamily, this.Size.Height / 50);
-            btnSave.Font = new Font(btnSave.Font.FontFamily, this.Size.Height / 50);
-            rtbAddress.Font = new Font(rtbAddress.Font.FontFamily, this.Size.Height / 30);
-            rtbHouseDescription.Font = new Font(rtbHouseDescription.Font.FontFamily, this.Size.Height / 50);
-            rtbCashPrice.Font = new Font(rtbCashPrice.Font.FontFamily, this.Size.Height / 50);
+            try
+            {
+                lblAddress.Font = new Font(lblAddress.Font.FontFamily, this.Size.Height / 25);
+                lblPrice.Font = new Font(lblPrice.Font.FontFamily, this.Size.Height / 50);
+                btnCalculatePrice.Font = new Font(btnCalculatePrice.Font.FontFamily, this.Size.Height / 50);
+                btnCancel.Font = new Font(btnCancel.Font.FontFamily, this.Size.Height / 50);
+                btnSave.Font = new Font(btnSave.Font.FontFamily, this.Size.Height / 50);
+                rtbAddress.Font = new Font(rtbAddress.Font.FontFamily, this.Size.Height / 30);
+                rtbHouseDescription.Font = new Font(rtbHouseDescription.Font.FontFamily, this.Size.Height / 50);
+                rtbCashPrice.Font = new Font(rtbCashPrice.Font.FontFamily, this.Size.Height / 50);
+            }
+            catch
+            {
+
+            }
         }
 
         #endregion
@@ -158,11 +165,16 @@ namespace Bol_IT
                     rtbHouseDescription.Text
                     );
 
+                string[] temp = Path.GetFileName(pbHouseImage.ImageLocation).Split('.');
+
+                string fileName = temp[0];
+                string extName = temp[1];
+
                 DataAccessLayerFacade.CreateFile
                     (
-                    caseNr,  
-                    Path.GetFileName(pbHouseImage.ImageLocation), 
-                    Path.GetExtension(pbHouseImage.ImageLocation), 
+                    caseNr,
+                    fileName,
+                    extName,
                     BusinessLayerFacade.GetPhotoFromPath(pbHouseImage.ImageLocation)
                     );
             }
