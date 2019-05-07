@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using BusinessLayer;
+using GlobalClasses;
 
 namespace Bol_IT
 {

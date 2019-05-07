@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
-using BusinessLayer;
+using GlobalClasses;
 using System.Configuration;
 using DataAccessLayer.mydatabasetobbeDataSetTableAdapters;
 using static DataAccessLayer.mydatabasetobbeDataSet;
@@ -28,6 +28,11 @@ namespace DataAccessLayer
         public static void CreateSeller(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
         {
             MethodsDataAccessLayer.CreateSeller(fName, mName, lName, phoneNr, address, zipcode, mail, aId);
+        }
+
+        public static WantsToSell GetSellerInformationByCaseNr(int id)
+        {
+            return MethodsDataAccessLayer.GetWantsToSellByCaseNr(id);
         }
 
         //Christoffer
@@ -78,6 +83,23 @@ namespace DataAccessLayer
 
         #region Property
 
+        //Christoffer
+        public static int CreateProperty(int sId, int desiredPrice, int timeFrame, int netPrice, int grossPrice, int ownerExpenses, int cashPrice,
+            int depositPrice, string address, int zipcode, int nrOfRooms, bool garageFlag, string builtRebuild, string houseType, string energyRating,
+             int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
+        {
+            return MethodsDataAccessLayer.CreateProperty(sId, desiredPrice, timeFrame, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms,
+                garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description);
+        }
+
+        public static void UpdateProperty(int caseNr, int sId, int desiredPrice, int timeFrame, int netPrice, int grossPrice, int ownerExpenses, int cashPrice,
+            int depositPrice, string address, int zipcode, int nrOfRooms, bool garageFlag, string builtRebuild, string houseType, string energyRating,
+             int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
+        {
+            MethodsDataAccessLayer.UpdateProperty(caseNr, sId, desiredPrice, timeFrame, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, 
+                address, zipcode, nrOfRooms, garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description);
+        }
+
         //Tobias
         public static propertyDataTable GetPropertyDataTable()
         {
@@ -116,6 +138,39 @@ namespace DataAccessLayer
         {
             return MethodsDataAccessLayer.StatisticsSoldArea(zipcode);
         }
+
+        #endregion
+
+        #region File
+
+        public static void CreateFile(int caseNr, string nameOfFile, string extOfFile, byte[] dataOfFile)
+        {
+            MethodsDataAccessLayer.CreateFile(caseNr, nameOfFile, extOfFile, dataOfFile);
+        }
+        
+        public static byte[] GetPhotoFromId(int id)
+        {
+            return MethodsDataAccessLayer.GetPhotoFromId(id);
+        }
+
+        public static string GetPhotoNameFromIdAndPhoto(int id, byte[] photo)
+        {
+            return MethodsDataAccessLayer.GetPhotoNameFromIdAndPhoto(id, photo);
+        }
+
+        public static void UpdatePhoto(string originalFileName, int caseNr, string fileName, string extName, byte[] photo)
+        {
+            MethodsDataAccessLayer.UpdatePhoto(originalFileName, caseNr, fileName, extName, photo);
+        }
+
+        public static string GetPhotoExtFromName(string nameOfPhoto)
+        {
+            return MethodsDataAccessLayer.GetPhotoExtFromName(nameOfPhoto);
+        }
+
+
+
+
 
         #endregion
     }

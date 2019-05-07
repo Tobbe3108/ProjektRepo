@@ -9,12 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAccessLayer;
 using BusinessLayer;
+using GlobalClasses;
+using System.IO;
 
 namespace Bol_IT
 {
     public partial class Sag_Edit : UserControl
     {
         #region Init
+
+        private string NameOfPhoto;
+        private string ExtOfPhoto;
+        private byte[] Photo;
 
         //Tobias
         //Singleton instance af Sag_Edit
@@ -48,7 +54,7 @@ namespace Bol_IT
 
             List<Seller> sellers = DataAccessLayerFacade.GetSellers();
             sellers.ForEach(seller => cbSellerId.Items.Add(seller.SId));
-            
+
         }
 
         #endregion
@@ -67,37 +73,37 @@ namespace Bol_IT
             rtbAddress.Font = new Font(rtbAddress.Font.FontFamily, this.Size.Height / 30);
             rtbHouseDescription.Font = new Font(rtbHouseDescription.Font.FontFamily, this.Size.Height / 50);
             rtbCashPrice.Font = new Font(rtbCashPrice.Font.FontFamily, this.Size.Height / 50);
-            lblBuiltRebuilt.Font = new Font(lblBuiltRebuilt.Font.FontFamily, this.Size.Height / 50);
-            lblCaseNr.Font = new Font(lblCaseNr.Font.FontFamily, this.Size.Height / 50);
-            lblDepositPrice.Font = new Font(lblDepositPrice.Font.FontFamily, this.Size.Height / 50);
-            lblEnergyRating.Font = new Font(lblEnergyRating.Font.FontFamily, this.Size.Height / 50);
-            lblFloors.Font = new Font(lblFloors.Font.FontFamily, this.Size.Height / 50);
-            lblGarageFlag.Font = new Font(lblGarageFlag.Font.FontFamily, this.Size.Height / 50);
-            lblGrossPrice.Font = new Font(lblGrossPrice.Font.FontFamily, this.Size.Height / 50);
-            lblHouseType.Font = new Font(lblHouseType.Font.FontFamily, this.Size.Height / 50);
-            lblNetPrice.Font = new Font(lblNetPrice.Font.FontFamily, this.Size.Height / 50);
             lblNrOfRooms.Font = new Font(lblNrOfRooms.Font.FontFamily, this.Size.Height / 50);
-            lblOwnerExpences.Font = new Font(lblOwnerExpences.Font.FontFamily, this.Size.Height / 50);
-            lblPropSquareMeters.Font = new Font(lblPropSquareMeters.Font.FontFamily, this.Size.Height / 50);
-            lblResSquareMeters.Font = new Font(lblResSquareMeters.Font.FontFamily, this.Size.Height / 50);
-            lblSoldFlag.Font = new Font(lblSoldFlag.Font.FontFamily, this.Size.Height / 50);
+            lblHouseType.Font = new Font(lblHouseType.Font.FontFamily, this.Size.Height / 50);
+            lblDepositPrice.Font = new Font(lblDepositPrice.Font.FontFamily, this.Size.Height / 50);
             lblZipCode.Font = new Font(lblZipCode.Font.FontFamily, this.Size.Height / 50);
+            lblGarageFlag.Font = new Font(lblGarageFlag.Font.FontFamily, this.Size.Height / 50);
+            lblEnergyRating.Font = new Font(lblEnergyRating.Font.FontFamily, this.Size.Height / 50);
+            lblGrossPrice.Font = new Font(lblGrossPrice.Font.FontFamily, this.Size.Height / 50);
+            lblResSquareMeters.Font = new Font(lblResSquareMeters.Font.FontFamily, this.Size.Height / 50);
+            lblNetPrice.Font = new Font(lblNetPrice.Font.FontFamily, this.Size.Height / 50);
+            lblFloors.Font = new Font(lblFloors.Font.FontFamily, this.Size.Height / 50);
+            lblOwnerExpences.Font = new Font(lblOwnerExpences.Font.FontFamily, this.Size.Height / 50);
+            lblBuiltRebuilt.Font = new Font(lblBuiltRebuilt.Font.FontFamily, this.Size.Height / 50);
+            lblPropSquareMeters.Font = new Font(lblPropSquareMeters.Font.FontFamily, this.Size.Height / 50);
+            lblSeller.Font = new Font(lblSeller.Font.FontFamily, this.Size.Height / 50);
+            lblSoldFlag.Font = new Font(lblSoldFlag.Font.FontFamily, this.Size.Height / 50);
             cbGarageFlag.Font = new Font(cbGarageFlag.Font.FontFamily, this.Size.Height / 50);
             cbSoldFlag.Font = new Font(cbSoldFlag.Font.FontFamily, this.Size.Height / 50);
-            rtbZipCode.Font = new Font(rtbZipCode.Font.FontFamily, this.Size.Height / 50);
-            rtbResSquareMeters.Font = new Font(rtbResSquareMeters.Font.FontFamily, this.Size.Height / 50);
+            rtbDesiredPrice.Font = new Font(rtbDesiredPrice.Font.FontFamily, this.Size.Height / 50);
             rtbPropSquareMeters.Font = new Font(rtbPropSquareMeters.Font.FontFamily, this.Size.Height / 50);
+            rtbBuiltRebuilt.Font = new Font(rtbBuiltRebuilt.Font.FontFamily, this.Size.Height / 50);
             rtbOwnerExpences.Font = new Font(rtbOwnerExpences.Font.FontFamily, this.Size.Height / 50);
-            rtbNrOfRooms.Font = new Font(rtbNrOfRooms.Font.FontFamily, this.Size.Height / 50);
+            rtbFloors.Font = new Font(rtbFloors.Font.FontFamily, this.Size.Height / 50);
             rtbNetPrice.Font = new Font(rtbNetPrice.Font.FontFamily, this.Size.Height / 50);
-            rtbHouseType.Font = new Font(rtbHouseType.Font.FontFamily, this.Size.Height / 50);
+            rtbResSquareMeters.Font = new Font(rtbResSquareMeters.Font.FontFamily, this.Size.Height / 50);
             rtbHouseDescription.Font = new Font(rtbHouseDescription.Font.FontFamily, this.Size.Height / 50);
             rtbGrossPrice.Font = new Font(rtbGrossPrice.Font.FontFamily, this.Size.Height / 50);
             rtbFloors.Font = new Font(rtbFloors.Font.FontFamily, this.Size.Height / 50);
-            rtbEnergyRating.Font = new Font(rtbEnergyRating.Font.FontFamily, this.Size.Height / 50);
+            rtbZipCode.Font = new Font(rtbZipCode.Font.FontFamily, this.Size.Height / 50);
             rtbDepositPrice.Font = new Font(rtbDepositPrice.Font.FontFamily, this.Size.Height / 50);
-            rtbCaseNr.Font = new Font(rtbCaseNr.Font.FontFamily, this.Size.Height / 50);
-            rtbBuiltRebuilt.Font = new Font(rtbBuiltRebuilt.Font.FontFamily, this.Size.Height / 50);
+            rtbHouseType.Font = new Font(rtbHouseType.Font.FontFamily, this.Size.Height / 50);
+            rtbNrOfRooms.Font = new Font(rtbNrOfRooms.Font.FontFamily, this.Size.Height / 50);
         }
 
         #endregion
@@ -107,25 +113,35 @@ namespace Bol_IT
         public static void LoadData(string id)
         {
             Property property = DataAccessLayerFacade.GetProperty(Convert.ToInt32(id));
+            WantsToSell wantsToSell = DataAccessLayerFacade.GetSellerInformationByCaseNr(Convert.ToInt32(id));
 
             Instance.rtbAddress.Text = property.Address;
-            Instance.rtbBuiltRebuilt.Text = property.BuiltRebuild;
-            Instance.rtbCaseNr.Text = property.CaseNr.ToString();
+            Instance.rtbNrOfRooms.Text = property.NrOfRooms.ToString();
+            Instance.rtbHouseType.Text = property.HouseType;
             Instance.rtbCashPrice.Text = property.CashPrice.ToString();
             Instance.rtbDepositPrice.Text = property.DepositPrice.ToString();
+            Instance.rtbZipCode.Text = property.ZipCode.ToString();
             Instance.rtbEnergyRating.Text = property.EnergyRating.ToString();
             Instance.rtbFloors.Text = property.Floors.ToString();
             Instance.rtbGrossPrice.Text = property.GrossPrice.ToString();
             Instance.rtbHouseDescription.Text = property.Description;
-            Instance.rtbHouseType.Text = property.HouseType;
-            Instance.rtbNetPrice.Text = property.NetPrice.ToString();
-            Instance.rtbNrOfRooms.Text = property.NrOfRooms.ToString();
-            Instance.rtbOwnerExpences.Text = property.OwnerExpenses.ToString();
-            Instance.rtbPropSquareMeters.Text = property.PropSquareMeters.ToString();
             Instance.rtbResSquareMeters.Text = property.ResSquareMeters.ToString();
-            Instance.rtbZipCode.Text = property.ZipCode.ToString();
+            Instance.rtbNetPrice.Text = property.NetPrice.ToString();
+            Instance.rtbFloors.Text = property.Floors.ToString();
+            Instance.rtbOwnerExpences.Text = property.OwnerExpenses.ToString();
+            Instance.rtbBuiltRebuilt.Text = property.BuiltRebuild.ToString();
+            Instance.rtbPropSquareMeters.Text = property.ResSquareMeters.ToString();
             Instance.cbGarageFlag.Checked = property.GarageFlag;
             Instance.cbSoldFlag.Checked = property.SoldFlag;
+            Instance.rtbCaseNr.Text = property.CaseNr.ToString();
+            Instance.cbSellerId.Text = wantsToSell.SId.ToString();
+            Instance.rtbDesiredPrice.Text = wantsToSell.DesiredPrice.ToString();
+            Instance.rtbTimeFrame.Text = wantsToSell.TimeFrame.ToString();
+            byte[] photo = DataAccessLayerFacade.GetPhotoFromId(int.Parse(id));
+            Instance.Photo = photo;
+            Instance.pbHouseImage.Image = BusinessLayerFacade.ConvertBinaryArrayToImage(photo);
+            Instance.NameOfPhoto = DataAccessLayerFacade.GetPhotoNameFromIdAndPhoto(int.Parse(id), photo);
+            Instance.ExtOfPhoto = DataAccessLayerFacade.GetPhotoExtFromName(Instance.NameOfPhoto);
         }
 
         #endregion
@@ -158,8 +174,123 @@ namespace Bol_IT
             }
             Form1.Instance.PnlContainer.Controls["Sag_ViewAll"].BringToFront();
         }
+        //Christoffer
+        private void CheckKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
 
+        //Christoffer
+        private void pbHouseImage_Click(object sender, EventArgs e)
+        {
+            if (ofdOpenPicture.ShowDialog() == DialogResult.OK)
+            {
+                pbHouseImage.ImageLocation = ofdOpenPicture.FileName;
+                Image image = Image.FromFile(ofdOpenPicture.FileName);
+                pbHouseImage.Image = image;
+            }
+        }
+
+        //Christoffer
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (AnyBoxIsEmpty())
+            {
+                MessageBox.Show("WHAT THE FUCK DID YOU JUST BRING UPON THIS CURSED LAND");
+                return;
+            }
+            else
+            {
+
+                DataAccessLayerFacade.UpdateProperty
+                    (
+                    int.Parse(rtbCaseNr.Text),
+                    int.Parse(cbSellerId.Text),
+                    int.Parse(rtbDesiredPrice.Text),
+                    int.Parse(rtbTimeFrame.Text),
+                    int.Parse(rtbNetPrice.Text),
+                    int.Parse(rtbGrossPrice.Text),
+                    int.Parse(rtbOwnerExpences.Text),
+                    int.Parse(rtbCashPrice.Text),
+                    int.Parse(rtbDepositPrice.Text),
+                    rtbAddress.Text,
+                    int.Parse(rtbZipCode.Text),
+                    int.Parse(rtbNrOfRooms.Text),
+                    cbGarageFlag.Checked,
+                    rtbBuiltRebuilt.Text,
+                    rtbHouseType.Text,
+                    rtbEnergyRating.Text,
+                    int.Parse(rtbResSquareMeters.Text),
+                    int.Parse(rtbPropSquareMeters.Text),
+                    int.Parse(rtbFloors.Text),
+                    cbSoldFlag.Checked,
+                    rtbHouseDescription.Text
+                    );
+
+                string fileName;
+                string extName;
+                byte[] photo;
+                if (pbHouseImage.ImageLocation == null)
+                {
+                    fileName = NameOfPhoto;
+                    extName = ExtOfPhoto;
+                    photo = Photo;
+                }
+                else
+                {
+                    string[] temp = Path.GetFileName(pbHouseImage.ImageLocation).Split('.');
+                    fileName = temp[0];
+                    extName = temp[1];
+                    photo = BusinessLayerFacade.GetPhotoFromPath(pbHouseImage.ImageLocation);
+                }
+
+
+                DataAccessLayerFacade.UpdatePhoto
+                    (
+                    NameOfPhoto,
+                    int.Parse(rtbCaseNr.Text),
+                    fileName,
+                    extName,
+                    photo
+                    );
+            }
+        }
+
+        private bool AnyBoxIsEmpty()
+        {
+            if (
+                cbSellerId.Text == string.Empty ||
+                rtbTimeFrame.Text == string.Empty ||
+                rtbCaseNr.Text == string.Empty ||
+                rtbNetPrice.Text == string.Empty ||
+                rtbGrossPrice.Text == string.Empty ||
+                rtbOwnerExpences.Text == string.Empty ||
+                rtbCashPrice.Text == string.Empty ||
+                rtbDepositPrice.Text == string.Empty ||
+                rtbAddress.Text == string.Empty ||
+                rtbDesiredPrice.Text == string.Empty ||
+                rtbFloors.Text == string.Empty ||
+                rtbNrOfRooms.Text == string.Empty ||
+                rtbResSquareMeters.Text == string.Empty ||
+                rtbZipCode.Text == string.Empty ||
+                rtbPropSquareMeters.Text == string.Empty ||
+                rtbBuiltRebuilt.Text == string.Empty ||
+                rtbFloors.Text == string.Empty ||
+                rtbHouseDescription.Text == string.Empty ||
+                pbHouseImage.Image == null
+                )
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         #endregion
-        
+
     }
 }

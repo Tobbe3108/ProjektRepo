@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using DataAccessLayer;
+using GlobalClasses;
 
 namespace Bol_IT
 {
@@ -42,6 +43,8 @@ namespace Bol_IT
         {
             //Eager initialization af singleton instance
             _instance = this;
+
+            rtbSearch_TextChanged(null, null);
         }
 
         #endregion

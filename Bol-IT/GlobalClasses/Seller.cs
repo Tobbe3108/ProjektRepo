@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BusinessLayer
+namespace GlobalClasses
 {
-    public class Buyer : Person
+    public class Seller : Person
     {
         #region Properties
 
         //Simone
-        public int BId { get; set; }
+        public int SId { get; set; }
 
-        //Simone
         public int AId { get; set; }
 
         #endregion

@@ -7,9 +7,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BusinessLayer
+namespace GlobalClasses
 {
-    class SloganThread
+    public class SloganThread
     {
         #region Fields
 

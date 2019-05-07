@@ -16,6 +16,10 @@
 
 namespace DataAccessLayer.mydatabasetobbeDataSetTableAdapters
 {
+    partial class propertyTableAdapter
+    {
+    }
+
     partial class sellerTableAdapter
     {
     }

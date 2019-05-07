@@ -4,7 +4,7 @@ using System.Text;
 using BusinessLayer;
 using System.Data;
 
-namespace BusinessLayer
+namespace GlobalClasses
 {
     public class OpenHouseMethods
     {

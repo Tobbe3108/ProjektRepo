@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAccessLayer;
 using BusinessLayer;
+using GlobalClasses;
+using System.IO;
 
 namespace Bol_IT
 {
@@ -51,6 +53,8 @@ namespace Bol_IT
             sellers.ForEach(seller => cbSellerId.AutoCompleteCustomSource.Add(seller.SId.ToString()));
         }
 
+
+
         #endregion
 
         #region FormAutoSize
@@ -58,14 +62,21 @@ namespace Bol_IT
         //Tobias
         private void Sag_Create_SizeChanged(object sender, EventArgs e)
         {
-            lblAddress.Font = new Font(lblAddress.Font.FontFamily, this.Size.Height / 25);
-            lblPrice.Font = new Font(lblPrice.Font.FontFamily, this.Size.Height / 50);
-            btnCalculatePrice.Font = new Font(btnCalculatePrice.Font.FontFamily, this.Size.Height / 50);
-            btnCancel.Font = new Font(btnCancel.Font.FontFamily, this.Size.Height / 50);
-            btnSave.Font = new Font(btnSave.Font.FontFamily, this.Size.Height / 50);
-            rtbAddress.Font = new Font(rtbAddress.Font.FontFamily, this.Size.Height / 30);
-            rtbHouseDescription.Font = new Font(rtbHouseDescription.Font.FontFamily, this.Size.Height / 50);
-            rtbCashPrice.Font = new Font(rtbCashPrice.Font.FontFamily, this.Size.Height / 50);
+            try
+            {
+                lblAddress.Font = new Font(lblAddress.Font.FontFamily, this.Size.Height / 25);
+                lblCashPrice.Font = new Font(lblCashPrice.Font.FontFamily, this.Size.Height / 50);
+                btnCalculatePrice.Font = new Font(btnCalculatePrice.Font.FontFamily, this.Size.Height / 50);
+                btnCancel.Font = new Font(btnCancel.Font.FontFamily, this.Size.Height / 50);
+                btnSave.Font = new Font(btnSave.Font.FontFamily, this.Size.Height / 50);
+                rtbAddress.Font = new Font(rtbAddress.Font.FontFamily, this.Size.Height / 30);
+                rtbHouseDescription.Font = new Font(rtbHouseDescription.Font.FontFamily, this.Size.Height / 50);
+                rtbCashPrice.Font = new Font(rtbCashPrice.Font.FontFamily, this.Size.Height / 50);
+            }
+            catch
+            {
+
+            }
         }
 
         #endregion
@@ -112,15 +123,94 @@ namespace Bol_IT
         //Christoffer
         private void pbHouseImage_Click(object sender, EventArgs e)
         {
-            ofdOpenPicture.ShowDialog();
-            Image image = Image.FromFile(ofdOpenPicture.FileName);
-            pbHouseImage.Image = image;
+            if (ofdOpenPicture.ShowDialog() == DialogResult.OK)
+            {
+                Image image = Image.FromFile(ofdOpenPicture.FileName);
+                pbHouseImage.Image = image;
+                pbHouseImage.ImageLocation = ofdOpenPicture.FileName;
+            }
         }
 
         //Christoffer
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //DataAccessLayerFacade.CreateProperty(cbSellerId.Text, rtbDesiredPrice.Text, rtbTimeFrame.Text, rtbNetPrice.Text, );
+            if (AnyBoxIsEmpty())
+            {
+                MessageBox.Show("WHAT THE FUCK DID YOU JUST BRING UPON THIS CURSED LAND");
+                return;
+            }
+            else
+            {
+
+                int caseNr = DataAccessLayerFacade.CreateProperty
+                    (
+                    int.Parse(cbSellerId.Text),
+                    int.Parse(rtbDesiredPrice.Text),
+                    int.Parse(rtbTimeFrame.Text),
+                    int.Parse(rtbNetPrice.Text),
+                    int.Parse(rtbGrossPrice.Text),
+                    int.Parse(rtbOwnerExpences.Text),
+                    int.Parse(rtbCashPrice.Text),
+                    int.Parse(rtbDepositPrice.Text),
+                    rtbAddress.Text,
+                    int.Parse(rtbZipCode.Text),
+                    int.Parse(rtbNrOfRooms.Text),
+                    cbGarageFlag.Checked,
+                    rtbBuildRebuilt.Text,
+                    rtbHouseType.Text,
+                    rtbEnergyRating.Text,
+                    int.Parse(rtbResSquareMeters.Text),
+                    int.Parse(rtbPropSquareMeters.Text),
+                    int.Parse(rtbFloors.Text),
+                    cbSoldFlag.Checked,
+                    rtbHouseDescription.Text
+                    );
+
+                string[] temp = Path.GetFileName(pbHouseImage.ImageLocation).Split('.');
+
+                string fileName = temp[0];
+                string extName = temp[1];
+
+                DataAccessLayerFacade.CreateFile
+                    (
+                    caseNr,
+                    fileName,
+                    extName,
+                    BusinessLayerFacade.GetPhotoFromPath(pbHouseImage.ImageLocation)
+                    );
+            }
+        }
+
+        private bool AnyBoxIsEmpty()
+        {
+            if (
+                cbSellerId.Text == string.Empty ||
+                rtbTimeFrame.Text == string.Empty ||
+                rtbHouseType.Text == string.Empty ||
+                rtbNetPrice.Text == string.Empty ||
+                rtbGrossPrice.Text == string.Empty ||
+                rtbOwnerExpences.Text == string.Empty ||
+                rtbCashPrice.Text == string.Empty ||
+                rtbDepositPrice.Text == string.Empty ||
+                rtbAddress.Text == string.Empty ||
+                rtbZipCode.Text == string.Empty ||
+                rtbFloors.Text == string.Empty ||
+                rtbNrOfRooms.Text == string.Empty ||
+                rtbResSquareMeters.Text == string.Empty ||
+                rtbZipCode.Text == string.Empty ||
+                rtbPropSquareMeters.Text == string.Empty ||
+                rtbBuildRebuilt.Text == string.Empty ||
+                rtbEnergyRating.Text == string.Empty ||
+                rtbHouseDescription.Text == string.Empty ||
+                pbHouseImage.ImageLocation == null
+                )
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
 
