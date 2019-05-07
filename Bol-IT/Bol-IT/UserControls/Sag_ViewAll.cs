@@ -43,6 +43,8 @@ namespace Bol_IT
         {
             //Eager initialization af singleton instance
             _instance = this;
+
+            rtbSearch_TextChanged(null, null);
         }
 
         #endregion

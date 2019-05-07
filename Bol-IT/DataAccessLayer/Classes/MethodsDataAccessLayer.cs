@@ -446,7 +446,7 @@ namespace DataAccessLayer
         //Christoffer
         public static void UpdatePhoto(string originalFileName, int caseNr, string fileName, string extName, byte[] photo)
         {
-            if (originalFileName == string.Empty)
+            if (originalFileName == null)
             {
                 if (photo == null)
                 {
