@@ -72,6 +72,14 @@ namespace Bol_IT
             if (cbStatistic.SelectedIndex == 1)
             {
                 cbArea.Enabled = false;
+                cbMonth.Enabled = true;
+                cbYear.Enabled = true;
+            }
+            if (cbStatistic.SelectedIndex == 0)
+            {
+                cbArea.Enabled = true;
+                cbMonth.Enabled = false;
+                cbYear.Enabled = false;
             }
         }
 
@@ -85,8 +93,18 @@ namespace Bol_IT
             {
                 case 0:
                     //Område salgsstatistik
+                    dataTable = DataAccessLayerFacade.StatisticsSoldArea(int.Parse(cbArea.GetItemText(cbArea.SelectedItem)));
 
                     header = "Område salgsstatistik";
+
+                    dataTable.Columns["salesDate"].SetOrdinal(0);
+                    dataTable.Columns["fName"].SetOrdinal(1);
+                    dataTable.Columns["lName"].SetOrdinal(2);
+                    dataTable.Columns["aId"].SetOrdinal(3);
+                    dataTable.Columns["address"].SetOrdinal(4);
+                    dataTable.Columns["zipcode"].SetOrdinal(5);
+                    dataTable.Columns["caseNr"].SetOrdinal(6);
+                    dataTable.Columns["salesPrice"].SetOrdinal(7);
                     break;
                 case 1:
                     //Kvadratmeterpris salgsstatistik

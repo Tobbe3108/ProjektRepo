@@ -96,12 +96,6 @@ namespace DataAccessLayer
             return MethodsDataAccessLayer.GetProperty(id);
         }
 
-        //Tobias
-        public static propertyDataTable GetZipcodes()
-        {
-            return MethodsDataAccessLayer.GetZipcodes();
-        }
-
         #endregion
 
         #region Sale
@@ -109,6 +103,18 @@ namespace DataAccessLayer
         public static saleDataTable StatisticSquareMeterPrice(decimal SearchYear, decimal SearchMonth)
         {
             return MethodsDataAccessLayer.StatisticSquareMeterPrice(SearchYear, SearchMonth);
+        }
+
+        //Tobias
+        public static saleDataTable GetZipcodes()
+        {
+            return MethodsDataAccessLayer.GetZipcodes();
+        }
+
+        //Tobias
+        public static saleDataTable StatisticsSoldArea(int zipcode)
+        {
+            return MethodsDataAccessLayer.StatisticsSoldArea(zipcode);
         }
 
         #endregion

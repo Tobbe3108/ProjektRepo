@@ -103,12 +103,12 @@ namespace DataAccessLayer
         }
 
         //Tobias
-        public static propertyDataTable GetZipcodes()
+        public static saleDataTable GetZipcodes()
         {
-            propertyDataTable pdt = new propertyDataTable();
+            saleDataTable pdt = new saleDataTable();
             try
             {
-                propertyTableAdapter.GetZipcodes(pdt);
+                saleTableAdapter.GetZipcodes(pdt);
             }
             catch (Exception)
             {}
@@ -122,6 +122,15 @@ namespace DataAccessLayer
             saleTableAdapter.StatisticSquareMeterPrice(sdt, SearchYear, SearchMonth);
             return sdt;
         }
+
+        public static saleDataTable StatisticsSoldArea(int zipcode)
+        {
+            saleDataTable sdt = new saleDataTable();
+            saleTableAdapter.StatisticAreaPrice(sdt, zipcode);
+            return sdt;
+        }
+
+
 
         #region ReturnObjects
 
