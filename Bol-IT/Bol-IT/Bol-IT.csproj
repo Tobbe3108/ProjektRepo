@@ -180,6 +180,10 @@
       <Project>{f5926625-0389-40f0-82f6-40701e4d1a42}</Project>
       <Name>DataAccessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GlobalClasses\GlobalClasses.csproj">
+      <Project>{56344fc0-ce9c-4754-aca0-a1763db0dcca}</Project>
+      <Name>GlobalClasses</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

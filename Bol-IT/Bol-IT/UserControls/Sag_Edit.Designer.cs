@@ -44,10 +44,10 @@
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel27 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbCaseNr = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblCaseNr = new System.Windows.Forms.Label();
             this.tableLayoutPanel25 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbZipCode = new System.Windows.Forms.RichTextBox();
-            this.lblEnergyRating = new System.Windows.Forms.Label();
+            this.lblZipCode = new System.Windows.Forms.Label();
             this.tableLayoutPanel24 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbCashPrice = new System.Windows.Forms.RichTextBox();
             this.lblCashPrice = new System.Windows.Forms.Label();
@@ -89,16 +89,16 @@
             this.lblBuiltRebuilt = new System.Windows.Forms.Label();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbNrOfRooms = new System.Windows.Forms.RichTextBox();
-            this.lblNoOfRooms = new System.Windows.Forms.Label();
+            this.lblNrOfRooms = new System.Windows.Forms.Label();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbFloors = new System.Windows.Forms.RichTextBox();
-            this.lblFloors1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.lblFloors = new System.Windows.Forms.Label();
+            this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblGarageFlag = new System.Windows.Forms.Label();
             this.cbGarageFlag = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbEnergyRating = new System.Windows.Forms.RichTextBox();
-            this.lblGarageFlag = new System.Windows.Forms.Label();
+            this.lblEnergyRating = new System.Windows.Forms.Label();
             this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
             this.btnToFile = new System.Windows.Forms.Button();
             this.btnCreateAd = new System.Windows.Forms.Button();
@@ -385,7 +385,7 @@
             this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel27.Controls.Add(this.rtbCaseNr, 0, 0);
-            this.tableLayoutPanel27.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel27.Controls.Add(this.lblCaseNr, 0, 0);
             this.tableLayoutPanel27.Location = new System.Drawing.Point(0, 369);
             this.tableLayoutPanel27.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel27.Name = "tableLayoutPanel27";
@@ -406,19 +406,19 @@
             this.rtbCaseNr.TabIndex = 10;
             this.rtbCaseNr.Text = "";
             // 
-            // label1
+            // lblCaseNr
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 46);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Sags nummer";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCaseNr.AutoSize = true;
+            this.lblCaseNr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.lblCaseNr.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblCaseNr.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCaseNr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.lblCaseNr.Location = new System.Drawing.Point(3, 0);
+            this.lblCaseNr.Name = "lblCaseNr";
+            this.lblCaseNr.Size = new System.Drawing.Size(141, 46);
+            this.lblCaseNr.TabIndex = 9;
+            this.lblCaseNr.Text = "Sags nummer";
+            this.lblCaseNr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel25
             // 
@@ -426,7 +426,7 @@
             this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel25.Controls.Add(this.rtbZipCode, 1, 0);
-            this.tableLayoutPanel25.Controls.Add(this.lblEnergyRating, 0, 0);
+            this.tableLayoutPanel25.Controls.Add(this.lblZipCode, 0, 0);
             this.tableLayoutPanel25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel25.Location = new System.Drawing.Point(0, 328);
             this.tableLayoutPanel25.Margin = new System.Windows.Forms.Padding(0);
@@ -449,19 +449,19 @@
             this.rtbZipCode.TabIndex = 9;
             this.rtbZipCode.Text = "";
             // 
-            // lblEnergyRating
+            // lblZipCode
             // 
-            this.lblEnergyRating.AutoSize = true;
-            this.lblEnergyRating.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.lblEnergyRating.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblEnergyRating.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEnergyRating.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.lblEnergyRating.Location = new System.Drawing.Point(3, 0);
-            this.lblEnergyRating.Name = "lblEnergyRating";
-            this.lblEnergyRating.Size = new System.Drawing.Size(141, 41);
-            this.lblEnergyRating.TabIndex = 8;
-            this.lblEnergyRating.Text = "Postnummer";
-            this.lblEnergyRating.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblZipCode.AutoSize = true;
+            this.lblZipCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.lblZipCode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblZipCode.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblZipCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.lblZipCode.Location = new System.Drawing.Point(3, 0);
+            this.lblZipCode.Name = "lblZipCode";
+            this.lblZipCode.Size = new System.Drawing.Size(141, 41);
+            this.lblZipCode.TabIndex = 8;
+            this.lblZipCode.Text = "Postnummer";
+            this.lblZipCode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel24
             // 
@@ -1014,7 +1014,7 @@
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel13.Controls.Add(this.rtbNrOfRooms, 1, 0);
-            this.tableLayoutPanel13.Controls.Add(this.lblNoOfRooms, 0, 0);
+            this.tableLayoutPanel13.Controls.Add(this.lblNrOfRooms, 0, 0);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel13.Location = new System.Drawing.Point(0, 164);
             this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(0);
@@ -1037,19 +1037,19 @@
             this.rtbNrOfRooms.TabIndex = 5;
             this.rtbNrOfRooms.Text = "";
             // 
-            // lblNoOfRooms
+            // lblNrOfRooms
             // 
-            this.lblNoOfRooms.AutoSize = true;
-            this.lblNoOfRooms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.lblNoOfRooms.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblNoOfRooms.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNoOfRooms.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.lblNoOfRooms.Location = new System.Drawing.Point(3, 0);
-            this.lblNoOfRooms.Name = "lblNoOfRooms";
-            this.lblNoOfRooms.Size = new System.Drawing.Size(141, 41);
-            this.lblNoOfRooms.TabIndex = 4;
-            this.lblNoOfRooms.Text = "Antal rum";
-            this.lblNoOfRooms.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblNrOfRooms.AutoSize = true;
+            this.lblNrOfRooms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.lblNrOfRooms.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblNrOfRooms.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNrOfRooms.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.lblNrOfRooms.Location = new System.Drawing.Point(3, 0);
+            this.lblNrOfRooms.Name = "lblNrOfRooms";
+            this.lblNrOfRooms.Size = new System.Drawing.Size(141, 41);
+            this.lblNrOfRooms.TabIndex = 4;
+            this.lblNrOfRooms.Text = "Antal rum";
+            this.lblNrOfRooms.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel14
             // 
@@ -1057,7 +1057,7 @@
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel14.Controls.Add(this.rtbFloors, 1, 0);
-            this.tableLayoutPanel14.Controls.Add(this.lblFloors1, 0, 0);
+            this.tableLayoutPanel14.Controls.Add(this.lblFloors, 0, 0);
             this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel14.Location = new System.Drawing.Point(0, 205);
             this.tableLayoutPanel14.Margin = new System.Windows.Forms.Padding(0);
@@ -1079,36 +1079,6 @@
             this.rtbFloors.TabIndex = 6;
             this.rtbFloors.Text = "";
             // 
-            // lblFloors1
-            // 
-            this.lblFloors1.AutoSize = true;
-            this.lblFloors1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.lblFloors1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblFloors1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFloors1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.lblFloors1.Location = new System.Drawing.Point(3, 0);
-            this.lblFloors1.Name = "lblFloors1";
-            this.lblFloors1.Size = new System.Drawing.Size(141, 41);
-            this.lblFloors1.TabIndex = 5;
-            this.lblFloors1.Text = "Etager";
-            this.lblFloors1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tableLayoutPanel15
-            // 
-            this.tableLayoutPanel15.ColumnCount = 2;
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel15.Controls.Add(this.lblFloors, 0, 0);
-            this.tableLayoutPanel15.Controls.Add(this.cbGarageFlag, 1, 0);
-            this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(0, 246);
-            this.tableLayoutPanel15.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
-            this.tableLayoutPanel15.RowCount = 1;
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(294, 41);
-            this.tableLayoutPanel15.TabIndex = 7;
-            // 
             // lblFloors
             // 
             this.lblFloors.AutoSize = true;
@@ -1119,9 +1089,39 @@
             this.lblFloors.Location = new System.Drawing.Point(3, 0);
             this.lblFloors.Name = "lblFloors";
             this.lblFloors.Size = new System.Drawing.Size(141, 41);
-            this.lblFloors.TabIndex = 6;
-            this.lblFloors.Text = "Garage";
+            this.lblFloors.TabIndex = 5;
+            this.lblFloors.Text = "Etager";
             this.lblFloors.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tableLayoutPanel15
+            // 
+            this.tableLayoutPanel15.ColumnCount = 2;
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel15.Controls.Add(this.lblGarageFlag, 0, 0);
+            this.tableLayoutPanel15.Controls.Add(this.cbGarageFlag, 1, 0);
+            this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(0, 246);
+            this.tableLayoutPanel15.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
+            this.tableLayoutPanel15.RowCount = 1;
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(294, 41);
+            this.tableLayoutPanel15.TabIndex = 7;
+            // 
+            // lblGarageFlag
+            // 
+            this.lblGarageFlag.AutoSize = true;
+            this.lblGarageFlag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.lblGarageFlag.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblGarageFlag.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGarageFlag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.lblGarageFlag.Location = new System.Drawing.Point(3, 0);
+            this.lblGarageFlag.Name = "lblGarageFlag";
+            this.lblGarageFlag.Size = new System.Drawing.Size(141, 41);
+            this.lblGarageFlag.TabIndex = 6;
+            this.lblGarageFlag.Text = "Garage";
+            this.lblGarageFlag.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cbGarageFlag
             // 
@@ -1139,7 +1139,7 @@
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel16.Controls.Add(this.rtbEnergyRating, 0, 0);
-            this.tableLayoutPanel16.Controls.Add(this.lblGarageFlag, 0, 0);
+            this.tableLayoutPanel16.Controls.Add(this.lblEnergyRating, 0, 0);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel16.Location = new System.Drawing.Point(0, 287);
             this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(0);
@@ -1162,19 +1162,19 @@
             this.rtbEnergyRating.TabIndex = 8;
             this.rtbEnergyRating.Text = "";
             // 
-            // lblGarageFlag
+            // lblEnergyRating
             // 
-            this.lblGarageFlag.AutoSize = true;
-            this.lblGarageFlag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.lblGarageFlag.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblGarageFlag.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGarageFlag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.lblGarageFlag.Location = new System.Drawing.Point(3, 0);
-            this.lblGarageFlag.Name = "lblGarageFlag";
-            this.lblGarageFlag.Size = new System.Drawing.Size(141, 41);
-            this.lblGarageFlag.TabIndex = 7;
-            this.lblGarageFlag.Text = "Energimærke";
-            this.lblGarageFlag.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblEnergyRating.AutoSize = true;
+            this.lblEnergyRating.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.lblEnergyRating.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblEnergyRating.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnergyRating.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.lblEnergyRating.Location = new System.Drawing.Point(3, 0);
+            this.lblEnergyRating.Name = "lblEnergyRating";
+            this.lblEnergyRating.Size = new System.Drawing.Size(141, 41);
+            this.lblEnergyRating.TabIndex = 7;
+            this.lblEnergyRating.Text = "Energimærke";
+            this.lblEnergyRating.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel26
             // 
@@ -1308,7 +1308,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel25;
         private System.Windows.Forms.RichTextBox rtbZipCode;
-        private System.Windows.Forms.Label lblEnergyRating;
+        private System.Windows.Forms.Label lblZipCode;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel24;
         private System.Windows.Forms.RichTextBox rtbCashPrice;
         private System.Windows.Forms.Label lblCashPrice;
@@ -1344,22 +1344,22 @@
         private System.Windows.Forms.Label lblBuiltRebuilt;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
         private System.Windows.Forms.RichTextBox rtbNrOfRooms;
-        private System.Windows.Forms.Label lblNoOfRooms;
+        private System.Windows.Forms.Label lblNrOfRooms;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
         private System.Windows.Forms.RichTextBox rtbFloors;
-        private System.Windows.Forms.Label lblFloors;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
         private System.Windows.Forms.Label lblGarageFlag;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
+        private System.Windows.Forms.Label lblEnergyRating;
         private System.Windows.Forms.CheckBox cbSoldFlag;
         private System.Windows.Forms.CheckBox cbGarageFlag;
-        private System.Windows.Forms.Label lblFloors1;
+        private System.Windows.Forms.Label lblFloors;
         private System.Windows.Forms.Label lblDesiredPrice;
         private System.Windows.Forms.ComboBox cbSellerId;
         private System.Windows.Forms.OpenFileDialog ofdOpenPicture;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel27;
         private System.Windows.Forms.RichTextBox rtbCaseNr;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblCaseNr;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel26;
         private System.Windows.Forms.Button btnToFile;
         private System.Windows.Forms.Button btnCreateAd;

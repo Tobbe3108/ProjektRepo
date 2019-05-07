@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAccessLayer;
 using BusinessLayer;
+using GlobalClasses;
 using System.IO;
 
 namespace Bol_IT
@@ -64,7 +65,7 @@ namespace Bol_IT
             try
             {
                 lblAddress.Font = new Font(lblAddress.Font.FontFamily, this.Size.Height / 25);
-                lblPrice.Font = new Font(lblPrice.Font.FontFamily, this.Size.Height / 50);
+                lblCashPrice.Font = new Font(lblCashPrice.Font.FontFamily, this.Size.Height / 50);
                 btnCalculatePrice.Font = new Font(btnCalculatePrice.Font.FontFamily, this.Size.Height / 50);
                 btnCancel.Font = new Font(btnCancel.Font.FontFamily, this.Size.Height / 50);
                 btnSave.Font = new Font(btnSave.Font.FontFamily, this.Size.Height / 50);
@@ -144,8 +145,8 @@ namespace Bol_IT
                 int caseNr = DataAccessLayerFacade.CreateProperty
                     (
                     int.Parse(cbSellerId.Text),
-                    int.Parse(rtbTimeFrame1.Text),
-                    int.Parse(rtbHouseType.Text),
+                    int.Parse(rtbDesiredPrice.Text),
+                    int.Parse(rtbTimeFrame.Text),
                     int.Parse(rtbNetPrice.Text),
                     int.Parse(rtbGrossPrice.Text),
                     int.Parse(rtbOwnerExpences.Text),
@@ -153,14 +154,14 @@ namespace Bol_IT
                     int.Parse(rtbDepositPrice.Text),
                     rtbAddress.Text,
                     int.Parse(rtbZipCode.Text),
-                    int.Parse(rtbFloors.Text),
+                    int.Parse(rtbNrOfRooms.Text),
                     cbGarageFlag.Checked,
-                    rtbNrOfRooms.Text,
-                    rtbResSquareMeters.Text,
-                    rtbZipCode.Text,
+                    rtbBuildRebuilt.Text,
+                    rtbHouseType.Text,
+                    rtbEnergyRating.Text,
+                    int.Parse(rtbResSquareMeters.Text),
                     int.Parse(rtbPropSquareMeters.Text),
-                    int.Parse(rtbBuildRebuilt.Text),
-                    int.Parse(rtbEnergyRating.Text),
+                    int.Parse(rtbFloors.Text),
                     cbSoldFlag.Checked,
                     rtbHouseDescription.Text
                     );
@@ -184,7 +185,7 @@ namespace Bol_IT
         {
             if (
                 cbSellerId.Text == string.Empty ||
-                rtbTimeFrame1.Text == string.Empty ||
+                rtbTimeFrame.Text == string.Empty ||
                 rtbHouseType.Text == string.Empty ||
                 rtbNetPrice.Text == string.Empty ||
                 rtbGrossPrice.Text == string.Empty ||

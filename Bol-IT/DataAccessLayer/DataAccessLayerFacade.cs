@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
-using BusinessLayer;
+using GlobalClasses;
 using System.Configuration;
 using DataAccessLayer.mydatabasetobbeDataSetTableAdapters;
 using static DataAccessLayer.mydatabasetobbeDataSet;
