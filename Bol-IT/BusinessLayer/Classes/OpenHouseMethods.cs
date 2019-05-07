@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using BusinessLayer;
 using System.Data;
+using GlobalClasses;
 
-namespace GlobalClasses
+namespace BusinessLayer
 {
     public class OpenHouseMethods
     {

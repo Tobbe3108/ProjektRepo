@@ -119,8 +119,8 @@ namespace DataAccessLayer
                 saleTableAdapter.GetZipcodes(pdt);
             }
             catch (Exception)
-            {}
-            
+            { }
+
             return pdt;
         }
 
@@ -241,31 +241,31 @@ namespace DataAccessLayer
         #endregion
 
         #region Property
-        //Christoffer
-        public static propertyDataTable GetPropertyDataTable()
-        {
-            propertyDataTable adt = new propertyDataTable();
-            propertyTableAdapter.Fill(adt);
-            return adt;
-        }
+        ////Christoffer
+        //public static propertyDataTable GetPropertyDataTable()
+        //{
+        //    propertyDataTable adt = new propertyDataTable();
+        //    propertyTableAdapter.Fill(adt);
+        //    return adt;
+        //}
 
 
 
-        //Christoffer & Tobias
-        public static propertyDataTable GetPropertyDataTableByLike(string searchParameters)
-        {
-            propertyDataTable pdt = new propertyDataTable();
-            propertyTableAdapter.FillByLike(pdt, searchParameters);
-            return pdt;
-        }
+        ////Christoffer & Tobias
+        //public static propertyDataTable GetPropertyDataTableByLike(string searchParameters)
+        //{
+        //    propertyDataTable pdt = new propertyDataTable();
+        //    propertyTableAdapter.FillByLike(pdt, searchParameters);
+        //    return pdt;
+        //}
 
-        //Tobias
-        public static propertyDataTable GetZipcodes()
-        {
-            propertyDataTable pdt = new propertyDataTable();
-            propertyTableAdapter.GetZipcodes(pdt);
-            return pdt;
-        }
+        ////Tobias
+        //public static propertyDataTable GetZipcodes()
+        //{
+        //    propertyDataTable pdt = new propertyDataTable();
+        //    propertyTableAdapter.GetZipcodes(pdt);
+        //    return pdt;
+        //}
 
         #region ReturnObjects
         public static WantsToSell GetWantsToSellByCaseNr(int caseNr)
@@ -510,4 +510,5 @@ namespace DataAccessLayer
 
         #endregion
     }
+
 }
