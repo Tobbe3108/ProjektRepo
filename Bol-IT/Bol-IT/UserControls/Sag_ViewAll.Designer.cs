@@ -31,6 +31,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvSager = new System.Windows.Forms.DataGridView();
+            this.Rediger = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCreateSag = new System.Windows.Forms.Button();
             this.btnToFile = new System.Windows.Forms.Button();
@@ -38,7 +39,6 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbSearch = new System.Windows.Forms.RichTextBox();
             this.lblSearch = new System.Windows.Forms.Label();
-            this.Rediger = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSager)).BeginInit();
@@ -99,6 +99,15 @@
             this.dgvSager.TabIndex = 0;
             this.dgvSager.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSager_CellContentClick);
             // 
+            // Rediger
+            // 
+            this.Rediger.HeaderText = "Rediger";
+            this.Rediger.Name = "Rediger";
+            this.Rediger.ReadOnly = true;
+            this.Rediger.Text = "Rediger";
+            this.Rediger.ToolTipText = "Rediger";
+            this.Rediger.UseColumnTextForButtonValue = true;
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 4;
@@ -148,6 +157,7 @@
             this.btnToFile.TabIndex = 1;
             this.btnToFile.Text = "Udskriv fil";
             this.btnToFile.UseVisualStyleBackColor = false;
+            this.btnToFile.Click += new System.EventHandler(this.btnToFile_Click);
             // 
             // btnStatistic
             // 
@@ -206,15 +216,6 @@
             this.lblSearch.TabIndex = 2;
             this.lblSearch.Text = "Søg efter: Navn (Mangler resten)";
             this.lblSearch.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // Rediger
-            // 
-            this.Rediger.HeaderText = "Rediger";
-            this.Rediger.Name = "Rediger";
-            this.Rediger.ReadOnly = true;
-            this.Rediger.Text = "Rediger";
-            this.Rediger.ToolTipText = "Rediger";
-            this.Rediger.UseColumnTextForButtonValue = true;
             // 
             // Sag_ViewAll
             // 

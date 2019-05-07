@@ -157,7 +157,7 @@ namespace Bol_IT
                         List<string> list = new List<string>();
 
 
-
+                        //Kør igennem alle celler i hver kolone og find den celle med den længste verdi - bruges til fin formatering
                         List<int> longestString = new List<int>();
 
                         for (int col = 0; col < dataTable.Columns.Count; col++)
@@ -266,6 +266,7 @@ namespace Bol_IT
             }
 
         }
+
         #endregion
     }
 }
