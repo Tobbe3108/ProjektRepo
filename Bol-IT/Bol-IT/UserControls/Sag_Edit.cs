@@ -161,6 +161,11 @@ namespace Bol_IT
             {
                 Image image = Image.FromFile(pic);
                 pbHouseImage.Image = image;
+                if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                {
+                    var path = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
+                pbHouseImage.ImageLocation = (string)path;
+                }
             }
         }
 
@@ -174,6 +179,7 @@ namespace Bol_IT
             }
             Form1.Instance.PnlContainer.Controls["Sag_ViewAll"].BringToFront();
         }
+
         //Christoffer
         private void CheckKeyPress(object sender, KeyPressEventArgs e)
         {
@@ -241,9 +247,8 @@ namespace Bol_IT
                 }
                 else
                 {
-                    string[] temp = Path.GetFileName(pbHouseImage.ImageLocation).Split('.');
-                    fileName = temp[0];
-                    extName = temp[1];
+                    fileName = Path.GetFileNameWithoutExtension(pbHouseImage.ImageLocation);
+                    extName = Path.GetExtension(pbHouseImage.ImageLocation).Replace(".", "");
                     photo = BusinessLayerFacade.GetPhotoFromPath(pbHouseImage.ImageLocation);
                 }
 

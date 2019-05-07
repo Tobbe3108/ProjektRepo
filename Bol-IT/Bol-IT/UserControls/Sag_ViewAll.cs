@@ -44,7 +44,7 @@ namespace Bol_IT
             //Eager initialization af singleton instance
             _instance = this;
 
-            rtbSearch_TextChanged(null, null);
+            StartDataLoad();
         }
 
         #endregion
@@ -126,6 +126,11 @@ namespace Bol_IT
 
         //Tobias
         private void rtbSearch_TextChanged(object sender, EventArgs e)
+        {
+            StartDataLoad();
+        }
+
+        public void StartDataLoad()
         {
             Thread LoadDataThread = new Thread(() => LoadData());
             LoadDataThread.IsBackground = true;

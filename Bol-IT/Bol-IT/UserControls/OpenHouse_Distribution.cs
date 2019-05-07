@@ -13,7 +13,7 @@ using GlobalClasses;
 using System.Threading;
 
 namespace Bol_IT
-{ 
+{
     public partial class OpenHouse_Distribution : UserControl
     {
         #region Fields
@@ -80,19 +80,37 @@ namespace Bol_IT
         //Tobias
         private void OpenHouse_Distribution_SizeChanged(object sender, EventArgs e)
         {
-            lblDistribute.Font = new Font(lblDistribute.Font.FontFamily, this.Size.Height / 50);
-            lblDistribution.Font = new Font(lblDistribution.Font.FontFamily, this.Size.Height / 50);
-            lblSearch.Font = new Font(lblSearch.Font.FontFamily, this.Size.Height / 50);
-            btnDistribute.Font = new Font(btnDistribute.Font.FontFamily, this.Size.Height / 50);
-            btnToFile.Font = new Font(btnToFile.Font.FontFamily, this.Size.Height / 50);
-            cbDistribution.Font = new Font(cbDistribution.Font.FontFamily, this.Size.Height / 50);
-            rtbSearch.Font = new Font(rtbSearch.Font.FontFamily, this.Size.Height / 50);
-            cbSearchParam.Font = new Font(cbSearchParam.Font.FontFamily, this.Size.Height / 50);
+            try
+            {
+                lblDistribute.Font = new Font(lblDistribute.Font.FontFamily, this.Size.Height / 50);
+                lblDistribution.Font = new Font(lblDistribution.Font.FontFamily, this.Size.Height / 50);
+                lblSearch.Font = new Font(lblSearch.Font.FontFamily, this.Size.Height / 50);
+                btnDistribute.Font = new Font(btnDistribute.Font.FontFamily, this.Size.Height / 50);
+                btnToFile.Font = new Font(btnToFile.Font.FontFamily, this.Size.Height / 50);
+                cbDistribution.Font = new Font(cbDistribution.Font.FontFamily, this.Size.Height / 50);
+                rtbSearch.Font = new Font(rtbSearch.Font.FontFamily, this.Size.Height / 50);
+                cbSearchParam.Font = new Font(cbSearchParam.Font.FontFamily, this.Size.Height / 50);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void dgvSearch_SizeChanged(object sender, EventArgs e)
         {
-            dgvSearch.Font = new Font(dgvSearch.Font.FontFamily, this.Size.Height / 60);
+            try
+            {
+
+                dgvSearch.Font = new Font(dgvSearch.Font.FontFamily, this.Size.Height / 60);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         #endregion
@@ -126,7 +144,7 @@ namespace Bol_IT
 
                 dgvSearch.Invoke((MethodInvoker)delegate { dgvSearch.DataSource = dataTable; });
             }
-            catch (Exception){}
+            catch (Exception) { }
         }
 
         #endregion
@@ -294,7 +312,7 @@ namespace Bol_IT
             catch (Exception)
             {
                 //Fejlmeddelelse hvis ikke både boliger og mæglere er valgt til fordelingen.
-                MessageBox.Show("Du har ikke tilføjet boliger/mæglere til fordelingen. Prøv igen.","Fejlmeddelelse:",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Du har ikke tilføjet boliger/mæglere til fordelingen. Prøv igen.", "Fejlmeddelelse:", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
@@ -325,7 +343,7 @@ namespace Bol_IT
                     btn.ToolTipText = "Slet fra tabel.";
                     btn.UseColumnTextForButtonValue = true;
                     btn.UseColumnTextForButtonValue = true;
-                    dgvDistribution.Columns.Insert(0,btn);//Indsætter knappen på den 0'te plads med ovenstående værdier.
+                    dgvDistribution.Columns.Insert(0, btn);//Indsætter knappen på den 0'te plads med ovenstående værdier.
                 }
             }
             //Standard fejl-besked.

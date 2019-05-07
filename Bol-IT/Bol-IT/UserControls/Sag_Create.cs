@@ -93,6 +93,7 @@ namespace Bol_IT
                 Form1.Instance.PnlContainer.Controls.Add(Sag_ViewAll.Instance);
             }
             Form1.Instance.PnlContainer.Controls["Sag_ViewAll"].BringToFront();
+            Sag_ViewAll.Instance.StartDataLoad();
         }
 
         //Tobias
@@ -108,6 +109,11 @@ namespace Bol_IT
             {
                 Image image = Image.FromFile(pic);
                 pbHouseImage.Image = image;
+                if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                {
+                    var path = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
+                    pbHouseImage.ImageLocation = (string)path;
+                }
             }
         }
 
@@ -166,10 +172,11 @@ namespace Bol_IT
                     rtbHouseDescription.Text
                     );
 
-                string[] temp = Path.GetFileName(pbHouseImage.ImageLocation).Split('.');
+                
 
-                string fileName = temp[0];
-                string extName = temp[1];
+                    
+                string fileName = Path.GetFileNameWithoutExtension(pbHouseImage.ImageLocation);
+                string extName = Path.GetExtension(pbHouseImage.ImageLocation).Replace(".", "");
 
                 DataAccessLayerFacade.CreateFile
                     (
