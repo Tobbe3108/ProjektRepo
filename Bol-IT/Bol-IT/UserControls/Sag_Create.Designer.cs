@@ -45,7 +45,7 @@
             this.btnCalculatePrice = new System.Windows.Forms.Button();
             this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel25 = new System.Windows.Forms.TableLayoutPanel();
-            this.rtbEnergyRating = new System.Windows.Forms.RichTextBox();
+            this.rtbZipCode = new System.Windows.Forms.RichTextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.tableLayoutPanel24 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbCashPrice = new System.Windows.Forms.RichTextBox();
@@ -63,6 +63,8 @@
             this.rtbGrossPrice = new System.Windows.Forms.RichTextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
+            this.rtbTimeFrame1 = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.label12 = new System.Windows.Forms.Label();
             this.cbSellerId = new System.Windows.Forms.ComboBox();
@@ -70,36 +72,34 @@
             this.label11 = new System.Windows.Forms.Label();
             this.cbSoldFlag = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.rtbCaseNr = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.rtbZipCode = new System.Windows.Forms.RichTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
-            this.rtbHouseType = new System.Windows.Forms.RichTextBox();
-            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbResSquareMeters = new System.Windows.Forms.RichTextBox();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.rtbPropSquareMeters = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
-            this.rtbPropSquareMeters = new System.Windows.Forms.RichTextBox();
+            this.rtbBuildRebuilt = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
-            this.rtbBuiltRebuilt = new System.Windows.Forms.RichTextBox();
+            this.rtbNrOfRooms = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
-            this.rtbNrOfRooms = new System.Windows.Forms.RichTextBox();
+            this.rtbFloors = new System.Windows.Forms.RichTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
-            this.rtbFloors = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
             this.cbGarageFlag = new System.Windows.Forms.CheckBox();
             this.ofdOpenPicture = new System.Windows.Forms.OpenFileDialog();
-            this.label1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.rtbTimeFrame = new System.Windows.Forms.RichTextBox();
+            this.rtbHouseType = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.rtbCaseNr = new System.Windows.Forms.RichTextBox();
+            this.rtbEnergyRating = new System.Windows.Forms.RichTextBox();
             this.rtbDesiredPrice = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -183,6 +183,8 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(196, 461);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
@@ -396,8 +398,8 @@
             this.tableLayoutPanel26.ColumnCount = 2;
             this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel26.Controls.Add(this.rtbTimeFrame, 0, 0);
-            this.tableLayoutPanel26.Controls.Add(this.label13, 0, 0);
+            this.tableLayoutPanel26.Controls.Add(this.rtbCaseNr, 0, 0);
+            this.tableLayoutPanel26.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel26.Location = new System.Drawing.Point(0, 369);
             this.tableLayoutPanel26.Margin = new System.Windows.Forms.Padding(0);
@@ -412,7 +414,7 @@
             this.tableLayoutPanel25.ColumnCount = 2;
             this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel25.Controls.Add(this.rtbEnergyRating, 1, 0);
+            this.tableLayoutPanel25.Controls.Add(this.rtbZipCode, 1, 0);
             this.tableLayoutPanel25.Controls.Add(this.label19, 0, 0);
             this.tableLayoutPanel25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel25.Location = new System.Drawing.Point(0, 328);
@@ -420,21 +422,21 @@
             this.tableLayoutPanel25.Name = "tableLayoutPanel25";
             this.tableLayoutPanel25.RowCount = 1;
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel25.Size = new System.Drawing.Size(294, 41);
             this.tableLayoutPanel25.TabIndex = 1;
             // 
-            // rtbEnergyRating
+            // rtbZipCode
             // 
-            this.rtbEnergyRating.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.rtbEnergyRating.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbEnergyRating.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbEnergyRating.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.rtbEnergyRating.Location = new System.Drawing.Point(150, 3);
-            this.rtbEnergyRating.Name = "rtbEnergyRating";
-            this.rtbEnergyRating.Size = new System.Drawing.Size(141, 35);
-            this.rtbEnergyRating.TabIndex = 9;
-            this.rtbEnergyRating.Text = "";
+            this.rtbZipCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.rtbZipCode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbZipCode.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbZipCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.rtbZipCode.Location = new System.Drawing.Point(150, 3);
+            this.rtbZipCode.Name = "rtbZipCode";
+            this.rtbZipCode.Size = new System.Drawing.Size(141, 35);
+            this.rtbZipCode.TabIndex = 9;
+            this.rtbZipCode.Text = "";
             // 
             // label19
             // 
@@ -447,7 +449,7 @@
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(141, 41);
             this.label19.TabIndex = 8;
-            this.label19.Text = "Energimærke";
+            this.label19.Text = "Postnummer";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel24
@@ -665,7 +667,7 @@
             this.tableLayoutPanel19.ColumnCount = 2;
             this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel19.Controls.Add(this.rtbDesiredPrice, 0, 0);
+            this.tableLayoutPanel19.Controls.Add(this.rtbTimeFrame1, 0, 0);
             this.tableLayoutPanel19.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel19.Location = new System.Drawing.Point(309, 123);
@@ -676,13 +678,39 @@
             this.tableLayoutPanel19.Size = new System.Drawing.Size(295, 41);
             this.tableLayoutPanel19.TabIndex = 1;
             // 
+            // rtbTimeFrame1
+            // 
+            this.rtbTimeFrame1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.rtbTimeFrame1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbTimeFrame1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbTimeFrame1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.rtbTimeFrame1.Location = new System.Drawing.Point(150, 3);
+            this.rtbTimeFrame1.Name = "rtbTimeFrame1";
+            this.rtbTimeFrame1.Size = new System.Drawing.Size(142, 35);
+            this.rtbTimeFrame1.TabIndex = 11;
+            this.rtbTimeFrame1.Text = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(141, 41);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Boligsalgs tidsramme i dage";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // tableLayoutPanel18
             // 
             this.tableLayoutPanel18.ColumnCount = 2;
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel18.Controls.Add(this.rtbDesiredPrice, 0, 0);
             this.tableLayoutPanel18.Controls.Add(this.label12, 0, 0);
-            this.tableLayoutPanel18.Controls.Add(this.cbSellerId, 1, 0);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel18.Location = new System.Drawing.Point(309, 82);
             this.tableLayoutPanel18.Margin = new System.Windows.Forms.Padding(0);
@@ -703,13 +731,14 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(141, 41);
             this.label12.TabIndex = 9;
-            this.label12.Text = "Sælger";
+            this.label12.Text = "Sælgers ønskede pris";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cbSellerId
             // 
+            this.cbSellerId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.cbSellerId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.cbSellerId.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbSellerId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSellerId.ForeColor = System.Drawing.SystemColors.ControlText;
             this.cbSellerId.FormattingEnabled = true;
@@ -724,7 +753,7 @@
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel17.Controls.Add(this.label11, 0, 0);
-            this.tableLayoutPanel17.Controls.Add(this.cbSoldFlag, 1, 0);
+            this.tableLayoutPanel17.Controls.Add(this.cbSellerId, 1, 0);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel17.Location = new System.Drawing.Point(309, 41);
             this.tableLayoutPanel17.Margin = new System.Windows.Forms.Padding(0);
@@ -745,7 +774,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(141, 41);
             this.label11.TabIndex = 9;
-            this.label11.Text = "Solgt";
+            this.label11.Text = "Sælger";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cbSoldFlag
@@ -764,8 +793,8 @@
             this.tableLayoutPanel8.ColumnCount = 2;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.rtbCaseNr, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.rtbHouseType, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.label13, 0, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(0);
@@ -775,39 +804,13 @@
             this.tableLayoutPanel8.Size = new System.Drawing.Size(294, 41);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(141, 41);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Sags nummer";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // rtbCaseNr
-            // 
-            this.rtbCaseNr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.rtbCaseNr.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbCaseNr.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbCaseNr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.rtbCaseNr.Location = new System.Drawing.Point(150, 3);
-            this.rtbCaseNr.Name = "rtbCaseNr";
-            this.rtbCaseNr.Size = new System.Drawing.Size(141, 35);
-            this.rtbCaseNr.TabIndex = 1;
-            this.rtbCaseNr.Text = "";
-            // 
             // tableLayoutPanel9
             // 
             this.tableLayoutPanel9.ColumnCount = 2;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Controls.Add(this.rtbZipCode, 1, 0);
             this.tableLayoutPanel9.Controls.Add(this.label10, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.cbSoldFlag, 1, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(309, 0);
             this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
@@ -816,18 +819,6 @@
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(295, 41);
             this.tableLayoutPanel9.TabIndex = 1;
-            // 
-            // rtbZipCode
-            // 
-            this.rtbZipCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.rtbZipCode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbZipCode.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbZipCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.rtbZipCode.Location = new System.Drawing.Point(150, 3);
-            this.rtbZipCode.Name = "rtbZipCode";
-            this.rtbZipCode.Size = new System.Drawing.Size(142, 35);
-            this.rtbZipCode.TabIndex = 9;
-            this.rtbZipCode.Text = "";
             // 
             // label10
             // 
@@ -840,7 +831,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(141, 41);
             this.label10.TabIndex = 8;
-            this.label10.Text = "Postnummer";
+            this.label10.Text = "Solgt";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel10
@@ -849,7 +840,7 @@
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel10.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel10.Controls.Add(this.rtbHouseType, 1, 0);
+            this.tableLayoutPanel10.Controls.Add(this.rtbResSquareMeters, 1, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(0, 41);
             this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(0);
@@ -870,36 +861,8 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(141, 41);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Boligtype";
+            this.label3.Text = "Boligareal";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // rtbHouseType
-            // 
-            this.rtbHouseType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.rtbHouseType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbHouseType.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbHouseType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.rtbHouseType.Location = new System.Drawing.Point(150, 3);
-            this.rtbHouseType.Name = "rtbHouseType";
-            this.rtbHouseType.Size = new System.Drawing.Size(141, 35);
-            this.rtbHouseType.TabIndex = 2;
-            this.rtbHouseType.Text = "";
-            // 
-            // tableLayoutPanel11
-            // 
-            this.tableLayoutPanel11.ColumnCount = 2;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Controls.Add(this.rtbResSquareMeters, 1, 0);
-            this.tableLayoutPanel11.Controls.Add(this.label4, 0, 0);
-            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(0, 82);
-            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-            this.tableLayoutPanel11.RowCount = 1;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(294, 41);
-            this.tableLayoutPanel11.TabIndex = 3;
             // 
             // rtbResSquareMeters
             // 
@@ -910,8 +873,36 @@
             this.rtbResSquareMeters.Location = new System.Drawing.Point(150, 3);
             this.rtbResSquareMeters.Name = "rtbResSquareMeters";
             this.rtbResSquareMeters.Size = new System.Drawing.Size(141, 35);
-            this.rtbResSquareMeters.TabIndex = 3;
+            this.rtbResSquareMeters.TabIndex = 2;
             this.rtbResSquareMeters.Text = "";
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.ColumnCount = 2;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Controls.Add(this.rtbPropSquareMeters, 1, 0);
+            this.tableLayoutPanel11.Controls.Add(this.label4, 0, 0);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(0, 82);
+            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 1;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(294, 41);
+            this.tableLayoutPanel11.TabIndex = 3;
+            // 
+            // rtbPropSquareMeters
+            // 
+            this.rtbPropSquareMeters.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.rtbPropSquareMeters.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbPropSquareMeters.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbPropSquareMeters.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.rtbPropSquareMeters.Location = new System.Drawing.Point(150, 3);
+            this.rtbPropSquareMeters.Name = "rtbPropSquareMeters";
+            this.rtbPropSquareMeters.Size = new System.Drawing.Size(141, 35);
+            this.rtbPropSquareMeters.TabIndex = 3;
+            this.rtbPropSquareMeters.Text = "";
             // 
             // label4
             // 
@@ -924,7 +915,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(141, 41);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Boligareal";
+            this.label4.Text = "Grundareal";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel12
@@ -932,7 +923,7 @@
             this.tableLayoutPanel12.ColumnCount = 2;
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel12.Controls.Add(this.rtbPropSquareMeters, 1, 0);
+            this.tableLayoutPanel12.Controls.Add(this.rtbBuildRebuilt, 1, 0);
             this.tableLayoutPanel12.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel12.Location = new System.Drawing.Point(0, 123);
@@ -943,17 +934,17 @@
             this.tableLayoutPanel12.Size = new System.Drawing.Size(294, 41);
             this.tableLayoutPanel12.TabIndex = 4;
             // 
-            // rtbPropSquareMeters
+            // rtbBuildRebuilt
             // 
-            this.rtbPropSquareMeters.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.rtbPropSquareMeters.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbPropSquareMeters.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbPropSquareMeters.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.rtbPropSquareMeters.Location = new System.Drawing.Point(150, 3);
-            this.rtbPropSquareMeters.Name = "rtbPropSquareMeters";
-            this.rtbPropSquareMeters.Size = new System.Drawing.Size(141, 35);
-            this.rtbPropSquareMeters.TabIndex = 4;
-            this.rtbPropSquareMeters.Text = "";
+            this.rtbBuildRebuilt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.rtbBuildRebuilt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbBuildRebuilt.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbBuildRebuilt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.rtbBuildRebuilt.Location = new System.Drawing.Point(150, 3);
+            this.rtbBuildRebuilt.Name = "rtbBuildRebuilt";
+            this.rtbBuildRebuilt.Size = new System.Drawing.Size(141, 35);
+            this.rtbBuildRebuilt.TabIndex = 4;
+            this.rtbBuildRebuilt.Text = "";
             // 
             // label5
             // 
@@ -966,7 +957,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(141, 41);
             this.label5.TabIndex = 3;
-            this.label5.Text = "Grundareal";
+            this.label5.Text = "Bygget/ombygget";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel13
@@ -974,7 +965,7 @@
             this.tableLayoutPanel13.ColumnCount = 2;
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel13.Controls.Add(this.rtbBuiltRebuilt, 1, 0);
+            this.tableLayoutPanel13.Controls.Add(this.rtbNrOfRooms, 1, 0);
             this.tableLayoutPanel13.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel13.Location = new System.Drawing.Point(0, 164);
@@ -986,17 +977,17 @@
             this.tableLayoutPanel13.Size = new System.Drawing.Size(294, 41);
             this.tableLayoutPanel13.TabIndex = 5;
             // 
-            // rtbBuiltRebuilt
+            // rtbNrOfRooms
             // 
-            this.rtbBuiltRebuilt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.rtbBuiltRebuilt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbBuiltRebuilt.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbBuiltRebuilt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.rtbBuiltRebuilt.Location = new System.Drawing.Point(150, 3);
-            this.rtbBuiltRebuilt.Name = "rtbBuiltRebuilt";
-            this.rtbBuiltRebuilt.Size = new System.Drawing.Size(141, 35);
-            this.rtbBuiltRebuilt.TabIndex = 5;
-            this.rtbBuiltRebuilt.Text = "";
+            this.rtbNrOfRooms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.rtbNrOfRooms.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbNrOfRooms.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbNrOfRooms.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.rtbNrOfRooms.Location = new System.Drawing.Point(150, 3);
+            this.rtbNrOfRooms.Name = "rtbNrOfRooms";
+            this.rtbNrOfRooms.Size = new System.Drawing.Size(141, 35);
+            this.rtbNrOfRooms.TabIndex = 5;
+            this.rtbNrOfRooms.Text = "";
             // 
             // label6
             // 
@@ -1009,7 +1000,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(141, 41);
             this.label6.TabIndex = 4;
-            this.label6.Text = "Bygget/ombygget";
+            this.label6.Text = "Antal rum";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel14
@@ -1017,7 +1008,7 @@
             this.tableLayoutPanel14.ColumnCount = 2;
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel14.Controls.Add(this.rtbNrOfRooms, 1, 0);
+            this.tableLayoutPanel14.Controls.Add(this.rtbFloors, 1, 0);
             this.tableLayoutPanel14.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel14.Location = new System.Drawing.Point(0, 205);
@@ -1028,17 +1019,17 @@
             this.tableLayoutPanel14.Size = new System.Drawing.Size(294, 41);
             this.tableLayoutPanel14.TabIndex = 6;
             // 
-            // rtbNrOfRooms
+            // rtbFloors
             // 
-            this.rtbNrOfRooms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.rtbNrOfRooms.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbNrOfRooms.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbNrOfRooms.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.rtbNrOfRooms.Location = new System.Drawing.Point(150, 3);
-            this.rtbNrOfRooms.Name = "rtbNrOfRooms";
-            this.rtbNrOfRooms.Size = new System.Drawing.Size(141, 35);
-            this.rtbNrOfRooms.TabIndex = 6;
-            this.rtbNrOfRooms.Text = "";
+            this.rtbFloors.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.rtbFloors.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbFloors.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbFloors.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.rtbFloors.Location = new System.Drawing.Point(150, 3);
+            this.rtbFloors.Name = "rtbFloors";
+            this.rtbFloors.Size = new System.Drawing.Size(141, 35);
+            this.rtbFloors.TabIndex = 6;
+            this.rtbFloors.Text = "";
             // 
             // label7
             // 
@@ -1051,7 +1042,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(141, 41);
             this.label7.TabIndex = 5;
-            this.label7.Text = "Antal rum";
+            this.label7.Text = "Etager";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel15
@@ -1059,8 +1050,8 @@
             this.tableLayoutPanel15.ColumnCount = 2;
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel15.Controls.Add(this.rtbFloors, 1, 0);
             this.tableLayoutPanel15.Controls.Add(this.label8, 0, 0);
+            this.tableLayoutPanel15.Controls.Add(this.cbGarageFlag, 1, 0);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel15.Location = new System.Drawing.Point(0, 246);
             this.tableLayoutPanel15.Margin = new System.Windows.Forms.Padding(0);
@@ -1069,18 +1060,6 @@
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel15.Size = new System.Drawing.Size(294, 41);
             this.tableLayoutPanel15.TabIndex = 7;
-            // 
-            // rtbFloors
-            // 
-            this.rtbFloors.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.rtbFloors.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbFloors.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbFloors.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.rtbFloors.Location = new System.Drawing.Point(150, 3);
-            this.rtbFloors.Name = "rtbFloors";
-            this.rtbFloors.Size = new System.Drawing.Size(141, 35);
-            this.rtbFloors.TabIndex = 7;
-            this.rtbFloors.Text = "";
             // 
             // label8
             // 
@@ -1093,7 +1072,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(141, 41);
             this.label8.TabIndex = 6;
-            this.label8.Text = "Etager";
+            this.label8.Text = "Garage";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel16
@@ -1101,8 +1080,8 @@
             this.tableLayoutPanel16.ColumnCount = 2;
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel16.Controls.Add(this.rtbEnergyRating, 0, 0);
             this.tableLayoutPanel16.Controls.Add(this.label9, 0, 0);
-            this.tableLayoutPanel16.Controls.Add(this.cbGarageFlag, 1, 0);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel16.Location = new System.Drawing.Point(0, 287);
             this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(0);
@@ -1124,7 +1103,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(141, 41);
             this.label9.TabIndex = 7;
-            this.label9.Text = "Garage";
+            this.label9.Text = "Energimærke";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cbGarageFlag
@@ -1138,20 +1117,6 @@
             this.cbGarageFlag.TabIndex = 8;
             this.cbGarageFlag.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 41);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Sælgers ønskede pris";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -1161,22 +1126,60 @@
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.label13.Location = new System.Drawing.Point(3, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(141, 46);
-            this.label13.TabIndex = 11;
-            this.label13.Text = "Boligsalgs tidsramme i dage";
+            this.label13.Size = new System.Drawing.Size(141, 41);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "Boligtype";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // rtbTimeFrame
+            // rtbHouseType
             // 
-            this.rtbTimeFrame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.rtbTimeFrame.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbTimeFrame.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbTimeFrame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.rtbTimeFrame.Location = new System.Drawing.Point(150, 3);
-            this.rtbTimeFrame.Name = "rtbTimeFrame";
-            this.rtbTimeFrame.Size = new System.Drawing.Size(141, 40);
-            this.rtbTimeFrame.TabIndex = 12;
-            this.rtbTimeFrame.Text = "";
+            this.rtbHouseType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.rtbHouseType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbHouseType.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbHouseType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.rtbHouseType.Location = new System.Drawing.Point(150, 3);
+            this.rtbHouseType.Name = "rtbHouseType";
+            this.rtbHouseType.Size = new System.Drawing.Size(141, 35);
+            this.rtbHouseType.TabIndex = 13;
+            this.rtbHouseType.Text = "";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(141, 46);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Sags nummer";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // rtbCaseNr
+            // 
+            this.rtbCaseNr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.rtbCaseNr.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbCaseNr.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbCaseNr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.rtbCaseNr.Location = new System.Drawing.Point(150, 3);
+            this.rtbCaseNr.Name = "rtbCaseNr";
+            this.rtbCaseNr.Size = new System.Drawing.Size(141, 40);
+            this.rtbCaseNr.TabIndex = 15;
+            this.rtbCaseNr.Text = "";
+            // 
+            // rtbEnergyRating
+            // 
+            this.rtbEnergyRating.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.rtbEnergyRating.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbEnergyRating.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbEnergyRating.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.rtbEnergyRating.Location = new System.Drawing.Point(150, 3);
+            this.rtbEnergyRating.Name = "rtbEnergyRating";
+            this.rtbEnergyRating.Size = new System.Drawing.Size(141, 35);
+            this.rtbEnergyRating.TabIndex = 8;
+            this.rtbEnergyRating.Text = "";
             // 
             // rtbDesiredPrice
             // 
@@ -1187,7 +1190,7 @@
             this.rtbDesiredPrice.Location = new System.Drawing.Point(150, 3);
             this.rtbDesiredPrice.Name = "rtbDesiredPrice";
             this.rtbDesiredPrice.Size = new System.Drawing.Size(142, 35);
-            this.rtbDesiredPrice.TabIndex = 11;
+            this.rtbDesiredPrice.TabIndex = 10;
             this.rtbDesiredPrice.Text = "";
             // 
             // Sag_Create
@@ -1287,7 +1290,7 @@
         private System.Windows.Forms.RichTextBox rtbAddress;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Button btnCalculatePrice;
-        private System.Windows.Forms.RichTextBox rtbEnergyRating;
+        private System.Windows.Forms.RichTextBox rtbZipCode;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.RichTextBox rtbCashPrice;
         private System.Windows.Forms.Label lblPrice;
@@ -1301,30 +1304,30 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RichTextBox rtbCaseNr;
-        private System.Windows.Forms.RichTextBox rtbZipCode;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RichTextBox rtbHouseType;
         private System.Windows.Forms.RichTextBox rtbResSquareMeters;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox rtbPropSquareMeters;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RichTextBox rtbBuildRebuilt;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RichTextBox rtbBuiltRebuilt;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RichTextBox rtbNrOfRooms;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RichTextBox rtbFloors;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbSellerId;
         private System.Windows.Forms.CheckBox cbSoldFlag;
         private System.Windows.Forms.CheckBox cbGarageFlag;
         private System.Windows.Forms.OpenFileDialog ofdOpenPicture;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox rtbTimeFrame;
+        private System.Windows.Forms.RichTextBox rtbTimeFrame1;
+        private System.Windows.Forms.RichTextBox rtbCaseNr;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RichTextBox rtbHouseType;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.RichTextBox rtbEnergyRating;
         private System.Windows.Forms.RichTextBox rtbDesiredPrice;
     }
 }

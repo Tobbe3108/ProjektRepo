@@ -144,8 +144,8 @@ namespace Bol_IT
                 int caseNr = DataAccessLayerFacade.CreateProperty
                     (
                     int.Parse(cbSellerId.Text),
-                    int.Parse(rtbDesiredPrice.Text),
-                    int.Parse(rtbTimeFrame.Text),
+                    int.Parse(rtbTimeFrame1.Text),
+                    int.Parse(rtbHouseType.Text),
                     int.Parse(rtbNetPrice.Text),
                     int.Parse(rtbGrossPrice.Text),
                     int.Parse(rtbOwnerExpences.Text),
@@ -153,14 +153,14 @@ namespace Bol_IT
                     int.Parse(rtbDepositPrice.Text),
                     rtbAddress.Text,
                     int.Parse(rtbZipCode.Text),
-                    int.Parse(rtbNrOfRooms.Text),
-                    cbGarageFlag.Checked,
-                    rtbBuiltRebuilt.Text,
-                    rtbHouseType.Text,
-                    rtbEnergyRating.Text,
-                    int.Parse(rtbResSquareMeters.Text),
-                    int.Parse(rtbPropSquareMeters.Text),
                     int.Parse(rtbFloors.Text),
+                    cbGarageFlag.Checked,
+                    rtbNrOfRooms.Text,
+                    rtbResSquareMeters.Text,
+                    rtbZipCode.Text,
+                    int.Parse(rtbPropSquareMeters.Text),
+                    int.Parse(rtbBuildRebuilt.Text),
+                    int.Parse(rtbEnergyRating.Text),
                     cbSoldFlag.Checked,
                     rtbHouseDescription.Text
                     );
@@ -184,8 +184,8 @@ namespace Bol_IT
         {
             if (
                 cbSellerId.Text == string.Empty ||
-                rtbDesiredPrice.Text == string.Empty ||
-                rtbTimeFrame.Text == string.Empty ||
+                rtbTimeFrame1.Text == string.Empty ||
+                rtbHouseType.Text == string.Empty ||
                 rtbNetPrice.Text == string.Empty ||
                 rtbGrossPrice.Text == string.Empty ||
                 rtbOwnerExpences.Text == string.Empty ||
@@ -193,13 +193,13 @@ namespace Bol_IT
                 rtbDepositPrice.Text == string.Empty ||
                 rtbAddress.Text == string.Empty ||
                 rtbZipCode.Text == string.Empty ||
-                rtbNrOfRooms.Text == string.Empty ||
-                rtbBuiltRebuilt.Text == string.Empty ||
-                rtbHouseType.Text == string.Empty ||
-                rtbEnergyRating.Text == string.Empty ||
-                rtbResSquareMeters.Text == string.Empty ||
-                rtbPropSquareMeters.Text == string.Empty ||
                 rtbFloors.Text == string.Empty ||
+                rtbNrOfRooms.Text == string.Empty ||
+                rtbResSquareMeters.Text == string.Empty ||
+                rtbZipCode.Text == string.Empty ||
+                rtbPropSquareMeters.Text == string.Empty ||
+                rtbBuildRebuilt.Text == string.Empty ||
+                rtbEnergyRating.Text == string.Empty ||
                 rtbHouseDescription.Text == string.Empty ||
                 pbHouseImage.ImageLocation == null
                 )

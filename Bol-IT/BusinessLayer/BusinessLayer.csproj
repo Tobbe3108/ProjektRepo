@@ -52,6 +52,7 @@
     <Compile Include="Classes\Seller.cs" />
     <Compile Include="Classes\OpenHouseMethods.cs" />
     <Compile Include="Classes\SloganThread.cs" />
+    <Compile Include="Classes\WantsToSell.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

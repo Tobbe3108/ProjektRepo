@@ -29,6 +29,11 @@ namespace DataAccessLayer
             MethodsDataAccessLayer.CreateSeller(fName, mName, lName, phoneNr, address, zipcode, mail, aId);
         }
 
+        public static WantsToSell GetSellerInformationByCaseNr(int id)
+        {
+            return MethodsDataAccessLayer.GetWantsToSellByCaseNr(id);
+        }
+
         //Christoffer
         public static List<Seller> GetSellers()
         {
@@ -86,6 +91,14 @@ namespace DataAccessLayer
                 garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description);
         }
 
+        public static void UpdateProperty(int caseNr, int sId, int desiredPrice, int timeFrame, int netPrice, int grossPrice, int ownerExpenses, int cashPrice,
+            int depositPrice, string address, int zipcode, int nrOfRooms, bool garageFlag, string builtRebuild, string houseType, string energyRating,
+             int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
+        {
+            MethodsDataAccessLayer.UpdateProperty(caseNr, sId, desiredPrice, timeFrame, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, 
+                address, zipcode, nrOfRooms, garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description);
+        }
+
         //Tobias
         public static propertyDataTable GetPropertyDataTable()
         {
@@ -123,6 +136,25 @@ namespace DataAccessLayer
         {
             return MethodsDataAccessLayer.GetPhotoFromId(id);
         }
+
+        public static string GetPhotoNameFromIdAndPhoto(int id, byte[] photo)
+        {
+            return MethodsDataAccessLayer.GetPhotoNameFromIdAndPhoto(id, photo);
+        }
+
+        public static void UpdatePhoto(string originalFileName, string fileName, string extName, byte[] photo)
+        {
+            MethodsDataAccessLayer.UpdatePhoto(originalFileName, fileName, extName, photo);
+        }
+
+        public static string GetPhotoExtFromName(string nameOfPhoto)
+        {
+            return MethodsDataAccessLayer.GetPhotoExtFromName(nameOfPhoto);
+        }
+
+
+
+
 
         #endregion
     }
