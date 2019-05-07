@@ -386,11 +386,12 @@
             this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel27.Controls.Add(this.rtbCaseNr, 0, 0);
             this.tableLayoutPanel27.Controls.Add(this.lblCaseNr, 0, 0);
+            this.tableLayoutPanel27.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel27.Location = new System.Drawing.Point(0, 369);
             this.tableLayoutPanel27.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel27.Name = "tableLayoutPanel27";
             this.tableLayoutPanel27.RowCount = 1;
-            this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel27.Size = new System.Drawing.Size(294, 46);
             this.tableLayoutPanel27.TabIndex = 10;
             // 
@@ -448,6 +449,7 @@
             this.rtbZipCode.Size = new System.Drawing.Size(141, 35);
             this.rtbZipCode.TabIndex = 9;
             this.rtbZipCode.Text = "";
+            this.rtbZipCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblZipCode
             // 
@@ -490,6 +492,7 @@
             this.rtbCashPrice.Size = new System.Drawing.Size(142, 35);
             this.rtbCashPrice.TabIndex = 3;
             this.rtbCashPrice.Text = "";
+            this.rtbCashPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblCashPrice
             // 
@@ -532,6 +535,7 @@
             this.rtbDepositPrice.Size = new System.Drawing.Size(142, 35);
             this.rtbDepositPrice.TabIndex = 15;
             this.rtbDepositPrice.Text = "";
+            this.rtbDepositPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblDepositPrice
             // 
@@ -574,6 +578,7 @@
             this.rtbOwnerExpences.Size = new System.Drawing.Size(142, 35);
             this.rtbOwnerExpences.TabIndex = 14;
             this.rtbOwnerExpences.Text = "";
+            this.rtbOwnerExpences.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblOwnerExpences
             // 
@@ -616,6 +621,7 @@
             this.rtbNetPrice.Size = new System.Drawing.Size(142, 35);
             this.rtbNetPrice.TabIndex = 13;
             this.rtbNetPrice.Text = "";
+            this.rtbNetPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblNetPrice
             // 
@@ -658,6 +664,7 @@
             this.rtbGrossPrice.Size = new System.Drawing.Size(142, 35);
             this.rtbGrossPrice.TabIndex = 12;
             this.rtbGrossPrice.Text = "";
+            this.rtbGrossPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblGrossPrice
             // 
@@ -700,6 +707,7 @@
             this.rtbTimeFrame.Size = new System.Drawing.Size(142, 35);
             this.rtbTimeFrame.TabIndex = 12;
             this.rtbTimeFrame.Text = "";
+            this.rtbTimeFrame.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblTimeFrame
             // 
@@ -783,6 +791,7 @@
             this.cbSellerId.Name = "cbSellerId";
             this.cbSellerId.Size = new System.Drawing.Size(142, 21);
             this.cbSellerId.TabIndex = 11;
+            this.cbSellerId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblSeller
             // 
@@ -923,6 +932,7 @@
             this.rtbResSquareMeters.Size = new System.Drawing.Size(141, 35);
             this.rtbResSquareMeters.TabIndex = 2;
             this.rtbResSquareMeters.Text = "";
+            this.rtbResSquareMeters.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // tableLayoutPanel11
             // 
@@ -951,6 +961,7 @@
             this.rtbPropSquareMeters.Size = new System.Drawing.Size(141, 35);
             this.rtbPropSquareMeters.TabIndex = 3;
             this.rtbPropSquareMeters.Text = "";
+            this.rtbPropSquareMeters.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblPropSquareMeters
             // 
@@ -993,6 +1004,7 @@
             this.rtbBuiltRebuilt.Size = new System.Drawing.Size(141, 35);
             this.rtbBuiltRebuilt.TabIndex = 4;
             this.rtbBuiltRebuilt.Text = "";
+            this.rtbBuiltRebuilt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressDigit);
             // 
             // lblBuiltRebuilt
             // 
@@ -1036,6 +1048,7 @@
             this.rtbNrOfRooms.Size = new System.Drawing.Size(141, 35);
             this.rtbNrOfRooms.TabIndex = 5;
             this.rtbNrOfRooms.Text = "";
+            this.rtbNrOfRooms.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblNrOfRooms
             // 
@@ -1078,6 +1091,7 @@
             this.rtbFloors.Size = new System.Drawing.Size(141, 35);
             this.rtbFloors.TabIndex = 6;
             this.rtbFloors.Text = "";
+            this.rtbFloors.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblFloors
             // 
