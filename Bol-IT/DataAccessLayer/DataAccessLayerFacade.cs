@@ -142,9 +142,9 @@ namespace DataAccessLayer
             return MethodsDataAccessLayer.GetPhotoNameFromIdAndPhoto(id, photo);
         }
 
-        public static void UpdatePhoto(string originalFileName, string fileName, string extName, byte[] photo)
+        public static void UpdatePhoto(string originalFileName, int caseNr, string fileName, string extName, byte[] photo)
         {
-            MethodsDataAccessLayer.UpdatePhoto(originalFileName, fileName, extName, photo);
+            MethodsDataAccessLayer.UpdatePhoto(originalFileName, caseNr, fileName, extName, photo);
         }
 
         public static string GetPhotoExtFromName(string nameOfPhoto)

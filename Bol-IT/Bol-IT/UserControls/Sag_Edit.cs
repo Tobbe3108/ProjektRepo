@@ -251,6 +251,7 @@ namespace Bol_IT
                 DataAccessLayerFacade.UpdatePhoto
                     (
                     NameOfPhoto,
+                    int.Parse(rtbCaseNr.Text),
                     fileName,
                     extName,
                     photo

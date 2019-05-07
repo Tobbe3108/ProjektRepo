@@ -427,9 +427,20 @@ namespace DataAccessLayer
 
         #region Files
         //Christoffer
-        public static void UpdatePhoto(string originalFileName, string fileName, string extName, byte[] photo)
+        public static void UpdatePhoto(string originalFileName, int caseNr, string fileName, string extName, byte[] photo)
         {
-            filesTableAdapter.UpdateData(fileName, extName, photo, originalFileName);
+            if (originalFileName == string.Empty)
+            {
+                if (photo == null)
+                {
+                    return;
+                }
+                filesTableAdapter.InsertData(caseNr, fileName, extName, photo);
+            }
+            else
+            {
+                filesTableAdapter.UpdateData(fileName, extName, photo, originalFileName);
+            }
         }
         #endregion
 
