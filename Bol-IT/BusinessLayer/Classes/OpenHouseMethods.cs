@@ -14,9 +14,9 @@ namespace BusinessLayer
         {
             DataTable distribution = new DataTable();
 
-            distribution.Columns.Add("AId");
-            distribution.Columns.Add("CaseNr");
-            distribution.Columns.Add("CashPrice");
+            distribution.Columns.Add("AId", typeof (int));
+            distribution.Columns.Add("CaseNr", typeof (int));
+            distribution.Columns.Add("CashPrice", typeof (int));
 
             switch (sortMethod)
             {
@@ -39,7 +39,23 @@ namespace BusinessLayer
                     }
                     break;
                 case 1:
-                    throw new NotImplementedException();
+                    Random random = new Random();
+
+                    List<Property> propertiesList = new List<Property>(propertiesArray);
+
+                    while (propertiesList.Count != 0)
+                    {
+                        for (int j = 0; j <= agentsArray.Length - 1; j++)
+                        {
+                            if (propertiesList.Count != 0)
+                            {
+                                int randomInt = random.Next(0, propertiesList.Count - 1);
+                                Property property = propertiesList[randomInt];
+                                distribution.Rows.Add(agentsArray[j].AId, property.CaseNr, property.CashPrice);
+                                propertiesList.RemoveAt(randomInt);
+                            }
+                        }
+                    }
                     break;
                 default:
                     break;

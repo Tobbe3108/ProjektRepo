@@ -47,6 +47,7 @@
             this.Slet = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btnToFile = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
@@ -185,11 +186,12 @@
             // 
             // tableLayoutPanel7
             // 
-            this.tableLayoutPanel7.ColumnCount = 3;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel7.ColumnCount = 2;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel7.Controls.Add(this.btnDistribute, 1, 0);
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel7.Controls.Add(this.btnReset, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.btnDistribute, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 414);
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
@@ -206,7 +208,7 @@
             this.btnDistribute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDistribute.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDistribute.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnDistribute.Location = new System.Drawing.Point(102, 3);
+            this.btnDistribute.Location = new System.Drawing.Point(3, 3);
             this.btnDistribute.Name = "btnDistribute";
             this.btnDistribute.Size = new System.Drawing.Size(193, 41);
             this.btnDistribute.TabIndex = 5;
@@ -349,6 +351,21 @@
             this.btnToFile.Text = "Udskriv fil";
             this.btnToFile.UseVisualStyleBackColor = true;
             // 
+            // btnReset
+            // 
+            this.btnReset.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.btnReset.Location = new System.Drawing.Point(202, 3);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(194, 41);
+            this.btnReset.TabIndex = 6;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // OpenHouse_Distribution
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -396,5 +413,6 @@
         private System.Windows.Forms.RichTextBox rtbSearch;
         private System.Windows.Forms.DataGridViewButtonColumn Tilføj;
         private System.Windows.Forms.DataGridViewButtonColumn Slet;
+        private System.Windows.Forms.Button btnReset;
     }
 }
