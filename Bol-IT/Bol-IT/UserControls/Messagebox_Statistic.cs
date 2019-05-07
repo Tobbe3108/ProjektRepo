@@ -90,8 +90,21 @@ namespace Bol_IT
                     break;
                 case 1:
                     //Kvadratmeterpris salgsstatistik
-                    dataTable = DataAccessLayerFacade.StatisticSquareMeterPrice(cbYear.GetItemText(cbYear.SelectedItem), (cbMonth.SelectedIndex + 1).ToString());
+                    dataTable = DataAccessLayerFacade.StatisticSquareMeterPrice(Decimal.Parse(cbYear.GetItemText(cbYear.SelectedItem)), (decimal)(cbMonth.SelectedIndex + 1));
+                    
                     header = "Kvadratmeterpris salgsstatistik";
+
+                    dataTable.Columns["salesDate"].SetOrdinal(0);
+                    dataTable.Columns["fName"].SetOrdinal(1);
+                    dataTable.Columns["lName"].SetOrdinal(2);
+                    dataTable.Columns["aId"].SetOrdinal(3);
+                    dataTable.Columns["address"].SetOrdinal(4);
+                    dataTable.Columns["zipcode"].SetOrdinal(5);
+                    dataTable.Columns["caseNr"].SetOrdinal(6);
+                    dataTable.Columns["propSquareMeters"].SetOrdinal(7);
+                    dataTable.Columns["salesPrice"].SetOrdinal(8);
+                    dataTable.Columns["kvmPrice"].SetOrdinal(9);
+
                     break;
                 default:
                     MessageBox.Show("Vælg hvilken statistik du kunne tænke dig");
@@ -130,7 +143,7 @@ namespace Bol_IT
                         for (int col = 0; col < dataTable.Columns.Count; col++)
                         {
                             int stringLength = 0;
-                            for (int row = 0; row < dataTable.Rows.Count - 1; row++)
+                            for (int row = 0; row < dataTable.Rows.Count; row++)
                             {
                                 if (stringLength < dataTable.Rows[row][col].ToString().Length)
                                 {
@@ -165,9 +178,9 @@ namespace Bol_IT
                         {
                             try
                             {
-                                if (col == 3)
+                                if (col == 0)
                                 {
-                                    columHeader += $"{dataTable.Columns[col].ColumnName.PadRight(longestString[col] - 4)}";
+                                    columHeader += $"{dataTable.Columns[col].ColumnName.PadRight(longestString[col] - 3)}";
                                 }
                                 else
                                 {
@@ -193,7 +206,14 @@ namespace Bol_IT
 
                                 try
                                 {
-                                    lines += $"{dataTable.Rows[row][col].ToString().PadRight(longestString[col] + 5)}";
+                                    if (col == 0)
+                                    {
+                                        lines += $"{DateTime.Parse(dataTable.Rows[row][col].ToString()).ToShortDateString().PadRight(longestString[col] - 3)}";
+                                    }
+                                    else
+                                    {
+                                        lines += $"{dataTable.Rows[row][col].ToString().PadRight(longestString[col] + 5)}";
+                                    }
                                 }
                                 catch (Exception)
                                 {

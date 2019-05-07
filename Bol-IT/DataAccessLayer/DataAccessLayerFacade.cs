@@ -106,7 +106,7 @@ namespace DataAccessLayer
 
         #region Sale
 
-        public static saleDataTable StatisticSquareMeterPrice(string SearchYear, string SearchMonth)
+        public static saleDataTable StatisticSquareMeterPrice(decimal SearchYear, decimal SearchMonth)
         {
             return MethodsDataAccessLayer.StatisticSquareMeterPrice(SearchYear, SearchMonth);
         }

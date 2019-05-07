@@ -116,7 +116,7 @@ namespace DataAccessLayer
             return pdt;
         }
 
-        public static saleDataTable StatisticSquareMeterPrice(string SearchYear, string SearchMonth)
+        public static saleDataTable StatisticSquareMeterPrice(decimal SearchYear, decimal SearchMonth)
         {
             saleDataTable sdt = new saleDataTable();
             saleTableAdapter.StatisticSquareMeterPrice(sdt, SearchYear, SearchMonth);
