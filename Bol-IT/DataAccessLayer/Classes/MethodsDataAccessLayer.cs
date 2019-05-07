@@ -148,7 +148,16 @@ namespace DataAccessLayer
 
         public static string GetPhotoExtFromName(string nameOfPhoto)
         {
-            return filesTableAdapter.GetPhotoExtFromName(nameOfPhoto);
+            try
+            {
+
+                return filesTableAdapter.GetPhotoExtFromName(nameOfPhoto);
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
 
         #endregion
@@ -172,7 +181,15 @@ namespace DataAccessLayer
         }
         public static string GetPhotoNameFromIdAndPhoto(int id, byte[] photo)
         {
-            return filesTableAdapter.GetPhotoNameByCaseIdAndPhoto(id, photo);
+            try
+            {
+
+                return filesTableAdapter.GetPhotoNameByCaseIdAndPhoto(id, photo);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
         #endregion
 
