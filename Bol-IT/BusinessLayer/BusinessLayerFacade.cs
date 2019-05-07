@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Drawing;
+using GlobalClasses;
 using System.Windows.Forms;
 
 namespace BusinessLayer

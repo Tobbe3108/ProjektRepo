@@ -44,16 +44,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLayerFacade.cs" />
-    <Compile Include="Classes\CaseMethods.cs" />
-    <Compile Include="Classes\Agent.cs" />
-    <Compile Include="Classes\Buyer.cs" />
-    <Compile Include="Classes\Person.cs" />
-    <Compile Include="Classes\Property.cs" />
-    <Compile Include="Classes\Seller.cs" />
-    <Compile Include="Classes\OpenHouseMethods.cs" />
-    <Compile Include="Classes\SloganThread.cs" />
-    <Compile Include="Classes\WantsToSell.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{f5926625-0389-40f0-82f6-40701e4d1a42}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GlobalClasses\GlobalClasses.csproj">
+      <Project>{56344fc0-ce9c-4754-aca0-a1763db0dcca}</Project>
+      <Name>GlobalClasses</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

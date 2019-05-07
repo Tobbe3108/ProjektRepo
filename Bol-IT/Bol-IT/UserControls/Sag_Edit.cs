@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAccessLayer;
 using BusinessLayer;
+using GlobalClasses;
 using System.IO;
 
 namespace Bol_IT
@@ -72,16 +73,16 @@ namespace Bol_IT
             rtbAddress.Font = new Font(rtbAddress.Font.FontFamily, this.Size.Height / 30);
             rtbHouseDescription.Font = new Font(rtbHouseDescription.Font.FontFamily, this.Size.Height / 50);
             rtbCashPrice.Font = new Font(rtbCashPrice.Font.FontFamily, this.Size.Height / 50);
-            lblNoOfRooms.Font = new Font(lblNoOfRooms.Font.FontFamily, this.Size.Height / 50);
+            lblNrOfRooms.Font = new Font(lblNrOfRooms.Font.FontFamily, this.Size.Height / 50);
             lblHouseType.Font = new Font(lblHouseType.Font.FontFamily, this.Size.Height / 50);
             lblDepositPrice.Font = new Font(lblDepositPrice.Font.FontFamily, this.Size.Height / 50);
-            lblEnergyRating.Font = new Font(lblEnergyRating.Font.FontFamily, this.Size.Height / 50);
-            lblFloors.Font = new Font(lblFloors.Font.FontFamily, this.Size.Height / 50);
+            lblZipCode.Font = new Font(lblZipCode.Font.FontFamily, this.Size.Height / 50);
             lblGarageFlag.Font = new Font(lblGarageFlag.Font.FontFamily, this.Size.Height / 50);
+            lblEnergyRating.Font = new Font(lblEnergyRating.Font.FontFamily, this.Size.Height / 50);
             lblGrossPrice.Font = new Font(lblGrossPrice.Font.FontFamily, this.Size.Height / 50);
             lblResSquareMeters.Font = new Font(lblResSquareMeters.Font.FontFamily, this.Size.Height / 50);
             lblNetPrice.Font = new Font(lblNetPrice.Font.FontFamily, this.Size.Height / 50);
-            lblFloors1.Font = new Font(lblFloors1.Font.FontFamily, this.Size.Height / 50);
+            lblFloors.Font = new Font(lblFloors.Font.FontFamily, this.Size.Height / 50);
             lblOwnerExpences.Font = new Font(lblOwnerExpences.Font.FontFamily, this.Size.Height / 50);
             lblBuiltRebuilt.Font = new Font(lblBuiltRebuilt.Font.FontFamily, this.Size.Height / 50);
             lblPropSquareMeters.Font = new Font(lblPropSquareMeters.Font.FontFamily, this.Size.Height / 50);

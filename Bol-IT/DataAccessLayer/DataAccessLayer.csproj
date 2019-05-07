@@ -92,9 +92,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
-      <Project>{2d853293-026a-459a-9d05-6beb8c86787f}</Project>
-      <Name>BusinessLayer</Name>
+    <ProjectReference Include="..\GlobalClasses\GlobalClasses.csproj">
+      <Project>{56344fc0-ce9c-4754-aca0-a1763db0dcca}</Project>
+      <Name>GlobalClasses</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
