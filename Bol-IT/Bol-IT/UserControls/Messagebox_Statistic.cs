@@ -26,7 +26,9 @@ namespace Bol_IT
 
             //Form autosize
             Messagebox_Statistic_SizeChanged(this, new EventArgs());
-            
+
+            cbArea.Items.Add("Alle");
+
             DataTable dataTable = DataAccessLayerFacade.GetZipcodes();
 
             for (int i = 0; i < dataTable.Rows.Count; i++)
@@ -95,23 +97,42 @@ namespace Bol_IT
             {
                 case 0:
                     //Område salgsstatistik
-                    dataTable = DataAccessLayerFacade.StatisticsSoldArea(int.Parse(cbArea.GetItemText(cbArea.SelectedItem)));
 
-                    header = "Område salgsstatistik";
+                    if (cbArea.SelectedItem.ToString() == "Alle")
+                    {
+                        dataTable = DataAccessLayerFacade.StatisticsSoldAreaGetAll();
 
-                    dataTable.Columns["salesDate"].SetOrdinal(0);
-                    dataTable.Columns["fName"].SetOrdinal(1);
-                    dataTable.Columns["lName"].SetOrdinal(2);
-                    dataTable.Columns["aId"].SetOrdinal(3);
-                    dataTable.Columns["address"].SetOrdinal(4);
-                    dataTable.Columns["zipcode"].SetOrdinal(5);
-                    dataTable.Columns["caseNr"].SetOrdinal(6);
-                    dataTable.Columns["salesPrice"].SetOrdinal(7);
+                        header = "Område salgsstatistik";
+
+                        dataTable.Columns["salesDate"].SetOrdinal(0);
+                        dataTable.Columns["fName"].SetOrdinal(1);
+                        dataTable.Columns["lName"].SetOrdinal(2);
+                        dataTable.Columns["aId"].SetOrdinal(3);
+                        dataTable.Columns["address"].SetOrdinal(4);
+                        dataTable.Columns["zipcode"].SetOrdinal(5);
+                        dataTable.Columns["caseNr"].SetOrdinal(6);
+                        dataTable.Columns["salesPrice"].SetOrdinal(7);
+                    }
+                    else
+                    {
+                        dataTable = DataAccessLayerFacade.StatisticsSoldArea(int.Parse(cbArea.GetItemText(cbArea.SelectedItem)));
+
+                        header = "Område salgsstatistik";
+
+                        dataTable.Columns["salesDate"].SetOrdinal(0);
+                        dataTable.Columns["fName"].SetOrdinal(1);
+                        dataTable.Columns["lName"].SetOrdinal(2);
+                        dataTable.Columns["aId"].SetOrdinal(3);
+                        dataTable.Columns["address"].SetOrdinal(4);
+                        dataTable.Columns["zipcode"].SetOrdinal(5);
+                        dataTable.Columns["caseNr"].SetOrdinal(6);
+                        dataTable.Columns["salesPrice"].SetOrdinal(7);
+                    }
                     break;
                 case 1:
                     //Kvadratmeterpris salgsstatistik
                     dataTable = DataAccessLayerFacade.StatisticSquareMeterPrice(Decimal.Parse(cbYear.GetItemText(cbYear.SelectedItem)), (decimal)(cbMonth.SelectedIndex + 1));
-                    
+
                     header = "Kvadratmeterpris salgsstatistik";
 
                     dataTable.Columns["salesDate"].SetOrdinal(0);
@@ -252,7 +273,7 @@ namespace Bol_IT
 
                     case ".xlsx":
                         var wb = new XLWorkbook(); //Laver en ny XLWorkbook som kommer fra en NuGet package der hedder closedXML man kan benytte til at oprette Excel dokumenter
-                        wb.Worksheets.Add(dataTable); //Opretter et nyt worksheet på baggrund af det oprettede datatable
+                        wb.Worksheets.Add(dataTable, "Statistik"); //Opretter et nyt worksheet på baggrund af det oprettede datatable
                         wb.SaveAs(Path.GetFullPath(saveFileDialog.FileName)); //Gemmer den oprettede XLWorkbook til filen som brugeren oprettede via savedialog
                         break;
 
@@ -268,5 +289,7 @@ namespace Bol_IT
         }
 
         #endregion
+
+
     }
 }

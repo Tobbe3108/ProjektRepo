@@ -339,7 +339,7 @@ SELECT caseNr, nameOfFile, extOfFile, dataOfFile FROM files WHERE (nameOfFile = 
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="mydatabasetobbeConnectionString (Settings)" DbObjectName="MyDatabaseTobbe.dbo.files" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetPhotoExtFromName" Modifier="Public" Name="GetPhotoExtFromName" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="GetPhotoExtFromName">
+              <DbSource ConnectionRef="mydatabasetobbeConnectionString (Settings)" DbObjectName="MyDatabaseTobbe.dbo.files" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetPhotoExtFromName" Modifier="Public" Name="GetPhotoExtFromName" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="GetPhotoExtFromName">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT extOfFile FROM [dbo].[files] WHERE nameOfFile = @nameOfFile</CommandText>
@@ -349,7 +349,7 @@ SELECT caseNr, nameOfFile, extOfFile, dataOfFile FROM files WHERE (nameOfFile = 
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="mydatabasetobbeConnectionString (Settings)" DbObjectName="MyDatabaseTobbe.dbo.files" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetPhotoNameByCaseIdAndPhoto" Modifier="Public" Name="GetPhotoNameByCaseIdAndPhoto" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="GetPhotoNameByCaseIdAndPhoto">
+              <DbSource ConnectionRef="mydatabasetobbeConnectionString (Settings)" DbObjectName="MyDatabaseTobbe.dbo.files" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetPhotoNameByCaseIdAndPhoto" Modifier="Public" Name="GetPhotoNameByCaseIdAndPhoto" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="GetPhotoNameByCaseIdAndPhoto">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT nameOfFile FROM files WHERE caseNr = @caseNr AND dataOfFile = @data</CommandText>
@@ -360,7 +360,7 @@ SELECT caseNr, nameOfFile, extOfFile, dataOfFile FROM files WHERE (nameOfFile = 
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="mydatabasetobbeConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertData" Modifier="Public" Name="InsertData" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertData">
+              <DbSource ConnectionRef="mydatabasetobbeConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertData" Modifier="Public" Name="InsertData" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="InsertData">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [dbo].[files] ([caseNr], [nameOfFile], [extOfFile], [dataOfFile]) VALUES (@caseNr, @nameOfFile, @extOfFile, @dataOfFile);</CommandText>
@@ -373,7 +373,7 @@ SELECT caseNr, nameOfFile, extOfFile, dataOfFile FROM files WHERE (nameOfFile = 
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="mydatabasetobbeConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateData" Modifier="Public" Name="UpdateData" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateData">
+              <DbSource ConnectionRef="mydatabasetobbeConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateData" Modifier="Public" Name="UpdateData" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateData">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       files
@@ -649,24 +649,25 @@ SELECT caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, add
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms, garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description
 FROM   property
-WHERE (address LIKE '%' + @searchParameters + '%') OR
-           (caseNr LIKE '%' + @searchParameters + '%') OR
-           (netPrice LIKE '%' + @searchParameters + '%') OR
-           (grossPrice LIKE '%' + @searchParameters + '%') OR
-           (ownerExpenses LIKE '%' + @searchParameters + '%') OR
-           (cashPrice LIKE '%' + @searchParameters + '%') OR
-           (depositPrice LIKE '%' + @searchParameters + '%') OR
-           (address LIKE '%' + @searchParameters + '%') OR
-           (zipcode LIKE '%' + @searchParameters + '%') OR
-           (nrOfRooms LIKE '%' + @searchParameters + '%') OR
-           (builtRebuild LIKE '%' + @searchParameters + '%') OR
-           (houseType LIKE '%' + @searchParameters + '%') OR
-           (energyRating LIKE '%' + @searchParameters + '%') OR
-           (resSquareMeters LIKE '%' + @searchParameters + '%') OR
-           (propSquareMeters LIKE '%' + @searchParameters + '%') OR
-           (floors LIKE '%' + @searchParameters + '%')</CommandText>
+WHERE (address LIKE '%' + @searchParameters + '%') AND (soldFlag = @SoldFlag) OR
+           (soldFlag = @SoldFlag) AND (caseNr LIKE '%' + @searchParameters + '%') OR
+           (soldFlag = @SoldFlag) AND (netPrice LIKE '%' + @searchParameters + '%') OR
+           (soldFlag = @SoldFlag) AND (grossPrice LIKE '%' + @searchParameters + '%') OR
+           (soldFlag = @SoldFlag) AND (ownerExpenses LIKE '%' + @searchParameters + '%') OR
+           (soldFlag = @SoldFlag) AND (cashPrice LIKE '%' + @searchParameters + '%') OR
+           (soldFlag = @SoldFlag) AND (depositPrice LIKE '%' + @searchParameters + '%') OR
+           (address LIKE '%' + @searchParameters + '%') AND (soldFlag = @SoldFlag) OR
+           (soldFlag = @SoldFlag) AND (zipcode LIKE '%' + @searchParameters + '%') OR
+           (soldFlag = @SoldFlag) AND (nrOfRooms LIKE '%' + @searchParameters + '%') OR
+           (soldFlag = @SoldFlag) AND (builtRebuild LIKE '%' + @searchParameters + '%') OR
+           (soldFlag = @SoldFlag) AND (houseType LIKE '%' + @searchParameters + '%') OR
+           (soldFlag = @SoldFlag) AND (energyRating LIKE '%' + @searchParameters + '%') OR
+           (soldFlag = @SoldFlag) AND (resSquareMeters LIKE '%' + @searchParameters + '%') OR
+           (soldFlag = @SoldFlag) AND (propSquareMeters LIKE '%' + @searchParameters + '%') OR
+           (soldFlag = @SoldFlag) AND (floors LIKE '%' + @searchParameters + '%')</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="searchParameters" ColumnName="address" DataSourceName="MyDatabaseTobbe.dbo.property" DataTypeServer="varchar(255)" DbType="AnsiString" Direction="Input" ParameterName="@searchParameters" Precision="0" ProviderType="VarChar" Scale="0" Size="255" SourceColumn="address" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="SoldFlag" ColumnName="soldFlag" DataSourceName="MyDatabaseTobbe.dbo.property" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@SoldFlag" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="soldFlag" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -789,6 +790,17 @@ FROM   sale INNER JOIN
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="mydatabasetobbeConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="StatisticAll" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy4" GeneratorSourceName="StatisticAll" GetMethodModifier="Public" GetMethodName="GetDataBy4" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="StatisticAll">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT sale.salesDate, personalData.fName, personalData.lName, sale.aId, property.address, property.zipcode, property.caseNr, sale.salesPrice
+FROM   sale INNER JOIN
+           property ON sale.caseNr = property.caseNr INNER JOIN
+           personalData ON personalData.id = sale.aId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
               </DbSource>
               <DbSource ConnectionRef="mydatabasetobbeConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="StatisticAreaPrice" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy2" GeneratorSourceName="StatisticAreaPrice" GetMethodModifier="Public" GetMethodName="GetDataBy2" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="StatisticAreaPrice">
                 <SelectCommand>

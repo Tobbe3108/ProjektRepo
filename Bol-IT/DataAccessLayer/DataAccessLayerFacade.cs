@@ -107,9 +107,9 @@ namespace DataAccessLayer
         }
 
         //Tobias
-        public static propertyDataTable GetPropertyDataTableByLike(string searchParameters)
+        public static propertyDataTable GetPropertyDataTableByLike(string searchParameters, bool soldFlag)
         {
-            return MethodsDataAccessLayer.GetPropertyDataTableByLike(searchParameters);
+            return MethodsDataAccessLayer.GetPropertyDataTableByLike(searchParameters, soldFlag);
         }
 
         //Tobias
@@ -138,6 +138,12 @@ namespace DataAccessLayer
         {
             return MethodsDataAccessLayer.StatisticsSoldArea(zipcode);
         }
+
+        public static DataTable StatisticsSoldAreaGetAll()
+        {
+            return MethodsDataAccessLayer.StatisticsSoldArea();
+        }
+
 
         #endregion
 

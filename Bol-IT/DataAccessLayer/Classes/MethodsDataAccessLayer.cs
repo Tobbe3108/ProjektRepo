@@ -103,10 +103,10 @@ namespace DataAccessLayer
         }
 
         //Christoffer & Tobias
-        public static propertyDataTable GetPropertyDataTableByLike(string searchParameters)
+        public static propertyDataTable GetPropertyDataTableByLike(string searchParameters, bool soldFlag)
         {
             propertyDataTable pdt = new propertyDataTable();
-            propertyTableAdapter.FillByLike(pdt, searchParameters);
+            propertyTableAdapter.FillByLike(pdt, searchParameters, soldFlag);
             return pdt;
         }
 
@@ -135,6 +135,13 @@ namespace DataAccessLayer
         {
             saleDataTable sdt = new saleDataTable();
             saleTableAdapter.StatisticAreaPrice(sdt, zipcode);
+            return sdt;
+        }
+
+        public static saleDataTable StatisticsSoldArea()
+        {
+            saleDataTable sdt = new saleDataTable();
+            saleTableAdapter.StatisticAll(sdt);
             return sdt;
         }
 

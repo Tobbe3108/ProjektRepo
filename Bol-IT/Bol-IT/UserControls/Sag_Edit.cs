@@ -11,6 +11,7 @@ using DataAccessLayer;
 using BusinessLayer;
 using GlobalClasses;
 using System.IO;
+using ClosedXML.Excel;
 
 namespace Bol_IT
 {
@@ -169,7 +170,6 @@ namespace Bol_IT
             e.Effect = DragDropEffects.Copy;
         }
 
-        //Tobias
         private void pbHouseImage_DragDrop(object sender, DragEventArgs e)
         {
             foreach (string pic in ((string[])e.Data.GetData(DataFormats.FileDrop)))
@@ -203,6 +203,7 @@ namespace Bol_IT
                 e.Handled = true;
             }
         }
+
         private void CheckKeyPressDigit(object sender, KeyPressEventArgs e)
         {
             if (!char.IsNumber(e.KeyChar) && !(e.KeyChar == '/'))
@@ -222,7 +223,6 @@ namespace Bol_IT
             }
         }
 
-        //Christoffer
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (AnyBoxIsEmpty())
@@ -287,7 +287,7 @@ namespace Bol_IT
                 MessageBox.Show("Bolig er gemt.");
             }
         }
-
+        
         private bool AnyBoxIsEmpty()
         {
             if (rtbTimeFrame.Text == string.Empty)
@@ -325,6 +325,133 @@ namespace Bol_IT
                 return false;
             }
         }
+
+        //Tobias
+        private void btnToFile_Click(object sender, EventArgs e)
+        {
+            List<string> propInfoList = new List<string>
+            {
+                { rtbAddress.Text },
+                { rtbHouseType.Text },
+                { rtbResSquareMeters.Text },
+                { rtbPropSquareMeters.Text },
+                { rtbBuiltRebuilt.Text },
+                { rtbNrOfRooms.Text },
+                { rtbFloors.Text },
+                { cbGarageFlag.Checked.ToString()},
+                { rtbEnergyRating.Text },
+                { rtbZipCode.Text },
+                { rtbCaseNr.Text },
+                { cbSoldFlag.Checked.ToString() },
+                { cbSellerId.Text },
+                { rtbDesiredPrice.Text },
+                { rtbTimeFrame.Text },
+                { rtbGrossPrice.Text },
+                { rtbNetPrice.Text },
+                { rtbOwnerExpences.Text },
+                { rtbDepositPrice.Text },
+                { rtbCashPrice.Text },
+                { rtbHouseDescription.Text },
+            };
+
+            List<string> headersList = new List<string>
+            {
+                { lblAddress.Text },
+                { lblHouseType.Text },
+                { lblResSquareMeters.Text },
+                { lblPropSquareMeters.Text },
+                { lblBuiltRebuilt.Text },
+                { lblNrOfRooms.Text },
+                { lblFloors.Text },
+                { lblGarageFlag.Text },
+                { lblEnergyRating.Text },
+                { lblZipCode.Text },
+                { lblCaseNr.Text },
+                { lblSoldFlag.Text },
+                { lblSeller.Text },
+                { lblDesiredPrice.Text },
+                { lblTimeFrame.Text },
+                { lblGrossPrice.Text },
+                { lblNetPrice.Text },
+                { lblOwnerExpences.Text },
+                { lblDepositPrice.Text },
+                { lblCashPrice.Text },
+                { "Beskrivelse" },
+            };
+
+
+
+            //Laver en save dialog hvor brugeren kan vælge hvor filen skal gemmes
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                InitialDirectory = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}",
+                Title = "Gem til fil",
+                DefaultExt = "txt",
+                Filter = "Tekst fil (*.txt)|*.txt|Excel (*.xlsx)|*.xlsx",
+                FilterIndex = 1,
+                CheckFileExists = false,
+                CheckPathExists = true,
+                RestoreDirectory = true
+            };
+
+
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK) //Hvis det lykkedes for brugeren at vælge et sted at gemme filen
+            {
+                //Hent extensionen af filen Fx .txt
+                var extension = Path.GetExtension(saveFileDialog.FileName);
+
+                switch (extension.ToLower()) //Tjekker hvilken filtype du har gemt i
+                {
+                    case ".txt":
+                        //Åbner filen brugeren oprettede
+                        StreamWriter writer = new StreamWriter(saveFileDialog.OpenFile());
+                        List<string> list = new List<string>();
+
+                        string lines = "";
+                        foreach (var item in propInfoList)
+                        {
+                            lines += $"{item},";
+                        }
+                        writer.WriteLine(lines);
+                        writer.Dispose();
+                        writer.Close();
+
+                        break;
+
+
+
+                    case ".xlsx":
+                        //Konverter 2 lists til 1 datatable
+                        DataTable dataTable = new DataTable();
+                        foreach (var col in headersList)
+                        {
+                            dataTable.Columns.Add(col);
+                        }
+
+                        object[] values = new object[propInfoList.Count];
+                        for (int i = 0; i <= values.Length - 1; i++)
+                        {
+                            values[i] = propInfoList[i];
+                        }
+                        dataTable.Rows.Add(values);
+                       
+                        var wb = new XLWorkbook(); //Laver en ny XLWorkbook som kommer fra en NuGet package der hedder closedXML man kan benytte til at oprette Excel dokumenter
+                        wb.Worksheets.Add(dataTable, "Udskrift"); //Opretter et nyt worksheet på baggrund af det oprettede datatable
+                        wb.SaveAs(Path.GetFullPath(saveFileDialog.FileName)); //Gemmer den oprettede XLWorkbook til filen som brugeren oprettede via savedialog
+                        break;
+
+
+
+                    default:
+                        //Hvis det ikke er muligt at gemme vis fejlbesked til brugeren
+                        MessageBox.Show($"Det var ikke muligt at gemme filen: {saveFileDialog.FileName} Prøv igen.", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                }
+
+            }
+        }
+
         #endregion
 
     }
