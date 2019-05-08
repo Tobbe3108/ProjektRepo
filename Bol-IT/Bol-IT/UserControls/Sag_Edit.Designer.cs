@@ -1286,6 +1286,7 @@
             this.btnCreateAd.TabIndex = 2;
             this.btnCreateAd.Text = "Opret annonce";
             this.btnCreateAd.UseVisualStyleBackColor = false;
+            this.btnCreateAd.Click += new System.EventHandler(this.btnCreateAd_Click);
             // 
             // ofdOpenPicture
             // 

@@ -125,7 +125,8 @@ namespace Bol_IT
         #endregion
 
         #region Methods
-
+        
+        //Tobias
         public static void LoadData(string id)
         {
             Property property = DataAccessLayerFacade.GetProperty(Convert.ToInt32(id));
@@ -450,6 +451,11 @@ namespace Bol_IT
                 }
 
             }
+        }
+
+        private void btnCreateAd_Click(object sender, EventArgs e)
+        {
+            //Klar til at implementere API fra annonce sider
         }
 
         #endregion
