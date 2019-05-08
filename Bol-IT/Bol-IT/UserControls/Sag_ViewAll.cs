@@ -12,6 +12,7 @@ using DataAccessLayer;
 using GlobalClasses;
 using ClosedXML.Excel;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace Bol_IT
 {

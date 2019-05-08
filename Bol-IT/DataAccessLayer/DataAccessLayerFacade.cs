@@ -17,7 +17,7 @@ namespace DataAccessLayer
         //Christoffer
         public static SqlConnection GetConnection()
         {
-            return new SqlConnection(connectionString: ConfigurationManager.AppSettings["AzureDB"]);
+            return new SqlConnection(ConfigurationManager.ConnectionStrings["AzureDB"].ConnectionString);
         }
 
         #endregion
