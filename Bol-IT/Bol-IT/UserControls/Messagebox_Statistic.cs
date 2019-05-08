@@ -252,7 +252,7 @@ namespace Bol_IT
 
                     case ".xlsx":
                         var wb = new XLWorkbook(); //Laver en ny XLWorkbook som kommer fra en NuGet package der hedder closedXML man kan benytte til at oprette Excel dokumenter
-                        wb.Worksheets.Add(dataTable); //Opretter et nyt worksheet på baggrund af det oprettede datatable
+                        wb.Worksheets.Add(dataTable, "Statistik"); //Opretter et nyt worksheet på baggrund af det oprettede datatable
                         wb.SaveAs(Path.GetFullPath(saveFileDialog.FileName)); //Gemmer den oprettede XLWorkbook til filen som brugeren oprettede via savedialog
                         break;
 
