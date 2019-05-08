@@ -4,8 +4,8 @@ using System.Drawing;
 using System.Data;
 using System.Windows.Forms;
 using DataAccessLayer;
-using BusinessLayer;
 using System.Threading;
+using BusinessLayer;
 
 namespace Bol_IT
 {
