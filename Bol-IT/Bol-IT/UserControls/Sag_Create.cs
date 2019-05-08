@@ -287,8 +287,13 @@ namespace Bol_IT
         }
 
 
+
         #endregion
 
-
+        private void btnCalculatePrice_Click(object sender, EventArgs e)
+        {
+            Form priceCalculator = new Messagebox_PriceCalculator();
+            priceCalculator.Show();
+        }
     }
 }

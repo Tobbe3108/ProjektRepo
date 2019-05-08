@@ -392,6 +392,7 @@
             this.btnCalculatePrice.TabIndex = 3;
             this.btnCalculatePrice.Text = "Beregn pris";
             this.btnCalculatePrice.UseVisualStyleBackColor = false;
+            this.btnCalculatePrice.Click += new System.EventHandler(this.btnCalculatePrice_Click);
             // 
             // tableLayoutPanel26
             // 

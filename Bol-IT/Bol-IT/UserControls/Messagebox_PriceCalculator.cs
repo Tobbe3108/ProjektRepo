@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using BusinessLayer;
 using DataAccessLayer;
 
-namespace Bol_IT.UserControls
+namespace Bol_IT
 {
     public partial class Messagebox_PriceCalculator : Form
     {
@@ -21,19 +21,21 @@ namespace Bol_IT.UserControls
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
-            int cashPrice = 0;// PriceCalculator.CalculateCashPrice();
+            int cashPrice = PriceCalculator.CalculateCashPrice((int)cbZipcode.SelectedItem, (string)cbCondition.SelectedItem, (string)cbInteriorDesign.SelectedItem, (string)cbStyle.SelectedItem, (string)cbKitchen.SelectedItem, (string)cbBathroom.SelectedItem, cbGardenFlag.Checked);
             int grossPrice = PriceCalculator.CalculateGrossPrice(cashPrice);
             int netPrice = PriceCalculator.CalculateNetPrice(cashPrice);
             int ownerExpences = PriceCalculator.CalculateOwnerExpences(cashPrice);
             int depositPrice = PriceCalculator.CalculateDepositPrice(cashPrice);
             Sag_Create.Instance.UpdatePrice(grossPrice, netPrice, ownerExpences, depositPrice, cashPrice);
+            this.Close();
         }
 
         private void Messagebox_PriceCalculator_Load(object sender, EventArgs e)
         {
-            foreach (var item in DataAccessLayerFacade.GetZipcodes())
+            DataTable dataTable = DataAccessLayerFacade.GetZipcodes();
+            for (int i = 0; i < dataTable.Rows.Count; i++)
             {
-
+                cbZipcode.Items.Add(dataTable.Rows[i]["Zipcode"]);
             }
         }
     }
