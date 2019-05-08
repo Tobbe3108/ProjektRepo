@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAccessLayer;
 using BusinessLayer;
-using GlobalClasses;
 using System.Threading;
 
 namespace Bol_IT
@@ -58,6 +53,7 @@ namespace Bol_IT
             //tilføjer kolonner til de 2 datatables til brug i dgvDistribution
             agentDistributionTable.Columns.Add("aId", typeof(int));
             agentDistributionTable.Columns.Add("nrOfSales", typeof(int));
+            agentDistributionTable.Columns["aId"].Unique = true;
             dgvDistribution.DataSource = agentDistributionTable;
 
             propDistributionTable.Columns.Add("caseNr", typeof(int));
@@ -65,6 +61,7 @@ namespace Bol_IT
             propDistributionTable.Columns.Add("zipcode", typeof(int));
             propDistributionTable.Columns.Add("builtRebuild");
             propDistributionTable.Columns.Add("houseType");
+            propDistributionTable.Columns["caseNr"].Unique = true;
         }
 
         private void OpenHouse_Distribution_Load(object sender, EventArgs e)
@@ -169,7 +166,6 @@ namespace Bol_IT
             {
                 dgvSearch.DataSource = RemoveColumns(DataAccessLayerFacade.GetPropertyDataTable());
             }
-
         }
 
         //Tobias
@@ -186,12 +182,12 @@ namespace Bol_IT
                     {
                         try
                         {
-                            agentDistributionTable.Rows.Add(dgvSearch.Rows[e.RowIndex].Cells[1].Value.ToString(),
-                                dgvSearch.Rows[e.RowIndex].Cells[2].Value.ToString());
+                                agentDistributionTable.Rows.Add(dgvSearch.Rows[e.RowIndex].Cells[1].Value.ToString(),
+                                    dgvSearch.Rows[e.RowIndex].Cells[2].Value.ToString());
                         }
                         catch (Exception)
                         {
-                            MessageBox.Show("Der skete en fejl prøv igen");
+                            MessageBox.Show("Du har forsøgt at tilføje den samme mægler to gange.", "Fejlmeddelelse:", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
@@ -206,7 +202,7 @@ namespace Bol_IT
                         }
                         catch (Exception)
                         {
-                            MessageBox.Show("Der skete en fejl prøv igen");
+                            MessageBox.Show("Du har forsøgt at tilføje den samme bolig to gange.", "Fejlmeddelelse:", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -218,6 +214,8 @@ namespace Bol_IT
         private void cbSearchParam_SelectedIndexChanged(object sender, EventArgs e)
         {
             dgvSearch.DataSource = null;
+
+            ButtonDeleted();
 
             switch (cbSearchParam.SelectedIndex)
             {
@@ -285,37 +283,24 @@ namespace Bol_IT
                             return;
                         }
                     }
+                    if (dgvDistribution.Columns[0].HeaderText == "Slet")
+                    {
+                        dgvDistribution.Columns.RemoveAt(0);//Fjerner slet-knappen fra DataGridViewet.
+                    }
                     dgvDistribution.DataSource = null;
-                    dgvDistribution.Columns.RemoveAt(0);//Fjerner slet-knappen fra DataGridViewet.
-
-                    Agent[] agents = new Agent[agentDistributionTable.Rows.Count];
-                    Property[] properties = new Property[propDistributionTable.Rows.Count];
-
-                    for (int i = 0; i <= agentDistributionTable.Rows.Count - 1; i++)
-                    {
-                        agents[i] = DataAccessLayerFacade.GetAgentById((int)agentDistributionTable.Rows[i][0]);
-                    }
-
-                    for (int i = 0; i <= propDistributionTable.Rows.Count - 1; i++)
-                    {
-                        properties[i] = DataAccessLayerFacade.GetProperty((int)propDistributionTable.Rows[i][0]);
-                    }
-
-                    dgvDistribution.DataSource = OpenHouseMethods.DistributeHouses(agents, properties, cbDistribution.SelectedIndex);//Sætter datasourcen til det datatable metoden returnerer.
-                    dgvDistribution.Sort(dgvDistribution.Columns["aId"], ListSortDirection.Ascending);
+                    dgvDistribution.DataSource = OpenHouseMethods.DistributeHouses(agentDistributionTable, propDistributionTable, cbDistribution.SelectedIndex);//Sætter datasourcen til det datatable metoden returnerer.
+                    dgvDistribution.Sort(dgvDistribution.Columns["AId"], ListSortDirection.Ascending);//Sorterer DataGridViewet efter Agent Id.
                 }
                 else
                 {
-                    throw new Exception();
+                    //Fejlmeddelelse hvis ikke både boliger og mæglere er valgt til fordelingen.
+                    MessageBox.Show("Du har ikke tilføjet boliger/mæglere til fordelingen. Prøv igen.", "Fejlmeddelelse:", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-                //Fejlmeddelelse hvis ikke både boliger og mæglere er valgt til fordelingen.
-                MessageBox.Show("Du har ikke tilføjet boliger/mæglere til fordelingen. Prøv igen.", "Fejlmeddelelse:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Der er sket en uventet fejl af typen {exception.GetType()}.", "Fejlmeddelelse:", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
 
         //Caspar
@@ -328,11 +313,29 @@ namespace Bol_IT
                 agentDistributionTable.Clear();
                 propDistributionTable.Clear();
 
-                //Kopier dataSourcen fra DataGridViewet med fordelingen.
+                //Kopier dataSourcen fra DataGridViewet med fordelingen, og clear det for data.
                 DataTable data = (DataTable)dgvDistribution.DataSource;
                 data.Clear(); //Fjerner dataen fra kopien
                 dgvDistribution.DataSource = data;
 
+                ButtonDeleted();
+
+                //Resetter valgene for search og fordeling.
+                cbSearchParam.SelectedIndex = 0;
+                cbDistribution.SelectedIndex = 0;
+            }
+            //Standard fejl-besked.
+            catch (Exception exception)
+            {
+                MessageBox.Show($"Der er sket en uventet fejl af typen {exception.GetType()}.", "Fejlmeddelelse:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        //Caspar
+        //Metode til at genskabe slet-knappen hvis den er blevet slettet.
+        private void ButtonDeleted()
+        {
+            try
+            {
                 //Kontrolerer om Slet-knappen er blevet fjernet igennem fordelingen. Hvis ja, oprettes den på ny.
                 if (dgvDistribution.Columns[0].HeaderText != "Slet")
                 {
@@ -346,7 +349,6 @@ namespace Bol_IT
                     dgvDistribution.Columns.Insert(0, btn);//Indsætter knappen på den 0'te plads med ovenstående værdier.
                 }
             }
-            //Standard fejl-besked.
             catch (Exception exception)
             {
                 MessageBox.Show($"Der er sket en uventet fejl af typen {exception.GetType()}.", "Fejlmeddelelse:", MessageBoxButtons.OK, MessageBoxIcon.Error);
