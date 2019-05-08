@@ -57,7 +57,7 @@
             this.lblDepositPrice = new System.Windows.Forms.Label();
             this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbOwnerExpences = new System.Windows.Forms.RichTextBox();
-            this.lblOwnersExpense = new System.Windows.Forms.Label();
+            this.lblOwnerExpense = new System.Windows.Forms.Label();
             this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbNetPrice = new System.Windows.Forms.RichTextBox();
             this.lblNetPrice = new System.Windows.Forms.Label();
@@ -86,7 +86,7 @@
             this.rtbPropSquareMeters = new System.Windows.Forms.RichTextBox();
             this.lblPropSquareMeters = new System.Windows.Forms.Label();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
-            this.rtbBuildRebuilt = new System.Windows.Forms.RichTextBox();
+            this.rtbBuiltRebuilt = new System.Windows.Forms.RichTextBox();
             this.lblBuiltRebuilt = new System.Windows.Forms.Label();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbNrOfRooms = new System.Windows.Forms.RichTextBox();
@@ -417,6 +417,7 @@
             this.rtbCaseNr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbCaseNr.Location = new System.Drawing.Point(150, 3);
             this.rtbCaseNr.Name = "rtbCaseNr";
+            this.rtbCaseNr.ReadOnly = true;
             this.rtbCaseNr.Size = new System.Drawing.Size(141, 40);
             this.rtbCaseNr.TabIndex = 15;
             this.rtbCaseNr.Text = "";
@@ -571,7 +572,7 @@
             this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel22.Controls.Add(this.rtbOwnerExpences, 1, 0);
-            this.tableLayoutPanel22.Controls.Add(this.lblOwnersExpense, 0, 0);
+            this.tableLayoutPanel22.Controls.Add(this.lblOwnerExpense, 0, 0);
             this.tableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel22.Location = new System.Drawing.Point(309, 246);
             this.tableLayoutPanel22.Margin = new System.Windows.Forms.Padding(0);
@@ -594,19 +595,19 @@
             this.rtbOwnerExpences.Text = "";
             this.rtbOwnerExpences.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
-            // lblOwnersExpense
+            // lblOwnerExpense
             // 
-            this.lblOwnersExpense.AutoSize = true;
-            this.lblOwnersExpense.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.lblOwnersExpense.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblOwnersExpense.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOwnersExpense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.lblOwnersExpense.Location = new System.Drawing.Point(3, 0);
-            this.lblOwnersExpense.Name = "lblOwnersExpense";
-            this.lblOwnersExpense.Size = new System.Drawing.Size(141, 41);
-            this.lblOwnersExpense.TabIndex = 13;
-            this.lblOwnersExpense.Text = "Ejerudgift";
-            this.lblOwnersExpense.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblOwnerExpense.AutoSize = true;
+            this.lblOwnerExpense.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.lblOwnerExpense.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblOwnerExpense.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOwnerExpense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.lblOwnerExpense.Location = new System.Drawing.Point(3, 0);
+            this.lblOwnerExpense.Name = "lblOwnerExpense";
+            this.lblOwnerExpense.Size = new System.Drawing.Size(141, 41);
+            this.lblOwnerExpense.TabIndex = 13;
+            this.lblOwnerExpense.Text = "Ejerudgift";
+            this.lblOwnerExpense.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel21
             // 
@@ -822,6 +823,7 @@
             this.cbSellerId.Name = "cbSellerId";
             this.cbSellerId.Size = new System.Drawing.Size(142, 21);
             this.cbSellerId.TabIndex = 10;
+            this.cbSellerId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // tableLayoutPanel8
             // 
@@ -997,7 +999,7 @@
             this.tableLayoutPanel12.ColumnCount = 2;
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel12.Controls.Add(this.rtbBuildRebuilt, 1, 0);
+            this.tableLayoutPanel12.Controls.Add(this.rtbBuiltRebuilt, 1, 0);
             this.tableLayoutPanel12.Controls.Add(this.lblBuiltRebuilt, 0, 0);
             this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel12.Location = new System.Drawing.Point(0, 123);
@@ -1008,18 +1010,18 @@
             this.tableLayoutPanel12.Size = new System.Drawing.Size(294, 41);
             this.tableLayoutPanel12.TabIndex = 4;
             // 
-            // rtbBuildRebuilt
+            // rtbBuiltRebuilt
             // 
-            this.rtbBuildRebuilt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.rtbBuildRebuilt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbBuildRebuilt.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbBuildRebuilt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.rtbBuildRebuilt.Location = new System.Drawing.Point(150, 3);
-            this.rtbBuildRebuilt.Name = "rtbBuildRebuilt";
-            this.rtbBuildRebuilt.Size = new System.Drawing.Size(141, 35);
-            this.rtbBuildRebuilt.TabIndex = 4;
-            this.rtbBuildRebuilt.Text = "";
-            this.rtbBuildRebuilt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressDigit);
+            this.rtbBuiltRebuilt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.rtbBuiltRebuilt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbBuiltRebuilt.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbBuiltRebuilt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.rtbBuiltRebuilt.Location = new System.Drawing.Point(150, 3);
+            this.rtbBuiltRebuilt.Name = "rtbBuiltRebuilt";
+            this.rtbBuiltRebuilt.Size = new System.Drawing.Size(141, 35);
+            this.rtbBuiltRebuilt.TabIndex = 4;
+            this.rtbBuiltRebuilt.Text = "";
+            this.rtbBuiltRebuilt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressDigit);
             // 
             // lblBuiltRebuilt
             // 
@@ -1310,7 +1312,7 @@
         private System.Windows.Forms.RichTextBox rtbDepositPrice;
         private System.Windows.Forms.Label lblDepositPrice;
         private System.Windows.Forms.RichTextBox rtbOwnerExpences;
-        private System.Windows.Forms.Label lblOwnersExpense;
+        private System.Windows.Forms.Label lblOwnerExpense;
         private System.Windows.Forms.RichTextBox rtbNetPrice;
         private System.Windows.Forms.Label lblNetPrice;
         private System.Windows.Forms.RichTextBox rtbGrossPrice;
@@ -1322,7 +1324,7 @@
         private System.Windows.Forms.RichTextBox rtbResSquareMeters;
         private System.Windows.Forms.RichTextBox rtbPropSquareMeters;
         private System.Windows.Forms.Label lblPropSquareMeters;
-        private System.Windows.Forms.RichTextBox rtbBuildRebuilt;
+        private System.Windows.Forms.RichTextBox rtbBuiltRebuilt;
         private System.Windows.Forms.Label lblBuiltRebuilt;
         private System.Windows.Forms.RichTextBox rtbNrOfRooms;
         private System.Windows.Forms.Label lblNrOfRooms;

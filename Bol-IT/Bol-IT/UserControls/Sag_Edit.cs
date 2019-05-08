@@ -64,15 +64,9 @@ namespace Bol_IT
         //Tobias
         private void Sag_Edit_SizeChanged(object sender, EventArgs e)
         {
+            #region Labels
             lblAddress.Font = new Font(lblAddress.Font.FontFamily, this.Size.Height / 25);
             lblCashPrice.Font = new Font(lblCashPrice.Font.FontFamily, this.Size.Height / 50);
-            btnCreateAd.Font = new Font(btnCreateAd.Font.FontFamily, this.Size.Height / 50);
-            btnCancel.Font = new Font(btnCancel.Font.FontFamily, this.Size.Height / 50);
-            btnSave.Font = new Font(btnSave.Font.FontFamily, this.Size.Height / 50);
-            btnToFile.Font = new Font(btnToFile.Font.FontFamily, this.Size.Height / 50);
-            rtbAddress.Font = new Font(rtbAddress.Font.FontFamily, this.Size.Height / 30);
-            rtbHouseDescription.Font = new Font(rtbHouseDescription.Font.FontFamily, this.Size.Height / 50);
-            rtbCashPrice.Font = new Font(rtbCashPrice.Font.FontFamily, this.Size.Height / 50);
             lblNrOfRooms.Font = new Font(lblNrOfRooms.Font.FontFamily, this.Size.Height / 50);
             lblHouseType.Font = new Font(lblHouseType.Font.FontFamily, this.Size.Height / 50);
             lblDepositPrice.Font = new Font(lblDepositPrice.Font.FontFamily, this.Size.Height / 50);
@@ -88,8 +82,11 @@ namespace Bol_IT
             lblPropSquareMeters.Font = new Font(lblPropSquareMeters.Font.FontFamily, this.Size.Height / 50);
             lblSeller.Font = new Font(lblSeller.Font.FontFamily, this.Size.Height / 50);
             lblSoldFlag.Font = new Font(lblSoldFlag.Font.FontFamily, this.Size.Height / 50);
-            cbGarageFlag.Font = new Font(cbGarageFlag.Font.FontFamily, this.Size.Height / 50);
-            cbSoldFlag.Font = new Font(cbSoldFlag.Font.FontFamily, this.Size.Height / 50);
+            lblCaseNr.Font = new Font(lblCaseNr.Font.FontFamily, this.Size.Height / 50);
+            lblDesiredPrice.Font = new Font(lblDesiredPrice.Font.FontFamily, this.Size.Height / 50);
+            lblTimeFrame.Font = new Font(lblTimeFrame.Font.FontFamily, this.Size.Height / 50);
+            #endregion 
+            #region Textboxes
             rtbDesiredPrice.Font = new Font(rtbDesiredPrice.Font.FontFamily, this.Size.Height / 50);
             rtbPropSquareMeters.Font = new Font(rtbPropSquareMeters.Font.FontFamily, this.Size.Height / 50);
             rtbBuiltRebuilt.Font = new Font(rtbBuiltRebuilt.Font.FontFamily, this.Size.Height / 50);
@@ -104,6 +101,24 @@ namespace Bol_IT
             rtbDepositPrice.Font = new Font(rtbDepositPrice.Font.FontFamily, this.Size.Height / 50);
             rtbHouseType.Font = new Font(rtbHouseType.Font.FontFamily, this.Size.Height / 50);
             rtbNrOfRooms.Font = new Font(rtbNrOfRooms.Font.FontFamily, this.Size.Height / 50);
+            rtbAddress.Font = new Font(rtbAddress.Font.FontFamily, this.Size.Height / 30);
+            rtbHouseDescription.Font = new Font(rtbHouseDescription.Font.FontFamily, this.Size.Height / 50);
+            rtbCashPrice.Font = new Font(rtbCashPrice.Font.FontFamily, this.Size.Height / 50);
+            rtbEnergyRating.Font = new Font(rtbEnergyRating.Font.FontFamily, this.Size.Height / 50);
+            rtbTimeFrame.Font = new Font(rtbTimeFrame.Font.FontFamily, this.Size.Height / 50);
+            rtbCaseNr.Font = new Font(rtbCaseNr.Font.FontFamily, this.Size.Height / 50);
+            cbSellerId.Font = new Font(cbSellerId.Font.FontFamily, this.Size.Height / 50);
+            #endregion 
+            #region CheckBoxes
+            cbSoldFlag.Font = new Font(cbSoldFlag.Font.FontFamily, this.Size.Height / 50);
+            cbGarageFlag.Font = new Font(cbGarageFlag.Font.FontFamily, this.Size.Height / 50);
+            #endregion 
+            #region Buttons
+            btnCreateAd.Font = new Font(btnCreateAd.Font.FontFamily, this.Size.Height / 50);
+            btnCancel.Font = new Font(btnCancel.Font.FontFamily, this.Size.Height / 50);
+            btnSave.Font = new Font(btnSave.Font.FontFamily, this.Size.Height / 50);
+            btnToFile.Font = new Font(btnToFile.Font.FontFamily, this.Size.Height / 50);
+            #endregion
         }
 
         #endregion
@@ -161,6 +176,11 @@ namespace Bol_IT
             {
                 Image image = Image.FromFile(pic);
                 pbHouseImage.Image = image;
+                if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                {
+                    var path = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
+                pbHouseImage.ImageLocation = (string)path;
+                }
             }
         }
 
@@ -174,6 +194,7 @@ namespace Bol_IT
             }
             Form1.Instance.PnlContainer.Controls["Sag_ViewAll"].BringToFront();
         }
+
         //Christoffer
         private void CheckKeyPress(object sender, KeyPressEventArgs e)
         {
@@ -248,9 +269,8 @@ namespace Bol_IT
                 }
                 else
                 {
-                    string[] temp = Path.GetFileName(pbHouseImage.ImageLocation).Split('.');
-                    fileName = temp[0];
-                    extName = temp[1];
+                    fileName = Path.GetFileNameWithoutExtension(pbHouseImage.ImageLocation);
+                    extName = Path.GetExtension(pbHouseImage.ImageLocation).Replace(".", "");
                     photo = BusinessLayerFacade.GetPhotoFromPath(pbHouseImage.ImageLocation);
                 }
 
@@ -263,14 +283,23 @@ namespace Bol_IT
                     extName,
                     photo
                     );
+
+                MessageBox.Show("Bolig er gemt.");
             }
         }
 
         private bool AnyBoxIsEmpty()
         {
+            if (rtbTimeFrame.Text == string.Empty)
+            {
+                rtbTimeFrame.Text = "0";
+            }
+            if (rtbDesiredPrice.Text == string.Empty)
+            {
+                rtbDesiredPrice.Text = "0";
+            }
             if (
                 cbSellerId.Text == string.Empty ||
-                rtbTimeFrame.Text == string.Empty ||
                 rtbCaseNr.Text == string.Empty ||
                 rtbNetPrice.Text == string.Empty ||
                 rtbGrossPrice.Text == string.Empty ||
@@ -278,7 +307,6 @@ namespace Bol_IT
                 rtbCashPrice.Text == string.Empty ||
                 rtbDepositPrice.Text == string.Empty ||
                 rtbAddress.Text == string.Empty ||
-                rtbDesiredPrice.Text == string.Empty ||
                 rtbFloors.Text == string.Empty ||
                 rtbNrOfRooms.Text == string.Empty ||
                 rtbResSquareMeters.Text == string.Empty ||

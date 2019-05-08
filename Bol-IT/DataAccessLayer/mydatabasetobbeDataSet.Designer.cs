@@ -8603,26 +8603,30 @@ SELECT caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, add
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "caseNr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms, garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description
-FROM   property
-WHERE (address LIKE '%' + @searchParameters + '%') OR
-           (caseNr LIKE '%' + @searchParameters + '%') OR
-           (netPrice LIKE '%' + @searchParameters + '%') OR
-           (grossPrice LIKE '%' + @searchParameters + '%') OR
-           (ownerExpenses LIKE '%' + @searchParameters + '%') OR
-           (cashPrice LIKE '%' + @searchParameters + '%') OR
-           (depositPrice LIKE '%' + @searchParameters + '%') OR
-           (address LIKE '%' + @searchParameters + '%') OR
-           (zipcode LIKE '%' + @searchParameters + '%') OR
-           (nrOfRooms LIKE '%' + @searchParameters + '%') OR
-           (builtRebuild LIKE '%' + @searchParameters + '%') OR
-           (houseType LIKE '%' + @searchParameters + '%') OR
-           (energyRating LIKE '%' + @searchParameters + '%') OR
-           (resSquareMeters LIKE '%' + @searchParameters + '%') OR
-           (propSquareMeters LIKE '%' + @searchParameters + '%') OR
-           (floors LIKE '%' + @searchParameters + '%')";
+            this._commandCollection[2].CommandText = "SELECT caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, addr" +
+                "ess, zipcode, nrOfRooms, garageFlag, builtRebuild, houseType, energyRating, resS" +
+                "quareMeters, propSquareMeters, floors, soldFlag, description\r\nFROM   property\r\nW" +
+                "HERE (address LIKE \'%\' + @searchParameters + \'%\') AND (soldFlag = @SoldFlag) OR\r" +
+                "\n           (soldFlag = @SoldFlag) AND (caseNr LIKE \'%\' + @searchParameters + \'%" +
+                "\') OR\r\n           (soldFlag = @SoldFlag) AND (netPrice LIKE \'%\' + @searchParamet" +
+                "ers + \'%\') OR\r\n           (soldFlag = @SoldFlag) AND (grossPrice LIKE \'%\' + @sea" +
+                "rchParameters + \'%\') OR\r\n           (soldFlag = @SoldFlag) AND (ownerExpenses LI" +
+                "KE \'%\' + @searchParameters + \'%\') OR\r\n           (soldFlag = @SoldFlag) AND (cas" +
+                "hPrice LIKE \'%\' + @searchParameters + \'%\') OR\r\n           (soldFlag = @SoldFlag)" +
+                " AND (depositPrice LIKE \'%\' + @searchParameters + \'%\') OR\r\n           (address L" +
+                "IKE \'%\' + @searchParameters + \'%\') AND (soldFlag = @SoldFlag) OR\r\n           (so" +
+                "ldFlag = @SoldFlag) AND (zipcode LIKE \'%\' + @searchParameters + \'%\') OR\r\n       " +
+                "    (soldFlag = @SoldFlag) AND (nrOfRooms LIKE \'%\' + @searchParameters + \'%\') OR" +
+                "\r\n           (soldFlag = @SoldFlag) AND (builtRebuild LIKE \'%\' + @searchParamete" +
+                "rs + \'%\') OR\r\n           (soldFlag = @SoldFlag) AND (houseType LIKE \'%\' + @searc" +
+                "hParameters + \'%\') OR\r\n           (soldFlag = @SoldFlag) AND (energyRating LIKE " +
+                "\'%\' + @searchParameters + \'%\') OR\r\n           (soldFlag = @SoldFlag) AND (resSqu" +
+                "areMeters LIKE \'%\' + @searchParameters + \'%\') OR\r\n           (soldFlag = @SoldFl" +
+                "ag) AND (propSquareMeters LIKE \'%\' + @searchParameters + \'%\') OR\r\n           (so" +
+                "ldFlag = @SoldFlag) AND (floors LIKE \'%\' + @searchParameters + \'%\')";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@searchParameters", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SoldFlag", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "soldFlag", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = "SELECT DISTINCT zipcode\r\nFROM   property";
@@ -8729,7 +8733,7 @@ VALUES (@netPrice, @grossPrice, @ownerExpenses, @cashPrice, @depositPrice, @addr
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByLike(mydatabasetobbeDataSet.propertyDataTable dataTable, string searchParameters) {
+        public virtual int FillByLike(mydatabasetobbeDataSet.propertyDataTable dataTable, string searchParameters, bool SoldFlag) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((searchParameters == null)) {
                 throw new global::System.ArgumentNullException("searchParameters");
@@ -8737,6 +8741,7 @@ VALUES (@netPrice, @grossPrice, @ownerExpenses, @cashPrice, @depositPrice, @addr
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(searchParameters));
             }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((bool)(SoldFlag));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -8748,7 +8753,7 @@ VALUES (@netPrice, @grossPrice, @ownerExpenses, @cashPrice, @depositPrice, @addr
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual mydatabasetobbeDataSet.propertyDataTable GetDataByLike(string searchParameters) {
+        public virtual mydatabasetobbeDataSet.propertyDataTable GetDataByLike(string searchParameters, bool SoldFlag) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((searchParameters == null)) {
                 throw new global::System.ArgumentNullException("searchParameters");
@@ -8756,6 +8761,7 @@ VALUES (@netPrice, @grossPrice, @ownerExpenses, @cashPrice, @depositPrice, @addr
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(searchParameters));
             }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((bool)(SoldFlag));
             mydatabasetobbeDataSet.propertyDataTable dataTable = new mydatabasetobbeDataSet.propertyDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
