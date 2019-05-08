@@ -37,6 +37,7 @@
             this.lblDistribute = new System.Windows.Forms.Label();
             this.cbDistribution = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnReset = new System.Windows.Forms.Button();
             this.btnDistribute = new System.Windows.Forms.Button();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.lblSearch = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@
             this.Slet = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btnToFile = new System.Windows.Forms.Button();
-            this.btnReset = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
@@ -201,6 +201,21 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(399, 47);
             this.tableLayoutPanel7.TabIndex = 4;
             // 
+            // btnReset
+            // 
+            this.btnReset.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.btnReset.Location = new System.Drawing.Point(202, 3);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(194, 41);
+            this.btnReset.TabIndex = 6;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // btnDistribute
             // 
             this.btnDistribute.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -350,21 +365,6 @@
             this.btnToFile.TabIndex = 0;
             this.btnToFile.Text = "Udskriv fil";
             this.btnToFile.UseVisualStyleBackColor = true;
-            // 
-            // btnReset
-            // 
-            this.btnReset.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
-            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReset.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnReset.Location = new System.Drawing.Point(202, 3);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(194, 41);
-            this.btnReset.TabIndex = 6;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // OpenHouse_Distribution
             // 
