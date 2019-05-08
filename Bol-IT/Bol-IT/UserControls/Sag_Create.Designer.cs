@@ -463,6 +463,7 @@
             this.rtbZipCode.Size = new System.Drawing.Size(141, 35);
             this.rtbZipCode.TabIndex = 9;
             this.rtbZipCode.Text = "";
+            this.rtbZipCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblZipCode
             // 
@@ -505,6 +506,7 @@
             this.rtbCashPrice.Size = new System.Drawing.Size(142, 35);
             this.rtbCashPrice.TabIndex = 3;
             this.rtbCashPrice.Text = "";
+            this.rtbCashPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblCashPrice
             // 
@@ -547,6 +549,7 @@
             this.rtbDepositPrice.Size = new System.Drawing.Size(142, 35);
             this.rtbDepositPrice.TabIndex = 15;
             this.rtbDepositPrice.Text = "";
+            this.rtbDepositPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblDepositPrice
             // 
@@ -589,6 +592,7 @@
             this.rtbOwnerExpences.Size = new System.Drawing.Size(142, 35);
             this.rtbOwnerExpences.TabIndex = 14;
             this.rtbOwnerExpences.Text = "";
+            this.rtbOwnerExpences.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblOwnersExpense
             // 
@@ -631,6 +635,7 @@
             this.rtbNetPrice.Size = new System.Drawing.Size(142, 35);
             this.rtbNetPrice.TabIndex = 13;
             this.rtbNetPrice.Text = "";
+            this.rtbNetPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblNetPrice
             // 
@@ -673,6 +678,7 @@
             this.rtbGrossPrice.Size = new System.Drawing.Size(142, 35);
             this.rtbGrossPrice.TabIndex = 12;
             this.rtbGrossPrice.Text = "";
+            this.rtbGrossPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblGrossPrice
             // 
@@ -715,6 +721,7 @@
             this.rtbTimeFrame.Size = new System.Drawing.Size(142, 35);
             this.rtbTimeFrame.TabIndex = 11;
             this.rtbTimeFrame.Text = "";
+            this.rtbTimeFrame.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblTimeFrame
             // 
@@ -757,6 +764,7 @@
             this.rtbDesiredPrice.Size = new System.Drawing.Size(142, 35);
             this.rtbDesiredPrice.TabIndex = 10;
             this.rtbDesiredPrice.Text = "";
+            this.rtbDesiredPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblDesiredPrice
             // 
@@ -939,6 +947,7 @@
             this.rtbResSquareMeters.Size = new System.Drawing.Size(141, 35);
             this.rtbResSquareMeters.TabIndex = 2;
             this.rtbResSquareMeters.Text = "";
+            this.rtbResSquareMeters.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // tableLayoutPanel11
             // 
@@ -967,6 +976,7 @@
             this.rtbPropSquareMeters.Size = new System.Drawing.Size(141, 35);
             this.rtbPropSquareMeters.TabIndex = 3;
             this.rtbPropSquareMeters.Text = "";
+            this.rtbPropSquareMeters.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblPropSquareMeters
             // 
@@ -1009,6 +1019,7 @@
             this.rtbBuildRebuilt.Size = new System.Drawing.Size(141, 35);
             this.rtbBuildRebuilt.TabIndex = 4;
             this.rtbBuildRebuilt.Text = "";
+            this.rtbBuildRebuilt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressDigit);
             // 
             // lblBuiltRebuilt
             // 
@@ -1052,6 +1063,7 @@
             this.rtbNrOfRooms.Size = new System.Drawing.Size(141, 35);
             this.rtbNrOfRooms.TabIndex = 5;
             this.rtbNrOfRooms.Text = "";
+            this.rtbNrOfRooms.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblNrOfRooms
             // 
@@ -1094,6 +1106,7 @@
             this.rtbFloors.Size = new System.Drawing.Size(141, 35);
             this.rtbFloors.TabIndex = 6;
             this.rtbFloors.Text = "";
+            this.rtbFloors.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblFloors
             // 

@@ -119,6 +119,13 @@ namespace Bol_IT
                 e.Handled = true;
             }
         }
+        private void CheckKeyPressDigit(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar) && !(e.KeyChar == '/'))
+            {
+                e.Handled = true;
+            }
+        }
 
         //Christoffer
         private void pbHouseImage_Click(object sender, EventArgs e)
@@ -215,5 +222,7 @@ namespace Bol_IT
 
 
         #endregion
+
+
     }
 }
