@@ -774,6 +774,7 @@
             this.rtbDesiredPrice.Size = new System.Drawing.Size(259, 64);
             this.rtbDesiredPrice.TabIndex = 11;
             this.rtbDesiredPrice.Text = "";
+            this.rtbDesiredPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // lblDesiredPrice
             // 
