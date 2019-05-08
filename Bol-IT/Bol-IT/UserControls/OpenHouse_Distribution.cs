@@ -135,7 +135,7 @@ namespace Bol_IT
                         string propertySearchParameters = "";
                         rtbSearch.Invoke((MethodInvoker)delegate { propertySearchParameters = rtbSearch.Text; });
 
-                        dataTable = RemoveColumns(DataAccessLayerFacade.GetPropertyDataTableByLike(propertySearchParameters));
+                        dataTable = RemoveColumns(DataAccessLayerFacade.GetPropertyDataTableByLike(propertySearchParameters, false));
                         break;
                 }
 
