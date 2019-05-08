@@ -63,6 +63,7 @@ namespace Bol_IT
                 btnStatistic.Font = new Font(btnStatistic.Font.FontFamily, this.Size.Height / 50);
                 lblSearch.Font = new Font(lblSearch.Font.FontFamily, this.Size.Height / 50);
                 rtbSearch.Font = new Font(rtbSearch.Font.FontFamily, this.Size.Height / 50);
+                cbSoldFlag.Font = new Font(cbSoldFlag.Font.FontFamily, this.Size.Height / 50);
             }
             catch (Exception) { }
         }
@@ -80,9 +81,11 @@ namespace Bol_IT
                 DataTable dataTable = new DataTable();
 
                 string SearchParameters = "";
+                bool soldFlag = false;
                 rtbSearch.Invoke((MethodInvoker)delegate { SearchParameters = rtbSearch.Text; });
+                cbSoldFlag.Invoke((MethodInvoker)delegate { soldFlag = cbSoldFlag.Checked; });
 
-                dataTable = DataAccessLayerFacade.GetPropertyDataTableByLike(SearchParameters);
+                dataTable = DataAccessLayerFacade.GetPropertyDataTableByLike(SearchParameters, soldFlag);
 
                 dataTable.Columns.Remove("netPrice");
                 dataTable.Columns.Remove("grossPrice");
@@ -296,6 +299,11 @@ namespace Bol_IT
                         break;
                 }
             }
+        }
+
+        private void cbSoldFlag_CheckedChanged(object sender, EventArgs e)
+        {
+            StartDataLoad();
         }
 
         #endregion
