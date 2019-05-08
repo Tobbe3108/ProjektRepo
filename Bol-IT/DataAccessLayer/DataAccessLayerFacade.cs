@@ -139,6 +139,12 @@ namespace DataAccessLayer
             return MethodsDataAccessLayer.StatisticsSoldArea(zipcode);
         }
 
+        public static DataTable StatisticsSoldAreaGetAll()
+        {
+            return MethodsDataAccessLayer.StatisticsSoldArea();
+        }
+
+
         #endregion
 
         #region File

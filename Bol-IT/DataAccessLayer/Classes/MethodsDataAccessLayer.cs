@@ -138,6 +138,13 @@ namespace DataAccessLayer
             return sdt;
         }
 
+        public static saleDataTable StatisticsSoldArea()
+        {
+            saleDataTable sdt = new saleDataTable();
+            saleTableAdapter.StatisticAll(sdt);
+            return sdt;
+        }
+
 
 
         #region ReturnObjects
