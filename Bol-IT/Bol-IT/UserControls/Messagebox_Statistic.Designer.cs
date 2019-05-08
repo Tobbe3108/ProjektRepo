@@ -255,7 +255,7 @@
             "November",
             "December"});
             this.cbMonth.Location = new System.Drawing.Point(60, 2);
-            this.cbMonth.Margin = new System.Windows.Forms.Padding(2);
+            this.cbMonth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbMonth.Name = "cbMonth";
             this.cbMonth.Size = new System.Drawing.Size(173, 21);
             this.cbMonth.TabIndex = 3;
@@ -266,7 +266,7 @@
             this.cbYear.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbYear.FormattingEnabled = true;
             this.cbYear.Location = new System.Drawing.Point(60, 32);
-            this.cbYear.Margin = new System.Windows.Forms.Padding(2);
+            this.cbYear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbYear.Name = "cbYear";
             this.cbYear.Size = new System.Drawing.Size(173, 21);
             this.cbYear.TabIndex = 4;

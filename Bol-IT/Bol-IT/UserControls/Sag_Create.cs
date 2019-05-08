@@ -276,6 +276,16 @@ namespace Bol_IT
             }
         }
 
+        public void UpdatePrice(int grossPrice, int netPrice, int ownerExpences, int depositPrice, int cashPrice)
+        {
+            Instance.rtbGrossPrice.Text = grossPrice.ToString();
+            Instance.rtbNetPrice.Text = netPrice.ToString();
+            Instance.rtbOwnerExpences.Text = ownerExpences.ToString();
+            Instance.rtbDepositPrice.Text = depositPrice.ToString();
+            Instance.rtbCashPrice.Text = cashPrice.ToString();
+
+        }
+
 
         #endregion
 
