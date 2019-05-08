@@ -94,6 +94,12 @@
     <Compile Include="UserControls\MenuBar_Top.Designer.cs">
       <DependentUpon>MenuBar_Top.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Messagebox_PriceCalculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\Messagebox_PriceCalculator.Designer.cs">
+      <DependentUpon>Messagebox_PriceCalculator.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Messagebox_Statistic.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MenuBar_Top.resx">
       <DependentUpon>MenuBar_Top.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Messagebox_PriceCalculator.resx">
+      <DependentUpon>Messagebox_PriceCalculator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Messagebox_Statistic.resx">
       <DependentUpon>Messagebox_Statistic.cs</DependentUpon>

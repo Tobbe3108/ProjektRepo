@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BusinessLayerFacade.cs" />
     <Compile Include="Classes\OpenHouseMethods.cs" />
+    <Compile Include="Classes\PriceCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
