@@ -14,14 +14,20 @@ namespace Bol_IT
 {
     public partial class Messagebox_PriceCalculator : Form
     {
+        public int PropSquareMeter { get; set; }
         public Messagebox_PriceCalculator()
         {
             InitializeComponent();
         }
 
+        public void LoadData(int propSquareMeter)
+        {
+            PropSquareMeter = propSquareMeter;
+        }
+
         private void btnCalculate_Click(object sender, EventArgs e)
         {
-            int cashPrice = PriceCalculator.CalculateCashPrice((int)cbZipcode.SelectedItem, (string)cbCondition.SelectedItem, (string)cbInteriorDesign.SelectedItem, (string)cbStyle.SelectedItem, (string)cbKitchen.SelectedItem, (string)cbBathroom.SelectedItem, cbGardenFlag.Checked);
+            int cashPrice = PriceCalculator.CalculateCashPrice(PropSquareMeter, (int)cbZipcode.SelectedItem, (string)cbCondition.SelectedItem, (string)cbInteriorDesign.SelectedItem, (string)cbStyle.SelectedItem, (string)cbKitchen.SelectedItem, (string)cbBathroom.SelectedItem, cbGardenFlag.Checked);
             int grossPrice = PriceCalculator.CalculateGrossPrice(cashPrice);
             int netPrice = PriceCalculator.CalculateNetPrice(cashPrice);
             int ownerExpences = PriceCalculator.CalculateOwnerExpences(cashPrice);

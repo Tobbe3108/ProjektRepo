@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
@@ -37,6 +38,7 @@
             this.btnMaximize = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dragControl1 = new Bol_IT.DragControl();
             this.dragControl2 = new Bol_IT.DragControl();
             this.dragControl3 = new Bol_IT.DragControl();
@@ -80,7 +82,7 @@
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(106, 47);
             this.lblDate.TabIndex = 0;
-            this.lblDate.Text = "26/04/2019";
+            this.lblDate.Text = "Date";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTime
@@ -95,7 +97,7 @@
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(106, 47);
             this.lblTime.TabIndex = 1;
-            this.lblTime.Text = "09:06";
+            this.lblTime.Text = "Time";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSlogan
@@ -185,6 +187,11 @@
             this.panel1.Size = new System.Drawing.Size(859, 3);
             this.panel1.TabIndex = 1;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // dragControl1
             // 
             this.dragControl1.SelectControl = this.lblSlogan;
@@ -227,5 +234,6 @@
         private DragControl dragControl1;
         private DragControl dragControl2;
         private DragControl dragControl3;
+        private System.Windows.Forms.Timer timer1;
     }
 }
