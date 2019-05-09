@@ -76,6 +76,24 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Person_ViewAll.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Person_ViewAll.Designer.cs">
+      <DependentUpon>Person_ViewAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Person_Create.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Person_Create.Designer.cs">
+      <DependentUpon>Person_Create.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Person_Edit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Person_Edit.Designer.cs">
+      <DependentUpon>Person_Edit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -153,6 +171,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\OpenHouse_Distribution.resx">
       <DependentUpon>OpenHouse_Distribution.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Person_Create.resx">
+      <DependentUpon>Person_Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Person_Edit.resx">
+      <DependentUpon>Person_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Person_ViewAll.resx">
+      <DependentUpon>Person_ViewAll.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Sag_Create.resx">
       <DependentUpon>Sag_Create.cs</DependentUpon>
