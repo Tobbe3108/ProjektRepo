@@ -127,6 +127,11 @@ namespace DataAccessLayer
             return MethodsDataAccessLayer.StatisticSquareMeterPrice(SearchYear, SearchMonth);
         }
 
+        public static int StatisticSquareMeterPriceByZipcode(int zipcode)
+        {
+            return MethodsDataAccessLayer.StatisticSquareMeterPriceByZipcode(zipcode);
+        }
+
         //Tobias
         public static saleDataTable GetZipcodes()
         {
