@@ -9,6 +9,8 @@ using DataAccessLayer;
 using ClosedXML.Excel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Configuration;
+using System.Xml;
+using System.Text.RegularExpressions;
 
 namespace UnitTestProject
 {
@@ -18,7 +20,7 @@ namespace UnitTestProject
         [TestMethod]
         public void TestMethod1()
         {
-            
+            GetLatLongFromAddress("Engblommevej 19", "Horsens", "Midtjylland", "8700");
 
 
             //Console.WriteLine(CalculateDistanceMethod.GetDistanceByAddresses("Jellingvej 15A, 7100", "Østerbrogade 20 2. Th., 7100"));
@@ -94,7 +96,7 @@ namespace UnitTestProject
         }
         static string GetLatLongFromAddress(string street, string city, string state, string zip)
         {
-            string bingMapsUri = string.Format(@"http://dev.virtualearth.net/REST/v1/Locations/US/" + Regex.Replace
+            string bingMapsUri = string.Format(@"http://dev.virtualearth.net/REST/v1/Locations/DK/" + Regex.Replace
             (street, "#", "") + ", " + city + ", " + state + "?o=xml&amp;key=BingMapsKey");
             XmlDocument bingMapsXmlDoc = new XmlDocument();
             bingMapsXmlDoc.Load(bingMapsUri);

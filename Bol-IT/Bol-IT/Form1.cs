@@ -52,6 +52,8 @@ namespace Bol_IT
             //Eager initialization af singleton instance
             _instance = this;
 
+            this.WindowState = Properties.Settings.Default.MainWindowState;
+
             //User control initialization
             MenuBar_Left.Instance.Dock = DockStyle.Fill;
             pnlMenuBarLeft.Controls.Add(MenuBar_Left.Instance);
@@ -178,5 +180,11 @@ namespace Bol_IT
 
 
         #endregion
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.MainWindowState = this.WindowState;
+            Properties.Settings.Default.Save();
+        }
     }
 }
