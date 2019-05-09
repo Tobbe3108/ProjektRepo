@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccessLayer;
 
 namespace BusinessLayer
 {
@@ -28,9 +29,10 @@ namespace BusinessLayer
         {
             return Convert.ToInt32(cashPrice * 0.0545);
         }
-        public static int CalculateCashPrice(int zipcode, string condition, string interiorDesign, string style, string kitchen, string bathroom, bool gardenFlag)
+        public static int CalculateCashPrice(int propSquareMeter ,int zipcode, string condition, string interiorDesign, string style, string kitchen, string bathroom, bool gardenFlag)
         {
-            double cashPrice = 1000000;
+            
+            double cashPrice = DataAccessLayerFacade.StatisticSquareMeterPriceByZipcode(zipcode) * propSquareMeter;
 
             switch (condition)
             {
