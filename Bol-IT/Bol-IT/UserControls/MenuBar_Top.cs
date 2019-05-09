@@ -76,5 +76,11 @@ namespace Bol_IT
         }
 
         #endregion
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTime.Text = DateTime.Now.ToString("HH:mm");
+            lblDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
+        }
     }
 }

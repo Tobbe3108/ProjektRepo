@@ -144,6 +144,30 @@ namespace Bol_IT
             catch (Exception) { }
         }
 
+        //Caspar
+        //Metode til at genskabe slet-knappen hvis den er blevet slettet.
+        private void ButtonDeleted()
+        {
+            try
+            {
+                //Kontrolerer om Slet-knappen er blevet fjernet igennem fordelingen. Hvis ja, oprettes den på ny.
+                if (dgvDistribution.Columns[0].HeaderText != "Slet")
+                {
+                    DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+                    btn.HeaderText = "Slet";
+                    btn.Name = "Slet";
+                    btn.Text = "Slet";
+                    btn.ToolTipText = "Slet fra tabel.";
+                    btn.UseColumnTextForButtonValue = true;
+                    btn.UseColumnTextForButtonValue = true;
+                    dgvDistribution.Columns.Insert(0, btn);//Indsætter knappen på den 0'te plads med ovenstående værdier.
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show($"Der er sket en uventet fejl af typen {exception.GetType()}.", "Fejlmeddelelse:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         #endregion
 
         #region Events
@@ -265,8 +289,6 @@ namespace Bol_IT
             }
         }
 
-        #endregion
-
         //Caspar
         //Kalder metoden for fordeling af boliger ud på mægler, ved brug af en array-baseret hob. 
         private void btnDistribute_Click(object sender, EventArgs e)
@@ -330,29 +352,7 @@ namespace Bol_IT
                 MessageBox.Show($"Der er sket en uventet fejl af typen {exception.GetType()}.", "Fejlmeddelelse:", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        //Caspar
-        //Metode til at genskabe slet-knappen hvis den er blevet slettet.
-        private void ButtonDeleted()
-        {
-            try
-            {
-                //Kontrolerer om Slet-knappen er blevet fjernet igennem fordelingen. Hvis ja, oprettes den på ny.
-                if (dgvDistribution.Columns[0].HeaderText != "Slet")
-                {
-                    DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
-                    btn.HeaderText = "Slet";
-                    btn.Name = "Slet";
-                    btn.Text = "Slet";
-                    btn.ToolTipText = "Slet fra tabel.";
-                    btn.UseColumnTextForButtonValue = true;
-                    btn.UseColumnTextForButtonValue = true;
-                    dgvDistribution.Columns.Insert(0, btn);//Indsætter knappen på den 0'te plads med ovenstående værdier.
-                }
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show($"Der er sket en uventet fejl af typen {exception.GetType()}.", "Fejlmeddelelse:", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
     }
 }
+
+#endregion

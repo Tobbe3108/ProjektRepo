@@ -94,58 +94,6 @@ namespace DataAccessLayer
             return adt;
         }
 
-        //Christoffer
-        public static propertyDataTable GetPropertyDataTable()
-        {
-            propertyDataTable adt = new propertyDataTable();
-            propertyTableAdapter.Fill(adt);
-            return adt;
-        }
-
-        //Christoffer & Tobias
-        public static propertyDataTable GetPropertyDataTableByLike(string searchParameters, bool soldFlag)
-        {
-            propertyDataTable pdt = new propertyDataTable();
-            propertyTableAdapter.FillByLike(pdt, searchParameters, soldFlag);
-            return pdt;
-        }
-
-        //Tobias
-        public static saleDataTable GetZipcodes()
-        {
-            saleDataTable pdt = new saleDataTable();
-            try
-            {
-                saleTableAdapter.GetZipcodes(pdt);
-            }
-            catch (Exception)
-            { }
-
-            return pdt;
-        }
-
-        public static saleDataTable StatisticSquareMeterPrice(decimal SearchYear, decimal SearchMonth)
-        {
-            saleDataTable sdt = new saleDataTable();
-            saleTableAdapter.StatisticSquareMeterPrice(sdt, SearchYear, SearchMonth);
-            return sdt;
-        }
-
-        public static saleDataTable StatisticsSoldArea(int zipcode)
-        {
-            saleDataTable sdt = new saleDataTable();
-            saleTableAdapter.StatisticAreaPrice(sdt, zipcode);
-            return sdt;
-        }
-
-        public static saleDataTable StatisticsSoldArea()
-        {
-            saleDataTable sdt = new saleDataTable();
-            saleTableAdapter.StatisticAll(sdt);
-            return sdt;
-        }
-
-
 
         #region ReturnObjects
 
@@ -248,31 +196,36 @@ namespace DataAccessLayer
         #endregion
 
         #region Property
-        ////Christoffer
-        //public static propertyDataTable GetPropertyDataTable()
-        //{
-        //    propertyDataTable adt = new propertyDataTable();
-        //    propertyTableAdapter.Fill(adt);
-        //    return adt;
-        //}
 
+        //Christoffer
+        public static propertyDataTable GetPropertyDataTable()
+        {
+            propertyDataTable adt = new propertyDataTable();
+            propertyTableAdapter.Fill(adt);
+            return adt;
+        }
 
+        //Christoffer & Tobias
+        public static propertyDataTable GetPropertyDataTableByLike(string searchParameters, bool soldFlag)
+        {
+            propertyDataTable pdt = new propertyDataTable();
+            propertyTableAdapter.FillByLike(pdt, searchParameters, soldFlag);
+            return pdt;
+        }
 
-        ////Christoffer & Tobias
-        //public static propertyDataTable GetPropertyDataTableByLike(string searchParameters)
-        //{
-        //    propertyDataTable pdt = new propertyDataTable();
-        //    propertyTableAdapter.FillByLike(pdt, searchParameters);
-        //    return pdt;
-        //}
+        //Tobias
+        public static saleDataTable GetZipcodes()
+        {
+            saleDataTable pdt = new saleDataTable();
+            try
+            {
+                saleTableAdapter.GetZipcodes(pdt);
+            }
+            catch (Exception)
+            { }
 
-        ////Tobias
-        //public static propertyDataTable GetZipcodes()
-        //{
-        //    propertyDataTable pdt = new propertyDataTable();
-        //    propertyTableAdapter.GetZipcodes(pdt);
-        //    return pdt;
-        //}
+            return pdt;
+        }
 
         #region ReturnObjects
         public static WantsToSell GetWantsToSellByCaseNr(int caseNr)
@@ -475,6 +428,37 @@ namespace DataAccessLayer
 
 
         #endregion
+
+        #endregion
+
+        #region Sale
+
+
+        public static saleDataTable StatisticSquareMeterPrice(decimal SearchYear, decimal SearchMonth)
+        {
+            saleDataTable sdt = new saleDataTable();
+            saleTableAdapter.StatisticSquareMeterPrice(sdt, SearchYear, SearchMonth);
+            return sdt;
+        }
+
+        public static int StatisticSquareMeterPriceByZipcode(int zipcode)
+        {
+            return Convert.ToInt32((decimal)saleTableAdapter.StatisticSquareMeterPriceByZipcode(zipcode));
+        }
+
+        public static saleDataTable StatisticsSoldArea(int zipcode)
+        {
+            saleDataTable sdt = new saleDataTable();
+            saleTableAdapter.StatisticAreaPrice(sdt, zipcode);
+            return sdt;
+        }
+
+        public static saleDataTable StatisticsSoldArea()
+        {
+            saleDataTable sdt = new saleDataTable();
+            saleTableAdapter.StatisticAll(sdt);
+            return sdt;
+        }
 
         #endregion
 
