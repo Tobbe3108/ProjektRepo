@@ -443,7 +443,9 @@ namespace DataAccessLayer
 
         public static int StatisticSquareMeterPriceByZipcode(int zipcode)
         {
-            return (int)saleTableAdapter.StatisticSquareMeterPriceByZipcode(zipcode);
+            int value = 0;
+            var ting = saleTableAdapter.StatisticSquareMeterPriceByZipcode(zipcode);
+            return value;
         }
 
         public static saleDataTable StatisticsSoldArea(int zipcode)
