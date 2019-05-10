@@ -287,8 +287,11 @@ namespace Bol_IT
 
         private void btnCalculatePrice_Click(object sender, EventArgs e)
         {
-            Form priceCalculator = new Messagebox_PriceCalculator();
+            Messagebox_PriceCalculator priceCalculator = new Messagebox_PriceCalculator();
             priceCalculator.Show();
+            priceCalculator.LoadData(int.Parse(rtbPropSquareMeters.Text));
+            
+            
         }
 
         #endregion
