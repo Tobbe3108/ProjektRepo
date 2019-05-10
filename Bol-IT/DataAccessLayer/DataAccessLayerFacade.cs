@@ -201,6 +201,11 @@ namespace DataAccessLayer
             return MethodsDataAccessLayer.GetPersonalDataDataTable();
         }
 
+        public static personalDataDataTable GetPersonalDataDataTableByLike(string searchParameters)
+        {
+            return MethodsDataAccessLayer.GetPersonalDataDataTableByLike(searchParameters);
+        }
+
         #endregion
     }
 }

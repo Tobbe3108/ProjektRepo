@@ -94,7 +94,7 @@
             this.Rediger});
             this.dgvSager.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSager.Location = new System.Drawing.Point(6, 133);
-            this.dgvSager.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dgvSager.Margin = new System.Windows.Forms.Padding(6);
             this.dgvSager.Name = "dgvSager";
             this.dgvSager.ReadOnly = true;
             this.dgvSager.Size = new System.Drawing.Size(1492, 627);
@@ -138,7 +138,7 @@
             this.btnCreateSag.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateSag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.btnCreateSag.Location = new System.Drawing.Point(6, 6);
-            this.btnCreateSag.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnCreateSag.Margin = new System.Windows.Forms.Padding(6);
             this.btnCreateSag.Name = "btnCreateSag";
             this.btnCreateSag.Size = new System.Drawing.Size(288, 74);
             this.btnCreateSag.TabIndex = 0;
@@ -155,7 +155,7 @@
             this.btnToFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnToFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.btnToFile.Location = new System.Drawing.Point(306, 6);
-            this.btnToFile.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnToFile.Margin = new System.Windows.Forms.Padding(6);
             this.btnToFile.Name = "btnToFile";
             this.btnToFile.Size = new System.Drawing.Size(288, 74);
             this.btnToFile.TabIndex = 1;
@@ -172,7 +172,7 @@
             this.btnStatistic.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStatistic.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.btnStatistic.Location = new System.Drawing.Point(606, 6);
-            this.btnStatistic.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnStatistic.Margin = new System.Windows.Forms.Padding(6);
             this.btnStatistic.Name = "btnStatistic";
             this.btnStatistic.Size = new System.Drawing.Size(288, 74);
             this.btnStatistic.TabIndex = 2;
@@ -204,7 +204,7 @@
             this.rtbSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbSearch.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbSearch.Location = new System.Drawing.Point(6, 48);
-            this.rtbSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rtbSearch.Margin = new System.Windows.Forms.Padding(6);
             this.rtbSearch.Name = "rtbSearch";
             this.rtbSearch.Size = new System.Drawing.Size(740, 73);
             this.rtbSearch.TabIndex = 1;
@@ -246,7 +246,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Sag_ViewAll";
             this.Size = new System.Drawing.Size(1584, 897);
             this.Load += new System.EventHandler(this.Sag_ViewAll_Load);

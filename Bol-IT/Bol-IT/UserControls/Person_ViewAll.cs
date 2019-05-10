@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using ClosedXML.Excel;
 using DataAccessLayer;
+using System.Threading;
 
 namespace Bol_IT
 {
@@ -18,7 +19,7 @@ namespace Bol_IT
         #region Init
 
         //Tobias
-        //Singleton instance af Sag_Create
+        //Singleton instance af Person_ViewAll
         static Person_ViewAll _instance;
         public static Person_ViewAll Instance
         {
@@ -36,18 +37,23 @@ namespace Bol_IT
         {
             InitializeComponent();
 
+            //Form autosize
             Person_ViewAll_SizeChanged(null, null);
-            dgvPerson.DataSource = DataAccessLayerFacade.GetPersonalDataDataTable();
         }
+
         private void Person_ViewAll_Load(object sender, EventArgs e)
         {
             //Eager initialization af singleton instance
             _instance = this;
+
+            StartDataLoad();
         }
+
         #endregion
 
         #region FormAutoSize
 
+        //Tobias
         private void Person_ViewAll_SizeChanged(object sender, EventArgs e)
         {
             try
@@ -63,6 +69,35 @@ namespace Bol_IT
         }
 
         #endregion
+
+        #region Methods
+
+        private void LoadData()
+        {
+            try
+            {
+                DataTable dataTable = new DataTable();
+
+                string SearchParameters = "";
+                rtbSearch.Invoke((MethodInvoker)delegate { SearchParameters = rtbSearch.Text; });
+
+                dataTable = DataAccessLayerFacade.GetPersonalDataDataTableByLike(SearchParameters);
+
+                dgvPerson.Invoke((MethodInvoker)delegate { dgvPerson.DataSource = dataTable; });
+            }
+            catch (Exception) { }
+        }
+
+        public void StartDataLoad()
+        {
+            Thread LoadDataThread = new Thread(() => LoadData());
+            LoadDataThread.IsBackground = true;
+            LoadDataThread.Start();
+        }
+
+        #endregion
+
+        #region Events
 
         private void btnToFile_Click(object sender, EventArgs e)
         {
@@ -202,12 +237,18 @@ namespace Bol_IT
 
         private void btnCreatePerson_Click(object sender, EventArgs e)
         {
-
+            //Load Sag_Create User control når tryk på knap
+            if (!Form1.Instance.PnlContainer.Controls.ContainsKey("Person_Create"))
+            {
+                Person_Create.Instance.Dock = DockStyle.Fill;
+                Form1.Instance.PnlContainer.Controls.Add(Person_Create.Instance);
+            }
+            Form1.Instance.PnlContainer.Controls["Person_Create"].BringToFront();
         }
 
         private void rtbSearch_TextChanged(object sender, EventArgs e)
         {
-
+            StartDataLoad();
         }
 
         private void dgvSager_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -215,5 +256,6 @@ namespace Bol_IT
 
         }
 
+        #endregion
     }
 }

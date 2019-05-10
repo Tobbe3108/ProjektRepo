@@ -109,6 +109,13 @@ namespace Bol_IT
             catch (Exception) { }
         }
 
+        public void StartDataLoad()
+        {
+            Thread LoadDataThread = new Thread(() => LoadData());
+            LoadDataThread.IsBackground = true;
+            LoadDataThread.Start();
+        }
+
         #endregion
 
         #region Events
@@ -136,12 +143,6 @@ namespace Bol_IT
             StartDataLoad();
         }
 
-        public void StartDataLoad()
-        {
-            Thread LoadDataThread = new Thread(() => LoadData());
-            LoadDataThread.IsBackground = true;
-            LoadDataThread.Start();
-        }
 
         private void dgvSager_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
