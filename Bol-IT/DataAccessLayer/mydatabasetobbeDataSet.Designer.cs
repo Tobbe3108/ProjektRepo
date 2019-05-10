@@ -7901,7 +7901,7 @@ SELECT id, fName, mName, lName, phoneNr, address, zipcode, mail FROM personalDat
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT id, fName, mName, lName, phoneNr, address, zipcode, mail FROM dbo.personal" +
@@ -7920,26 +7920,39 @@ SELECT id, fName, mName, lName, phoneNr, address, zipcode, mail FROM personalDat
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT id, fName, mName, lName, phoneNr, address, zipcode, mail FROM dbo.personal" +
-                "Data\r\nWHERE fName = \'%\'+@fName+\'%\'OR mName = \'%\'+@mName+\'%\' OR lName = \'%\'+@lNam" +
-                "e+\'%\'";
+            this._commandCollection[3].CommandText = @"SELECT id, fName, mName, lName, phoneNr, address, zipcode, mail FROM dbo.personalData
+WHERE (fName LIKE '%' + @searchParameters + '%') OR
+(id LIKE '%' + @searchParameters + '%') OR
+(mName LIKE '%' + @searchParameters + '%') OR
+(lName LIKE '%' + @searchParameters + '%') OR
+(phoneNr LIKE '%' + @searchParameters + '%') OR
+(address LIKE '%' + @searchParameters + '%') OR
+(zipcode LIKE '%' + @searchParameters + '%') OR
+(mail LIKE '%' + @searchParameters + '%')";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "fName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "mName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "lName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@searchParameters", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "fName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "INSERT INTO [dbo].[personalData] ([fName], [mName], [lName], [phoneNr], [address]" +
-                ", [zipcode], [mail])\r\nOUTPUT id VALUES (@fName, @mName, @lName, @phoneNr, @addre" +
-                "ss, @zipcode, @mail);";
+            this._commandCollection[4].CommandText = "SELECT id, fName, mName, lName, phoneNr, address, zipcode, mail FROM dbo.personal" +
+                "Data\r\nWHERE fName = \'%\'+@fName+\'%\'OR mName = \'%\'+@mName+\'%\' OR lName = \'%\'+@lNam" +
+                "e+\'%\'";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "fName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "mName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "lName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@phoneNr", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "phoneNr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zipcode", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "zipcode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mail", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "mail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "INSERT INTO [dbo].[personalData] ([fName], [mName], [lName], [phoneNr], [address]" +
+                ", [zipcode], [mail])\r\nOUTPUT id VALUES (@fName, @mName, @lName, @phoneNr, @addre" +
+                "ss, @zipcode, @mail);";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "fName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "mName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "lName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@phoneNr", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "phoneNr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zipcode", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "zipcode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mail", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "mail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8020,8 +8033,44 @@ SELECT id, fName, mName, lName, phoneNr, address, zipcode, mail FROM personalDat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByName(mydatabasetobbeDataSet.personalDataDataTable dataTable, string fName, string mName, string lName) {
+        public virtual int FillByLike(mydatabasetobbeDataSet.personalDataDataTable dataTable, string searchParameters) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((searchParameters == null)) {
+                throw new global::System.ArgumentNullException("searchParameters");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(searchParameters));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual mydatabasetobbeDataSet.personalDataDataTable GetDataBy2(string searchParameters) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((searchParameters == null)) {
+                throw new global::System.ArgumentNullException("searchParameters");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(searchParameters));
+            }
+            mydatabasetobbeDataSet.personalDataDataTable dataTable = new mydatabasetobbeDataSet.personalDataDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByName(mydatabasetobbeDataSet.personalDataDataTable dataTable, string fName, string mName, string lName) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((fName == null)) {
                 throw new global::System.ArgumentNullException("fName");
             }
@@ -8052,7 +8101,7 @@ SELECT id, fName, mName, lName, phoneNr, address, zipcode, mail FROM personalDat
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual mydatabasetobbeDataSet.personalDataDataTable GetDataByName(string fName, string mName, string lName) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((fName == null)) {
                 throw new global::System.ArgumentNullException("fName");
             }
@@ -8332,7 +8381,7 @@ SELECT id, fName, mName, lName, phoneNr, address, zipcode, mail FROM personalDat
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertData(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
             if ((fName == null)) {
                 throw new global::System.ArgumentNullException("fName");
             }

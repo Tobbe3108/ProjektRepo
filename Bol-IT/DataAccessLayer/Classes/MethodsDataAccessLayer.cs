@@ -463,10 +463,18 @@ namespace DataAccessLayer
 
         #region PersonalData
 
+        //Tobias
         public static personalDataDataTable GetPersonalDataDataTable()
         {
             personalDataDataTable pdt = new personalDataDataTable();
             personalDataTableAdapter.Fill(pdt);
+            return pdt;
+        }
+
+        public static personalDataDataTable GetPersonalDataDataTableByLike(string searchParameters)
+        {
+            personalDataDataTable pdt = new personalDataDataTable();
+            personalDataTableAdapter.FillByLike(pdt, searchParameters);
             return pdt;
         }
 

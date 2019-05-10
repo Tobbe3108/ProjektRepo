@@ -36,8 +36,8 @@
             this.btnCreatePerson = new System.Windows.Forms.Button();
             this.btnToFile = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.rtbSearch = new System.Windows.Forms.RichTextBox();
             this.lblSearch = new System.Windows.Forms.Label();
+            this.rtbSearch = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerson)).BeginInit();
@@ -139,7 +139,7 @@
             this.btnCreatePerson.Name = "btnCreatePerson";
             this.btnCreatePerson.Size = new System.Drawing.Size(288, 74);
             this.btnCreatePerson.TabIndex = 0;
-            this.btnCreatePerson.Text = "Tilføj sag";
+            this.btnCreatePerson.Text = "Tilføj person";
             this.btnCreatePerson.UseVisualStyleBackColor = false;
             this.btnCreatePerson.Click += new System.EventHandler(this.btnCreatePerson_Click);
             // 
@@ -178,18 +178,6 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(1504, 127);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
-            // rtbSearch
-            // 
-            this.rtbSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbSearch.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbSearch.Location = new System.Drawing.Point(6, 48);
-            this.rtbSearch.Margin = new System.Windows.Forms.Padding(6);
-            this.rtbSearch.Name = "rtbSearch";
-            this.rtbSearch.Size = new System.Drawing.Size(740, 73);
-            this.rtbSearch.TabIndex = 1;
-            this.rtbSearch.Text = "";
-            this.rtbSearch.TextChanged += new System.EventHandler(this.rtbSearch_TextChanged);
-            // 
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
@@ -204,10 +192,22 @@
             this.lblSearch.Text = "Søg efter: Navn (Mangler resten)";
             this.lblSearch.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
+            // rtbSearch
+            // 
+            this.rtbSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbSearch.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbSearch.Location = new System.Drawing.Point(6, 48);
+            this.rtbSearch.Margin = new System.Windows.Forms.Padding(6);
+            this.rtbSearch.Name = "rtbSearch";
+            this.rtbSearch.Size = new System.Drawing.Size(740, 73);
+            this.rtbSearch.TabIndex = 3;
+            this.rtbSearch.Text = "";
+            // 
             // Person_ViewAll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Person_ViewAll";
             this.Size = new System.Drawing.Size(1584, 897);
@@ -231,8 +231,8 @@
         private System.Windows.Forms.Button btnCreatePerson;
         private System.Windows.Forms.Button btnToFile;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.RichTextBox rtbSearch;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.DataGridView dgvPerson;
+        private System.Windows.Forms.RichTextBox rtbSearch;
     }
 }
