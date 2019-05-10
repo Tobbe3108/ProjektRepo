@@ -22,6 +22,11 @@ namespace Bol_IT
 
         public void LoadData(int propSquareMeter)
         {
+            cbCondition.SelectedIndex = 1;
+            cbInteriorDesign.SelectedIndex = 1;
+            cbStyle.SelectedIndex = 1;
+            cbKitchen.SelectedIndex = 1;
+            cbBathroom.SelectedIndex = 1;
             PropSquareMeter = propSquareMeter;
         }
 
