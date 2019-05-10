@@ -253,7 +253,20 @@ namespace Bol_IT
 
         private void dgvSager_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            //---Hvis trykket på knap Rediger inde i datagridview---//
+            if (dgvPerson.Columns[e.ColumnIndex].Name == "Rediger")
+            {
+                if (e.RowIndex >= 0)
+                {
+                    //Load Sag_Edit User control når tryk på knap med ID fra celle
+                    if (!Form1.Instance.PnlContainer.Controls.ContainsKey("Person_Create"))
+                    {
+                        Person_Create.Instance.Dock = DockStyle.Fill;
+                        Form1.Instance.PnlContainer.Controls.Add(Person_Create.Instance);
+                    }
+                    Form1.Instance.PnlContainer.Controls["Person_Create"].BringToFront();
+                }
+            }
         }
 
         #endregion
