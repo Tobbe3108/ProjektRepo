@@ -36,6 +36,28 @@ namespace Bol_IT
 
         #endregion
 
+        #region FormAutoSize
+
+        //Tobias
+        private void Person_Create_SizeChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                lblAddress.Font = new Font(lblAddress.Font.FontFamily, this.Size.Height / 50);
+                lblFName.Font = new Font(lblFName.Font.FontFamily, this.Size.Height / 50);
+                lblLName.Font = new Font(lblLName.Font.FontFamily, this.Size.Height / 50);
+                lblMail.Font = new Font(lblMail.Font.FontFamily, this.Size.Height / 50);
+                lblMName.Font = new Font(lblMName.Font.FontFamily, this.Size.Height / 50);
+                lblPhoneNr.Font = new Font(lblPhoneNr.Font.FontFamily, this.Size.Height / 50);
+                lblType.Font = new Font(lblType.Font.FontFamily, this.Size.Height / 50);
+                lblTypeChainging.Font = new Font(lblTypeChainging.Font.FontFamily, this.Size.Height / 50);
+                lblZipcode.Font = new Font(lblZipcode.Font.FontFamily, this.Size.Height / 50);
+            }
+            catch{}
+        }
+        
+        #endregion
+
         #region Events
 
         private void btnSaveToFile_Click(object sender, EventArgs e)
@@ -60,5 +82,6 @@ namespace Bol_IT
         }
 
         #endregion
+
     }
 }

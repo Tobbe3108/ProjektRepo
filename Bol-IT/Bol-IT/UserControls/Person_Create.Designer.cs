@@ -638,6 +638,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Person_Create";
             this.Size = new System.Drawing.Size(1584, 897);
+            this.SizeChanged += new System.EventHandler(this.Person_Create_SizeChanged);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);

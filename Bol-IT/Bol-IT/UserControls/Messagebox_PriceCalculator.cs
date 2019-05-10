@@ -14,6 +14,7 @@ namespace Bol_IT
 {
     public partial class Messagebox_PriceCalculator : Form
     {
+        //Simone
         public int PropSquareMeter { get; set; }
         public Messagebox_PriceCalculator()
         {
@@ -30,8 +31,25 @@ namespace Bol_IT
             PropSquareMeter = propSquareMeter;
         }
 
+        private bool ZipcodeEmpty()
+        {
+            if (cbZipcode.SelectedItem == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private void btnCalculate_Click(object sender, EventArgs e)
         {
+            if (ZipcodeEmpty())
+            {
+                MessageBox.Show("Der er ikke valgt et postnummer. Vælg et post nummer og prøv igen.", "Felj!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             int cashPrice = PriceCalculator.CalculateCashPrice(PropSquareMeter, (int)cbZipcode.SelectedItem, (string)cbCondition.SelectedItem, (string)cbInteriorDesign.SelectedItem, (string)cbStyle.SelectedItem, (string)cbKitchen.SelectedItem, (string)cbBathroom.SelectedItem, cbGardenFlag.Checked);
             int grossPrice = PriceCalculator.CalculateGrossPrice(cashPrice);
             int netPrice = PriceCalculator.CalculateNetPrice(cashPrice);

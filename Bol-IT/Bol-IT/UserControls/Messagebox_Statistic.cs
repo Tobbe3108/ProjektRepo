@@ -49,15 +49,19 @@ namespace Bol_IT
         //Tobias
         private void Messagebox_Statistic_SizeChanged(object sender, EventArgs e)
         {
-            lblArea.Font = new Font(lblArea.Font.FontFamily, this.Size.Height / 16);
-            lblMonth.Font = new Font(lblMonth.Font.FontFamily, this.Size.Height / 15);
-            lblStatistic.Font = new Font(lblStatistic.Font.FontFamily, this.Size.Height / 15);
-            btnToFile.Font = new Font(btnToFile.Font.FontFamily, this.Size.Height / 15);
-            cbArea.Font = new Font(cbArea.Font.FontFamily, this.Size.Height / 15);
-            cbStatistic.Font = new Font(cbStatistic.Font.FontFamily, this.Size.Height / 15);
-            cbMonth.Font = new Font(cbMonth.Font.FontFamily, this.Size.Height / 15);
-            cbYear.Font = new Font(cbYear.Font.FontFamily, this.Size.Height / 15);
-            lblYear.Font = new Font(lblYear.Font.FontFamily, this.Size.Height / 15);
+            try
+            {
+                lblArea.Font = new Font(lblArea.Font.FontFamily, this.Size.Height / 16);
+                lblMonth.Font = new Font(lblMonth.Font.FontFamily, this.Size.Height / 15);
+                lblStatistic.Font = new Font(lblStatistic.Font.FontFamily, this.Size.Height / 15);
+                btnToFile.Font = new Font(btnToFile.Font.FontFamily, this.Size.Height / 15);
+                cbArea.Font = new Font(cbArea.Font.FontFamily, this.Size.Height / 15);
+                cbStatistic.Font = new Font(cbStatistic.Font.FontFamily, this.Size.Height / 15);
+                cbMonth.Font = new Font(cbMonth.Font.FontFamily, this.Size.Height / 15);
+                cbYear.Font = new Font(cbYear.Font.FontFamily, this.Size.Height / 15);
+                lblYear.Font = new Font(lblYear.Font.FontFamily, this.Size.Height / 15);
+            }
+            catch{}
         }
 
         #endregion

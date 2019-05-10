@@ -65,8 +65,10 @@ namespace Bol_IT
                 lblSearch.Font = new Font(lblSearch.Font.FontFamily, this.Size.Height / 50);
                 rtbSearch.Font = new Font(rtbSearch.Font.FontFamily, this.Size.Height / 50);
                 cbSoldFlag.Font = new Font(cbSoldFlag.Font.FontFamily, this.Size.Height / 50);
+                dgvSager.Font = new Font(dgvSager.Font.FontFamily, this.Size.Height / 60);
+                
             }
-            catch (Exception) { }
+            catch{ }
         }
 
         #endregion
@@ -118,7 +120,6 @@ namespace Bol_IT
             messagebox_Statistic.Show();
         }
 
-        //Tobias
         private void btnCreateSag_Click(object sender, EventArgs e)
         {
             //Load Sag_Create User control når tryk på knap
@@ -130,7 +131,6 @@ namespace Bol_IT
             Form1.Instance.PnlContainer.Controls["Sag_Create"].BringToFront();
         }
 
-        //Tobias
         private void rtbSearch_TextChanged(object sender, EventArgs e)
         {
             StartDataLoad();
@@ -143,7 +143,6 @@ namespace Bol_IT
             LoadDataThread.Start();
         }
 
-        //Tobias
         private void dgvSager_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //---Hvis trykket på knap Rediger inde i datagridview---//
@@ -165,7 +164,6 @@ namespace Bol_IT
             }
         }
 
-        //Tobias
         private void btnToFile_Click(object sender, EventArgs e)
         {
             //Laver en save dialog hvor brugeren kan vælge hvor filen skal gemmes
@@ -197,7 +195,7 @@ namespace Bol_IT
                         //Kør igennem alle celler i hver kolone og find den celle med den længste verdi - bruges til fin formatering
                         List<int> longestString = new List<int>();
 
-                        for (int col = 1; col < dgvSager.Columns.Count - 1; col++)
+                        for (int col = 1; col < dgvSager.Columns.Count; col++)
                         {
                             int stringLength = 0;
                             for (int row = 0; row < dgvSager.Rows.Count; row++)
@@ -216,7 +214,7 @@ namespace Bol_IT
 
                         //Skriver kolone header text til filen
                         string header = "";
-                        for (int col = 1; col < dgvSager.Columns.Count - 1; col++)
+                        for (int col = 1; col < dgvSager.Columns.Count; col++)
                         {
                             try
                             {
@@ -225,6 +223,7 @@ namespace Bol_IT
                             catch (Exception)
                             {
                                 MessageBox.Show($"Det var ikke muligt at gemme filen: {saveFileDialog.FileName} Prøv igen.", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
                             }
                         }
                         writer.WriteLine(header);
@@ -232,18 +231,19 @@ namespace Bol_IT
 
 
                         //Skriver alt data til filen
-                        for (int row = 0; row < dgvSager.Rows.Count - 1; row++)
+                        for (int row = 0; row < dgvSager.Rows.Count; row++)
                         {
                             string lines = "";
-                            for (int col = 1; col < dgvSager.Columns.Count - 1; col++)
+                            for (int col = 1; col < dgvSager.Columns.Count; col++)
                             {
                                 try
                                 {
-                                    lines += $"{dgvSager.Rows[row].Cells[col].Value.ToString().PadRight(longestString[col] + 5)}";
+                                    lines += $"{dgvSager.Rows[row].Cells[col].Value.ToString().PadRight(longestString[col - 1] + 5)}";
                                 }
                                 catch (Exception)
                                 {
                                     MessageBox.Show($"Det var ikke muligt at gemme filen: {saveFileDialog.FileName} Prøv igen.", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
                                 }
                             }
                             writer.WriteLine(lines);
@@ -281,6 +281,7 @@ namespace Bol_IT
                                     catch (Exception)
                                     {
                                         dtFromGrid.Rows[dtFromGrid.Rows.Count - 1][cell.ColumnIndex - 1] = " ";
+                                        return;
                                     }
                                 }
                             }

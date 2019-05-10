@@ -30,7 +30,7 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvSager = new System.Windows.Forms.DataGridView();
+            this.dgvPerson = new System.Windows.Forms.DataGridView();
             this.Rediger = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCreatePerson = new System.Windows.Forms.Button();
@@ -40,7 +40,7 @@
             this.lblSearch = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPerson)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +67,7 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.dgvSager, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.dgvPerson, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -81,23 +81,23 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1504, 852);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // dgvSager
+            // dgvPerson
             // 
-            this.dgvSager.AllowUserToAddRows = false;
-            this.dgvSager.AllowUserToDeleteRows = false;
-            this.dgvSager.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvSager.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dgvSager.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSager.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvPerson.AllowUserToAddRows = false;
+            this.dgvPerson.AllowUserToDeleteRows = false;
+            this.dgvPerson.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPerson.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dgvPerson.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPerson.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Rediger});
-            this.dgvSager.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvSager.Location = new System.Drawing.Point(6, 133);
-            this.dgvSager.Margin = new System.Windows.Forms.Padding(6);
-            this.dgvSager.Name = "dgvSager";
-            this.dgvSager.ReadOnly = true;
-            this.dgvSager.Size = new System.Drawing.Size(1492, 627);
-            this.dgvSager.TabIndex = 0;
-            this.dgvSager.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSager_CellContentClick);
+            this.dgvPerson.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPerson.Location = new System.Drawing.Point(6, 133);
+            this.dgvPerson.Margin = new System.Windows.Forms.Padding(6);
+            this.dgvPerson.Name = "dgvPerson";
+            this.dgvPerson.ReadOnly = true;
+            this.dgvPerson.Size = new System.Drawing.Size(1492, 627);
+            this.dgvPerson.TabIndex = 0;
+            this.dgvPerson.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSager_CellContentClick);
             // 
             // Rediger
             // 
@@ -211,9 +211,10 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Person_ViewAll";
             this.Size = new System.Drawing.Size(1584, 897);
+            this.SizeChanged += new System.EventHandler(this.Person_ViewAll_SizeChanged);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPerson)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
@@ -225,7 +226,6 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.DataGridView dgvSager;
         private System.Windows.Forms.DataGridViewButtonColumn Rediger;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button btnCreatePerson;
@@ -233,5 +233,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.RichTextBox rtbSearch;
         private System.Windows.Forms.Label lblSearch;
+        private System.Windows.Forms.DataGridView dgvPerson;
     }
 }
