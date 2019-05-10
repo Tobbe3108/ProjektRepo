@@ -19,7 +19,7 @@ namespace Bol_IT
         #region Init
 
         //Tobias
-        //Singleton instance af Sag_Create
+        //Singleton instance af Person_ViewAll
         static Person_ViewAll _instance;
         public static Person_ViewAll Instance
         {
@@ -38,7 +38,13 @@ namespace Bol_IT
             InitializeComponent();
 
             //Form autosize
-            Person_ViewAll_SizeChanged(this, new EventArgs());
+            Person_ViewAll_SizeChanged(null, null);
+        }
+
+        private void Person_ViewAll_Load(object sender, EventArgs e)
+        {
+            //Eager initialization af singleton instance
+            _instance = this;
 
             StartDataLoad();
         }
