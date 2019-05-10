@@ -121,10 +121,7 @@ namespace Bol_IT
                 btnSave.Font = new Font(btnSave.Font.FontFamily, this.Size.Height / 50);
                 #endregion
             }
-            catch
-            {
-
-            }
+            catch{}
         }
 
         #endregion

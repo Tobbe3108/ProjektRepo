@@ -91,27 +91,11 @@ namespace Bol_IT
                 cbDistribution.Font = new Font(cbDistribution.Font.FontFamily, this.Size.Height / 50);
                 rtbSearch.Font = new Font(rtbSearch.Font.FontFamily, this.Size.Height / 50);
                 cbSearchParam.Font = new Font(cbSearchParam.Font.FontFamily, this.Size.Height / 50);
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        private void dgvSearch_SizeChanged(object sender, EventArgs e)
-        {
-            try
-            {
-
+                btnReset.Font = new Font(btnReset.Font.FontFamily, this.Size.Height / 50);
                 dgvSearch.Font = new Font(dgvSearch.Font.FontFamily, this.Size.Height / 60);
+                dgvDistribution.Font = new Font(dgvDistribution.Font.FontFamily, this.Size.Height / 60);
             }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            catch{}
         }
 
         #endregion

@@ -45,10 +45,16 @@ namespace Bol_IT
 
         private void Person_ViewAll_SizeChanged(object sender, EventArgs e)
         {
-            lblSearch.Font = new Font(lblSearch.Font.FontFamily, this.Size.Height / 50);
-            rtbSearch.Font = new Font(rtbSearch.Font.FontFamily, this.Size.Height / 50);
-            btnCreatePerson.Font = new Font(btnCreatePerson.Font.FontFamily, this.Size.Height / 50);
-            btnToFile.Font = new Font(btnToFile.Font.FontFamily, this.Size.Height / 50);
+            try
+            {
+                lblSearch.Font = new Font(lblSearch.Font.FontFamily, this.Size.Height / 50);
+                rtbSearch.Font = new Font(rtbSearch.Font.FontFamily, this.Size.Height / 50);
+                btnCreatePerson.Font = new Font(btnCreatePerson.Font.FontFamily, this.Size.Height / 50);
+                btnToFile.Font = new Font(btnToFile.Font.FontFamily, this.Size.Height / 50);
+                dgvPerson.Font = new Font(dgvPerson.Font.FontFamily, this.Size.Height / 60);
+            }
+            catch{}
+            
         }
 
         #endregion

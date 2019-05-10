@@ -65,8 +65,10 @@ namespace Bol_IT
                 lblSearch.Font = new Font(lblSearch.Font.FontFamily, this.Size.Height / 50);
                 rtbSearch.Font = new Font(rtbSearch.Font.FontFamily, this.Size.Height / 50);
                 cbSoldFlag.Font = new Font(cbSoldFlag.Font.FontFamily, this.Size.Height / 50);
+                dgvSager.Font = new Font(dgvSager.Font.FontFamily, this.Size.Height / 60);
+                
             }
-            catch (Exception) { }
+            catch{ }
         }
 
         #endregion
