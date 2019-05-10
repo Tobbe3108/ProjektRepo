@@ -244,6 +244,7 @@ namespace Bol_IT
                                 catch (Exception)
                                 {
                                     MessageBox.Show($"Det var ikke muligt at gemme filen: {saveFileDialog.FileName} Prøv igen.", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
                                 }
                             }
                             writer.WriteLine(lines);

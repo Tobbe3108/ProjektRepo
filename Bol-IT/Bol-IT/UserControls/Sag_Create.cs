@@ -286,12 +286,29 @@ namespace Bol_IT
 
         }
 
+        private bool PropSquareMetersEmpty()
+        {
+            if (rtbPropSquareMeters.Text == string.Empty)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
 
         #endregion
 
         private void btnCalculatePrice_Click(object sender, EventArgs e)
         {
+            if (PropSquareMetersEmpty())
+            {
+                MessageBox.Show("Der er ikke indtastet et grundareal, indtast grundareal og prøv igen.", "Felj!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             Messagebox_PriceCalculator priceCalculator = new Messagebox_PriceCalculator();
             priceCalculator.Show();
             priceCalculator.LoadData(int.Parse(rtbPropSquareMeters.Text));
