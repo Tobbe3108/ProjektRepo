@@ -125,7 +125,7 @@ namespace Bol_IT
         #endregion
 
         #region Methods
-        
+
         //Tobias
         public static void LoadData(string id)
         {
@@ -180,7 +180,7 @@ namespace Bol_IT
                 if (e.Data.GetDataPresent(DataFormats.FileDrop))
                 {
                     var path = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
-                pbHouseImage.ImageLocation = (string)path;
+                    pbHouseImage.ImageLocation = (string)path;
                 }
             }
         }
@@ -228,12 +228,35 @@ namespace Bol_IT
         {
             if (AnyBoxIsEmpty())
             {
-                MessageBox.Show("Fejl i indtastning. Du har ikke udfyldt alle felter. Prøv igen.");
+                MessageBox.Show($"Fejl i indtastning. Du har ikke udfyldt alle felter. Prøv igen..", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
             {
-
+                if (DataAccessLayerFacade.CheckForSQLInjection(
+                    rtbCaseNr.Text,
+                    cbSellerId.Text,
+                    rtbDesiredPrice.Text,
+                    rtbTimeFrame.Text,
+                    rtbNetPrice.Text,
+                    rtbGrossPrice.Text,
+                    rtbOwnerExpences.Text,
+                    rtbCashPrice.Text,
+                    rtbDepositPrice.Text,
+                    rtbAddress.Text,
+                    rtbZipCode.Text,
+                    rtbNrOfRooms.Text,
+                    rtbBuiltRebuilt.Text,
+                    rtbHouseType.Text,
+                    rtbEnergyRating.Text,
+                    rtbResSquareMeters.Text,
+                    rtbPropSquareMeters.Text,
+                    rtbFloors.Text,
+                    rtbHouseDescription.Text
+                    ))
+                {
+                    return;
+                }
                 DataAccessLayerFacade.UpdateProperty
                     (
                     int.Parse(rtbCaseNr.Text),
@@ -288,43 +311,54 @@ namespace Bol_IT
                 MessageBox.Show("Bolig er gemt.");
             }
         }
-        
+
         private bool AnyBoxIsEmpty()
         {
             if (rtbTimeFrame.Text == string.Empty)
-            {
-                rtbTimeFrame.Text = "0";
-            }
+            { rtbTimeFrame.Text = "0"; }
             if (rtbDesiredPrice.Text == string.Empty)
-            {
-                rtbDesiredPrice.Text = "0";
-            }
-            if (
-                cbSellerId.Text == string.Empty ||
-                rtbCaseNr.Text == string.Empty ||
-                rtbNetPrice.Text == string.Empty ||
-                rtbGrossPrice.Text == string.Empty ||
-                rtbOwnerExpences.Text == string.Empty ||
-                rtbCashPrice.Text == string.Empty ||
-                rtbDepositPrice.Text == string.Empty ||
-                rtbAddress.Text == string.Empty ||
-                rtbFloors.Text == string.Empty ||
-                rtbNrOfRooms.Text == string.Empty ||
-                rtbResSquareMeters.Text == string.Empty ||
-                rtbZipCode.Text == string.Empty ||
-                rtbPropSquareMeters.Text == string.Empty ||
-                rtbBuiltRebuilt.Text == string.Empty ||
-                rtbFloors.Text == string.Empty ||
-                rtbHouseDescription.Text == string.Empty ||
-                pbHouseImage.Image == null
-                )
+            { rtbDesiredPrice.Text = "0"; }
+            if (cbSellerId.Text == string.Empty)
+            { cbSellerId.Text = "0"; }
+            if (rtbCaseNr.Text == string.Empty)
+            { rtbCaseNr.Text = "0"; }
+            if (rtbNetPrice.Text == string.Empty)
+            { rtbNetPrice.Text = "0"; }
+            if (rtbGrossPrice.Text == string.Empty)
+            { rtbGrossPrice.Text = "0"; }
+            if (rtbOwnerExpences.Text == string.Empty)
+            { rtbOwnerExpences.Text = "0"; }
+            if (rtbCashPrice.Text == string.Empty)
+            { rtbCashPrice.Text = "0"; }
+            if (rtbDepositPrice.Text == string.Empty)
+            { rtbDepositPrice.Text = "0"; }
+            if (rtbAddress.Text == string.Empty)
+            { rtbAddress.Text = "0"; }
+            if (rtbFloors.Text == string.Empty)
+            { rtbFloors.Text = "0"; }
+            if (rtbNrOfRooms.Text == string.Empty)
+            { rtbNrOfRooms.Text = "0"; }
+            if (rtbResSquareMeters.Text == string.Empty)
+            { rtbResSquareMeters.Text = "0"; }
+            if (rtbZipCode.Text == string.Empty)
+            { rtbZipCode.Text = "0"; }
+            if (rtbPropSquareMeters.Text == string.Empty)
+            { rtbPropSquareMeters.Text = "0"; }
+            if (rtbBuiltRebuilt.Text == string.Empty)
+            { rtbBuiltRebuilt.Text = "0"; }
+            if (rtbFloors.Text == string.Empty)
+            { rtbFloors.Text = "0"; }
+            if (rtbHouseDescription.Text == string.Empty)
+            { rtbHouseDescription.Text = "Ingen tekst"; }
+
+            if (pbHouseImage.Image == null)
+            {  }
+
+            if (cbSellerId.Text == string.Empty)
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         //Tobias
@@ -436,7 +470,7 @@ namespace Bol_IT
                             values[i] = propInfoList[i];
                         }
                         dataTable.Rows.Add(values);
-                       
+
                         var wb = new XLWorkbook(); //Laver en ny XLWorkbook som kommer fra en NuGet package der hedder closedXML man kan benytte til at oprette Excel dokumenter
                         wb.Worksheets.Add(dataTable, "Udskrift"); //Opretter et nyt worksheet på baggrund af det oprettede datatable
                         wb.SaveAs(Path.GetFullPath(saveFileDialog.FileName)); //Gemmer den oprettede XLWorkbook til filen som brugeren oprettede via savedialog
