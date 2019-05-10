@@ -112,7 +112,7 @@
             this.lblSlogan.Name = "lblSlogan";
             this.lblSlogan.Size = new System.Drawing.Size(499, 47);
             this.lblSlogan.TabIndex = 2;
-            this.lblSlogan.Text = "Slogan 2";
+            this.lblSlogan.Text = "Vi har nøglen til dit drømmehus!";
             this.lblSlogan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnClose

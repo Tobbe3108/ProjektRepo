@@ -16,8 +16,8 @@ namespace GlobalClasses
         //Tobias
         public static Dictionary<int, string> pairs = new Dictionary<int, string>()
         {
-            {1,"Slogan 1"},
-            {2,"Slogan 2"},
+            {1,"Sælg før din nabo!"},
+            {2,"Vi har nøglen til dit drømmehus!"},
         };
 
         #endregion
