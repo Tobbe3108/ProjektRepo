@@ -426,7 +426,6 @@ namespace Bol_IT
                                 }
                                 catch (Exception)
                                 {
-                                    throw;
                                     MessageBox.Show($"Det var ikke muligt at gemme filen: {saveFileDialog.FileName} Prøv igen.", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
@@ -444,7 +443,6 @@ namespace Bol_IT
                                     }
                                     catch (Exception)
                                     {
-                                        throw;
                                         MessageBox.Show($"Det var ikke muligt at gemme filen: {saveFileDialog.FileName} Prøv igen.", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                 }
