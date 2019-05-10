@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GlobalClasses;
+using DataAccessLayer;
 
 namespace Bol_IT
 {
@@ -59,7 +60,6 @@ namespace Bol_IT
             Form1.Instance.PnlContainer.Controls["Sag_ViewAll"].BringToFront();
         }
 
-        //Tobias
         private void LoadOpenHouse()
         {
             //Load Sag_ViewAll User control når tryk på knap
@@ -71,6 +71,17 @@ namespace Bol_IT
             Form1.Instance.PnlContainer.Controls["OpenHouse_Distribution"].BringToFront();
         }
 
+        private void LoadPersonalData()
+        {
+            //Load Sag_ViewAll User control når tryk på knap
+            if (!Form1.Instance.PnlContainer.Controls.ContainsKey("Person_ViewAll"))
+            {
+                Person_ViewAll.Instance.Dock = DockStyle.Fill;
+                Form1.Instance.PnlContainer.Controls.Add(Person_ViewAll.Instance);
+            }
+            Form1.Instance.PnlContainer.Controls["Person_ViewAll"].BringToFront();
+        }
+
         #endregion
 
         #region Events
@@ -79,58 +90,88 @@ namespace Bol_IT
         private void lblSager_Click(object sender, EventArgs e)
         {
             tlpOpenHouse.BackColor = ColorTranslator.FromHtml("#2368A2");
-            tlpSager.BackColor = ColorTranslator.FromHtml("#1A4971");
             tlpSignOut.BackColor = ColorTranslator.FromHtml("#2368A2");
+            tlpPersonData.BackColor = ColorTranslator.FromHtml("#2368A2");
+
+            tlpSager.BackColor = ColorTranslator.FromHtml("#1A4971");
 
             LoadSagViewAll();
         }
 
-        //Tobias
         private void lblOpenHouse_Click(object sender, EventArgs e)
         {
-            tlpOpenHouse.BackColor = ColorTranslator.FromHtml("#1A4971");
             tlpSager.BackColor = ColorTranslator.FromHtml("#2368A2");
             tlpSignOut.BackColor = ColorTranslator.FromHtml("#2368A2");
+            tlpPersonData.BackColor = ColorTranslator.FromHtml("#2368A2");
+
+            tlpOpenHouse.BackColor = ColorTranslator.FromHtml("#1A4971");
 
             LoadOpenHouse();
         }
 
-        //Tobias
         private void lblSignOut_Click(object sender, EventArgs e)
         {
             tlpOpenHouse.BackColor = ColorTranslator.FromHtml("#2368A2");
             tlpSager.BackColor = ColorTranslator.FromHtml("#2368A2");
+            tlpPersonData.BackColor = ColorTranslator.FromHtml("#2368A2");
+
             tlpSignOut.BackColor = ColorTranslator.FromHtml("#1A4971");
         }
 
-        //Tobias
         private void pbSager_Click(object sender, EventArgs e)
         {
             tlpOpenHouse.BackColor = ColorTranslator.FromHtml("#2368A2");
-            tlpSager.BackColor = ColorTranslator.FromHtml("#1A4971");
             tlpSignOut.BackColor = ColorTranslator.FromHtml("#2368A2");
+            tlpPersonData.BackColor = ColorTranslator.FromHtml("#2368A2");
+
+            tlpSager.BackColor = ColorTranslator.FromHtml("#1A4971");
 
             LoadSagViewAll();
         }
 
-        //Tobias
         private void pbOpenHouse_Click(object sender, EventArgs e)
         {
-            tlpOpenHouse.BackColor = ColorTranslator.FromHtml("#1A4971");
             tlpSager.BackColor = ColorTranslator.FromHtml("#2368A2");
             tlpSignOut.BackColor = ColorTranslator.FromHtml("#2368A2");
+            tlpPersonData.BackColor = ColorTranslator.FromHtml("#2368A2");
+
+            tlpOpenHouse.BackColor = ColorTranslator.FromHtml("#1A4971");
 
             LoadOpenHouse();
         }
 
-        //Tobias
         private void pbSignOut_Click(object sender, EventArgs e)
         {
             tlpOpenHouse.BackColor = ColorTranslator.FromHtml("#2368A2");
             tlpSager.BackColor = ColorTranslator.FromHtml("#2368A2");
+            tlpPersonData.BackColor = ColorTranslator.FromHtml("#2368A2");
+
             tlpSignOut.BackColor = ColorTranslator.FromHtml("#1A4971");
         }
 
+        private void pbPersonData_Click(object sender, EventArgs e)
+        {
+            tlpOpenHouse.BackColor = ColorTranslator.FromHtml("#2368A2");
+            tlpSager.BackColor = ColorTranslator.FromHtml("#2368A2");
+            tlpSignOut.BackColor = ColorTranslator.FromHtml("#2368A2");
+
+            tlpPersonData.BackColor = ColorTranslator.FromHtml("#1A4971");
+
+            LoadPersonalData();
+        }
+
+        private void lblPersonData_Click(object sender, EventArgs e)
+        {
+            tlpOpenHouse.BackColor = ColorTranslator.FromHtml("#2368A2");
+            tlpSager.BackColor = ColorTranslator.FromHtml("#2368A2");
+            tlpSignOut.BackColor = ColorTranslator.FromHtml("#2368A2");
+
+            tlpPersonData.BackColor = ColorTranslator.FromHtml("#1A4971");
+
+            LoadPersonalData();
+        }
+
         #endregion
+
     }
 }
