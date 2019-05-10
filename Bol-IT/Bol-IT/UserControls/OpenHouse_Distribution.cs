@@ -6,6 +6,9 @@ using System.Windows.Forms;
 using DataAccessLayer;
 using System.Threading;
 using BusinessLayer;
+using System.IO;
+using System.Collections.Generic;
+using ClosedXML.Excel;
 
 namespace Bol_IT
 {
@@ -17,6 +20,7 @@ namespace Bol_IT
         //Datatables til brug i dgvDistribution
         public static DataTable agentDistributionTable = new DataTable();
         public static DataTable propDistributionTable = new DataTable();
+        public static bool fordelt = false;//Flag for at se om der er lavet en fordeling.
 
         #endregion
 
@@ -246,10 +250,12 @@ namespace Bol_IT
                 case 0:
                     dgvDistribution.DataSource = agentDistributionTable;
                     dgvSearch.DataSource = DataAccessLayerFacade.GetAgentDataTable();
+                    fordelt = false;
                     break;
                 case 1:
                     dgvDistribution.DataSource = propDistributionTable;
                     dgvSearch.DataSource = RemoveColumns(DataAccessLayerFacade.GetPropertyDataTable());
+                    fordelt = false;
                     break;
             }
         }
@@ -312,6 +318,7 @@ namespace Bol_IT
                     dgvDistribution.DataSource = null;
                     dgvDistribution.DataSource = OpenHouseMethods.DistributeHouses(agentDistributionTable, propDistributionTable, cbDistribution.SelectedIndex);//Sætter datasourcen til det datatable metoden returnerer.
                     dgvDistribution.Sort(dgvDistribution.Columns["AId"], ListSortDirection.Ascending);//Sorterer DataGridViewet efter Agent Id.
+                    fordelt = true;
                 }
                 else
                 {
@@ -345,11 +352,149 @@ namespace Bol_IT
                 //Resetter valgene for search og fordeling.
                 cbSearchParam.SelectedIndex = 0;
                 cbDistribution.SelectedIndex = 0;
+
+                fordelt = false;
             }
             //Standard fejl-besked.
             catch (Exception exception)
             {
                 MessageBox.Show($"Der er sket en uventet fejl af typen {exception.GetType()}.", "Fejlmeddelelse:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //Tobias
+        private void btnToFile_Click(object sender, EventArgs e)
+        {
+            if (fordelt)//Hvis der er lavet en fordeling, tilad udskrivning til fil.
+            {
+                //Laver en save dialog hvor brugeren kan vælge hvor filen skal gemmes
+                SaveFileDialog saveFileDialog = new SaveFileDialog
+                {
+                    InitialDirectory = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}",
+                    Title = "Gem til fil",
+                    DefaultExt = "txt",
+                    Filter = "Tekst fil (*.txt)|*.txt|Excel (*.xlsx)|*.xlsx",
+                    FilterIndex = 1,
+                    CheckFileExists = false,
+                    CheckPathExists = true,
+                    RestoreDirectory = true
+                };
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK) //Hvis det lykkedes for brugeren at vælge et sted at gemme filen
+                {
+                    //Hent extensionen af filen Fx .txt
+                    var extension = Path.GetExtension(saveFileDialog.FileName);
+
+                    switch (extension.ToLower()) //Tjekker hvilken filtype du har gemt i
+                    {
+                        case ".txt":
+                            //Åbner filen brugeren oprettede
+                            StreamWriter writer = new StreamWriter(saveFileDialog.OpenFile());
+                            List<string> list = new List<string>();
+
+                            //Kør igennem alle celler i hver kolone og find den celle med den længste verdi - bruges til fin formatering
+                            List<int> longestString = new List<int>();
+
+                            for (int col = 1; col < dgvDistribution.Columns.Count - 1; col++)
+                            {
+                                int stringLength = 0;
+                                for (int row = 0; row < dgvDistribution.Rows.Count; row++)
+                                {
+                                    if (stringLength < dgvDistribution.Rows[row].Cells[col].Value.ToString().Length)
+                                    {
+                                        stringLength = dgvDistribution.Rows[row].Cells[col].Value.ToString().Length;
+                                    }
+                                }
+                                if (stringLength < dgvDistribution.Columns[col].HeaderText.Length)
+                                {
+                                    stringLength = dgvDistribution.Columns[col].HeaderText.Length;
+                                }
+                                longestString.Add(stringLength);
+                            }
+
+                            //Skriver kolone header text til filen
+                            string header = "";
+                            for (int col = 1; col < dgvDistribution.Columns.Count - 1; col++)
+                            {
+                                try
+                                {
+                                    header += $"{dgvDistribution.Columns[col].HeaderText.PadRight(longestString[col - 1] + 5)}";
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show($"Det var ikke muligt at gemme filen: {saveFileDialog.FileName} Prøv igen.", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                            writer.WriteLine(header);
+
+                            //Skriver alt data til filen
+                            for (int row = 0; row < dgvDistribution.Rows.Count - 1; row++)
+                            {
+                                string lines = "";
+                                for (int col = 1; col < dgvDistribution.Columns.Count - 1; col++)
+                                {
+                                    try
+                                    {
+                                        lines += $"{dgvDistribution.Rows[row].Cells[col].Value.ToString().PadRight(longestString[col] + 5)}";
+                                    }
+                                    catch (Exception)
+                                    {
+                                        MessageBox.Show($"Det var ikke muligt at gemme filen: {saveFileDialog.FileName} Prøv igen.", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                }
+                                writer.WriteLine(lines);
+                            }
+
+                            writer.Dispose();
+                            writer.Close();
+
+                            break;
+
+                        case ".xlsx":
+                            //Lavet et nyt datatable
+                            DataTable dtFromGrid = new DataTable();
+
+                            //Tilføjer alle kolonner fra dataGridViewDataSet til det nyt datatable
+                            for (int i = 1; i < dgvDistribution.Columns.Count; i++)
+                            {
+                                dtFromGrid.Columns.Add(dgvDistribution.Columns[i].HeaderText);
+                            }
+
+                            //Tilføjer alle rækker til det nye datatable med rækkens værdier
+                            foreach (DataGridViewRow row in dgvDistribution.Rows)
+                            {
+                                dtFromGrid.Rows.Add();
+                                foreach (DataGridViewCell cell in row.Cells)
+                                {
+                                    if (cell.OwningColumn.HeaderText != "Rediger")
+                                    {
+                                        try
+                                        {
+                                            dtFromGrid.Rows[dtFromGrid.Rows.Count - 1][cell.ColumnIndex - 1] = cell.Value.ToString();
+                                        }
+                                        catch (Exception)
+                                        {
+                                            dtFromGrid.Rows[dtFromGrid.Rows.Count - 1][cell.ColumnIndex - 1] = " ";
+                                        }
+                                    }
+                                }
+                            }
+                            //Laver en ny XLWorkbook som kommer fra en NuGet package der hedder closedXML man kan benytte til at oprette Excel dokumenter
+                            var wb = new XLWorkbook();
+                            wb.Worksheets.Add(dtFromGrid, "Manage"); //Opretter et nyt worksheet på baggrund af det oprettede datatable
+                            wb.SaveAs(Path.GetFullPath(saveFileDialog.FileName)); //Gemmer den oprettede XLWorkbook til filen som brugeren oprettede via savedialog
+                            break;
+
+                        default:
+                            //Hvis det ikke er muligt at gemme vis fejlbesked til brugeren
+                            MessageBox.Show($"Det var ikke muligt at gemme filen: {saveFileDialog.FileName} Prøv igen.", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                    }
+                }
+            }
+            else//Hvis ingen fordeling, fortæl brugeren dette.
+            {
+                MessageBox.Show("Der er ikke nogen fordeling at udskrive. Lav venligst en fordeling, og prøv igen.", "Fejlmeddelelse:", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
