@@ -12,6 +12,10 @@ namespace DataAccessLayer
 {
     public class DataAccessLayerFacade
     {
+        public static bool CheckForSQLInjection(params string[] checkString)
+        {
+            return MethodsDataAccessLayer.CheckForSQLInjection(checkString);
+        }
         #region SQL
 
         //Christoffer

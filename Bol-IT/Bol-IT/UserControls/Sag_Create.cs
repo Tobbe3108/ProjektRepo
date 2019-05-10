@@ -193,12 +193,35 @@ namespace Bol_IT
         {
             if (AnyBoxIsEmpty())
             {
-                MessageBox.Show("WHAT THE FUCK DID YOU JUST BRING UPON THIS CURSED LAND");
+                MessageBox.Show($"Fejl i indtastning. Du har ikke udfyldt alle felter. Prøv igen..", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
             {
-
+                if (DataAccessLayerFacade.CheckForSQLInjection(
+                    rtbCaseNr.Text,
+                    cbSellerId.Text,
+                    rtbDesiredPrice.Text,
+                    rtbTimeFrame.Text,
+                    rtbNetPrice.Text,
+                    rtbGrossPrice.Text,
+                    rtbOwnerExpences.Text,
+                    rtbCashPrice.Text,
+                    rtbDepositPrice.Text,
+                    rtbAddress.Text,
+                    rtbZipCode.Text,
+                    rtbNrOfRooms.Text,
+                    rtbBuiltRebuilt.Text,
+                    rtbHouseType.Text,
+                    rtbEnergyRating.Text,
+                    rtbResSquareMeters.Text,
+                    rtbPropSquareMeters.Text,
+                    rtbFloors.Text,
+                    rtbHouseDescription.Text
+                    ))
+                {
+                    return;
+                }
                 int caseNr = DataAccessLayerFacade.CreateProperty
                     (
                     int.Parse(cbSellerId.Text),
@@ -222,54 +245,66 @@ namespace Bol_IT
                     cbSoldFlag.Checked,
                     rtbHouseDescription.Text
                     );
-
                 
+                if (!(pbHouseImage.ImageLocation == null))
+                {
 
-                    
-                string fileName = Path.GetFileNameWithoutExtension(pbHouseImage.ImageLocation);
-                string extName = Path.GetExtension(pbHouseImage.ImageLocation).Replace(".", "");
+                    string fileName = Path.GetFileNameWithoutExtension(pbHouseImage.ImageLocation);
+                    string extName = Path.GetExtension(pbHouseImage.ImageLocation).Replace(".", "");
 
-                DataAccessLayerFacade.CreateFile
-                    (
-                    caseNr,
-                    fileName,
-                    extName,
-                    BusinessLayerFacade.GetPhotoFromPath(pbHouseImage.ImageLocation)
-                    );
+                    DataAccessLayerFacade.CreateFile
+                        (
+                        caseNr,
+                        fileName,
+                        extName,
+                        BusinessLayerFacade.GetPhotoFromPath(pbHouseImage.ImageLocation)
+                        );
+                }
                 MessageBox.Show("Bolig er gemt.");
             }
         }
 
         private bool AnyBoxIsEmpty()
         {
-            if (
-                cbSellerId.Text == string.Empty ||
-                rtbTimeFrame.Text == string.Empty ||
-                rtbHouseType.Text == string.Empty ||
-                rtbNetPrice.Text == string.Empty ||
-                rtbGrossPrice.Text == string.Empty ||
-                rtbOwnerExpences.Text == string.Empty ||
-                rtbCashPrice.Text == string.Empty ||
-                rtbDepositPrice.Text == string.Empty ||
-                rtbAddress.Text == string.Empty ||
-                rtbZipCode.Text == string.Empty ||
-                rtbFloors.Text == string.Empty ||
-                rtbNrOfRooms.Text == string.Empty ||
-                rtbResSquareMeters.Text == string.Empty ||
-                rtbZipCode.Text == string.Empty ||
-                rtbPropSquareMeters.Text == string.Empty ||
-                rtbBuiltRebuilt.Text == string.Empty ||
-                rtbEnergyRating.Text == string.Empty ||
-                rtbHouseDescription.Text == string.Empty ||
-                pbHouseImage.ImageLocation == null
-                )
+            if (rtbTimeFrame.Text == string.Empty)
+            { rtbTimeFrame.Text = "0"; }
+            if (rtbDesiredPrice.Text == string.Empty)
+            { rtbDesiredPrice.Text = "0"; }
+            if (rtbCaseNr.Text == string.Empty)
+            { rtbCaseNr.Text = "0"; }
+            if (rtbNetPrice.Text == string.Empty)
+            { rtbNetPrice.Text = "0"; }
+            if (rtbGrossPrice.Text == string.Empty)
+            { rtbGrossPrice.Text = "0"; }
+            if (rtbOwnerExpences.Text == string.Empty)
+            { rtbOwnerExpences.Text = "0"; }
+            if (rtbCashPrice.Text == string.Empty)
+            { rtbCashPrice.Text = "0"; }
+            if (rtbDepositPrice.Text == string.Empty)
+            { rtbDepositPrice.Text = "0"; }
+            if (rtbFloors.Text == string.Empty)
+            { rtbFloors.Text = "0"; }
+            if (rtbNrOfRooms.Text == string.Empty)
+            { rtbNrOfRooms.Text = "0"; }
+            if (rtbResSquareMeters.Text == string.Empty)
+            { rtbResSquareMeters.Text = "0"; }
+            if (rtbZipCode.Text == string.Empty)
+            { rtbZipCode.Text = "0"; }
+            if (rtbPropSquareMeters.Text == string.Empty)
+            { rtbPropSquareMeters.Text = "0"; }
+            if (rtbBuiltRebuilt.Text == string.Empty)
+            { rtbBuiltRebuilt.Text = "0"; }
+            if (rtbHouseDescription.Text == string.Empty)
+            { rtbHouseDescription.Text = "Ingen tekst"; }
+
+            if (pbHouseImage.Image == null)
+            { }
+
+            if (cbSellerId.Text == string.Empty || rtbAddress.Text == string.Empty)
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         //Simone

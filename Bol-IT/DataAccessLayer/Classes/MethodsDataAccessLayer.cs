@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using GlobalClasses;
 using DataAccessLayer.mydatabasetobbeDataSetTableAdapters;
 using static DataAccessLayer.mydatabasetobbeDataSet;
@@ -13,6 +14,19 @@ namespace DataAccessLayer
 {
     public class MethodsDataAccessLayer
     {
+        public static bool CheckForSQLInjection(string[] stringCheck)
+        {
+            foreach (string item in stringCheck)
+            {
+                if (item.Contains(";"))
+                {
+                    MessageBox.Show("Godt forsøgt Jens");
+                    return true;
+                }
+            }
+            return false;
+        }
+
         #region TableAdapters
 
         //Christoffer
