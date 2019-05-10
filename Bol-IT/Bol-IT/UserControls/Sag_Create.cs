@@ -308,8 +308,6 @@ namespace Bol_IT
             Messagebox_PriceCalculator priceCalculator = new Messagebox_PriceCalculator();
             priceCalculator.Show();
             priceCalculator.LoadData(int.Parse(rtbPropSquareMeters.Text));
-
-
         }
 
         #endregion

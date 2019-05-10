@@ -374,6 +374,7 @@
             this.btnToFile.TabIndex = 0;
             this.btnToFile.Text = "Udskriv fil";
             this.btnToFile.UseVisualStyleBackColor = true;
+            this.btnToFile.Click += new System.EventHandler(this.btnToFile_Click);
             // 
             // OpenHouse_Distribution
             // 
