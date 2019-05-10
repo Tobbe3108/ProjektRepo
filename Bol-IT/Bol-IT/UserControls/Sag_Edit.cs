@@ -147,7 +147,7 @@ namespace Bol_IT
             Instance.rtbFloors.Text = property.Floors.ToString();
             Instance.rtbOwnerExpences.Text = property.OwnerExpenses.ToString();
             Instance.rtbBuiltRebuilt.Text = property.BuiltRebuild.ToString();
-            Instance.rtbPropSquareMeters.Text = property.ResSquareMeters.ToString();
+            Instance.rtbPropSquareMeters.Text = property.PropSquareMeters.ToString();
             Instance.cbGarageFlag.Checked = property.GarageFlag;
             Instance.cbSoldFlag.Checked = property.SoldFlag;
             Instance.rtbCaseNr.Text = property.CaseNr.ToString();
@@ -228,7 +228,7 @@ namespace Bol_IT
         {
             if (AnyBoxIsEmpty())
             {
-                MessageBox.Show("WHAT THE FUCK DID YOU JUST BRING UPON THIS CURSED LAND");
+                MessageBox.Show("Fejl i indtastning. Du har ikke udfyldt alle felter. Prøv igen.");
                 return;
             }
             else
