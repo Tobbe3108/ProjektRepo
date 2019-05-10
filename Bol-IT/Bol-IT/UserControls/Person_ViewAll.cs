@@ -36,9 +36,14 @@ namespace Bol_IT
         {
             InitializeComponent();
 
+            Person_ViewAll_SizeChanged(null, null);
             dgvPerson.DataSource = DataAccessLayerFacade.GetPersonalDataDataTable();
         }
-
+        private void Person_ViewAll_Load(object sender, EventArgs e)
+        {
+            //Eager initialization af singleton instance
+            _instance = this;
+        }
         #endregion
 
         #region FormAutoSize

@@ -12,6 +12,11 @@ namespace DataAccessLayer
 {
     public class DataAccessLayerFacade
     {
+        /// <summary>
+        /// Kontrollerer om input parameterene indeholder forbudte 
+        /// </summary>
+        /// <param name="checkString"></param>
+        /// <returns></returns>
         public static bool CheckForSQLInjection(params string[] checkString)
         {
             return MethodsDataAccessLayer.CheckForSQLInjection(checkString);

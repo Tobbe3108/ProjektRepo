@@ -60,7 +60,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.5F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1584, 897);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(864, 486);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -71,14 +71,14 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(39, 22);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(21, 12);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1504, 852);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(820, 461);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // dgvPerson
@@ -91,11 +91,10 @@
             this.dgvPerson.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Rediger});
             this.dgvPerson.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvPerson.Location = new System.Drawing.Point(6, 133);
-            this.dgvPerson.Margin = new System.Windows.Forms.Padding(6);
+            this.dgvPerson.Location = new System.Drawing.Point(3, 72);
             this.dgvPerson.Name = "dgvPerson";
             this.dgvPerson.ReadOnly = true;
-            this.dgvPerson.Size = new System.Drawing.Size(1492, 627);
+            this.dgvPerson.Size = new System.Drawing.Size(814, 339);
             this.dgvPerson.TabIndex = 0;
             this.dgvPerson.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSager_CellContentClick);
             // 
@@ -114,16 +113,16 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
             this.tableLayoutPanel3.Controls.Add(this.btnCreatePerson, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnToFile, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 766);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 414);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1504, 86);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(820, 47);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // btnCreatePerson
@@ -134,10 +133,9 @@
             this.btnCreatePerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreatePerson.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreatePerson.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnCreatePerson.Location = new System.Drawing.Point(6, 6);
-            this.btnCreatePerson.Margin = new System.Windows.Forms.Padding(6);
+            this.btnCreatePerson.Location = new System.Drawing.Point(3, 3);
             this.btnCreatePerson.Name = "btnCreatePerson";
-            this.btnCreatePerson.Size = new System.Drawing.Size(288, 74);
+            this.btnCreatePerson.Size = new System.Drawing.Size(158, 41);
             this.btnCreatePerson.TabIndex = 0;
             this.btnCreatePerson.Text = "Tilføj sag";
             this.btnCreatePerson.UseVisualStyleBackColor = false;
@@ -151,10 +149,9 @@
             this.btnToFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnToFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnToFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnToFile.Location = new System.Drawing.Point(306, 6);
-            this.btnToFile.Margin = new System.Windows.Forms.Padding(6);
+            this.btnToFile.Location = new System.Drawing.Point(167, 3);
             this.btnToFile.Name = "btnToFile";
-            this.btnToFile.Size = new System.Drawing.Size(288, 74);
+            this.btnToFile.Size = new System.Drawing.Size(158, 41);
             this.btnToFile.TabIndex = 1;
             this.btnToFile.Text = "Udskriv fil";
             this.btnToFile.UseVisualStyleBackColor = false;
@@ -165,7 +162,7 @@
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Controls.Add(this.rtbSearch, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.lblSearch, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -175,17 +172,16 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1504, 127);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(820, 69);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // rtbSearch
             // 
             this.rtbSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbSearch.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbSearch.Location = new System.Drawing.Point(6, 48);
-            this.rtbSearch.Margin = new System.Windows.Forms.Padding(6);
+            this.rtbSearch.Location = new System.Drawing.Point(3, 26);
             this.rtbSearch.Name = "rtbSearch";
-            this.rtbSearch.Size = new System.Drawing.Size(740, 73);
+            this.rtbSearch.Size = new System.Drawing.Size(404, 40);
             this.rtbSearch.TabIndex = 1;
             this.rtbSearch.Text = "";
             this.rtbSearch.TextChanged += new System.EventHandler(this.rtbSearch_TextChanged);
@@ -196,21 +192,22 @@
             this.lblSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSearch.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.lblSearch.Location = new System.Drawing.Point(6, 0);
-            this.lblSearch.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblSearch.Location = new System.Drawing.Point(3, 0);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(740, 42);
+            this.lblSearch.Size = new System.Drawing.Size(404, 23);
             this.lblSearch.TabIndex = 2;
             this.lblSearch.Text = "Søg efter: Navn (Mangler resten)";
             this.lblSearch.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // Person_ViewAll
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Person_ViewAll";
-            this.Size = new System.Drawing.Size(1584, 897);
+            this.Size = new System.Drawing.Size(864, 486);
+            this.Load += new System.EventHandler(this.Person_ViewAll_Load);
             this.SizeChanged += new System.EventHandler(this.Person_ViewAll_SizeChanged);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

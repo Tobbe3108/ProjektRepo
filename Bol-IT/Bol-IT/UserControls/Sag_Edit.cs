@@ -315,15 +315,16 @@ namespace Bol_IT
                 MessageBox.Show("Bolig er gemt.");
             }
         }
-
+        /// <summary>
+        /// Kontrollerer at alle tekstfelter er udfyldte, sådan at der ikke sker fejl ved indsætningen i databasen
+        /// </summary>
+        /// <returns>True if Boxes is empty, false if opposite</returns>
         private bool AnyBoxIsEmpty()
         {
             if (rtbTimeFrame.Text == string.Empty)
             { rtbTimeFrame.Text = "0"; }
             if (rtbDesiredPrice.Text == string.Empty)
             { rtbDesiredPrice.Text = "0"; }
-            if (cbSellerId.Text == string.Empty)
-            { cbSellerId.Text = "0"; }
             if (rtbCaseNr.Text == string.Empty)
             { rtbCaseNr.Text = "0"; }
             if (rtbNetPrice.Text == string.Empty)
@@ -336,8 +337,6 @@ namespace Bol_IT
             { rtbCashPrice.Text = "0"; }
             if (rtbDepositPrice.Text == string.Empty)
             { rtbDepositPrice.Text = "0"; }
-            if (rtbAddress.Text == string.Empty)
-            { rtbAddress.Text = "0"; }
             if (rtbFloors.Text == string.Empty)
             { rtbFloors.Text = "0"; }
             if (rtbNrOfRooms.Text == string.Empty)
@@ -358,7 +357,7 @@ namespace Bol_IT
             if (pbHouseImage.Image == null)
             {  }
 
-            if (cbSellerId.Text == string.Empty)
+            if (cbSellerId.Text == string.Empty && rtbAddress.Text == string.Empty)
             {
                 return true;
             }
