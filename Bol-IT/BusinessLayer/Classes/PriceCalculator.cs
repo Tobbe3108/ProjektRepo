@@ -9,6 +9,7 @@ namespace BusinessLayer
 {
     public class PriceCalculator
     {
+        //Simone
         public static int CalculateGrossPrice(int cashPrice)
         {
             return Convert.ToInt32(cashPrice*0.004);
