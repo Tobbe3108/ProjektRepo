@@ -433,7 +433,6 @@ namespace DataAccessLayer
 
         #region Sale
 
-
         public static saleDataTable StatisticSquareMeterPrice(decimal SearchYear, decimal SearchMonth)
         {
             saleDataTable sdt = new saleDataTable();
@@ -458,6 +457,17 @@ namespace DataAccessLayer
             saleDataTable sdt = new saleDataTable();
             saleTableAdapter.StatisticAll(sdt);
             return sdt;
+        }
+
+        #endregion
+
+        #region PersonalData
+
+        public static personalDataDataTable GetPersonalDataDataTable()
+        {
+            personalDataDataTable pdt = new personalDataDataTable();
+            personalDataTableAdapter.Fill(pdt);
+            return pdt;
         }
 
         #endregion

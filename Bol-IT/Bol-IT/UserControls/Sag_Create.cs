@@ -173,6 +173,7 @@ namespace Bol_IT
                 e.Handled = true;
             }
         }
+
         private void CheckKeyPressDigit(object sender, KeyPressEventArgs e)
         {
             if (!char.IsNumber(e.KeyChar) && !(e.KeyChar == '/'))
@@ -181,7 +182,6 @@ namespace Bol_IT
             }
         }
 
-        //Christoffer
         private void pbHouseImage_Click(object sender, EventArgs e)
         {
             if (ofdOpenPicture.ShowDialog() == DialogResult.OK)
@@ -192,7 +192,6 @@ namespace Bol_IT
             }
         }
 
-        //Christoffer
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (AnyBoxIsEmpty())
@@ -286,14 +285,13 @@ namespace Bol_IT
 
         }
 
-
-
-        #endregion
-
         private void btnCalculatePrice_Click(object sender, EventArgs e)
         {
             Form priceCalculator = new Messagebox_PriceCalculator();
             priceCalculator.Show();
         }
+
+        #endregion
+
     }
 }
