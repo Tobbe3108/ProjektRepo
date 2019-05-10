@@ -275,6 +275,7 @@ namespace Bol_IT
             }
         }
 
+        //Simone
         public void UpdatePrice(int grossPrice, int netPrice, int ownerExpences, int depositPrice, int cashPrice)
         {
             Instance.rtbGrossPrice.Text = grossPrice.ToString();
@@ -297,10 +298,6 @@ namespace Bol_IT
             }
         }
 
-
-
-        #endregion
-
         private void btnCalculatePrice_Click(object sender, EventArgs e)
         {
             if (PropSquareMetersEmpty())
@@ -312,5 +309,7 @@ namespace Bol_IT
             priceCalculator.Show();
             priceCalculator.LoadData(int.Parse(rtbPropSquareMeters.Text));
         }
+
+        #endregion
     }
 }

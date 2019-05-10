@@ -14,6 +14,7 @@ namespace Bol_IT
 {
     public partial class Messagebox_PriceCalculator : Form
     {
+        //Simone
         public int PropSquareMeter { get; set; }
         public Messagebox_PriceCalculator()
         {
