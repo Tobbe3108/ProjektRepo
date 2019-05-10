@@ -392,10 +392,12 @@ namespace Bol_IT
                             StreamWriter writer = new StreamWriter(saveFileDialog.OpenFile());
                             List<string> list = new List<string>();
 
+
+
                             //Kør igennem alle celler i hver kolone og find den celle med den længste verdi - bruges til fin formatering
                             List<int> longestString = new List<int>();
 
-                            for (int col = 1; col < dgvDistribution.Columns.Count - 1; col++)
+                            for (int col = 0; col < dgvDistribution.Columns.Count; col++)
                             {
                                 int stringLength = 0;
                                 for (int row = 0; row < dgvDistribution.Rows.Count; row++)
@@ -412,26 +414,29 @@ namespace Bol_IT
                                 longestString.Add(stringLength);
                             }
 
+
+
                             //Skriver kolone header text til filen
                             string header = "";
-                            for (int col = 1; col < dgvDistribution.Columns.Count - 1; col++)
+                            for (int col = 0; col < dgvDistribution.Columns.Count; col++)
                             {
                                 try
                                 {
-                                    header += $"{dgvDistribution.Columns[col].HeaderText.PadRight(longestString[col - 1] + 5)}";
+                                    header += $"{dgvDistribution.Columns[col].HeaderText.PadRight(longestString[col] + 5)}";
                                 }
                                 catch (Exception)
                                 {
+                                    throw;
                                     MessageBox.Show($"Det var ikke muligt at gemme filen: {saveFileDialog.FileName} Prøv igen.", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
                             writer.WriteLine(header);
 
                             //Skriver alt data til filen
-                            for (int row = 0; row < dgvDistribution.Rows.Count - 1; row++)
+                            for (int row = 0; row < dgvDistribution.Rows.Count; row++)
                             {
                                 string lines = "";
-                                for (int col = 1; col < dgvDistribution.Columns.Count - 1; col++)
+                                for (int col = 0; col < dgvDistribution.Columns.Count; col++)
                                 {
                                     try
                                     {
@@ -439,6 +444,7 @@ namespace Bol_IT
                                     }
                                     catch (Exception)
                                     {
+                                        throw;
                                         MessageBox.Show($"Det var ikke muligt at gemme filen: {saveFileDialog.FileName} Prøv igen.", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                 }
