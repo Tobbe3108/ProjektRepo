@@ -184,5 +184,14 @@ namespace DataAccessLayer
 
 
         #endregion
+
+        #region PersonalData
+
+        public static personalDataDataTable GetPersonalDataDataTable()
+        {
+            return MethodsDataAccessLayer.GetPersonalDataDataTable();
+        }
+
+        #endregion
     }
 }

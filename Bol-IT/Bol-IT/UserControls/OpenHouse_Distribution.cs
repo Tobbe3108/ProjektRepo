@@ -498,6 +498,7 @@ namespace Bol_IT
             }
         }
     }
+
+    #endregion
 }
 
-#endregion

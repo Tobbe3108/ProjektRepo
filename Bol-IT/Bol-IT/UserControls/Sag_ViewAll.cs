@@ -118,7 +118,6 @@ namespace Bol_IT
             messagebox_Statistic.Show();
         }
 
-        //Tobias
         private void btnCreateSag_Click(object sender, EventArgs e)
         {
             //Load Sag_Create User control når tryk på knap
@@ -130,7 +129,6 @@ namespace Bol_IT
             Form1.Instance.PnlContainer.Controls["Sag_Create"].BringToFront();
         }
 
-        //Tobias
         private void rtbSearch_TextChanged(object sender, EventArgs e)
         {
             StartDataLoad();
@@ -143,7 +141,6 @@ namespace Bol_IT
             LoadDataThread.Start();
         }
 
-        //Tobias
         private void dgvSager_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //---Hvis trykket på knap Rediger inde i datagridview---//
@@ -165,7 +162,6 @@ namespace Bol_IT
             }
         }
 
-        //Tobias
         private void btnToFile_Click(object sender, EventArgs e)
         {
             //Laver en save dialog hvor brugeren kan vælge hvor filen skal gemmes
@@ -244,6 +240,7 @@ namespace Bol_IT
                                 catch (Exception)
                                 {
                                     MessageBox.Show($"Det var ikke muligt at gemme filen: {saveFileDialog.FileName} Prøv igen.", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
                                 }
                             }
                             writer.WriteLine(lines);
