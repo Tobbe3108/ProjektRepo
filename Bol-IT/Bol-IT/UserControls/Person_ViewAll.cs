@@ -275,6 +275,8 @@ namespace Bol_IT
                 Form1.Instance.PnlContainer.Controls.Add(Person_Create.Instance);
             }
             Form1.Instance.PnlContainer.Controls["Person_Create"].BringToFront();
+
+            Person_Create.Instance.TypeChange = "Create";
         }
 
         private void rtbSearch_TextChanged(object sender, EventArgs e)
@@ -284,7 +286,24 @@ namespace Bol_IT
 
         private void dgvSager_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //---Hvis trykket på knap Rediger inde i datagridview---//
+            if (dgvPerson.Columns[e.ColumnIndex].Name == "Rediger")
+            {
+                if (e.RowIndex >= 0)
+                {
+                    //Load Sag_Edit User control når tryk på knap med ID fra celle
+                    if (!Form1.Instance.PnlContainer.Controls.ContainsKey("Person_Create"))
+                    {
+                        Person_Create.Instance.Dock = DockStyle.Fill;
+                        Form1.Instance.PnlContainer.Controls.Add(Person_Create.Instance);
+                    }
+                    Form1.Instance.PnlContainer.Controls["Person_Create"].BringToFront();
 
+                    Person_Create.Instance.TypeChange = "Update";
+
+                    Person_Create.Instance.id = Convert.ToInt32(dgvPerson.Rows[e.RowIndex].Cells[e.ColumnIndex + 1].Value.ToString());
+                }
+            }
         }
 
         #endregion

@@ -3,6 +3,7 @@ using System.IO;
 using System.Drawing;
 using GlobalClasses;
 using System.Windows.Forms;
+using System.Data;
 
 namespace BusinessLayer
 {
@@ -36,5 +37,30 @@ namespace BusinessLayer
         }
         #endregion
 
+        //Simone
+        public static int CalculateGrossPrice(int cashPrice)
+        {
+            return PriceCalculator.CalculateGrossPrice(cashPrice);
+        }
+
+        public static int CalculateNetPrice(int cashPrice)
+        {
+            return PriceCalculator.CalculateNetPrice(cashPrice);
+        }
+
+        public static int CalculateOwnerExpences(int cashPrice)
+        {
+            return PriceCalculator.CalculateOwnerExpences(cashPrice);
+        }
+
+        public static int CalculateDepositPrice(int cashPrice)
+        {
+            return PriceCalculator.CalculateDepositPrice(cashPrice);
+        }
+
+        public static int CalculateCashPrice(int propSquareMeter, int zipcode, string condition, string interiorDesign, string style, string kitchen, string bathroom, bool gardenFlag)
+        {
+            return PriceCalculator.CalculateCashPrice(propSquareMeter, zipcode, condition, interiorDesign, style, kitchen, bathroom, gardenFlag);
+        }
     }
 }

@@ -180,6 +180,7 @@
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(446, 32);
             this.cbType.TabIndex = 12;
+            this.cbType.SelectedIndexChanged += new System.EventHandler(this.cbType_SelectedIndexChanged);
             // 
             // tableLayoutPanel9
             // 

@@ -44,10 +44,15 @@ namespace DataAccessLayer
             return MethodsDataAccessLayer.GetWantsToSellByCaseNr(id);
         }
 
-        //Christoffer
         public static List<Seller> GetSellers()
         {
             return MethodsDataAccessLayer.GetSellers();
+        }
+
+        //Tobias
+        public static void SellerUpdateData(int id, string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
+        {
+            MethodsDataAccessLayer.SellerUpdateData(id, fName, mName, lName, phoneNr, address, zipcode, mail, aId);
         }
 
         #endregion
@@ -60,6 +65,12 @@ namespace DataAccessLayer
             MethodsDataAccessLayer.CreateBuyer(fName, mName, lName, phoneNr, address, zipcode, mail, aId);
         }
 
+        //Tobias
+        public static void BuyerUpdateData(int id, string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
+        {
+            MethodsDataAccessLayer.BuyerUpdateData(id, fName, mName, lName, phoneNr, address, zipcode, mail, aId);
+        }
+
         #endregion
 
         #region Agent
@@ -70,7 +81,6 @@ namespace DataAccessLayer
             MethodsDataAccessLayer.CreateAgent(fName, mName, lName, phoneNr, address, zipcode, mail, nrOfSales);
         }
 
-        //Christoffer
         public static Agent GetAgentById(int id)
         {
             return MethodsDataAccessLayer.GetAgentById(id);
@@ -82,10 +92,14 @@ namespace DataAccessLayer
             return MethodsDataAccessLayer.GetAgentDataTable();
         }
 
-        //Tobias
         public static agentDataTable GetAgentDataTableByLike(int searchParameters)
         {
             return MethodsDataAccessLayer.GetAgentDataTableByLike(searchParameters);
+        }
+
+        public static void AgentUpdateData(int id, string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int nrOfSales)
+        {
+            MethodsDataAccessLayer.AgentUpdateData(id, fName, mName, lName, phoneNr, address, zipcode, mail, nrOfSales);
         }
 
         #endregion
