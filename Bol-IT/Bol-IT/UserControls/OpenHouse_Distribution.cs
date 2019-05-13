@@ -300,7 +300,7 @@ namespace Bol_IT
                         dgvDistribution.Columns.RemoveAt(0);//Fjerner slet-knappen fra DataGridViewet.
                     }
                     dgvDistribution.DataSource = null;
-                    dgvDistribution.DataSource = OpenHouseMethods.DistributeHouses(agentDistributionTable, propDistributionTable, cbDistribution.SelectedIndex);//Sætter datasourcen til det datatable metoden returnerer.
+                    dgvDistribution.DataSource = BusinessLayerFacade.DistributeHouses(agentDistributionTable, propDistributionTable, cbDistribution.SelectedIndex);//Sætter datasourcen til det datatable metoden returnerer.
                     dgvDistribution.Sort(dgvDistribution.Columns["AId"], ListSortDirection.Ascending);//Sorterer DataGridViewet efter Agent Id.
                     fordelt = true;
                 }
