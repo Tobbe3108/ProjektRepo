@@ -50,11 +50,11 @@ namespace Bol_IT
                 MessageBox.Show("Der er ikke valgt et postnummer. Vælg et post nummer og prøv igen.", "Felj!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            int cashPrice = PriceCalculator.CalculateCashPrice(PropSquareMeter, (int)cbZipcode.SelectedItem, (string)cbCondition.SelectedItem, (string)cbInteriorDesign.SelectedItem, (string)cbStyle.SelectedItem, (string)cbKitchen.SelectedItem, (string)cbBathroom.SelectedItem, cbGardenFlag.Checked);
-            int grossPrice = PriceCalculator.CalculateGrossPrice(cashPrice);
-            int netPrice = PriceCalculator.CalculateNetPrice(cashPrice);
-            int ownerExpences = PriceCalculator.CalculateOwnerExpences(cashPrice);
-            int depositPrice = PriceCalculator.CalculateDepositPrice(cashPrice);
+            int cashPrice = BusinessLayerFacade.CalculateCashPrice(PropSquareMeter, (int)cbZipcode.SelectedItem, (string)cbCondition.SelectedItem, (string)cbInteriorDesign.SelectedItem, (string)cbStyle.SelectedItem, (string)cbKitchen.SelectedItem, (string)cbBathroom.SelectedItem, cbGardenFlag.Checked);
+            int grossPrice = BusinessLayerFacade.CalculateGrossPrice(cashPrice);
+            int netPrice = BusinessLayerFacade.CalculateNetPrice(cashPrice);
+            int ownerExpences = BusinessLayerFacade.CalculateOwnerExpences(cashPrice);
+            int depositPrice = BusinessLayerFacade.CalculateDepositPrice(cashPrice);
             Sag_Create.Instance.UpdatePrice(grossPrice, netPrice, ownerExpences, depositPrice, cashPrice);
             this.Close();
         }
