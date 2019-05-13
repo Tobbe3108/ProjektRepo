@@ -101,6 +101,16 @@ namespace DataAccessLayer
                 garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description);
         }
 
+        public static Dictionary<int, string> GetPersonTypeByIds(List<int> ids)
+        {
+            return MethodsDataAccessLayer.GetPersonTypeByIds(ids);
+        }
+
+        public static string GetPersonTypeById(int id)
+        {
+            return MethodsDataAccessLayer.GetPersonTypeById(id);
+        }
+
         public static void UpdateProperty(int caseNr, int sId, int desiredPrice, int timeFrame, int netPrice, int grossPrice, int ownerExpenses, int cashPrice,
             int depositPrice, string address, int zipcode, int nrOfRooms, bool garageFlag, string builtRebuild, string houseType, string energyRating,
              int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
@@ -119,6 +129,12 @@ namespace DataAccessLayer
         public static propertyDataTable GetPropertyDataTableByLike(string searchParameters, bool soldFlag)
         {
             return MethodsDataAccessLayer.GetPropertyDataTableByLike(searchParameters, soldFlag);
+        }
+
+        //Christoffer
+        public static propertyDataTable GetPropertyDataTableByLikeAll(string searchParameters)
+        {
+            return MethodsDataAccessLayer.GetPropertyDataTableByLikeAll(searchParameters);
         }
 
         //Tobias

@@ -21,7 +21,7 @@ namespace Bol_IT
             InitializeComponent();
         }
 
-        public void LoadData(int propSquareMeter)
+        public void LoadData(int propSquareMeter, int zipcode)
         {
             cbCondition.SelectedIndex = 1;
             cbInteriorDesign.SelectedIndex = 1;
@@ -29,6 +29,15 @@ namespace Bol_IT
             cbKitchen.SelectedIndex = 1;
             cbBathroom.SelectedIndex = 1;
             PropSquareMeter = propSquareMeter;
+
+            foreach (int zipcodeItem in cbZipcode.Items)
+            {
+                if(zipcodeItem == zipcode)
+                {
+                    cbZipcode.SelectedItem = zipcodeItem;
+                }
+            }
+
         }
 
         private bool ZipcodeEmpty()

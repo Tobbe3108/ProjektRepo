@@ -339,7 +339,15 @@ namespace Bol_IT
             }
             Messagebox_PriceCalculator priceCalculator = new Messagebox_PriceCalculator();
             priceCalculator.Show();
-            priceCalculator.LoadData(int.Parse(rtbPropSquareMeters.Text));
+            if (rtbPropSquareMeters.Text == string.Empty)
+            {
+                rtbPropSquareMeters.Text = "0";
+            }
+            if (rtbZipCode.Text == string.Empty)
+            {
+                rtbZipCode.Text = "0";
+            }
+            priceCalculator.LoadData(int.Parse(rtbPropSquareMeters.Text), int.Parse(rtbZipCode.Text));
         }
 
         #endregion

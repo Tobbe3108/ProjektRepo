@@ -12,23 +12,23 @@ namespace BusinessLayer
         //Simone
         public static int CalculateGrossPrice(int cashPrice)
         {
-            return Convert.ToInt32(cashPrice*0.004);
+            return Convert.ToInt32(cashPrice+(cashPrice * 0.004));
         }
 
         public static int CalculateNetPrice(int cashPrice)
         {
-            return Convert.ToInt32(cashPrice * 0.0035);
+            return Convert.ToInt32(cashPrice + (cashPrice * 0.0035));
         }
 
         public static int CalculateOwnerExpences(int cashPrice)
         {
-            return Convert.ToInt32(cashPrice * 0.0015);
+            return Convert.ToInt32(cashPrice + (cashPrice * 0.0015));
         }
 
 
         public static int CalculateDepositPrice(int cashPrice)
         {
-            return Convert.ToInt32(cashPrice * 0.0545);
+            return Convert.ToInt32(cashPrice + (cashPrice * 0.0545));
         }
         public static int CalculateCashPrice(int propSquareMeter ,int zipcode, string condition, string interiorDesign, string style, string kitchen, string bathroom, bool gardenFlag)
         {
