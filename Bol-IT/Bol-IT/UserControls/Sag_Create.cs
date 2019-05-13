@@ -53,8 +53,6 @@ namespace Bol_IT
             sellers.ForEach(seller => cbSellerId.AutoCompleteCustomSource.Add(seller.SId.ToString()));
         }
 
-
-
         #endregion
 
         #region FormAutoSize

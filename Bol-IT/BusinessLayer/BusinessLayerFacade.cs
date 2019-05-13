@@ -62,5 +62,11 @@ namespace BusinessLayer
         {
             return PriceCalculator.CalculateCashPrice(propSquareMeter, zipcode, condition, interiorDesign, style, kitchen, bathroom, gardenFlag);
         }
+
+        //Caspar
+        public static DataTable DistributeHouses(DataTable agentDataTable, DataTable propertyDataTable, int sortMethod)
+        {
+            return DistributeHouses(agentDataTable, propertyDataTable, sortMethod);
+        }
     }
 }

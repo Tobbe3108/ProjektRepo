@@ -210,6 +210,7 @@
             this.rtbTypeChainging.Size = new System.Drawing.Size(440, 93);
             this.rtbTypeChainging.TabIndex = 13;
             this.rtbTypeChainging.Text = "";
+            this.rtbTypeChainging.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressDigit);
             // 
             // lblTypeChainging
             // 
@@ -280,6 +281,7 @@
             this.rtbAddress.Size = new System.Drawing.Size(440, 93);
             this.rtbAddress.TabIndex = 14;
             this.rtbAddress.Text = "";
+            this.rtbAddress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressChar);
             // 
             // lblAddress
             // 
@@ -324,6 +326,7 @@
             this.rtbPhoneNr.Size = new System.Drawing.Size(440, 93);
             this.rtbPhoneNr.TabIndex = 13;
             this.rtbPhoneNr.Text = "";
+            this.rtbPhoneNr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressDigit);
             // 
             // lblPhoneNr
             // 
@@ -368,6 +371,7 @@
             this.rtbLName.Size = new System.Drawing.Size(440, 93);
             this.rtbLName.TabIndex = 12;
             this.rtbLName.Text = "";
+            this.rtbLName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressChar);
             // 
             // lblLName
             // 
@@ -456,6 +460,7 @@
             this.rtbMName.Size = new System.Drawing.Size(440, 93);
             this.rtbMName.TabIndex = 12;
             this.rtbMName.Text = "";
+            this.rtbMName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressChar);
             // 
             // lblMName
             // 
@@ -500,6 +505,7 @@
             this.rtbZipcode.Size = new System.Drawing.Size(440, 93);
             this.rtbZipcode.TabIndex = 11;
             this.rtbZipcode.Text = "";
+            this.rtbZipcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressDigit);
             // 
             // lblZipcode
             // 
@@ -544,6 +550,7 @@
             this.rtbFName.Size = new System.Drawing.Size(440, 93);
             this.rtbFName.TabIndex = 11;
             this.rtbFName.Text = "";
+            this.rtbFName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressChar);
             // 
             // lblFName
             // 

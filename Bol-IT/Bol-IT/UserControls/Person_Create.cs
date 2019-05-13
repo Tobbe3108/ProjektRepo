@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAccessLayer;
 using System.Threading;
+using ClosedXML.Excel;
+using System.IO;
 
 namespace Bol_IT
 {
@@ -70,24 +72,54 @@ namespace Bol_IT
 
         #region Methods
 
-        private void MakeNoBoxEmpty()
+        private bool Sanitizer()
         {
-            if (rtbAddress.Text == string.Empty)
-            { rtbAddress.Text = "Ingen tekst"; }
-            if (rtbFName.Text == string.Empty)
-            { rtbFName.Text = "Ingen tekst"; }
-            if (rtbLName.Text == string.Empty)
-            { rtbLName.Text = "Ingen tekst"; }
-            if (rtbMail.Text == string.Empty)
-            { rtbMail.Text = "Ingen tekst"; }
-            if (rtbMName.Text == string.Empty)
-            { rtbMName.Text = "Ingen tekst"; }
-            if (rtbPhoneNr.Text == string.Empty)
-            { rtbPhoneNr.Text = "0"; }
-            if (rtbTypeChainging.Text == string.Empty)
-            { rtbTypeChainging.Text = "Ingen tekst"; }
-            if (rtbZipcode.Text == string.Empty)
-            { rtbZipcode.Text = "0"; }
+            if (DataAccessLayerFacade.CheckForSQLInjection(rtbFName.Text, rtbMName.Text, rtbLName.Text, rtbPhoneNr.Text, rtbAddress.Text, rtbZipcode.Text, rtbMail.Text, rtbTypeChainging.Text))
+            {
+                MessageBox.Show("Felterne må ikke indeholde ';' Ret venligst dette", "Felj!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (rtbAddress.Text == string.Empty || rtbFName.Text == string.Empty || rtbLName.Text == string.Empty || rtbMail.Text == string.Empty || rtbMName.Text == string.Empty || rtbPhoneNr.Text == string.Empty || rtbTypeChainging.Text == string.Empty || rtbZipcode.Text == string.Empty)
+            {
+                MessageBox.Show("Der må ikke være nogle tomme felter. Ret vejligt dette", "Felj!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!rtbMail.Text.ToString().Contains('@') || !rtbMail.Text.ToString().Contains('.'))
+            {
+                MessageBox.Show("Mailadressen skal indeholde '@' og '.' Ret venligt dette", "Felj!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (rtbZipcode.Text.Length != 4 || !rtbZipcode.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Postnummeret skal bestå af 4 tal. Ret venligst dette", "Felj!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (rtbPhoneNr.Text.Length != 8 || !rtbPhoneNr.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Telefonnummeret skal bestå af 8 tal. Ret venligst dette", "Felj!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!rtbTypeChainging.Text.All(char.IsDigit))
+            {
+                switch (cbType.SelectedIndex)
+                {
+                    case 0:
+                        MessageBox.Show("Antal salg skal være et tal. Ret venligst dette", "Felj!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case 1:
+                    case 2:
+                        MessageBox.Show("Mægler nummer skal være et tal. Ret venligst dette", "Felj!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                }
+                return false;
+            }
+
+            return true;
         }
 
         #endregion
@@ -96,7 +128,101 @@ namespace Bol_IT
 
         private void btnSaveToFile_Click(object sender, EventArgs e)
         {
+            if (Sanitizer())
+            {
+                List<string> propInfoList = new List<string>
+                {
+                    { rtbFName.Text },
+                    { rtbMName.Text },
+                    { rtbLName.Text },
+                    { rtbAddress.Text },
+                    { rtbZipcode.Text },
+                    { rtbPhoneNr.Text },
+                    { rtbMail.Text },
+                    { rtbTypeChainging.Text },
+                };
 
+                List<string> headersList = new List<string>
+                {
+                    { lblFName.Text },
+                    { lblMName.Text },
+                    { lblLName.Text },
+                    { lblAddress.Text },
+                    { lblZipcode.Text },
+                    { lblPhoneNr.Text },
+                    { lblMail.Text },
+                    { cbType.SelectedItem.ToString() },
+                };
+
+                //Laver en save dialog hvor brugeren kan vælge hvor filen skal gemmes
+                SaveFileDialog saveFileDialog = new SaveFileDialog
+                {
+                    InitialDirectory = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}",
+                    Title = "Gem til fil",
+                    DefaultExt = "txt",
+                    Filter = "Tekst fil (*.txt)|*.txt|Excel (*.xlsx)|*.xlsx",
+                    FilterIndex = 1,
+                    CheckFileExists = false,
+                    CheckPathExists = true,
+                    RestoreDirectory = true
+                };
+
+
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK) //Hvis det lykkedes for brugeren at vælge et sted at gemme filen
+                {
+                    //Hent extensionen af filen Fx .txt
+                    var extension = Path.GetExtension(saveFileDialog.FileName);
+
+                    switch (extension.ToLower()) //Tjekker hvilken filtype du har gemt i
+                    {
+                        case ".txt":
+                            //Åbner filen brugeren oprettede
+                            StreamWriter writer = new StreamWriter(saveFileDialog.OpenFile());
+                            List<string> list = new List<string>();
+
+                            string lines = "";
+                            foreach (var item in propInfoList)
+                            {
+                                lines += $"{item},";
+                            }
+                            writer.WriteLine(lines);
+                            writer.Dispose();
+                            writer.Close();
+
+                            break;
+
+
+
+                        case ".xlsx":
+                            //Konverter 2 lists til 1 datatable
+                            DataTable dataTable = new DataTable();
+                            foreach (var col in headersList)
+                            {
+                                dataTable.Columns.Add(col);
+                            }
+
+                            object[] values = new object[propInfoList.Count];
+                            for (int i = 0; i <= values.Length - 1; i++)
+                            {
+                                values[i] = propInfoList[i];
+                            }
+                            dataTable.Rows.Add(values);
+
+                            var wb = new XLWorkbook(); //Laver en ny XLWorkbook som kommer fra en NuGet package der hedder closedXML man kan benytte til at oprette Excel dokumenter
+                            wb.Worksheets.Add(dataTable, "Udskrift"); //Opretter et nyt worksheet på baggrund af det oprettede datatable
+                            wb.SaveAs(Path.GetFullPath(saveFileDialog.FileName)); //Gemmer den oprettede XLWorkbook til filen som brugeren oprettede via savedialog
+                            break;
+
+
+
+                        default:
+                            //Hvis det ikke er muligt at gemme vis fejlbesked til brugeren
+                            MessageBox.Show($"Det var ikke muligt at gemme filen: {saveFileDialog.FileName} Prøv igen.", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                    }
+                }
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -112,36 +238,55 @@ namespace Bol_IT
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            MakeNoBoxEmpty();
+            if (Sanitizer())
+            {
+                if (TypeChange == "Create")
+                {
+                    try
+                    {
+                        switch (cbType.SelectedIndex)
+                        {
+                            case 0:
+                                DataAccessLayerFacade.CreateAgent(rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
+                                break;
+                            case 1:
+                                DataAccessLayerFacade.CreateSeller(rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
+                                break;
+                            case 2:
+                                DataAccessLayerFacade.CreateBuyer(rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
+                                break;
+                        }
 
-            if (TypeChange == "Create")
-            {
-                switch (cbType.SelectedIndex)
-                {
-                    case 0:
-                        DataAccessLayerFacade.CreateAgent(rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
-                        break;
-                    case 1:
-                        DataAccessLayerFacade.CreateSeller(rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
-                        break;
-                    case 2:
-                        DataAccessLayerFacade.CreateBuyer(rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
-                        break;
+                        MessageBox.Show("Det lykkedes at oprette personen på databasen");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Der skete en fejl med at oprette personen på databasen. Prøv igen", "Felj!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-            }
-            else if (TypeChange == "Update")
-            {
-                switch (cbType.SelectedIndex)
+                else if (TypeChange == "Update")
                 {
-                    case 0:
-                        DataAccessLayerFacade.AgentUpdateData(id, rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
-                        break;
-                    case 1:
-                        DataAccessLayerFacade.SellerUpdateData(id, rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
-                        break;
-                    case 2:
-                        DataAccessLayerFacade.BuyerUpdateData(id, rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
-                        break;
+                    try
+                    {
+                        switch (cbType.SelectedIndex)
+                        {
+                            case 0:
+                                DataAccessLayerFacade.AgentUpdateData(id, rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
+                                break;
+                            case 1:
+                                DataAccessLayerFacade.SellerUpdateData(id, rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
+                                break;
+                            case 2:
+                                DataAccessLayerFacade.BuyerUpdateData(id, rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
+                                break;
+                        }
+
+                        MessageBox.Show("Det lykkedes at opdatere personen på databasen");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Det lykkedes ikke at opdatere personnen på databasen. Prøv igen", "Felj!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -157,6 +302,22 @@ namespace Bol_IT
                 case 2:
                     lblTypeChainging.Text = "Mægler nummer";
                     break;
+            }
+        }
+
+        private void CheckKeyPressChar(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void CheckKeyPressDigit(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
 

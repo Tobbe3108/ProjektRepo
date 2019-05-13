@@ -315,6 +315,7 @@ namespace Bol_IT
                 MessageBox.Show("Bolig er gemt.");
             }
         }
+        
         /// <summary>
         /// Kontrollerer at alle tekstfelter er udfyldte, sådan at der ikke sker fejl ved indsætningen i databasen
         /// </summary>
