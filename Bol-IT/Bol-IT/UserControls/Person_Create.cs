@@ -7,11 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataAccessLayer;
+using System.Threading;
 
 namespace Bol_IT
 {
     public partial class Person_Create : UserControl
     {
+        #region Fields
+
+        public string TypeChange { get; set; }
+
+        public int id { get; set; }
+
+        #endregion
+
         #region Init
 
         //Tobias
@@ -55,7 +65,31 @@ namespace Bol_IT
             }
             catch{}
         }
-        
+
+        #endregion
+
+        #region Methods
+
+        private void MakeNoBoxEmpty()
+        {
+            if (rtbAddress.Text == string.Empty)
+            { rtbAddress.Text = "Ingen tekst"; }
+            if (rtbFName.Text == string.Empty)
+            { rtbFName.Text = "Ingen tekst"; }
+            if (rtbLName.Text == string.Empty)
+            { rtbLName.Text = "Ingen tekst"; }
+            if (rtbMail.Text == string.Empty)
+            { rtbMail.Text = "Ingen tekst"; }
+            if (rtbMName.Text == string.Empty)
+            { rtbMName.Text = "Ingen tekst"; }
+            if (rtbPhoneNr.Text == string.Empty)
+            { rtbPhoneNr.Text = "0"; }
+            if (rtbTypeChainging.Text == string.Empty)
+            { rtbTypeChainging.Text = "Ingen tekst"; }
+            if (rtbZipcode.Text == string.Empty)
+            { rtbZipcode.Text = "0"; }
+        }
+
         #endregion
 
         #region Events
@@ -78,7 +112,52 @@ namespace Bol_IT
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            MakeNoBoxEmpty();
 
+            if (TypeChange == "Create")
+            {
+                switch (cbType.SelectedIndex)
+                {
+                    case 0:
+                        DataAccessLayerFacade.CreateAgent(rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
+                        break;
+                    case 1:
+                        DataAccessLayerFacade.CreateSeller(rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
+                        break;
+                    case 2:
+                        DataAccessLayerFacade.CreateBuyer(rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
+                        break;
+                }
+            }
+            else if (TypeChange == "Update")
+            {
+                switch (cbType.SelectedIndex)
+                {
+                    case 0:
+                        DataAccessLayerFacade.AgentUpdateData(id, rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
+                        break;
+                    case 1:
+                        DataAccessLayerFacade.SellerUpdateData(id, rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
+                        break;
+                    case 2:
+                        DataAccessLayerFacade.BuyerUpdateData(id, rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
+                        break;
+                }
+            }
+        }
+
+        private void cbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cbType.SelectedIndex)
+            {
+                case 0:
+                    lblTypeChainging.Text = "Antal salg";
+                    break;
+                case 1:
+                case 2:
+                    lblTypeChainging.Text = "Mægler nummer";
+                    break;
+            }
         }
 
         #endregion

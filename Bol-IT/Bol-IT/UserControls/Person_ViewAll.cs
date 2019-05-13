@@ -244,6 +244,8 @@ namespace Bol_IT
                 Form1.Instance.PnlContainer.Controls.Add(Person_Create.Instance);
             }
             Form1.Instance.PnlContainer.Controls["Person_Create"].BringToFront();
+
+            Person_Create.Instance.TypeChange = "Create";
         }
 
         private void rtbSearch_TextChanged(object sender, EventArgs e)
@@ -265,6 +267,10 @@ namespace Bol_IT
                         Form1.Instance.PnlContainer.Controls.Add(Person_Create.Instance);
                     }
                     Form1.Instance.PnlContainer.Controls["Person_Create"].BringToFront();
+
+                    Person_Create.Instance.TypeChange = "Update";
+
+                    Person_Create.Instance.id = Convert.ToInt32(dgvPerson.Rows[e.RowIndex].Cells[e.ColumnIndex + 1].Value.ToString());
                 }
             }
         }
