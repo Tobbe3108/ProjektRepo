@@ -3,6 +3,7 @@ using System.IO;
 using System.Drawing;
 using GlobalClasses;
 using System.Windows.Forms;
+using System.Data;
 
 namespace BusinessLayer
 {
@@ -35,6 +36,12 @@ namespace BusinessLayer
             }
         }
         #endregion
+
+        public static DataTable DistributeHouses(DataTable agentDataTable, DataTable propertyDataTable, int sortMethod)
+        {
+            return OpenHouseMethods.DistributeHouses(agentDataTable, propertyDataTable, sortMethod);
+        }
+
 
     }
 }
