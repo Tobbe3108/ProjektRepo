@@ -92,49 +92,9 @@ namespace DataAccessLayer
         #endregion CreateMethods
 
         #region SearchMethods
-        public static string GetPersonTypeById(int id)
-        {
-            string persontype = "";
-            if (agentTableAdapter.GetDataById(id).Rows.Count != 0)
-            {
-                persontype = "Mægler";
-            }
-            if (sellerTableAdapter.GetDataById(id).Rows.Count != 0)
-            {
-                persontype = "Sælger";
-            }
-            if (buyerTableAdapter.GetDataById(id).Rows.Count != 0)
-            {
-                persontype = "Køber";
-            }
-            return persontype;
-        }
-        public static Dictionary<int, string> GetPersonTypeByIds(List<int> ids)
-        {
-            Dictionary<int, string> persontypes = new Dictionary<int, string>();
-            foreach (int id in ids)
-            {
-                try
-                {
-                    if (agentTableAdapter.CheckIfIdExists(id) != null)
-                    {
-                        persontypes.Add(id, "Mægler");
-                    }
-                    else if (sellerTableAdapter.CheckIfIdExists(id) != null)
-                    {
-                        persontypes.Add(id, "Sælger");
-                    }
-                    else if (buyerTableAdapter.CheckIfIdExists(id) != null)
-                    {
-                        persontypes.Add(id, "Køber");
-                    }
-                }
-                catch { }
-            }
 
-            return persontypes;
-        }
         #region Agent
+        
         //Christoffer
         public static agentDataTable GetAgentDataTable()
         {
@@ -528,12 +488,49 @@ namespace DataAccessLayer
 
         #region PersonalData
 
-        //Tobias
-        public static personalDataDataTable GetPersonalDataDataTable()
+        //Christoffer
+        public static string GetPersonTypeById(int id)
         {
-            personalDataDataTable pdt = new personalDataDataTable();
-            personalDataTableAdapter.Fill(pdt);
-            return pdt;
+            string persontype = "";
+            if (agentTableAdapter.GetDataById(id).Rows.Count != 0)
+            {
+                persontype = "Mægler";
+            }
+            if (sellerTableAdapter.GetDataById(id).Rows.Count != 0)
+            {
+                persontype = "Sælger";
+            }
+            if (buyerTableAdapter.GetDataById(id).Rows.Count != 0)
+            {
+                persontype = "Køber";
+            }
+            return persontype;
+        }
+
+        public static Dictionary<int, string> GetPersonTypeByIds(List<int> ids)
+        {
+            Dictionary<int, string> persontypes = new Dictionary<int, string>();
+            foreach (int id in ids)
+            {
+                try
+                {
+                    if (agentTableAdapter.CheckIfIdExists(id) != null)
+                    {
+                        persontypes.Add(id, "Mægler");
+                    }
+                    else if (sellerTableAdapter.CheckIfIdExists(id) != null)
+                    {
+                        persontypes.Add(id, "Sælger");
+                    }
+                    else if (buyerTableAdapter.CheckIfIdExists(id) != null)
+                    {
+                        persontypes.Add(id, "Køber");
+                    }
+                }
+                catch { }
+            }
+
+            return persontypes;
         }
 
         public static personalDataDataTable GetPersonalDataDataTableByLike(string searchParameters)
@@ -554,6 +551,14 @@ namespace DataAccessLayer
                 dataTable.Columns[i].SetOrdinal(i);
             }
             return dataTable;
+        }
+
+        //Tobias
+        public static personalDataDataTable GetPersonalDataDataTable()
+        {
+            personalDataDataTable pdt = new personalDataDataTable();
+            personalDataTableAdapter.Fill(pdt);
+            return pdt;
         }
 
         #endregion

@@ -11,6 +11,7 @@ using DataAccessLayer;
 using System.Threading;
 using ClosedXML.Excel;
 using System.IO;
+using GlobalClasses;
 
 namespace Bol_IT
 {
@@ -123,6 +124,25 @@ namespace Bol_IT
             }
 
             return true;
+        }
+
+        public static void LoadData(int id)
+        {
+            
+
+            switch (DataAccessLayerFacade.GetPersonTypeById(id))
+            {
+                case "":
+                    Agent agent = DataAccessLayerFacade.GetAgentById(id);
+                    break;
+                case "":
+                    Buyer buyer = DataAccessLayerFacade.GetBuyerById(id);
+                    break;
+                case "":
+                    Seller seller = DataAccessLayerFacade.GetSellerById(id);
+                    break;
+            }
+
         }
 
         #endregion
