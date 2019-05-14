@@ -301,6 +301,8 @@ namespace Bol_IT
                     Person_Create.Instance.TypeChange = "Update";
 
                     Person_Create.Instance.id = Convert.ToInt32(dgvPerson.Rows[e.RowIndex].Cells[e.ColumnIndex + 1].Value.ToString());
+
+                    Person_Create.Instance.StartLoadData();
                 }
             }
         }

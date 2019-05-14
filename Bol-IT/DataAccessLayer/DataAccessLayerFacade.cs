@@ -21,6 +21,7 @@ namespace DataAccessLayer
         {
             return MethodsDataAccessLayer.CheckForSQLInjection(checkString);
         }
+
         #region SQL
 
         //Christoffer
@@ -36,6 +37,7 @@ namespace DataAccessLayer
         #endregion
 
         #region Person
+
         //Christoffer
         /// <summary>
         /// Returnerer den persontype der passer på det id, der er sat ind via parameter
@@ -103,6 +105,11 @@ namespace DataAccessLayer
             MethodsDataAccessLayer.SellerUpdateData(id, fName, mName, lName, phoneNr, address, zipcode, mail, aId);
         }
 
+        public static Seller GetSellerById(int id)
+        {
+            return MethodsDataAccessLayer.GetSellerById(id);
+        }
+
         #endregion
 
         #region Buyer
@@ -140,6 +147,11 @@ namespace DataAccessLayer
         public static void BuyerUpdateData(int id, string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
         {
             MethodsDataAccessLayer.BuyerUpdateData(id, fName, mName, lName, phoneNr, address, zipcode, mail, aId);
+        }
+
+        public static Buyer GetBuyerById(int id)
+        {
+            return MethodsDataAccessLayer.GetBuyerById(id);
         }
 
         #endregion
