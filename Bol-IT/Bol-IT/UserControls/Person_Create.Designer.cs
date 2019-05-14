@@ -281,7 +281,7 @@
             this.rtbAddress.Size = new System.Drawing.Size(440, 93);
             this.rtbAddress.TabIndex = 14;
             this.rtbAddress.Text = "";
-            this.rtbAddress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressChar);
+            this.rtbAddress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressDigitOrChar);
             // 
             // lblAddress
             // 

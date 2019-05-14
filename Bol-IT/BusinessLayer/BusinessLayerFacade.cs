@@ -66,7 +66,7 @@ namespace BusinessLayer
         //Caspar
         public static DataTable DistributeHouses(DataTable agentDataTable, DataTable propertyDataTable, int sortMethod)
         {
-            return DistributeHouses(agentDataTable, propertyDataTable, sortMethod);
+            return BusinessLayer.OpenHouseMethods.DistributeHouses(agentDataTable, propertyDataTable, sortMethod);
         }
     }
 }
