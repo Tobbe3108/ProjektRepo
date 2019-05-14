@@ -62,10 +62,12 @@ namespace Bol_IT
             if (ParentForm.WindowState == FormWindowState.Maximized)
             {
                 ParentForm.WindowState = FormWindowState.Normal;
+                Properties.Settings.Default.MainWindowState = FormWindowState.Normal;
             }
             else
             {
                 ParentForm.WindowState = FormWindowState.Maximized;
+                Properties.Settings.Default.MainWindowState = FormWindowState.Maximized;
             }
         }
 

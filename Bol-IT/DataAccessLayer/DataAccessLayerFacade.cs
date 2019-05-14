@@ -24,32 +24,84 @@ namespace DataAccessLayer
         #region SQL
 
         //Christoffer
+        /// <summary>
+        /// Returnerer en SqlConnection til brug af testing
+        /// </summary>
+        /// <returns></returns>
         public static SqlConnection GetConnection()
         {
             return new SqlConnection(ConfigurationManager.ConnectionStrings["AzureDB"].ConnectionString);
         }
 
         #endregion
+        #region Person
+        //Christoffer
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        public static Dictionary<int, string> GetPersonTypeByIds(List<int> ids)
+        {
+            return MethodsDataAccessLayer.GetPersonTypeByIds(ids);
+        }
+        //Christoffer
+        public static string GetPersonTypeById(int id)
+        {
+            return MethodsDataAccessLayer.GetPersonTypeById(id);
+        }
 
         #region Seller
 
         //Christoffer
+        /// <summary>
+        /// Laver en sælger person ud fra de påkrævede parameter
+        /// </summary>
+        /// <param name="fName"></param>
+        /// <param name="mName"></param>
+        /// <param name="lName"></param>
+        /// <param name="phoneNr"></param>
+        /// <param name="address"></param>
+        /// <param name="zipcode"></param>
+        /// <param name="mail"></param>
+        /// <param name="aId"></param>
         public static void CreateSeller(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
         {
             MethodsDataAccessLayer.CreateSeller(fName, mName, lName, phoneNr, address, zipcode, mail, aId);
         }
 
+        /// <summary>
+        /// Returnerer et objekt som giver informationer omkring relationen mellem en sælger og et hus
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static WantsToSell GetSellerInformationByCaseNr(int id)
         {
             return MethodsDataAccessLayer.GetWantsToSellByCaseNr(id);
         }
 
+        /// <summary>
+        /// Returnerer alle sælgerer i form af objekter
+        /// </summary>
+        /// <returns></returns>
         public static List<Seller> GetSellers()
         {
             return MethodsDataAccessLayer.GetSellers();
         }
 
         //Tobias
+        /// <summary>
+        /// Opdaterer en sælger ud fra den første parameter, Id'et, og de resterende parameter bliver herefter opdateret
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="fName"></param>
+        /// <param name="mName"></param>
+        /// <param name="lName"></param>
+        /// <param name="phoneNr"></param>
+        /// <param name="address"></param>
+        /// <param name="zipcode"></param>
+        /// <param name="mail"></param>
+        /// <param name="aId"></param>
         public static void SellerUpdateData(int id, string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
         {
             MethodsDataAccessLayer.SellerUpdateData(id, fName, mName, lName, phoneNr, address, zipcode, mail, aId);
@@ -60,12 +112,35 @@ namespace DataAccessLayer
         #region Buyer
 
         //Christoffer
+        /// <summary>
+        /// Laver en køber person ud fra de påkrævede parameter
+        /// </summary>
+        /// <param name="fName"></param>
+        /// <param name="mName"></param>
+        /// <param name="lName"></param>
+        /// <param name="phoneNr"></param>
+        /// <param name="address"></param>
+        /// <param name="zipcode"></param>
+        /// <param name="mail"></param>
+        /// <param name="aId"></param>
         public static void CreateBuyer(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
         {
             MethodsDataAccessLayer.CreateBuyer(fName, mName, lName, phoneNr, address, zipcode, mail, aId);
         }
 
         //Tobias
+        /// <summary>
+        /// Opdaterer en køber ud fra den første parameter, Id'et, og de resterende parameter bliver herefter opdateret
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="fName"></param>
+        /// <param name="mName"></param>
+        /// <param name="lName"></param>
+        /// <param name="phoneNr"></param>
+        /// <param name="address"></param>
+        /// <param name="zipcode"></param>
+        /// <param name="mail"></param>
+        /// <param name="aId"></param>
         public static void BuyerUpdateData(int id, string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
         {
             MethodsDataAccessLayer.BuyerUpdateData(id, fName, mName, lName, phoneNr, address, zipcode, mail, aId);
@@ -76,27 +151,64 @@ namespace DataAccessLayer
         #region Agent
 
         //Christoffer
+        /// <summary>
+        /// Laver en køber person ud fra de påkrævede parameter
+        /// </summary>
+        /// <param name="fName">Fornavn</param>
+        /// <param name="mName"></param>
+        /// <param name="lName"></param>
+        /// <param name="phoneNr"></param>
+        /// <param name="address"></param>
+        /// <param name="zipcode"></param>
+        /// <param name="mail"></param>
+        /// <param name="nrOfSales"></param>
         public static void CreateAgent(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int nrOfSales)
         {
             MethodsDataAccessLayer.CreateAgent(fName, mName, lName, phoneNr, address, zipcode, mail, nrOfSales);
         }
 
+        /// <summary>
+        /// Returnerer en mælger ud fra et Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static Agent GetAgentById(int id)
         {
             return MethodsDataAccessLayer.GetAgentById(id);
         }
 
         //Tobias
+        /// <summary>
+        /// Returnerer et data table af alle mægler
+        /// </summary>
+        /// <returns></returns>
         public static agentDataTable GetAgentDataTable()
         {
             return MethodsDataAccessLayer.GetAgentDataTable();
         }
 
+        /// <summary>
+        /// Returnerer et data table af mælger ud fra søge parameterne
+        /// </summary>
+        /// <param name="searchParameters"></param>
+        /// <returns></returns>
         public static agentDataTable GetAgentDataTableByLike(int searchParameters)
         {
             return MethodsDataAccessLayer.GetAgentDataTableByLike(searchParameters);
         }
 
+        /// <summary>
+        /// Opdaterer en mælger ud fra den første parameter, Id'et, og de resterende parameter bliver herefter opdateret
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="fName"></param>
+        /// <param name="mName"></param>
+        /// <param name="lName"></param>
+        /// <param name="phoneNr"></param>
+        /// <param name="address"></param>
+        /// <param name="zipcode"></param>
+        /// <param name="mail"></param>
+        /// <param name="nrOfSales"></param>
         public static void AgentUpdateData(int id, string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int nrOfSales)
         {
             MethodsDataAccessLayer.AgentUpdateData(id, fName, mName, lName, phoneNr, address, zipcode, mail, nrOfSales);
@@ -104,9 +216,34 @@ namespace DataAccessLayer
 
         #endregion
 
+        #endregion
         #region Property
 
         //Christoffer
+        /// <summary>
+        /// Laver en bolig ud fra de påkrævede parameter
+        /// </summary>
+        /// <param name="sId"></param>
+        /// <param name="desiredPrice"></param>
+        /// <param name="timeFrame"></param>
+        /// <param name="netPrice"></param>
+        /// <param name="grossPrice"></param>
+        /// <param name="ownerExpenses"></param>
+        /// <param name="cashPrice"></param>
+        /// <param name="depositPrice"></param>
+        /// <param name="address"></param>
+        /// <param name="zipcode"></param>
+        /// <param name="nrOfRooms"></param>
+        /// <param name="garageFlag"></param>
+        /// <param name="builtRebuild"></param>
+        /// <param name="houseType"></param>
+        /// <param name="energyRating"></param>
+        /// <param name="resSquareMeters"></param>
+        /// <param name="propSquareMeters"></param>
+        /// <param name="floors"></param>
+        /// <param name="soldFlag"></param>
+        /// <param name="description"></param>
+        /// <returns></returns>
         public static int CreateProperty(int sId, int desiredPrice, int timeFrame, int netPrice, int grossPrice, int ownerExpenses, int cashPrice,
             int depositPrice, string address, int zipcode, int nrOfRooms, bool garageFlag, string builtRebuild, string houseType, string energyRating,
              int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
@@ -115,16 +252,8 @@ namespace DataAccessLayer
                 garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description);
         }
 
-        public static Dictionary<int, string> GetPersonTypeByIds(List<int> ids)
-        {
-            return MethodsDataAccessLayer.GetPersonTypeByIds(ids);
-        }
-
-        public static string GetPersonTypeById(int id)
-        {
-            return MethodsDataAccessLayer.GetPersonTypeById(id);
-        }
-
+        
+        //Christoffer
         public static void UpdateProperty(int caseNr, int sId, int desiredPrice, int timeFrame, int netPrice, int grossPrice, int ownerExpenses, int cashPrice,
             int depositPrice, string address, int zipcode, int nrOfRooms, bool garageFlag, string builtRebuild, string houseType, string energyRating,
              int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
@@ -217,11 +346,6 @@ namespace DataAccessLayer
         {
             return MethodsDataAccessLayer.GetPhotoExtFromName(nameOfPhoto);
         }
-
-
-
-
-
         #endregion
 
         #region PersonalData

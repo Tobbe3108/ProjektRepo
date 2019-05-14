@@ -28,10 +28,12 @@ namespace BusinessLayer
         public static void SloganThreadsStart(Label label) //Laver 2 Threads der køre ThreadMethod
         {
             Thread Slogan1 = new Thread(() => ThreadMethod(label, 1));
+            Slogan1.Name = "Slogan 1";
             Slogan1.IsBackground = true;
             Slogan1.Start();
 
             Thread Slogan2 = new Thread(() => ThreadMethod(label, 2));
+            Slogan2.Name = "Slogan 2";
             Slogan2.IsBackground = true;
             Slogan2.Start();
         }
