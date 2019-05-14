@@ -64,6 +64,9 @@ namespace Bol_IT
                 lblType.Font = new Font(lblType.Font.FontFamily, this.Size.Height / 50);
                 lblTypeChainging.Font = new Font(lblTypeChainging.Font.FontFamily, this.Size.Height / 50);
                 lblZipcode.Font = new Font(lblZipcode.Font.FontFamily, this.Size.Height / 50);
+                btnCancel.Font = new Font(btnCancel.Font.FontFamily, this.Size.Height / 50);
+                btnSave.Font = new Font(btnSave.Font.FontFamily, this.Size.Height / 50);
+                btnSaveToFile.Font = new Font(btnSaveToFile.Font.FontFamily, this.Size.Height / 50);
             }
             catch{}
         }
@@ -321,7 +324,14 @@ namespace Bol_IT
             }
         }
 
-        #endregion
+        private void CheckKeyPressDigitOrChar(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
 
+        #endregion
     }
 }
