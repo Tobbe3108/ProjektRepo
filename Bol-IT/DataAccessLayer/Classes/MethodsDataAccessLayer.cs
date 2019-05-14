@@ -92,6 +92,45 @@ namespace DataAccessLayer
         #endregion CreateMethods
 
         #region SearchMethods
+        public static string GetPersonTypeById(int id)
+        {
+            string persontype = "";
+            if (agentTableAdapter.CheckIfIdExists(id) != null)
+            {
+                persontype = "Mægler";
+            }
+            else if (sellerTableAdapter.CheckIfIdExists(id) != null)
+            {
+                persontype = "Sælger";
+            }
+            else if (buyerTableAdapter.CheckIfIdExists(id) != null)
+            {
+                persontype = "Køber";
+            }
+            return persontype;
+        }
+        public static Dictionary<int, string> GetPersonTypeByIds(List<int> ids)
+        {
+            Dictionary<int, string> persontypes = new Dictionary<int, string>();
+            foreach (int id in ids)
+            {
+                try
+                {
+                    if (agentTableAdapter.CheckIfIdExists(id) != null)
+                    {
+                        persontypes.Add(id, "Mægler");
+                    }
+                    else if (sellerTableAdapter.CheckIfIdExists(id) != null)
+                    {
+                        persontypes.Add(id, "Sælger");
+                    }
+                    else if (buyerTableAdapter.CheckIfIdExists(id) != null)
+                    {
+                        persontypes.Add(id, "Køber");
+                    }
+                }
+                catch { }
+            }
 
         #region Agent
         
