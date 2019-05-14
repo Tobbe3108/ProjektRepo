@@ -114,18 +114,22 @@ namespace DataAccessLayer
             Dictionary<int, string> persontypes = new Dictionary<int, string>();
             foreach (int id in ids)
             {
-                if (agentTableAdapter.CheckIfIdExists(id) != 0)
+                try
                 {
-                    persontypes.Add(id, "Mægler");
+                    if (agentTableAdapter.CheckIfIdExists(id) != null)
+                    {
+                        persontypes.Add(id, "Mægler");
+                    }
+                    else if (sellerTableAdapter.CheckIfIdExists(id) != null)
+                    {
+                        persontypes.Add(id, "Sælger");
+                    }
+                    else if (buyerTableAdapter.CheckIfIdExists(id) != null)
+                    {
+                        persontypes.Add(id, "Køber");
+                    }
                 }
-                else if (sellerTableAdapter.CheckIfIdExists(id) != 0)
-                {
-                    persontypes.Add(id, "Sælger");
-                }
-                else if ((int)buyerTableAdapter.CheckIfIdExists(id) != 0)
-                {
-                    persontypes.Add(id, "Køber");
-                }
+                catch { }
             }
 
             return persontypes;
