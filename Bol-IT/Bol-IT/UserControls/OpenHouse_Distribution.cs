@@ -170,6 +170,14 @@ namespace Bol_IT
                 LoadDataThread.IsBackground = true;
                 LoadDataThread.Start();
             }
+            else if (cbSearchParam.SelectedIndex == 0)
+            {
+                dgvSearch.DataSource = DataAccessLayerFacade.GetAgentDataTable();
+            }
+            else
+            {
+                dgvSearch.DataSource = RemoveColumns(DataAccessLayerFacade.GetPropertyDataTable());
+            }
         }
 
         //Tobias
