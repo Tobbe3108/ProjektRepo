@@ -53,7 +53,7 @@ namespace Bol_IT
         #endregion
 
         #region FormAutoSize
-        
+
         //Tobias
         private void Sag_ViewAll_SizeChanged(object sender, EventArgs e)
         {
@@ -66,9 +66,9 @@ namespace Bol_IT
                 rtbSearch.Font = new Font(rtbSearch.Font.FontFamily, this.Size.Height / 50);
                 cbSoldFlag.Font = new Font(cbSoldFlag.Font.FontFamily, this.Size.Height / 50);
                 dgvSager.Font = new Font(dgvSager.Font.FontFamily, this.Size.Height / 60);
-                
+
             }
-            catch{ }
+            catch { }
         }
 
         #endregion
@@ -88,7 +88,15 @@ namespace Bol_IT
                 rtbSearch.Invoke((MethodInvoker)delegate { SearchParameters = rtbSearch.Text; });
                 cbSoldFlag.Invoke((MethodInvoker)delegate { soldFlag = cbSoldFlag.Checked; });
 
-                dataTable = DataAccessLayerFacade.GetPropertyDataTableByLike(SearchParameters, soldFlag);
+                if (soldFlag)
+                {
+
+                    dataTable = DataAccessLayerFacade.GetPropertyDataTableByLikeAll(SearchParameters);
+                }
+                else
+                {
+                    dataTable = DataAccessLayerFacade.GetPropertyDataTableByLike(SearchParameters, soldFlag);
+                }
 
                 dataTable.Columns.Remove("netPrice");
                 dataTable.Columns.Remove("grossPrice");

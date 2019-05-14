@@ -44,10 +44,15 @@ namespace DataAccessLayer
             return MethodsDataAccessLayer.GetWantsToSellByCaseNr(id);
         }
 
-        //Christoffer
         public static List<Seller> GetSellers()
         {
             return MethodsDataAccessLayer.GetSellers();
+        }
+
+        //Tobias
+        public static void SellerUpdateData(int id, string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
+        {
+            MethodsDataAccessLayer.SellerUpdateData(id, fName, mName, lName, phoneNr, address, zipcode, mail, aId);
         }
 
         #endregion
@@ -60,6 +65,12 @@ namespace DataAccessLayer
             MethodsDataAccessLayer.CreateBuyer(fName, mName, lName, phoneNr, address, zipcode, mail, aId);
         }
 
+        //Tobias
+        public static void BuyerUpdateData(int id, string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
+        {
+            MethodsDataAccessLayer.BuyerUpdateData(id, fName, mName, lName, phoneNr, address, zipcode, mail, aId);
+        }
+
         #endregion
 
         #region Agent
@@ -70,7 +81,6 @@ namespace DataAccessLayer
             MethodsDataAccessLayer.CreateAgent(fName, mName, lName, phoneNr, address, zipcode, mail, nrOfSales);
         }
 
-        //Christoffer
         public static Agent GetAgentById(int id)
         {
             return MethodsDataAccessLayer.GetAgentById(id);
@@ -82,10 +92,14 @@ namespace DataAccessLayer
             return MethodsDataAccessLayer.GetAgentDataTable();
         }
 
-        //Tobias
         public static agentDataTable GetAgentDataTableByLike(int searchParameters)
         {
             return MethodsDataAccessLayer.GetAgentDataTableByLike(searchParameters);
+        }
+
+        public static void AgentUpdateData(int id, string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int nrOfSales)
+        {
+            MethodsDataAccessLayer.AgentUpdateData(id, fName, mName, lName, phoneNr, address, zipcode, mail, nrOfSales);
         }
 
         #endregion
@@ -99,6 +113,16 @@ namespace DataAccessLayer
         {
             return MethodsDataAccessLayer.CreateProperty(sId, desiredPrice, timeFrame, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms,
                 garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description);
+        }
+
+        public static Dictionary<int, string> GetPersonTypeByIds(List<int> ids)
+        {
+            return MethodsDataAccessLayer.GetPersonTypeByIds(ids);
+        }
+
+        public static string GetPersonTypeById(int id)
+        {
+            return MethodsDataAccessLayer.GetPersonTypeById(id);
         }
 
         public static void UpdateProperty(int caseNr, int sId, int desiredPrice, int timeFrame, int netPrice, int grossPrice, int ownerExpenses, int cashPrice,
@@ -119,6 +143,12 @@ namespace DataAccessLayer
         public static propertyDataTable GetPropertyDataTableByLike(string searchParameters, bool soldFlag)
         {
             return MethodsDataAccessLayer.GetPropertyDataTableByLike(searchParameters, soldFlag);
+        }
+
+        //Christoffer
+        public static propertyDataTable GetPropertyDataTableByLikeAll(string searchParameters)
+        {
+            return MethodsDataAccessLayer.GetPropertyDataTableByLikeAll(searchParameters);
         }
 
         //Tobias
