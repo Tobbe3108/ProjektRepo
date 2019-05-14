@@ -34,6 +34,7 @@ namespace DataAccessLayer
         }
 
         #endregion
+
         #region Person
         //Christoffer
         /// <summary>
@@ -252,8 +253,32 @@ namespace DataAccessLayer
                 garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description);
         }
 
-        
+
         //Christoffer
+        /// <summary>
+        /// Opdaterer en bolig ud fra den første parameter, Id'et, og de resterende parameter bliver herefter opdateret
+        /// </summary>
+        /// <param name="caseNr"></param>
+        /// <param name="sId"></param>
+        /// <param name="desiredPrice"></param>
+        /// <param name="timeFrame"></param>
+        /// <param name="netPrice"></param>
+        /// <param name="grossPrice"></param>
+        /// <param name="ownerExpenses"></param>
+        /// <param name="cashPrice"></param>
+        /// <param name="depositPrice"></param>
+        /// <param name="address"></param>
+        /// <param name="zipcode"></param>
+        /// <param name="nrOfRooms"></param>
+        /// <param name="garageFlag"></param>
+        /// <param name="builtRebuild"></param>
+        /// <param name="houseType"></param>
+        /// <param name="energyRating"></param>
+        /// <param name="resSquareMeters"></param>
+        /// <param name="propSquareMeters"></param>
+        /// <param name="floors"></param>
+        /// <param name="soldFlag"></param>
+        /// <param name="description"></param>
         public static void UpdateProperty(int caseNr, int sId, int desiredPrice, int timeFrame, int netPrice, int grossPrice, int ownerExpenses, int cashPrice,
             int depositPrice, string address, int zipcode, int nrOfRooms, bool garageFlag, string builtRebuild, string houseType, string energyRating,
              int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
@@ -263,24 +288,46 @@ namespace DataAccessLayer
         }
 
         //Tobias
+        /// <summary>
+        /// Returnerer alle boliger i et data table
+        /// </summary>
+        /// <returns></returns>
         public static propertyDataTable GetPropertyDataTable()
         {
             return MethodsDataAccessLayer.GetPropertyDataTable();
         }
 
         //Tobias
+        /// <summary>
+        /// Returnerer et data table over boliger udfra de angivende parameter, 
+        /// henholdsvist en række parameter (adresse, postnummer, m.m.) og hvorvidt boligen er solgt
+        /// </summary>
+        /// <param name="searchParameters"></param>
+        /// <param name="soldFlag"></param>
+        /// <returns></returns>
         public static propertyDataTable GetPropertyDataTableByLike(string searchParameters, bool soldFlag)
         {
             return MethodsDataAccessLayer.GetPropertyDataTableByLike(searchParameters, soldFlag);
         }
 
         //Christoffer
+        /// <summary>
+        /// Returnerer et data table over boliger udfra de angivende parameter, 
+        /// henholdsvist en række parameter (adresse, postnummer, m.m.)
+        /// </summary>
+        /// <param name="searchParameters"></param>
+        /// <returns></returns>
         public static propertyDataTable GetPropertyDataTableByLikeAll(string searchParameters)
         {
             return MethodsDataAccessLayer.GetPropertyDataTableByLikeAll(searchParameters);
         }
 
         //Tobias
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static Property GetProperty(int id)
         {
             return MethodsDataAccessLayer.GetProperty(id);

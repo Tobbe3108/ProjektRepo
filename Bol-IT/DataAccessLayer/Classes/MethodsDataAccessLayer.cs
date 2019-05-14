@@ -95,15 +95,15 @@ namespace DataAccessLayer
         public static string GetPersonTypeById(int id)
         {
             string persontype = "";
-            if (agentTableAdapter.GetDataById(id).Rows.Count != 0)
+            if (agentTableAdapter.CheckIfIdExists(id) != null)
             {
                 persontype = "Mægler";
             }
-            if (sellerTableAdapter.GetDataById(id).Rows.Count != 0)
+            else if (sellerTableAdapter.CheckIfIdExists(id) != null)
             {
                 persontype = "Sælger";
             }
-            if (buyerTableAdapter.GetDataById(id).Rows.Count != 0)
+            else if (buyerTableAdapter.CheckIfIdExists(id) != null)
             {
                 persontype = "Køber";
             }
