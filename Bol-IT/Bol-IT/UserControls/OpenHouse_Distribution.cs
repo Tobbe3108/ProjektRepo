@@ -172,11 +172,19 @@ namespace Bol_IT
             }
             else if (cbSearchParam.SelectedIndex == 0)
             {
-                dgvSearch.DataSource = DataAccessLayerFacade.GetAgentDataTable();
+                try
+                {
+                    dgvSearch.DataSource = DataAccessLayerFacade.GetAgentDataTable();
+                }
+                catch (Exception){}
             }
             else
             {
-                dgvSearch.DataSource = RemoveColumns(DataAccessLayerFacade.GetPropertyDataTable());
+                try
+                {
+                    dgvSearch.DataSource = RemoveColumns(DataAccessLayerFacade.GetPropertyDataTable());
+                }
+                catch (Exception){}
             }
         }
 
