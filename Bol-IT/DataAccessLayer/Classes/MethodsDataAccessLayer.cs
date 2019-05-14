@@ -92,23 +92,6 @@ namespace DataAccessLayer
         #endregion CreateMethods
 
         #region SearchMethods
-        public static string GetPersonTypeById(int id)
-        {
-            string persontype = "";
-            if (agentTableAdapter.CheckIfIdExists(id) != null)
-            {
-                persontype = "Mægler";
-            }
-            else if (sellerTableAdapter.CheckIfIdExists(id) != null)
-            {
-                persontype = "Sælger";
-            }
-            else if (buyerTableAdapter.CheckIfIdExists(id) != null)
-            {
-                persontype = "Køber";
-            }
-            return persontype;
-        }
         //Christoffer
         public static agentDataTable GetAllAgentIds()
         {
