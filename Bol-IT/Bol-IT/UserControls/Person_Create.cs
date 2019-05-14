@@ -126,23 +126,60 @@ namespace Bol_IT
             return true;
         }
 
-        public static void LoadData(int id)
+        private void LoadData()
         {
-            
-
             switch (DataAccessLayerFacade.GetPersonTypeById(id))
             {
-                case "":
+                case "Mægler":
                     Agent agent = DataAccessLayerFacade.GetAgentById(id);
+                    cbType.Invoke((MethodInvoker)delegate { cbType.SelectedIndex = 0; });
+                    rtbAddress.Invoke((MethodInvoker)delegate { rtbAddress.Text = agent.Address; });
+                    rtbFName.Invoke((MethodInvoker)delegate { rtbFName.Text = agent.FName; });
+                    rtbLName.Invoke((MethodInvoker)delegate { rtbLName.Text = agent.LName; });
+                    rtbMail.Invoke((MethodInvoker)delegate { rtbMail.Text = agent.Mail; });
+                    rtbMName.Invoke((MethodInvoker)delegate { rtbMName.Text = agent.MName; });
+                    rtbPhoneNr.Invoke((MethodInvoker)delegate { rtbPhoneNr.Text = agent.PhoneNr.ToString(); });
+                    rtbTypeChainging.Invoke((MethodInvoker)delegate { rtbTypeChainging.Text = agent.NrOfSales.ToString(); });
+                    rtbZipcode.Invoke((MethodInvoker)delegate { rtbZipcode.Text = agent.Zipcode.ToString(); });
                     break;
-                case "":
-                    Buyer buyer = DataAccessLayerFacade.GetBuyerById(id);
-                    break;
-                case "":
+
+
+
+                case "Sælger":
                     Seller seller = DataAccessLayerFacade.GetSellerById(id);
+                    cbType.Invoke((MethodInvoker)delegate { cbType.SelectedIndex = 1; });
+                    rtbAddress.Invoke((MethodInvoker)delegate { rtbAddress.Text = seller.Address; });
+                    rtbFName.Invoke((MethodInvoker)delegate { rtbFName.Text = seller.FName; });
+                    rtbLName.Invoke((MethodInvoker)delegate { rtbLName.Text = seller.LName; });
+                    rtbMail.Invoke((MethodInvoker)delegate { rtbMail.Text = seller.Mail; });
+                    rtbMName.Invoke((MethodInvoker)delegate { rtbMName.Text = seller.MName; });
+                    rtbPhoneNr.Invoke((MethodInvoker)delegate { rtbPhoneNr.Text = seller.PhoneNr.ToString(); });
+                    rtbTypeChainging.Invoke((MethodInvoker)delegate { rtbTypeChainging.Text = seller.AId.ToString(); });
+                    rtbZipcode.Invoke((MethodInvoker)delegate { rtbZipcode.Text = seller.Zipcode.ToString(); });
+                    break;
+
+
+
+                case "Køber":
+                    Buyer buyer = DataAccessLayerFacade.GetBuyerById(id);
+                    cbType.Invoke((MethodInvoker)delegate { cbType.SelectedIndex = 2; });
+                    rtbAddress.Invoke((MethodInvoker)delegate { rtbAddress.Text = buyer.Address; });
+                    rtbFName.Invoke((MethodInvoker)delegate { rtbFName.Text = buyer.FName; });
+                    rtbLName.Invoke((MethodInvoker)delegate { rtbLName.Text = buyer.LName; });
+                    rtbMail.Invoke((MethodInvoker)delegate { rtbMail.Text = buyer.Mail; });
+                    rtbMName.Invoke((MethodInvoker)delegate { rtbMName.Text = buyer.MName; });
+                    rtbPhoneNr.Invoke((MethodInvoker)delegate { rtbPhoneNr.Text = buyer.PhoneNr.ToString(); });
+                    rtbTypeChainging.Invoke((MethodInvoker)delegate { rtbTypeChainging.Text = buyer.AId.ToString(); });
+                    rtbZipcode.Invoke((MethodInvoker)delegate { rtbZipcode.Text = buyer.Zipcode.ToString(); });
                     break;
             }
+        }
 
+        public void StartLoadData()
+        {
+            Thread LoadDataThread = new Thread(() => LoadData());
+            LoadDataThread.IsBackground = true;
+            LoadDataThread.Start();
         }
 
         #endregion
