@@ -184,6 +184,7 @@
             this.rtbSearch.Size = new System.Drawing.Size(404, 40);
             this.rtbSearch.TabIndex = 1;
             this.rtbSearch.Text = "";
+            this.rtbSearch.TextChanged += new System.EventHandler(this.rtbSearch_TextChanged);
             // 
             // lblSearch
             // 
@@ -204,7 +205,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Person_ViewAll";
             this.Size = new System.Drawing.Size(864, 486);
             this.Load += new System.EventHandler(this.Person_ViewAll_Load);

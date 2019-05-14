@@ -19,6 +19,7 @@ namespace Bol_IT
         #region Init
 
         public Dictionary<int, string> Persontypes = new Dictionary<int, string>();
+        public DataTable PersonDataTable = new DataTable();
 
         //Tobias
         //Singleton instance af Person_ViewAll
@@ -77,47 +78,54 @@ namespace Bol_IT
         //Christoffer og Tobias
         private void LoadData()
         {
-            //try
-            //{
-            DataTable dataTable = new DataTable();
-
-            string SearchParameters = "";
-            rtbSearch.Invoke((MethodInvoker)delegate { SearchParameters = rtbSearch.Text; });
-
-            dataTable = DataAccessLayerFacade.GetPersonalDataDataTableByLike(SearchParameters);
-
-            List<int> ids = new List<int>();
-            for (int i = 0; i < dataTable.Rows.Count; i++)
+            try
             {
-                int id = (int)dataTable.Rows[i]["Id"];
-                ids.Add(id);
+                string SearchParameters = "";
+                rtbSearch.Invoke((MethodInvoker)delegate { SearchParameters = rtbSearch.Text; });
+
+                PersonDataTable = DataAccessLayerFacade.GetPersonalDataDataTableByLike(SearchParameters);
+
+                if (Persontypes.Count == 0)
+                {
+                    List<int> ids = new List<int>();
+                    for (int i = 0; i < PersonDataTable.Rows.Count; i++)
+                    {
+                        int id = (int)PersonDataTable.Rows[i]["Id"];
+                        ids.Add(id);
+                    }
+                    Thread GetPersontypesThread = new Thread(() => LoadPersontypes(ids));
+                    GetPersontypesThread.IsBackground = true;
+                    GetPersontypesThread.Start();
+                }
+
+                for (int i = 0; i < PersonDataTable.Rows.Count; i++)
+                {
+                    int tempNum = (int)PersonDataTable.Rows[i]["Id"];
+                    if (Persontypes.ContainsKey(tempNum))
+                    {
+                        PersonDataTable.Rows[i]["Persontype"] = Persontypes[tempNum];
+                    }
+                }
+
+                dgvPerson.Invoke((MethodInvoker)delegate { dgvPerson.DataSource = PersonDataTable; });
             }
+            catch (Exception) { }
+        }
 
-            if (Persontypes.Count == 0)
+        public void LoadPersontypes(List<int> ids)
+        {
+            Persontypes = DataAccessLayerFacade.GetPersonTypeByIds(ids);
+            for (int i = 0; i < PersonDataTable.Rows.Count; i++)
             {
-                Persontypes = DataAccessLayerFacade.GetPersonTypeByIds(ids);
-            }
-
-            for (int i = 0; i < dataTable.Rows.Count; i++)
-            {
-                int tempNum = (int)dataTable.Rows[i]["Id"];
+                int tempNum = (int)PersonDataTable.Rows[i]["Id"];
                 if (Persontypes.ContainsKey(tempNum))
                 {
-                    dataTable.Rows[i]["Persontype"] = Persontypes[(int)dataTable.Rows[i]["Id"]];
+                    PersonDataTable.Rows[i]["Persontype"] = Persontypes[tempNum];
                 }
             }
-
-            //for (int i = 0; i < dataTable.Rows.Count; i++)
-            //{
-            //    int id = (int)dataTable.Rows[i]["Id"];
-            //    string personType = "";
-            //    dataTable.Rows[i][1] = personType;
-            //}
-
-            dgvPerson.Invoke((MethodInvoker)delegate { dgvPerson.DataSource = dataTable; });
-            //}
-            //catch (Exception) { }
+            dgvPerson.Invoke((MethodInvoker)delegate { dgvPerson.DataSource = PersonDataTable; });
         }
+
 
         public void StartDataLoad()
         {
