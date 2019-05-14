@@ -38,15 +38,10 @@ namespace DataAccessLayer
         #region Person
         //Christoffer
         /// <summary>
-        /// 
+        /// Returnerer den persontype der passer på det id, der er sat ind via parameter
         /// </summary>
-        /// <param name="ids"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
-        public static Dictionary<int, string> GetPersonTypeByIds(List<int> ids)
-        {
-            return MethodsDataAccessLayer.GetPersonTypeByIds(ids);
-        }
-        //Christoffer
         public static string GetPersonTypeById(int id)
         {
             return MethodsDataAccessLayer.GetPersonTypeById(id);
@@ -178,6 +173,21 @@ namespace DataAccessLayer
             return MethodsDataAccessLayer.GetAgentById(id);
         }
 
+        public static agentDataTable GetAllAgentIds()
+        {
+            return MethodsDataAccessLayer.GetAllAgentIds();
+        }
+
+        public static sellerDataTable GetAllSellerIds()
+        {
+            return MethodsDataAccessLayer.GetAllSellerIds();
+        }
+
+        public static buyerDataTable GetAllBuyerIds()
+        {
+            return MethodsDataAccessLayer.GetAllBuyerIds();
+        }
+
         //Tobias
         /// <summary>
         /// Returnerer et data table af alle mægler
@@ -218,6 +228,7 @@ namespace DataAccessLayer
         #endregion
 
         #endregion
+
         #region Property
 
         //Christoffer

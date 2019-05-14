@@ -18,8 +18,9 @@ namespace Bol_IT
     {
         #region Init
 
-        public Dictionary<int, string> Persontypes = new Dictionary<int, string>();
-        public DataTable PersonDataTable = new DataTable();
+        DataTable AgentTable = new DataTable();
+        DataTable SellerTable = new DataTable();
+        DataTable BuyerTable = new DataTable();
 
         //Tobias
         //Singleton instance af Person_ViewAll
@@ -83,47 +84,35 @@ namespace Bol_IT
                 string SearchParameters = "";
                 rtbSearch.Invoke((MethodInvoker)delegate { SearchParameters = rtbSearch.Text; });
 
-                PersonDataTable = DataAccessLayerFacade.GetPersonalDataDataTableByLike(SearchParameters);
+                DataTable dataTable = DataAccessLayerFacade.GetPersonalDataDataTableByLike(SearchParameters);
 
-                if (Persontypes.Count == 0)
+                if (AgentTable.Rows.Count == 0 || SellerTable.Rows.Count == 0 || BuyerTable.Rows.Count == 0)
                 {
-                    List<int> ids = new List<int>();
-                    for (int i = 0; i < PersonDataTable.Rows.Count; i++)
-                    {
-                        int id = (int)PersonDataTable.Rows[i]["Id"];
-                        ids.Add(id);
-                    }
-                    Thread GetPersontypesThread = new Thread(() => LoadPersontypes(ids));
-                    GetPersontypesThread.IsBackground = true;
-                    GetPersontypesThread.Start();
+                    AgentTable = DataAccessLayerFacade.GetAllAgentIds();
+                    SellerTable = DataAccessLayerFacade.GetAllSellerIds();
+                    BuyerTable = DataAccessLayerFacade.GetAllBuyerIds();
                 }
 
-                for (int i = 0; i < PersonDataTable.Rows.Count; i++)
+                for (int i = 0; i < dataTable.Rows.Count; i++)
                 {
-                    int tempNum = (int)PersonDataTable.Rows[i]["Id"];
-                    if (Persontypes.ContainsKey(tempNum))
+                    int tempNum = (int)dataTable.Rows[i]["Id"];
+                    if (AgentTable.Rows.Contains(tempNum))
                     {
-                        PersonDataTable.Rows[i]["Persontype"] = Persontypes[tempNum];
+                        dataTable.Rows[i]["Persontype"] = "Mælger";
+                    }
+                    else if (SellerTable.Rows.Contains(tempNum))
+                    {
+                        dataTable.Rows[i]["Persontype"] = "Sælger";
+                    }
+                    else if (BuyerTable.Rows.Contains(tempNum))
+                    {
+                        dataTable.Rows[i]["Persontype"] = "Køber";
                     }
                 }
 
-                dgvPerson.Invoke((MethodInvoker)delegate { dgvPerson.DataSource = PersonDataTable; });
+                dgvPerson.Invoke((MethodInvoker)delegate { dgvPerson.DataSource = dataTable; });
             }
             catch (Exception) { }
-        }
-
-        public void LoadPersontypes(List<int> ids)
-        {
-            Persontypes = DataAccessLayerFacade.GetPersonTypeByIds(ids);
-            for (int i = 0; i < PersonDataTable.Rows.Count; i++)
-            {
-                int tempNum = (int)PersonDataTable.Rows[i]["Id"];
-                if (Persontypes.ContainsKey(tempNum))
-                {
-                    PersonDataTable.Rows[i]["Persontype"] = Persontypes[tempNum];
-                }
-            }
-            dgvPerson.Invoke((MethodInvoker)delegate { dgvPerson.DataSource = PersonDataTable; });
         }
 
 
@@ -169,7 +158,7 @@ namespace Bol_IT
                         //Kør igennem alle celler i hver kolone og find den celle med den længste verdi - bruges til fin formatering
                         List<int> longestString = new List<int>();
 
-                        for (int col = 1; col < dgvPerson.Columns.Count - 1; col++)
+                        for (int col = 1; col < dgvPerson.Columns.Count; col++)
                         {
                             int stringLength = 0;
                             for (int row = 0; row < dgvPerson.Rows.Count; row++)
@@ -188,7 +177,7 @@ namespace Bol_IT
 
                         //Skriver kolone header text til filen
                         string header = "";
-                        for (int col = 1; col < dgvPerson.Columns.Count - 1; col++)
+                        for (int col = 1; col < dgvPerson.Columns.Count; col++)
                         {
                             try
                             {
@@ -208,11 +197,11 @@ namespace Bol_IT
                         for (int row = 0; row < dgvPerson.Rows.Count - 1; row++)
                         {
                             string lines = "";
-                            for (int col = 1; col < dgvPerson.Columns.Count - 1; col++)
+                            for (int col = 1; col < dgvPerson.Columns.Count; col++)
                             {
                                 try
                                 {
-                                    lines += $"{dgvPerson.Rows[row].Cells[col].Value.ToString().PadRight(longestString[col] + 5)}";
+                                    lines += $"{dgvPerson.Rows[row].Cells[col].Value.ToString().PadRight(longestString[col - 1] + 5)}";
                                 }
                                 catch (Exception)
                                 {

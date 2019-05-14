@@ -109,30 +109,12 @@ namespace DataAccessLayer
             }
             return persontype;
         }
-        public static Dictionary<int, string> GetPersonTypeByIds(List<int> ids)
+        //Christoffer
+        public static agentDataTable GetAllAgentIds()
         {
-            Dictionary<int, string> persontypes = new Dictionary<int, string>();
-            foreach (int id in ids)
-            {
-                try
-                {
-                    if (agentTableAdapter.CheckIfIdExists(id) != null)
-                    {
-                        persontypes.Add(id, "Mægler");
-                    }
-                    else if (sellerTableAdapter.CheckIfIdExists(id) != null)
-                    {
-                        persontypes.Add(id, "Sælger");
-                    }
-                    else if (buyerTableAdapter.CheckIfIdExists(id) != null)
-                    {
-                        persontypes.Add(id, "Køber");
-                    }
-                }
-                catch { }
-            }
-
-            return persontypes;
+            agentDataTable agents = new agentDataTable();
+            agentTableAdapter.FillByAllId(agents);
+            return agents;
         }
         #region Agent
         //Christoffer
@@ -151,6 +133,22 @@ namespace DataAccessLayer
             return adt;
         }
 
+
+        //Christoffer
+        public static sellerDataTable GetAllSellerIds()
+        {
+            sellerDataTable sellers = new sellerDataTable();
+            sellerTableAdapter.FillByAllId(sellers);
+            return sellers;
+        }
+
+        //Christoffer
+        public static buyerDataTable GetAllBuyerIds()
+        {
+            buyerDataTable buyers = new buyerDataTable();
+            buyerTableAdapter.FillByAllId(buyers);
+            return buyers;
+        }
 
         #region ReturnObjects
 
