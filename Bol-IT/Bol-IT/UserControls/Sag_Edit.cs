@@ -44,7 +44,6 @@ namespace Bol_IT
 
             //Form autosize
             Sag_Edit_SizeChanged(this, new EventArgs());
-
             pbHouseImage.AllowDrop = true;
         }
 
@@ -223,13 +222,15 @@ namespace Bol_IT
         //Christoffer
         private void pbHouseImage_Click(object sender, EventArgs e)
         {
-            if (ofdOpenPicture.ShowDialog() == DialogResult.OK)
+            if (ofdOpenFile.ShowDialog() == DialogResult.OK)
             {
-                pbHouseImage.ImageLocation = ofdOpenPicture.FileName;
-                Image image = Image.FromFile(ofdOpenPicture.FileName);
+                pbHouseImage.ImageLocation = ofdOpenFile.FileName;
+                Image image = Image.FromFile(ofdOpenFile.FileName);
                 pbHouseImage.Image = image;
             }
         }
+
+        
 
         //Christoffer og Tobias
         private void btnSave_Click(object sender, EventArgs e)
@@ -509,8 +510,23 @@ namespace Bol_IT
         {
             //Klar til at implementere API fra annonce sider
         }
-
         #endregion
+        //Christoffer
+        private void lvHouseFiles_MouseDown(object sender, MouseEventArgs e)
+        {
+            return;
+            
+        }
 
+        private void lvHouseFiles_MouseCaptureChanged(object sender, EventArgs e)
+        {
+            if (ofdOpenFile.ShowDialog() == DialogResult.OK)
+            {
+                foreach (var f in ofdOpenFile.FileNames)
+                {
+                    lvHouseFiles.Items.Add(Path.GetFileName(f));
+                }
+            }
+        }
     }
 }
