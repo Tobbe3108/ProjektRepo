@@ -21,8 +21,8 @@ namespace Bol_IT
     {
         #region Init
 
-        private bool IsWaiting = false;
-        private bool IsThreadRunning = false;
+        public bool ThreadRunning { get; set; }
+        public bool shouldRun { get; set; }
 
         //Tobias
         //Singleton i
@@ -86,7 +86,6 @@ namespace Bol_IT
         {
             try
             {
-                IsThreadRunning = true;
                 DataTable dataTable = new DataTable();
 
                 string SearchParameters = "";
@@ -120,22 +119,31 @@ namespace Bol_IT
 
                 dgvSager.Invoke((MethodInvoker)delegate { dgvSager.DataSource = dataTable; });
 
-                IsThreadRunning = false;
-                if (IsWaiting)
-                {
-                    IsWaiting = false;
-                    StartDataLoad();
-                }
             }
             catch (Exception) { }
+            ThreadRunning = false;
+
+            if (shouldRun)
+            {
+                rtbSearch_TextChanged(null, null);
+                shouldRun = false;
+            }
         }
 
         public void StartDataLoad()
         {
-            Thread LoadDataThread = new Thread(() => LoadData());
-            LoadDataThread.Name = "DataLoadThread";
-            LoadDataThread.IsBackground = true;
-            LoadDataThread.Start();
+            if (ThreadRunning)
+            {
+                shouldRun = true;
+            }
+            else
+            {
+                ThreadRunning = true;
+                Thread LoadDataThread = new Thread(() => LoadData());
+                LoadDataThread.Name = "DataLoadThread";
+                LoadDataThread.IsBackground = true;
+                LoadDataThread.Start();
+            }
         }
 
         #endregion
@@ -162,14 +170,7 @@ namespace Bol_IT
 
         private void rtbSearch_TextChanged(object sender, EventArgs e)
         {
-            if (IsThreadRunning)
-            {
-                IsWaiting = true;
-            }
-            else
-            {
-                StartDataLoad();
-            }
+            StartDataLoad();
         }
 
 
