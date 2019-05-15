@@ -327,6 +327,16 @@ namespace Bol_IT
                         }
 
                         MessageBox.Show("Det lykkedes at oprette personen på databasen");
+
+                        //Load Person_ViewAll User control når tryk på knap
+                        if (!Form1.Instance.PnlContainer.Controls.ContainsKey("Person_ViewAll"))
+                        {
+                            Person_ViewAll.Instance.Dock = DockStyle.Fill;
+                            Form1.Instance.PnlContainer.Controls.Add(Person_ViewAll.Instance);
+                        }
+                        Form1.Instance.PnlContainer.Controls["Person_ViewAll"].BringToFront();
+
+                        Person_ViewAll.Instance.StartDataLoad();
                     }
                     catch
                     {
@@ -351,6 +361,16 @@ namespace Bol_IT
                         }
 
                         MessageBox.Show("Det lykkedes at opdatere personen på databasen");
+
+                        //Load Person_ViewAll User control når tryk på knap
+                        if (!Form1.Instance.PnlContainer.Controls.ContainsKey("Person_ViewAll"))
+                        {
+                            Person_ViewAll.Instance.Dock = DockStyle.Fill;
+                            Form1.Instance.PnlContainer.Controls.Add(Person_ViewAll.Instance);
+                        }
+                        Form1.Instance.PnlContainer.Controls["Person_ViewAll"].BringToFront();
+
+                        Person_ViewAll.Instance.StartDataLoad();
                     }
                     catch
                     {
