@@ -68,6 +68,15 @@ namespace Bol_IT
                 btnCancel.Font = new Font(btnCancel.Font.FontFamily, this.Size.Height / 50);
                 btnSave.Font = new Font(btnSave.Font.FontFamily, this.Size.Height / 50);
                 btnSaveToFile.Font = new Font(btnSaveToFile.Font.FontFamily, this.Size.Height / 50);
+
+                rtbAddress.Font = new Font(rtbAddress.Font.FontFamily, this.Size.Height / 50);
+                rtbFName.Font = new Font(rtbFName.Font.FontFamily, this.Size.Height / 50);
+                rtbLName.Font = new Font(rtbLName.Font.FontFamily, this.Size.Height / 50);
+                rtbMail.Font = new Font(rtbMail.Font.FontFamily, this.Size.Height / 50);
+                rtbMName.Font = new Font(rtbMName.Font.FontFamily, this.Size.Height / 50);
+                rtbPhoneNr.Font = new Font(rtbPhoneNr.Font.FontFamily, this.Size.Height / 50);
+                rtbTypeChainging.Font = new Font(rtbTypeChainging.Font.FontFamily, this.Size.Height / 50);
+                rtbZipcode.Font = new Font(rtbZipcode.Font.FontFamily, this.Size.Height / 50);
             }
             catch{}
         }
