@@ -22,6 +22,9 @@ namespace Bol_IT
         DataTable SellerTable = new DataTable();
         DataTable BuyerTable = new DataTable();
 
+        public bool ThreadRunning { get; set; }
+        public bool ShouldRun { get; set; }
+
         //Tobias
         //Singleton instance af Person_ViewAll
         static Person_ViewAll _instance;
@@ -113,14 +116,31 @@ namespace Bol_IT
                 dgvPerson.Invoke((MethodInvoker)delegate { dgvPerson.DataSource = dataTable; });
             }
             catch (Exception) { }
+
+            ThreadRunning = false;
+
+            if (ShouldRun)
+            {
+                StartDataLoad();
+                ShouldRun = false;
+            }
         }
 
 
         public void StartDataLoad()
         {
-            Thread LoadDataThread = new Thread(() => LoadData());
-            LoadDataThread.IsBackground = true;
-            LoadDataThread.Start();
+            if (ThreadRunning)
+            {
+                ShouldRun = true;
+            }
+            else
+            {
+                ThreadRunning = true;
+                Thread LoadDataThread = new Thread(() => LoadData());
+                LoadDataThread.Name = "DataLoadThread";
+                LoadDataThread.IsBackground = true;
+                LoadDataThread.Start();
+            }
         }
 
         #endregion

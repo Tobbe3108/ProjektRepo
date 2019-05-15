@@ -121,6 +121,7 @@ namespace Bol_IT
 
             }
             catch (Exception) { }
+
             ThreadRunning = false;
 
             if (ShouldRun)
