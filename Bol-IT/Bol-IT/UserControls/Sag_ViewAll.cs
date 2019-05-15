@@ -23,6 +23,7 @@ namespace Bol_IT
 
         private bool IsWaiting = false;
         private bool IsThreadRunning = false;
+        private Thread LoadDataThread;
 
         //Tobias
         //Singleton i
@@ -84,9 +85,13 @@ namespace Bol_IT
         //Kalder fasaden til DAL laget for at få fat i data fra property tabellen samt lidt data formatering
         private void LoadData()
         {
+            if (IsThreadRunning)
+            {
+
+            }
+            IsThreadRunning = true;
             try
             {
-                IsThreadRunning = true;
                 DataTable dataTable = new DataTable();
 
                 string SearchParameters = "";
@@ -120,7 +125,6 @@ namespace Bol_IT
 
                 dgvSager.Invoke((MethodInvoker)delegate { dgvSager.DataSource = dataTable; });
 
-                IsThreadRunning = false;
                 if (IsWaiting)
                 {
                     IsWaiting = false;
@@ -128,14 +132,20 @@ namespace Bol_IT
                 }
             }
             catch (Exception) { }
+            IsThreadRunning = false;
         }
 
         public void StartDataLoad()
         {
-            Thread LoadDataThread = new Thread(() => LoadData());
-            LoadDataThread.Name = "DataLoadThread";
-            LoadDataThread.IsBackground = true;
-            LoadDataThread.Start();
+            LoadDataThread = new Thread(() => LoadData())
+            {
+                Name = "DataLoadThread",
+                IsBackground = true
+            };
+            if (!LoadDataThread.IsAlive)
+            {
+                LoadDataThread.Start();
+            }
         }
 
         #endregion
@@ -168,6 +178,7 @@ namespace Bol_IT
             }
             else
             {
+                IsThreadRunning = true;
                 StartDataLoad();
             }
         }
