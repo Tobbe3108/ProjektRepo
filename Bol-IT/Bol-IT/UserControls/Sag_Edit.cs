@@ -313,6 +313,15 @@ namespace Bol_IT
                     );
 
                 MessageBox.Show("Bolig er gemt.");
+
+                //Load Sag_ViewAll User control når tryk på knap
+                if (!Form1.Instance.PnlContainer.Controls.ContainsKey("Sag_ViewAll"))
+                {
+                    Sag_ViewAll.Instance.Dock = DockStyle.Fill;
+                    Form1.Instance.PnlContainer.Controls.Add(Sag_ViewAll.Instance);
+                }
+                Form1.Instance.PnlContainer.Controls["Sag_ViewAll"].BringToFront();
+                Sag_ViewAll.Instance.StartDataLoad();
             }
         }
         

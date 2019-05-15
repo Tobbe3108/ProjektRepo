@@ -197,51 +197,51 @@ namespace Bol_IT
             else
             {
                 if (DataAccessLayerFacade.CheckForSQLInjection(
-                    rtbCaseNr.Text,
-                    cbSellerId.Text,
-                    rtbDesiredPrice.Text,
-                    rtbTimeFrame.Text,
-                    rtbNetPrice.Text,
-                    rtbGrossPrice.Text,
-                    rtbOwnerExpences.Text,
-                    rtbCashPrice.Text,
-                    rtbDepositPrice.Text,
-                    rtbAddress.Text,
-                    rtbZipCode.Text,
-                    rtbNrOfRooms.Text,
-                    rtbBuiltRebuilt.Text,
-                    rtbHouseType.Text,
-                    rtbEnergyRating.Text,
-                    rtbResSquareMeters.Text,
-                    rtbPropSquareMeters.Text,
-                    rtbFloors.Text,
-                    rtbHouseDescription.Text
+                        rtbCaseNr.Text,
+                        cbSellerId.Text,
+                        rtbDesiredPrice.Text,
+                        rtbTimeFrame.Text,
+                        rtbNetPrice.Text,
+                        rtbGrossPrice.Text,
+                        rtbOwnerExpences.Text,
+                        rtbCashPrice.Text,
+                        rtbDepositPrice.Text,
+                        rtbAddress.Text,
+                        rtbZipCode.Text,
+                        rtbNrOfRooms.Text,
+                        rtbBuiltRebuilt.Text,
+                        rtbHouseType.Text,
+                        rtbEnergyRating.Text,
+                        rtbResSquareMeters.Text,
+                        rtbPropSquareMeters.Text,
+                        rtbFloors.Text,
+                        rtbHouseDescription.Text
                     ))
                 {
                     return;
                 }
                 int caseNr = DataAccessLayerFacade.CreateProperty
                     (
-                    int.Parse(cbSellerId.Text),
-                    int.Parse(rtbDesiredPrice.Text),
-                    int.Parse(rtbTimeFrame.Text),
-                    int.Parse(rtbNetPrice.Text),
-                    int.Parse(rtbGrossPrice.Text),
-                    int.Parse(rtbOwnerExpences.Text),
-                    int.Parse(rtbCashPrice.Text),
-                    int.Parse(rtbDepositPrice.Text),
-                    rtbAddress.Text,
-                    int.Parse(rtbZipCode.Text),
-                    int.Parse(rtbNrOfRooms.Text),
-                    cbGarageFlag.Checked,
-                    rtbBuiltRebuilt.Text,
-                    rtbHouseType.Text,
-                    rtbEnergyRating.Text,
-                    int.Parse(rtbResSquareMeters.Text),
-                    int.Parse(rtbPropSquareMeters.Text),
-                    int.Parse(rtbFloors.Text),
-                    cbSoldFlag.Checked,
-                    rtbHouseDescription.Text
+                        int.Parse(cbSellerId.Text),
+                        int.Parse(rtbDesiredPrice.Text),
+                        int.Parse(rtbTimeFrame.Text),
+                        int.Parse(rtbNetPrice.Text),
+                        int.Parse(rtbGrossPrice.Text),
+                        int.Parse(rtbOwnerExpences.Text),
+                        int.Parse(rtbCashPrice.Text),
+                        int.Parse(rtbDepositPrice.Text),
+                        rtbAddress.Text,
+                        int.Parse(rtbZipCode.Text),
+                        int.Parse(rtbNrOfRooms.Text),
+                        cbGarageFlag.Checked,
+                        rtbBuiltRebuilt.Text,
+                        rtbHouseType.Text,
+                        rtbEnergyRating.Text,
+                        int.Parse(rtbResSquareMeters.Text),
+                        int.Parse(rtbPropSquareMeters.Text),
+                        int.Parse(rtbFloors.Text),
+                        cbSoldFlag.Checked,
+                        rtbHouseDescription.Text
                     );
                 
                 if (!(pbHouseImage.ImageLocation == null))
@@ -259,6 +259,15 @@ namespace Bol_IT
                         );
                 }
                 MessageBox.Show("Bolig er gemt.");
+
+                //Load Sag_ViewAll User control når tryk på knap
+                if (!Form1.Instance.PnlContainer.Controls.ContainsKey("Sag_ViewAll"))
+                {
+                    Sag_ViewAll.Instance.Dock = DockStyle.Fill;
+                    Form1.Instance.PnlContainer.Controls.Add(Sag_ViewAll.Instance);
+                }
+                Form1.Instance.PnlContainer.Controls["Sag_ViewAll"].BringToFront();
+                Sag_ViewAll.Instance.StartDataLoad();
             }
         }
 

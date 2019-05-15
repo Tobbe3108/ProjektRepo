@@ -192,7 +192,7 @@
             // 
             this.pbHouseImage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbHouseImage.Location = new System.Drawing.Point(6, 6);
-            this.pbHouseImage.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pbHouseImage.Margin = new System.Windows.Forms.Padding(6);
             this.pbHouseImage.Name = "pbHouseImage";
             this.pbHouseImage.Size = new System.Drawing.Size(346, 243);
             this.pbHouseImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -210,7 +210,7 @@
             this.rtbHouseDescription.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbHouseDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbHouseDescription.Location = new System.Drawing.Point(6, 261);
-            this.rtbHouseDescription.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rtbHouseDescription.Margin = new System.Windows.Forms.Padding(6);
             this.rtbHouseDescription.Name = "rtbHouseDescription";
             this.rtbHouseDescription.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.rtbHouseDescription.Size = new System.Drawing.Size(346, 243);
@@ -243,7 +243,7 @@
             this.btnSave.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.btnSave.Location = new System.Drawing.Point(185, 6);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(6);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(167, 75);
             this.btnSave.TabIndex = 2;
@@ -260,7 +260,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.btnCancel.Location = new System.Drawing.Point(6, 6);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(167, 75);
             this.btnCancel.TabIndex = 1;
@@ -275,7 +275,7 @@
             this.lvHouseFiles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvHouseFiles.ForeColor = System.Drawing.Color.White;
             this.lvHouseFiles.Location = new System.Drawing.Point(6, 516);
-            this.lvHouseFiles.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.lvHouseFiles.Margin = new System.Windows.Forms.Padding(6);
             this.lvHouseFiles.Name = "lvHouseFiles";
             this.lvHouseFiles.Size = new System.Drawing.Size(346, 243);
             this.lvHouseFiles.TabIndex = 3;
@@ -320,7 +320,7 @@
             this.rtbAddress.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbAddress.Location = new System.Drawing.Point(276, 6);
-            this.rtbAddress.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rtbAddress.Margin = new System.Windows.Forms.Padding(6);
             this.rtbAddress.Name = "rtbAddress";
             this.rtbAddress.Size = new System.Drawing.Size(827, 73);
             this.rtbAddress.TabIndex = 3;
@@ -394,7 +394,7 @@
             this.btnCalculatePrice.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCalculatePrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.btnCalculatePrice.Location = new System.Drawing.Point(573, 690);
-            this.btnCalculatePrice.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnCalculatePrice.Margin = new System.Windows.Forms.Padding(6);
             this.btnCalculatePrice.Name = "btnCalculatePrice";
             this.btnCalculatePrice.Size = new System.Drawing.Size(530, 71);
             this.btnCalculatePrice.TabIndex = 3;
@@ -425,7 +425,7 @@
             this.rtbCaseNr.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbCaseNr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbCaseNr.Location = new System.Drawing.Point(276, 6);
-            this.rtbCaseNr.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rtbCaseNr.Margin = new System.Windows.Forms.Padding(6);
             this.rtbCaseNr.Name = "rtbCaseNr";
             this.rtbCaseNr.ReadOnly = true;
             this.rtbCaseNr.Size = new System.Drawing.Size(258, 71);
@@ -471,7 +471,7 @@
             this.rtbZipCode.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbZipCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbZipCode.Location = new System.Drawing.Point(276, 6);
-            this.rtbZipCode.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rtbZipCode.Margin = new System.Windows.Forms.Padding(6);
             this.rtbZipCode.Name = "rtbZipCode";
             this.rtbZipCode.Size = new System.Drawing.Size(258, 64);
             this.rtbZipCode.TabIndex = 9;
@@ -516,7 +516,7 @@
             this.rtbCashPrice.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbCashPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbCashPrice.Location = new System.Drawing.Point(277, 6);
-            this.rtbCashPrice.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rtbCashPrice.Margin = new System.Windows.Forms.Padding(6);
             this.rtbCashPrice.Name = "rtbCashPrice";
             this.rtbCashPrice.Size = new System.Drawing.Size(259, 64);
             this.rtbCashPrice.TabIndex = 3;
@@ -561,7 +561,7 @@
             this.rtbDepositPrice.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbDepositPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbDepositPrice.Location = new System.Drawing.Point(277, 6);
-            this.rtbDepositPrice.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rtbDepositPrice.Margin = new System.Windows.Forms.Padding(6);
             this.rtbDepositPrice.Name = "rtbDepositPrice";
             this.rtbDepositPrice.Size = new System.Drawing.Size(259, 64);
             this.rtbDepositPrice.TabIndex = 15;
@@ -606,7 +606,7 @@
             this.rtbOwnerExpences.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbOwnerExpences.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbOwnerExpences.Location = new System.Drawing.Point(277, 6);
-            this.rtbOwnerExpences.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rtbOwnerExpences.Margin = new System.Windows.Forms.Padding(6);
             this.rtbOwnerExpences.Name = "rtbOwnerExpences";
             this.rtbOwnerExpences.Size = new System.Drawing.Size(259, 64);
             this.rtbOwnerExpences.TabIndex = 14;
@@ -651,7 +651,7 @@
             this.rtbNetPrice.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbNetPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbNetPrice.Location = new System.Drawing.Point(277, 6);
-            this.rtbNetPrice.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rtbNetPrice.Margin = new System.Windows.Forms.Padding(6);
             this.rtbNetPrice.Name = "rtbNetPrice";
             this.rtbNetPrice.Size = new System.Drawing.Size(259, 64);
             this.rtbNetPrice.TabIndex = 13;
@@ -696,7 +696,7 @@
             this.rtbGrossPrice.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbGrossPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbGrossPrice.Location = new System.Drawing.Point(277, 6);
-            this.rtbGrossPrice.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rtbGrossPrice.Margin = new System.Windows.Forms.Padding(6);
             this.rtbGrossPrice.Name = "rtbGrossPrice";
             this.rtbGrossPrice.Size = new System.Drawing.Size(259, 64);
             this.rtbGrossPrice.TabIndex = 12;
@@ -741,7 +741,7 @@
             this.rtbTimeFrame.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbTimeFrame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbTimeFrame.Location = new System.Drawing.Point(277, 6);
-            this.rtbTimeFrame.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rtbTimeFrame.Margin = new System.Windows.Forms.Padding(6);
             this.rtbTimeFrame.Name = "rtbTimeFrame";
             this.rtbTimeFrame.Size = new System.Drawing.Size(259, 64);
             this.rtbTimeFrame.TabIndex = 11;
@@ -786,7 +786,7 @@
             this.rtbDesiredPrice.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbDesiredPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbDesiredPrice.Location = new System.Drawing.Point(277, 6);
-            this.rtbDesiredPrice.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rtbDesiredPrice.Margin = new System.Windows.Forms.Padding(6);
             this.rtbDesiredPrice.Name = "rtbDesiredPrice";
             this.rtbDesiredPrice.Size = new System.Drawing.Size(259, 64);
             this.rtbDesiredPrice.TabIndex = 10;
@@ -848,7 +848,7 @@
             this.cbSellerId.ForeColor = System.Drawing.SystemColors.ControlText;
             this.cbSellerId.FormattingEnabled = true;
             this.cbSellerId.Location = new System.Drawing.Point(277, 6);
-            this.cbSellerId.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cbSellerId.Margin = new System.Windows.Forms.Padding(6);
             this.cbSellerId.Name = "cbSellerId";
             this.cbSellerId.Size = new System.Drawing.Size(257, 32);
             this.cbSellerId.TabIndex = 10;
@@ -877,7 +877,7 @@
             this.rtbHouseType.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbHouseType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbHouseType.Location = new System.Drawing.Point(276, 6);
-            this.rtbHouseType.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rtbHouseType.Margin = new System.Windows.Forms.Padding(6);
             this.rtbHouseType.Name = "rtbHouseType";
             this.rtbHouseType.Size = new System.Drawing.Size(258, 64);
             this.rtbHouseType.TabIndex = 13;
@@ -934,7 +934,7 @@
             this.cbSoldFlag.AutoSize = true;
             this.cbSoldFlag.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbSoldFlag.Location = new System.Drawing.Point(275, 4);
-            this.cbSoldFlag.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbSoldFlag.Margin = new System.Windows.Forms.Padding(4);
             this.cbSoldFlag.Name = "cbSoldFlag";
             this.cbSoldFlag.Size = new System.Drawing.Size(263, 68);
             this.cbSoldFlag.TabIndex = 10;
@@ -978,7 +978,7 @@
             this.rtbResSquareMeters.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbResSquareMeters.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbResSquareMeters.Location = new System.Drawing.Point(276, 6);
-            this.rtbResSquareMeters.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rtbResSquareMeters.Margin = new System.Windows.Forms.Padding(6);
             this.rtbResSquareMeters.Name = "rtbResSquareMeters";
             this.rtbResSquareMeters.Size = new System.Drawing.Size(258, 64);
             this.rtbResSquareMeters.TabIndex = 2;
@@ -1008,7 +1008,7 @@
             this.rtbPropSquareMeters.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbPropSquareMeters.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbPropSquareMeters.Location = new System.Drawing.Point(276, 6);
-            this.rtbPropSquareMeters.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rtbPropSquareMeters.Margin = new System.Windows.Forms.Padding(6);
             this.rtbPropSquareMeters.Name = "rtbPropSquareMeters";
             this.rtbPropSquareMeters.Size = new System.Drawing.Size(258, 64);
             this.rtbPropSquareMeters.TabIndex = 3;
@@ -1053,7 +1053,7 @@
             this.rtbBuiltRebuilt.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbBuiltRebuilt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbBuiltRebuilt.Location = new System.Drawing.Point(276, 6);
-            this.rtbBuiltRebuilt.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rtbBuiltRebuilt.Margin = new System.Windows.Forms.Padding(6);
             this.rtbBuiltRebuilt.Name = "rtbBuiltRebuilt";
             this.rtbBuiltRebuilt.Size = new System.Drawing.Size(258, 64);
             this.rtbBuiltRebuilt.TabIndex = 4;
@@ -1099,7 +1099,7 @@
             this.rtbNrOfRooms.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbNrOfRooms.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbNrOfRooms.Location = new System.Drawing.Point(276, 6);
-            this.rtbNrOfRooms.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rtbNrOfRooms.Margin = new System.Windows.Forms.Padding(6);
             this.rtbNrOfRooms.Name = "rtbNrOfRooms";
             this.rtbNrOfRooms.Size = new System.Drawing.Size(258, 64);
             this.rtbNrOfRooms.TabIndex = 5;
@@ -1144,7 +1144,7 @@
             this.rtbFloors.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbFloors.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbFloors.Location = new System.Drawing.Point(276, 6);
-            this.rtbFloors.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rtbFloors.Margin = new System.Windows.Forms.Padding(6);
             this.rtbFloors.Name = "rtbFloors";
             this.rtbFloors.Size = new System.Drawing.Size(258, 64);
             this.rtbFloors.TabIndex = 6;
@@ -1202,7 +1202,7 @@
             this.cbGarageFlag.AutoSize = true;
             this.cbGarageFlag.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbGarageFlag.Location = new System.Drawing.Point(274, 4);
-            this.cbGarageFlag.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbGarageFlag.Margin = new System.Windows.Forms.Padding(4);
             this.cbGarageFlag.Name = "cbGarageFlag";
             this.cbGarageFlag.Size = new System.Drawing.Size(262, 68);
             this.cbGarageFlag.TabIndex = 8;
@@ -1232,7 +1232,7 @@
             this.rtbEnergyRating.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbEnergyRating.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbEnergyRating.Location = new System.Drawing.Point(276, 6);
-            this.rtbEnergyRating.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rtbEnergyRating.Margin = new System.Windows.Forms.Padding(6);
             this.rtbEnergyRating.Name = "rtbEnergyRating";
             this.rtbEnergyRating.Size = new System.Drawing.Size(258, 64);
             this.rtbEnergyRating.TabIndex = 8;
@@ -1259,7 +1259,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Sag_Create";
             this.Size = new System.Drawing.Size(1584, 897);
             this.Load += new System.EventHandler(this.Sag_Create_Load);
