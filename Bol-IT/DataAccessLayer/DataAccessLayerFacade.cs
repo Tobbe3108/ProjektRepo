@@ -359,12 +359,12 @@ namespace DataAccessLayer
         #endregion
 
         #region Sale
-
+        //Tobias
         public static saleDataTable StatisticSquareMeterPrice(decimal SearchYear, decimal SearchMonth)
         {
             return MethodsDataAccessLayer.StatisticSquareMeterPrice(SearchYear, SearchMonth);
         }
-
+        //Christoffer og Simone
         public static int StatisticSquareMeterPriceByZipcode(int zipcode)
         {
             return MethodsDataAccessLayer.StatisticSquareMeterPriceByZipcode(zipcode);
@@ -381,7 +381,7 @@ namespace DataAccessLayer
         {
             return MethodsDataAccessLayer.StatisticsSoldArea(zipcode);
         }
-
+        //Christoffer og Simone
         public static DataTable StatisticsSoldAreaGetAll()
         {
             return MethodsDataAccessLayer.StatisticsSoldArea();
@@ -391,27 +391,23 @@ namespace DataAccessLayer
         #endregion
 
         #region File
-
+        //Christoffer
         public static void CreateFile(int caseNr, string nameOfFile, string extOfFile, byte[] dataOfFile)
         {
             MethodsDataAccessLayer.CreateFile(caseNr, nameOfFile, extOfFile, dataOfFile);
         }
-        
         public static byte[] GetPhotoFromId(int id)
         {
             return MethodsDataAccessLayer.GetPhotoFromId(id);
         }
-
         public static string GetPhotoNameFromIdAndPhoto(int id, byte[] photo)
         {
             return MethodsDataAccessLayer.GetPhotoNameFromIdAndPhoto(id, photo);
         }
-
         public static void UpdatePhoto(string originalFileName, int caseNr, string fileName, string extName, byte[] photo)
         {
             MethodsDataAccessLayer.UpdatePhoto(originalFileName, caseNr, fileName, extName, photo);
         }
-
         public static string GetPhotoExtFromName(string nameOfPhoto)
         {
             return MethodsDataAccessLayer.GetPhotoExtFromName(nameOfPhoto);
@@ -419,12 +415,11 @@ namespace DataAccessLayer
         #endregion
 
         #region PersonalData
-
+        //Tobias
         public static personalDataDataTable GetPersonalDataDataTable()
         {
             return MethodsDataAccessLayer.GetPersonalDataDataTable();
         }
-
         public static personalDataDataTable GetPersonalDataDataTableByLike(string searchParameters)
         {
             return MethodsDataAccessLayer.GetPersonalDataDataTableByLike(searchParameters);

@@ -85,6 +85,7 @@ namespace Bol_IT
 
         #region Methods
 
+        //Christoffer og Tobias
         private bool Sanitizer()
         {
             if (DataAccessLayerFacade.CheckForSQLInjection(rtbFName.Text, rtbMName.Text, rtbLName.Text, rtbPhoneNr.Text, rtbAddress.Text, rtbZipcode.Text, rtbMail.Text, rtbTypeChainging.Text))
@@ -134,7 +135,7 @@ namespace Bol_IT
 
             return true;
         }
-
+        //Tobias
         private void LoadData()
         {
             switch (DataAccessLayerFacade.GetPersonTypeById(id))
@@ -183,7 +184,6 @@ namespace Bol_IT
                     break;
             }
         }
-
         public void StartLoadData()
         {
             Thread LoadDataThread = new Thread(() => LoadData());
@@ -194,7 +194,7 @@ namespace Bol_IT
         #endregion
 
         #region Events
-
+        //Tobias
         private void btnSaveToFile_Click(object sender, EventArgs e)
         {
             if (Sanitizer())
@@ -293,7 +293,6 @@ namespace Bol_IT
                 }
             }
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             //Load Person_ViewAll User control når tryk på knap
@@ -304,7 +303,7 @@ namespace Bol_IT
             }
             Form1.Instance.PnlContainer.Controls["Person_ViewAll"].BringToFront();
         }
-
+        //Tobias
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (Sanitizer())
@@ -379,7 +378,6 @@ namespace Bol_IT
                 }
             }
         }
-
         private void cbType_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (cbType.SelectedIndex)
@@ -393,7 +391,7 @@ namespace Bol_IT
                     break;
             }
         }
-
+        //Christoffer
         private void CheckKeyPressChar(object sender, KeyPressEventArgs e)
         {
             if (char.IsNumber(e.KeyChar))
@@ -401,7 +399,6 @@ namespace Bol_IT
                 e.Handled = true;
             }
         }
-
         private void CheckKeyPressDigit(object sender, KeyPressEventArgs e)
         {
             if (!char.IsNumber(e.KeyChar))
@@ -409,7 +406,7 @@ namespace Bol_IT
                 e.Handled = true;
             }
         }
-
+        //Tobias
         private void CheckKeyPressDigitOrChar(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsSeparator(e.KeyChar))

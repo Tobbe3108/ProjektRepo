@@ -177,7 +177,6 @@ namespace Bol_IT
 
         private void pbHouseImage_DragDrop(object sender, DragEventArgs e)
         {
-            var test = e.ToString();
             if ((string[])e.Data.GetData(DataFormats.FileDrop) != null)
             {
                 foreach (string pic in ((string[])e.Data.GetData(DataFormats.FileDrop)))
@@ -232,6 +231,7 @@ namespace Bol_IT
             }
         }
 
+        //Christoffer og Tobias
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (AnyBoxIsEmpty())
@@ -504,6 +504,7 @@ namespace Bol_IT
             }
         }
 
+        //Tobias
         private void btnCreateAd_Click(object sender, EventArgs e)
         {
             //Klar til at implementere API fra annonce sider

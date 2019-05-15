@@ -148,14 +148,17 @@ namespace Bol_IT
         //Tobias
         private void pbHouseImage_DragDrop(object sender, DragEventArgs e)
         {
-            foreach (string pic in ((string[])e.Data.GetData(DataFormats.FileDrop)))
+            if ((string[])e.Data.GetData(DataFormats.FileDrop) != null)
             {
-                Image image = Image.FromFile(pic);
-                pbHouseImage.Image = image;
-                if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                foreach (string pic in ((string[])e.Data.GetData(DataFormats.FileDrop)))
                 {
-                    var path = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
-                    pbHouseImage.ImageLocation = (string)path;
+                    Image image = Image.FromFile(pic);
+                    pbHouseImage.Image = image;
+                    if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                    {
+                        var path = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
+                        pbHouseImage.ImageLocation = (string)path;
+                    }
                 }
             }
         }
@@ -187,6 +190,7 @@ namespace Bol_IT
             }
         }
 
+        //Christoffer og Tobias
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (AnyBoxIsEmpty())
@@ -271,6 +275,28 @@ namespace Bol_IT
             }
         }
 
+
+        //Simone
+        public void UpdatePrice(int grossPrice, int netPrice, int ownerExpences, int depositPrice, int cashPrice)
+        {
+            Instance.rtbGrossPrice.Text = grossPrice.ToString();
+            Instance.rtbNetPrice.Text = netPrice.ToString();
+            Instance.rtbOwnerExpences.Text = ownerExpences.ToString();
+            Instance.rtbDepositPrice.Text = depositPrice.ToString();
+            Instance.rtbCashPrice.Text = cashPrice.ToString();
+
+        }
+        private bool PropSquareMetersEmpty()
+        {
+            if (rtbPropSquareMeters.Text == string.Empty)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         private bool AnyBoxIsEmpty()
         {
             if (rtbTimeFrame.Text == string.Empty)
@@ -313,30 +339,6 @@ namespace Bol_IT
             }
             return false;
         }
-
-        //Simone
-        public void UpdatePrice(int grossPrice, int netPrice, int ownerExpences, int depositPrice, int cashPrice)
-        {
-            Instance.rtbGrossPrice.Text = grossPrice.ToString();
-            Instance.rtbNetPrice.Text = netPrice.ToString();
-            Instance.rtbOwnerExpences.Text = ownerExpences.ToString();
-            Instance.rtbDepositPrice.Text = depositPrice.ToString();
-            Instance.rtbCashPrice.Text = cashPrice.ToString();
-
-        }
-
-        private bool PropSquareMetersEmpty()
-        {
-            if (rtbPropSquareMeters.Text == string.Empty)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
         private void btnCalculatePrice_Click(object sender, EventArgs e)
         {
             if (PropSquareMetersEmpty())

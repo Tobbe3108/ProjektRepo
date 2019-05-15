@@ -22,7 +22,7 @@ namespace Bol_IT
         #region Init
 
         public bool ThreadRunning { get; set; }
-        public bool shouldRun { get; set; }
+        public bool ShouldRun { get; set; }
 
         //Tobias
         //Singleton i
@@ -123,10 +123,10 @@ namespace Bol_IT
             catch (Exception) { }
             ThreadRunning = false;
 
-            if (shouldRun)
+            if (ShouldRun)
             {
                 StartDataLoad();
-                shouldRun = false;
+                ShouldRun = false;
             }
         }
 
@@ -134,7 +134,7 @@ namespace Bol_IT
         {
             if (ThreadRunning)
             {
-                shouldRun = true;
+                ShouldRun = true;
             }
             else
             {
