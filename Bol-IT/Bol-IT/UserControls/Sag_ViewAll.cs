@@ -125,7 +125,7 @@ namespace Bol_IT
 
             if (shouldRun)
             {
-                rtbSearch_TextChanged(null, null);
+                StartDataLoad();
                 shouldRun = false;
             }
         }
