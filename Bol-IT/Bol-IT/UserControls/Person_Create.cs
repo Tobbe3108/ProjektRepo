@@ -68,6 +68,15 @@ namespace Bol_IT
                 btnCancel.Font = new Font(btnCancel.Font.FontFamily, this.Size.Height / 50);
                 btnSave.Font = new Font(btnSave.Font.FontFamily, this.Size.Height / 50);
                 btnSaveToFile.Font = new Font(btnSaveToFile.Font.FontFamily, this.Size.Height / 50);
+
+                rtbAddress.Font = new Font(rtbAddress.Font.FontFamily, this.Size.Height / 50);
+                rtbFName.Font = new Font(rtbFName.Font.FontFamily, this.Size.Height / 50);
+                rtbLName.Font = new Font(rtbLName.Font.FontFamily, this.Size.Height / 50);
+                rtbMail.Font = new Font(rtbMail.Font.FontFamily, this.Size.Height / 50);
+                rtbMName.Font = new Font(rtbMName.Font.FontFamily, this.Size.Height / 50);
+                rtbPhoneNr.Font = new Font(rtbPhoneNr.Font.FontFamily, this.Size.Height / 50);
+                rtbTypeChainging.Font = new Font(rtbTypeChainging.Font.FontFamily, this.Size.Height / 50);
+                rtbZipcode.Font = new Font(rtbZipcode.Font.FontFamily, this.Size.Height / 50);
             }
             catch{}
         }
@@ -318,6 +327,16 @@ namespace Bol_IT
                         }
 
                         MessageBox.Show("Det lykkedes at oprette personen på databasen");
+
+                        //Load Person_ViewAll User control når tryk på knap
+                        if (!Form1.Instance.PnlContainer.Controls.ContainsKey("Person_ViewAll"))
+                        {
+                            Person_ViewAll.Instance.Dock = DockStyle.Fill;
+                            Form1.Instance.PnlContainer.Controls.Add(Person_ViewAll.Instance);
+                        }
+                        Form1.Instance.PnlContainer.Controls["Person_ViewAll"].BringToFront();
+
+                        Person_ViewAll.Instance.StartDataLoad();
                     }
                     catch
                     {
@@ -342,6 +361,16 @@ namespace Bol_IT
                         }
 
                         MessageBox.Show("Det lykkedes at opdatere personen på databasen");
+
+                        //Load Person_ViewAll User control når tryk på knap
+                        if (!Form1.Instance.PnlContainer.Controls.ContainsKey("Person_ViewAll"))
+                        {
+                            Person_ViewAll.Instance.Dock = DockStyle.Fill;
+                            Form1.Instance.PnlContainer.Controls.Add(Person_ViewAll.Instance);
+                        }
+                        Form1.Instance.PnlContainer.Controls["Person_ViewAll"].BringToFront();
+
+                        Person_ViewAll.Instance.StartDataLoad();
                     }
                     catch
                     {
