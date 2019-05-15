@@ -21,9 +21,8 @@ namespace Bol_IT
     {
         #region Init
 
-        private bool IsWaiting = false;
-        private bool IsThreadRunning = false;
-        private Thread LoadDataThread;
+        public bool ThreadRunning { get; set; }
+        public bool shouldRun { get; set; }
 
         //Tobias
         //Singleton i
@@ -85,11 +84,6 @@ namespace Bol_IT
         //Kalder fasaden til DAL laget for at få fat i data fra property tabellen samt lidt data formatering
         private void LoadData()
         {
-            if (IsThreadRunning)
-            {
-
-            }
-            IsThreadRunning = true;
             try
             {
                 DataTable dataTable = new DataTable();
@@ -125,25 +119,29 @@ namespace Bol_IT
 
                 dgvSager.Invoke((MethodInvoker)delegate { dgvSager.DataSource = dataTable; });
 
-                if (IsWaiting)
-                {
-                    IsWaiting = false;
-                    StartDataLoad();
-                }
             }
             catch (Exception) { }
-            IsThreadRunning = false;
+            ThreadRunning = false;
+
+            if (shouldRun)
+            {
+                rtbSearch_TextChanged(null, null);
+                shouldRun = false;
+            }
         }
 
         public void StartDataLoad()
         {
-            LoadDataThread = new Thread(() => LoadData())
+            if (ThreadRunning)
             {
-                Name = "DataLoadThread",
-                IsBackground = true
-            };
-            if (!LoadDataThread.IsAlive)
+                shouldRun = true;
+            }
+            else
             {
+                ThreadRunning = true;
+                Thread LoadDataThread = new Thread(() => LoadData());
+                LoadDataThread.Name = "DataLoadThread";
+                LoadDataThread.IsBackground = true;
                 LoadDataThread.Start();
             }
         }
@@ -172,15 +170,7 @@ namespace Bol_IT
 
         private void rtbSearch_TextChanged(object sender, EventArgs e)
         {
-            if (IsThreadRunning)
-            {
-                IsWaiting = true;
-            }
-            else
-            {
-                IsThreadRunning = true;
-                StartDataLoad();
-            }
+            StartDataLoad();
         }
 
 
