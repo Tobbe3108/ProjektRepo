@@ -123,7 +123,7 @@ namespace Bol_IT
                 btnToFile.Font = new Font(btnToFile.Font.FontFamily, this.Size.Height / 50);
                 #endregion
             }
-            catch{}
+            catch { }
         }
 
         #endregion
@@ -177,14 +177,18 @@ namespace Bol_IT
 
         private void pbHouseImage_DragDrop(object sender, DragEventArgs e)
         {
-            foreach (string pic in ((string[])e.Data.GetData(DataFormats.FileDrop)))
+            var test = e.ToString();
+            if ((string[])e.Data.GetData(DataFormats.FileDrop) != null)
             {
-                Image image = Image.FromFile(pic);
-                pbHouseImage.Image = image;
-                if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                foreach (string pic in ((string[])e.Data.GetData(DataFormats.FileDrop)))
                 {
-                    var path = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
-                    pbHouseImage.ImageLocation = (string)path;
+                    Image image = Image.FromFile(pic);
+                    pbHouseImage.Image = image;
+                    if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                    {
+                        var path = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
+                        pbHouseImage.ImageLocation = (string)path;
+                    }
                 }
             }
         }
@@ -324,7 +328,7 @@ namespace Bol_IT
                 Sag_ViewAll.Instance.StartDataLoad();
             }
         }
-        
+
         /// <summary>
         /// Kontrollerer at alle tekstfelter er udfyldte, sådan at der ikke sker fejl ved indsætningen i databasen
         /// </summary>
@@ -365,7 +369,7 @@ namespace Bol_IT
             { rtbHouseDescription.Text = "Ingen tekst"; }
 
             if (pbHouseImage.Image == null)
-            {  }
+            { }
 
             if (cbSellerId.Text == string.Empty && rtbAddress.Text == string.Empty)
             {

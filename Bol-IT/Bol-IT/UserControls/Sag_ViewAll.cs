@@ -13,12 +13,17 @@ using GlobalClasses;
 using ClosedXML.Excel;
 using System.IO;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace Bol_IT
 {
     public partial class Sag_ViewAll : UserControl
     {
         #region Init
+
+        private bool IsWaiting = false;
+        private bool IsThreadRunning = false;
+
         //Tobias
         //Singleton i
         static Sag_ViewAll _instance;
@@ -81,6 +86,7 @@ namespace Bol_IT
         {
             try
             {
+                IsThreadRunning = true;
                 DataTable dataTable = new DataTable();
 
                 string SearchParameters = "";
@@ -113,6 +119,13 @@ namespace Bol_IT
                 dataTable.Columns.Remove("description");
 
                 dgvSager.Invoke((MethodInvoker)delegate { dgvSager.DataSource = dataTable; });
+
+                IsThreadRunning = false;
+                if (IsWaiting)
+                {
+                    IsWaiting = false;
+                    StartDataLoad();
+                }
             }
             catch (Exception) { }
         }
@@ -120,6 +133,7 @@ namespace Bol_IT
         public void StartDataLoad()
         {
             Thread LoadDataThread = new Thread(() => LoadData());
+            LoadDataThread.Name = "DataLoadThread";
             LoadDataThread.IsBackground = true;
             LoadDataThread.Start();
         }
@@ -148,7 +162,14 @@ namespace Bol_IT
 
         private void rtbSearch_TextChanged(object sender, EventArgs e)
         {
-            StartDataLoad();
+            if (IsThreadRunning)
+            {
+                IsWaiting = true;
+            }
+            else
+            {
+                StartDataLoad();
+            }
         }
 
 
