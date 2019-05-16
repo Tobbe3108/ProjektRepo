@@ -45,7 +45,84 @@ namespace DataAccessLayer
 
         #endregion TableAdapters
 
-        #region CreateMethods
+        #region PersonalData
+
+        //Christoffer
+        public static string GetPersonTypeById(int id)
+        {
+            string persontype = "";
+            if (agentTableAdapter.GetDataById(id).Rows.Count != 0)
+            {
+                persontype = "Mægler";
+            }
+            if (sellerTableAdapter.GetDataById(id).Rows.Count != 0)
+            {
+                persontype = "Sælger";
+            }
+            if (buyerTableAdapter.GetDataById(id).Rows.Count != 0)
+            {
+                persontype = "Køber";
+            }
+            return persontype;
+        }
+
+        public static Dictionary<int, string> GetPersonTypeByIds(List<int> ids)
+        {
+            Dictionary<int, string> persontypes = new Dictionary<int, string>();
+            foreach (int id in ids)
+            {
+                try
+                {
+                    if (agentTableAdapter.CheckIfIdExists(id) != null)
+                    {
+                        persontypes.Add(id, "Mægler");
+                    }
+                    else if (sellerTableAdapter.CheckIfIdExists(id) != null)
+                    {
+                        persontypes.Add(id, "Sælger");
+                    }
+                    else if (buyerTableAdapter.CheckIfIdExists(id) != null)
+                    {
+                        persontypes.Add(id, "Køber");
+                    }
+                }
+                catch { }
+            }
+
+            return persontypes;
+        }
+
+        public static personalDataDataTable GetPersonalDataDataTableByLike(string searchParameters)
+        {
+            string[] dataTableColumnNames = { "Fornavn", "Efternavn", "Telefon nr.", "Adresse", "Postnummer", "E-mail" };
+
+            personalDataDataTable dataTable = new personalDataDataTable();
+            personalDataTableAdapter.FillByLike(dataTable, searchParameters);
+            dataTable.Columns["id"].SetOrdinal(0);
+            dataTable.Columns["id"].ColumnName = "Id";
+            dataTable.Columns["mName"].SetOrdinal(1);
+            dataTable.Columns["mName"].ColumnName = "Persontype";
+            dataTable.Columns["fName"].SetOrdinal(2);
+
+            for (int i = 2; i < dataTable.Columns.Count; i++)
+            {
+                dataTable.Columns[i].ColumnName = dataTableColumnNames[i - 2];
+                dataTable.Columns[i].SetOrdinal(i);
+            }
+            return dataTable;
+        }
+
+        //Tobias
+        public static personalDataDataTable GetPersonalDataDataTable()
+        {
+            personalDataDataTable pdt = new personalDataDataTable();
+            personalDataTableAdapter.Fill(pdt);
+            return pdt;
+        }
+
+        #endregion
+
+        #region Agent
 
         //Christoffer
         public static void CreateAgent(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int nrOfSales)
@@ -55,51 +132,13 @@ namespace DataAccessLayer
         }
 
         //Christoffer
-        public static void CreateSeller(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
-        {
-            int id = (int)personalDataTableAdapter.InsertData(fName, mName, lName, phoneNr, address, zipcode, mail);
-            sellerTableAdapter.InsertData(id, aId);
-        }
-
-        //Christoffer
-        public static void CreateBuyer(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
-        {
-            int id = (int)personalDataTableAdapter.InsertData(fName, mName, lName, phoneNr, address, zipcode, mail);
-            buyerTableAdapter.InsertData(id, aId);
-        }
-
-        //Christoffer
-        public static int CreateProperty(int sId, int desiredPrice, int timeFrame, int netPrice, int grossPrice, int ownerExpenses, int cashPrice,
-            int depositPrice, string address, int zipcode, int nrOfRooms, bool garageFlag, string builtRebuild, string houseType, string energyRating,
-             int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
-        {
-            int caseNr = (int)propertyTableAdapter.InsertData(netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms,
-                garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description);
-
-
-            wantsToSellTableAdapter.InsertData(sId, caseNr, desiredPrice, timeFrame);
-
-            return caseNr;
-        }
-
-
-
-        public static void CreateFile(int caseNr, string nameOfFile, string extOfFile, byte[] dataOfFile)
-        {
-            filesTableAdapter.InsertData(caseNr, nameOfFile, extOfFile, dataOfFile);
-        }
-
-        #endregion CreateMethods
-
-        #region SearchMethods
-        //Christoffer
         public static agentDataTable GetAllAgentIds()
         {
             agentDataTable agents = new agentDataTable();
             agentTableAdapter.FillByAllId(agents);
             return agents;
         }
-        #region Agent
+
         //Christoffer
         public static agentDataTable GetAgentDataTable()
         {
@@ -115,25 +154,6 @@ namespace DataAccessLayer
             agentTableAdapter.FillByLike(adt, searchParameters);
             return adt;
         }
-
-
-        //Christoffer
-        public static sellerDataTable GetAllSellerIds()
-        {
-            sellerDataTable sellers = new sellerDataTable();
-            sellerTableAdapter.FillByAllId(sellers);
-            return sellers;
-        }
-
-        //Christoffer
-        public static buyerDataTable GetAllBuyerIds()
-        {
-            buyerDataTable buyers = new buyerDataTable();
-            buyerTableAdapter.FillByAllId(buyers);
-            return buyers;
-        }
-
-        #region ReturnObjects
 
         //Christoffer
         public static Agent GetAgentById(int id)
@@ -186,54 +206,184 @@ namespace DataAccessLayer
             return agents;
         }
 
-        public static string GetPhotoExtFromName(string nameOfPhoto)
+        //Tobias
+        public static void AgentUpdateData(int id, string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int nrOfSales)
         {
-            try
-            {
-
-                return filesTableAdapter.GetPhotoExtFromName(nameOfPhoto);
-            }
-            catch (Exception)
-            {
-
-                return null;
-            }
+            personalDataTableAdapter.UpdateData(fName, mName, lName, phoneNr, address, zipcode, mail, id);
+            agentTableAdapter.UpdateNrOfSales(nrOfSales, id);
         }
 
-        #endregion
+
+
         #endregion
 
-        #region Files
+        #region Seller
         //Christoffer
-        public static byte[] GetPhotoFromId(int id)
+        public static void CreateSeller(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
         {
-            filesDataTable files = filesTableAdapter.GetDataByCaseNr(id);
+            int id = (int)personalDataTableAdapter.InsertData(fName, mName, lName, phoneNr, address, zipcode, mail);
+            sellerTableAdapter.InsertData(id, aId);
+        }
 
-            for (int i = 0; i < files.Rows.Count; i++)
+        //Christoffer
+        public static sellerDataTable GetAllSellerIds()
+        {
+            sellerDataTable sellers = new sellerDataTable();
+            sellerTableAdapter.FillByAllId(sellers);
+            return sellers;
+        }
+
+        //Christoffer
+        public static List<Seller> GetSellers()
+        {
+            sellerDataTable sdt = new sellerDataTable();
+            sellerTableAdapter.Fill(sdt);
+            personalDataDataTable pddt = new personalDataDataTable();
+            personalDataTableAdapter.Fill(pddt);
+
+            List<Seller> sellers = new List<Seller>();
+            for (int i = 0; i < sdt.Rows.Count; i++)
             {
-                if ((string)files.Rows[i][2] == "jpg" || (string)files.Rows[i][2] == "png")
+                Seller seller = new Seller
                 {
-                    return (byte[])files.Rows[i][3];
-                }
+                    SId = (int)sdt.Rows[i][0],
+                    AId = (int)sdt.Rows[i][1],
+                    FName = (string)pddt.Rows[i][1],
+                    MName = (string)pddt.Rows[i][2],
+                    LName = (string)pddt.Rows[i][3],
+                    PhoneNr = (int)pddt.Rows[i][4],
+                    Address = (string)pddt.Rows[i][5],
+                    Zipcode = (int)pddt.Rows[i][6],
+                    Mail = (string)pddt.Rows[i][7]
+                };
+                sellers.Add(seller);
             }
-
-            return null;
+            return sellers;
         }
-        public static string GetPhotoNameFromIdAndPhoto(int id, byte[] photo)
+
+        //Christoffer
+        public static Seller GetSellerById(int id)
         {
-            try
-            {
+            sellerDataTable sdt = new sellerDataTable();
+            sellerTableAdapter.FillById(sdt, id);
+            personalDataDataTable pddt = new personalDataDataTable();
+            personalDataTableAdapter.FillById(pddt, id);
 
-                return filesTableAdapter.GetPhotoNameByCaseIdAndPhoto(id, photo);
-            }
-            catch (Exception)
+            Seller seller = new Seller
             {
-                return null;
-            }
+                SId = (int)sdt.Rows[0][0],
+                AId = (int)sdt.Rows[0][1],
+                FName = (string)pddt.Rows[0][1],
+                MName = (string)pddt.Rows[0][2],
+                LName = (string)pddt.Rows[0][3],
+                PhoneNr = (int)pddt.Rows[0][4],
+                Address = (string)pddt.Rows[0][5],
+                Zipcode = (int)pddt.Rows[0][6],
+                Mail = (string)pddt.Rows[0][7]
+            };
+            return seller;
         }
+
+        //Tobias
+        public static void SellerUpdateData(int id, string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
+        {
+            personalDataTableAdapter.UpdateData(fName, mName, lName, phoneNr, address, zipcode, mail, id);
+            sellerTableAdapter.UpdateAId(aId, id);
+        }
+
+        #endregion
+
+        #region Buyer
+        //Christoffer
+        public static void CreateBuyer(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
+        {
+            int id = (int)personalDataTableAdapter.InsertData(fName, mName, lName, phoneNr, address, zipcode, mail);
+            buyerTableAdapter.InsertData(id, aId);
+        }
+
+        //Christoffer
+        public static buyerDataTable GetAllBuyerIds()
+        {
+            buyerDataTable buyers = new buyerDataTable();
+            buyerTableAdapter.FillByAllId(buyers);
+            return buyers;
+        }
+
+        //Christoffer
+        public static List<Buyer> GetBuyers()
+        {
+            buyerDataTable bdt = new buyerDataTable();
+            buyerTableAdapter.Fill(bdt);
+            personalDataDataTable pddt = new personalDataDataTable();
+            personalDataTableAdapter.Fill(pddt);
+
+            List<Buyer> buyers = new List<Buyer>();
+            for (int i = 0; i < bdt.Rows.Count; i++)
+            {
+                Buyer buyer = new Buyer
+                {
+                    BId = (int)bdt.Rows[i][0],
+                    AId = (int)bdt.Rows[i][1],
+                    FName = (string)pddt.Rows[i][1],
+                    MName = (string)pddt.Rows[i][2],
+                    LName = (string)pddt.Rows[i][3],
+                    PhoneNr = (int)pddt.Rows[i][4],
+                    Address = (string)pddt.Rows[i][5],
+                    Zipcode = (int)pddt.Rows[i][6],
+                    Mail = (string)pddt.Rows[i][7]
+                };
+                buyers.Add(buyer);
+            }
+            return buyers;
+        }
+
+        //Christoffer
+        public static Buyer GetBuyerById(int id)
+        {
+            buyerDataTable bdt = new buyerDataTable();
+            buyerTableAdapter.FillById(bdt, id);
+            personalDataDataTable pddt = new personalDataDataTable();
+            personalDataTableAdapter.FillById(pddt, id);
+
+            Buyer buyer = new Buyer
+            {
+                BId = (int)bdt.Rows[0][0],
+                AId = (int)bdt.Rows[0][1],
+                FName = (string)pddt.Rows[0][1],
+                MName = (string)pddt.Rows[0][2],
+                LName = (string)pddt.Rows[0][3],
+                PhoneNr = (int)pddt.Rows[0][4],
+                Address = (string)pddt.Rows[0][5],
+                Zipcode = (int)pddt.Rows[0][6],
+                Mail = (string)pddt.Rows[0][7]
+            };
+            return buyer;
+        }
+
+        //Tobias
+        public static void BuyerUpdateData(int id, string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
+        {
+            personalDataTableAdapter.UpdateData(fName, mName, lName, phoneNr, address, zipcode, mail, id);
+            buyerTableAdapter.UpdateAId(aId, id);
+        }
+
+
         #endregion
 
         #region Property
+        //Christoffer
+        public static int CreateProperty(int sId, int desiredPrice, int timeFrame, int netPrice, int grossPrice, int ownerExpenses, int cashPrice,
+            int depositPrice, string address, int zipcode, int nrOfRooms, bool garageFlag, string builtRebuild, string houseType, string energyRating,
+             int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
+        {
+            int caseNr = (int)propertyTableAdapter.InsertData(netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms,
+                garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description);
+
+
+            wantsToSellTableAdapter.InsertData(sId, caseNr, desiredPrice, timeFrame);
+
+            return caseNr;
+        }
 
         //Christoffer
         public static propertyDataTable GetPropertyDataTable()
@@ -273,7 +423,6 @@ namespace DataAccessLayer
             return pdt;
         }
 
-        #region ReturnObjects
         public static WantsToSell GetWantsToSellByCaseNr(int caseNr)
         {
             wantsToSellDataTable wtsdt = new wantsToSellDataTable();
@@ -356,124 +505,83 @@ namespace DataAccessLayer
             return properties;
         }
 
-        #endregion
-
-        #endregion
-
-        #region Seller
-
-        #region ReturnObjects
-        //Christoffer
-        public static List<Seller> GetSellers()
+        public static void UpdateProperty(int caseNr, int sId, int desiredPrice, int timeFrame, int netPrice, int grossPrice, int ownerExpenses, int cashPrice,
+            int depositPrice, string address, int zipcode, int nrOfRooms, bool garageFlag, string builtRebuild, string houseType, string energyRating,
+             int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
         {
-            sellerDataTable sdt = new sellerDataTable();
-            sellerTableAdapter.Fill(sdt);
-            personalDataDataTable pddt = new personalDataDataTable();
-            personalDataTableAdapter.Fill(pddt);
+            propertyTableAdapter.UpdateData(netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms, garageFlag,
+                builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description, caseNr);
 
-            List<Seller> sellers = new List<Seller>();
-            for (int i = 0; i < sdt.Rows.Count; i++)
+            wantsToSellTableAdapter.UpdateData(sId, desiredPrice, timeFrame, caseNr);
+        }
+
+        #endregion
+
+        #region File
+        public static void CreateFile(int caseNr, string nameOfFile, string extOfFile, byte[] dataOfFile)
+        {
+            filesTableAdapter.InsertData(caseNr, nameOfFile, extOfFile, dataOfFile);
+        }
+
+
+        public static string GetPhotoExtFromName(string nameOfPhoto)
+        {
+            try
             {
-                Seller seller = new Seller
-                {
-                    SId = (int)sdt.Rows[i][0],
-                    AId = (int)sdt.Rows[i][1],
-                    FName = (string)pddt.Rows[i][1],
-                    MName = (string)pddt.Rows[i][2],
-                    LName = (string)pddt.Rows[i][3],
-                    PhoneNr = (int)pddt.Rows[i][4],
-                    Address = (string)pddt.Rows[i][5],
-                    Zipcode = (int)pddt.Rows[i][6],
-                    Mail = (string)pddt.Rows[i][7]
-                };
-                sellers.Add(seller);
+
+                return filesTableAdapter.GetPhotoExtFromName(nameOfPhoto);
             }
-            return sellers;
-        }
-
-        //Christoffer
-        public static Seller GetSellerById(int id)
-        {
-            sellerDataTable sdt = new sellerDataTable();
-            sellerTableAdapter.FillById(sdt, id);
-            personalDataDataTable pddt = new personalDataDataTable();
-            personalDataTableAdapter.FillById(pddt, id);
-
-            Seller seller = new Seller
+            catch (Exception)
             {
-                SId = (int)sdt.Rows[0][0],
-                AId = (int)sdt.Rows[0][1],
-                FName = (string)pddt.Rows[0][1],
-                MName = (string)pddt.Rows[0][2],
-                LName = (string)pddt.Rows[0][3],
-                PhoneNr = (int)pddt.Rows[0][4],
-                Address = (string)pddt.Rows[0][5],
-                Zipcode = (int)pddt.Rows[0][6],
-                Mail = (string)pddt.Rows[0][7]
-            };
-            return seller;
-        }
 
-        #endregion
-
-        #endregion
-
-        #region Buyer
-
-        #region ReturnObjects
-        //Christoffer
-        public static List<Buyer> GetBuyers()
-        {
-            buyerDataTable bdt = new buyerDataTable();
-            buyerTableAdapter.Fill(bdt);
-            personalDataDataTable pddt = new personalDataDataTable();
-            personalDataTableAdapter.Fill(pddt);
-
-            List<Buyer> buyers = new List<Buyer>();
-            for (int i = 0; i < bdt.Rows.Count; i++)
-            {
-                Buyer buyer = new Buyer
-                {
-                    BId = (int)bdt.Rows[i][0],
-                    AId = (int)bdt.Rows[i][1],
-                    FName = (string)pddt.Rows[i][1],
-                    MName = (string)pddt.Rows[i][2],
-                    LName = (string)pddt.Rows[i][3],
-                    PhoneNr = (int)pddt.Rows[i][4],
-                    Address = (string)pddt.Rows[i][5],
-                    Zipcode = (int)pddt.Rows[i][6],
-                    Mail = (string)pddt.Rows[i][7]
-                };
-                buyers.Add(buyer);
+                return null;
             }
-            return buyers;
         }
 
         //Christoffer
-        public static Buyer GetBuyerById(int id)
+        public static byte[] GetPhotoFromId(int id)
         {
-            buyerDataTable bdt = new buyerDataTable();
-            buyerTableAdapter.FillById(bdt, id);
-            personalDataDataTable pddt = new personalDataDataTable();
-            personalDataTableAdapter.FillById(pddt, id);
+            filesDataTable files = filesTableAdapter.GetDataByCaseNr(id);
 
-            Buyer buyer = new Buyer
+            for (int i = 0; i < files.Rows.Count; i++)
             {
-                BId = (int)bdt.Rows[0][0],
-                AId = (int)bdt.Rows[0][1],
-                FName = (string)pddt.Rows[0][1],
-                MName = (string)pddt.Rows[0][2],
-                LName = (string)pddt.Rows[0][3],
-                PhoneNr = (int)pddt.Rows[0][4],
-                Address = (string)pddt.Rows[0][5],
-                Zipcode = (int)pddt.Rows[0][6],
-                Mail = (string)pddt.Rows[0][7]
-            };
-            return buyer;
+                if ((string)files.Rows[i][2] == "jpg" || (string)files.Rows[i][2] == "png")
+                {
+                    return (byte[])files.Rows[i][3];
+                }
+            }
+
+            return null;
+        }
+        public static string GetPhotoNameFromIdAndPhoto(int id, byte[] photo)
+        {
+            try
+            {
+
+                return filesTableAdapter.GetPhotoNameByCaseIdAndPhoto(id, photo);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
-
-        #endregion
+        //Christoffer
+        public static void UpdatePhoto(string originalFileName, int caseNr, string fileName, string extName, byte[] photo)
+        {
+            if (originalFileName == null)
+            {
+                if (photo == null)
+                {
+                    return;
+                }
+                filesTableAdapter.InsertData(caseNr, fileName, extName, photo);
+            }
+            else
+            {
+                filesTableAdapter.UpdateData(fileName, extName, photo, originalFileName);
+            }
+        }
 
         #endregion
 
@@ -506,155 +614,7 @@ namespace DataAccessLayer
         }
 
         #endregion
-
-        #region PersonalData
-
-        //Christoffer
-        public static string GetPersonTypeById(int id)
-        {
-            string persontype = "";
-            if (agentTableAdapter.GetDataById(id).Rows.Count != 0)
-            {
-                persontype = "Mægler";
-            }
-            if (sellerTableAdapter.GetDataById(id).Rows.Count != 0)
-            {
-                persontype = "Sælger";
-            }
-            if (buyerTableAdapter.GetDataById(id).Rows.Count != 0)
-            {
-                persontype = "Køber";
-            }
-            return persontype;
-        }
-
-        public static Dictionary<int, string> GetPersonTypeByIds(List<int> ids)
-        {
-            Dictionary<int, string> persontypes = new Dictionary<int, string>();
-            foreach (int id in ids)
-            {
-                try
-                {
-                    if (agentTableAdapter.CheckIfIdExists(id) != null)
-                    {
-                        persontypes.Add(id, "Mægler");
-                    }
-                    else if (sellerTableAdapter.CheckIfIdExists(id) != null)
-                    {
-                        persontypes.Add(id, "Sælger");
-                    }
-                    else if (buyerTableAdapter.CheckIfIdExists(id) != null)
-                    {
-                        persontypes.Add(id, "Køber");
-                    }
-                }
-                catch { }
-            }
-
-            return persontypes;
-        }
-
-        public static personalDataDataTable GetPersonalDataDataTableByLike(string searchParameters)
-        {
-            string[] dataTableColumnNames = { "Fornavn", "Efternavn", "Telefon nr.", "Adresse", "Postnummer", "E-mail" };
-
-            personalDataDataTable dataTable = new personalDataDataTable();
-            personalDataTableAdapter.FillByLike(dataTable, searchParameters);
-            dataTable.Columns["id"].SetOrdinal(0);
-            dataTable.Columns["id"].ColumnName = "Id";
-            dataTable.Columns["mName"].SetOrdinal(1);
-            dataTable.Columns["mName"].ColumnName = "Persontype";
-            dataTable.Columns["fName"].SetOrdinal(2);
-
-            for (int i = 2; i < dataTable.Columns.Count; i++)
-            {
-                dataTable.Columns[i].ColumnName = dataTableColumnNames[i - 2];
-                dataTable.Columns[i].SetOrdinal(i);
-            }
-            return dataTable;
-        }
-
-        //Tobias
-        public static personalDataDataTable GetPersonalDataDataTable()
-        {
-            personalDataDataTable pdt = new personalDataDataTable();
-            personalDataTableAdapter.Fill(pdt);
-            return pdt;
-        }
-
-        #endregion
-
-        #endregion
-
-        #region UpdateMethods
-
-        #region Property
-
-        public static void UpdateProperty(int caseNr, int sId, int desiredPrice, int timeFrame, int netPrice, int grossPrice, int ownerExpenses, int cashPrice,
-            int depositPrice, string address, int zipcode, int nrOfRooms, bool garageFlag, string builtRebuild, string houseType, string energyRating,
-             int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
-        {
-            propertyTableAdapter.UpdateData(netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms, garageFlag,
-                builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description, caseNr);
-
-            wantsToSellTableAdapter.UpdateData(sId, desiredPrice, timeFrame, caseNr);
-        }
-
-        #endregion
-
-        #region Files
-        //Christoffer
-        public static void UpdatePhoto(string originalFileName, int caseNr, string fileName, string extName, byte[] photo)
-        {
-            if (originalFileName == null)
-            {
-                if (photo == null)
-                {
-                    return;
-                }
-                filesTableAdapter.InsertData(caseNr, fileName, extName, photo);
-            }
-            else
-            {
-                filesTableAdapter.UpdateData(fileName, extName, photo, originalFileName);
-            }
-        }
-        #endregion
-
-        #region Agent
-
-        //Tobias
-        public static void AgentUpdateData(int id, string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int nrOfSales)
-        {
-            personalDataTableAdapter.UpdateData(fName, mName, lName, phoneNr, address, zipcode, mail, id);
-            agentTableAdapter.UpdateNrOfSales(nrOfSales, id);
-        }
-
-        #endregion
-
-        #region Seller
-
-        //Tobias
-        public static void SellerUpdateData(int id, string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
-        {
-            personalDataTableAdapter.UpdateData(fName, mName, lName, phoneNr, address, zipcode, mail, id);
-            sellerTableAdapter.UpdateAId(aId, id);
-        }
-
-        #endregion
-
-        #region Buyer
-
-        //Tobias
-        public static void BuyerUpdateData(int id, string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail, int aId)
-        {
-            personalDataTableAdapter.UpdateData(fName, mName, lName, phoneNr, address, zipcode, mail, id);
-            buyerTableAdapter.UpdateAId(aId, id);
-        }
-
-        #endregion
-
-        #endregion
+        
     }
 
 }
