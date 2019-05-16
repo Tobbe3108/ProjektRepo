@@ -181,10 +181,12 @@ namespace Bol_IT
 
         #endregion
 
+        #region Events
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Properties.Settings.Default.MainWindowState = this.WindowState;
             Properties.Settings.Default.Save();
         }
+        #endregion
     }
 }
