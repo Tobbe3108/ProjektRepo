@@ -178,7 +178,8 @@
             this.cbDistribution.Items.AddRange(new object[] {
             "Efter pris",
             "Tilfældigt"});
-            this.cbDistribution.Location = new System.Drawing.Point(102, 3);
+            this.cbDistribution.Location = new System.Drawing.Point(189, 6);
+            this.cbDistribution.Margin = new System.Windows.Forms.Padding(6);
             this.cbDistribution.Name = "cbDistribution";
             this.cbDistribution.Size = new System.Drawing.Size(294, 21);
             this.cbDistribution.TabIndex = 1;
@@ -207,7 +208,8 @@
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnReset.Location = new System.Drawing.Point(202, 3);
+            this.btnReset.Location = new System.Drawing.Point(372, 6);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(6);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(194, 41);
             this.btnReset.TabIndex = 6;
@@ -222,7 +224,8 @@
             this.btnDistribute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDistribute.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDistribute.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnDistribute.Location = new System.Drawing.Point(3, 3);
+            this.btnDistribute.Location = new System.Drawing.Point(6, 6);
+            this.btnDistribute.Margin = new System.Windows.Forms.Padding(6);
             this.btnDistribute.Name = "btnDistribute";
             this.btnDistribute.Size = new System.Drawing.Size(193, 41);
             this.btnDistribute.TabIndex = 5;
@@ -271,7 +274,8 @@
             this.cbSearchParam.Items.AddRange(new object[] {
             "Mægler",
             "Sager"});
-            this.cbSearchParam.Location = new System.Drawing.Point(202, 19);
+            this.cbSearchParam.Location = new System.Drawing.Point(372, 35);
+            this.cbSearchParam.Margin = new System.Windows.Forms.Padding(6);
             this.cbSearchParam.Name = "cbSearchParam";
             this.cbSearchParam.Size = new System.Drawing.Size(194, 21);
             this.cbSearchParam.TabIndex = 2;
@@ -318,7 +322,8 @@
             this.dgvDistribution.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Slet});
             this.dgvDistribution.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDistribution.Location = new System.Drawing.Point(3, 49);
+            this.dgvDistribution.Location = new System.Drawing.Point(6, 91);
+            this.dgvDistribution.Margin = new System.Windows.Forms.Padding(6);
             this.dgvDistribution.Name = "dgvDistribution";
             this.dgvDistribution.ReadOnly = true;
             this.dgvDistribution.Size = new System.Drawing.Size(393, 362);
@@ -358,7 +363,8 @@
             this.btnToFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnToFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnToFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnToFile.Location = new System.Drawing.Point(102, 3);
+            this.btnToFile.Location = new System.Drawing.Point(189, 6);
+            this.btnToFile.Margin = new System.Windows.Forms.Padding(6);
             this.btnToFile.Name = "btnToFile";
             this.btnToFile.Size = new System.Drawing.Size(193, 41);
             this.btnToFile.TabIndex = 0;
@@ -372,6 +378,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "OpenHouse_Distribution";
             this.Size = new System.Drawing.Size(864, 486);
             this.Load += new System.EventHandler(this.OpenHouse_Distribution_Load);

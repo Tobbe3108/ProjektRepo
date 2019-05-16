@@ -345,7 +345,7 @@ namespace Bol_IT
         {
             if (PropSquareMetersEmpty())
             {
-                MessageBox.Show("Der er ikke indtastet et grundareal, indtast grundareal og prøv igen.", "Felj!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Der er ikke indtastet et grundareal, indtast grundareal og prøv igen.", "fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Messagebox_PriceCalculator priceCalculator = new Messagebox_PriceCalculator();

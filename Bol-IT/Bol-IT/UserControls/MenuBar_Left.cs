@@ -18,7 +18,7 @@ namespace Bol_IT
 
         //Tobias
         //Singleton instance af MenuBar_Left
-        static MenuBar_Left _instance;
+        private static MenuBar_Left _instance;
         public static MenuBar_Left Instance
         {
             get

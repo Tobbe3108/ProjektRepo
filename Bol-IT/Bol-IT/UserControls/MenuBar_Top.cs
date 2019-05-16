@@ -19,7 +19,7 @@ namespace Bol_IT
 
         //Tobias
         //Singleton instance af MenuBar_Top
-        static MenuBar_Top _instance;
+        private static MenuBar_Top _instance;
         public static MenuBar_Top Instance
         {
             get
@@ -77,12 +77,13 @@ namespace Bol_IT
             ParentForm.WindowState = FormWindowState.Minimized;
         }
 
-        #endregion
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblTime.Text = DateTime.Now.ToString("HH:mm");
             lblDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
+
+        #endregion
+
     }
 }

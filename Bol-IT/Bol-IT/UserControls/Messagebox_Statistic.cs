@@ -66,12 +66,6 @@ namespace Bol_IT
 
         #endregion
 
-        #region Methods
-
-
-
-        #endregion
-
         #region Events
 
         //Tobias
