@@ -145,10 +145,11 @@ namespace BusinessLayer
             {
                 int leftChildInt = maxHob[LeftChild(parent)].CashPrice;//Finder værdien på det venstre child.
                 int rightChildInt = maxHob[RightChild(parent)].CashPrice;//Finder værdien på det højre child.
+                int parentInt = maxHob[parent].CashPrice;
 
-                bool leftChildBigger = parent < leftChildInt && leftChildInt >= rightChildInt; //Kontrollerer om venstre child er større end parent, og at den er større end, eller = med højre child.
+                bool leftChildBigger = parentInt < leftChildInt && leftChildInt >= rightChildInt; //Kontrollerer om venstre child er større end parent, og at den er større end, eller = med højre child.
                                                                                                //Dette gøres fordi hvis begge childs er større end parenten, men de begge er lige store, er det den venstre der rykkes op.
-                bool rightChildBigger = parent < rightChildInt && leftChildInt < rightChildInt;//Kontrollerer om højre child er større end parent og venstre child. 
+                bool rightChildBigger = parentInt < rightChildInt && leftChildInt < rightChildInt;//Kontrollerer om højre child er større end parent og venstre child. 
 
                 if (leftChildBigger)
                 {
