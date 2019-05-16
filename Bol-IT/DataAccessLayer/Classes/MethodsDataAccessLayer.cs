@@ -244,10 +244,10 @@ namespace DataAccessLayer
         }
 
         //Christoffer & Tobias
-        public static propertyDataTable GetPropertyDataTableByLike(string searchParameters, bool soldFlag)
+        public static propertyDataTable GetPropertyDataTableByLike(bool soldFlag, string searchParameters)
         {
             propertyDataTable pdt = new propertyDataTable();
-            propertyTableAdapter.FillByLike(pdt, searchParameters, soldFlag);
+            propertyTableAdapter.FillByLike(pdt, soldFlag, searchParameters);
             return pdt;
         }
 
