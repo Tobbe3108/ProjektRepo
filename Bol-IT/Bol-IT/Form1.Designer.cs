@@ -42,7 +42,7 @@
             this.pnlMenuBarTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlMenuBarTop.Location = new System.Drawing.Point(96, 0);
             this.pnlMenuBarTop.Name = "pnlMenuBarTop";
-            this.pnlMenuBarTop.Size = new System.Drawing.Size(864, 54);
+            this.pnlMenuBarTop.Size = new System.Drawing.Size(859, 54);
             this.pnlMenuBarTop.TabIndex = 2;
             // 
             // pnlMenuBarLeft
@@ -56,9 +56,9 @@
             // pnlContainer
             // 
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContainer.Location = new System.Drawing.Point(96, 54);
+            this.pnlContainer.Location = new System.Drawing.Point(96, 0);
             this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(864, 486);
+            this.pnlContainer.Size = new System.Drawing.Size(864, 540);
             this.pnlContainer.TabIndex = 3;
             // 
             // pnlSizerBottom
@@ -92,9 +92,9 @@
             this.pnlSizerRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(104)))), ((int)(((byte)(162)))));
             this.pnlSizerRight.Cursor = System.Windows.Forms.Cursors.SizeWE;
             this.pnlSizerRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlSizerRight.Location = new System.Drawing.Point(955, 54);
+            this.pnlSizerRight.Location = new System.Drawing.Point(955, 0);
             this.pnlSizerRight.Name = "pnlSizerRight";
-            this.pnlSizerRight.Size = new System.Drawing.Size(5, 481);
+            this.pnlSizerRight.Size = new System.Drawing.Size(5, 535);
             this.pnlSizerRight.TabIndex = 5;
             this.pnlSizerRight.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlSizerRight_MouseDown);
             this.pnlSizerRight.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlSizerRight_MouseMove);
@@ -105,10 +105,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 540);
+            this.Controls.Add(this.pnlMenuBarTop);
             this.Controls.Add(this.pnlSizerRight);
             this.Controls.Add(this.pnlSizerBottom);
             this.Controls.Add(this.pnlContainer);
-            this.Controls.Add(this.pnlMenuBarTop);
             this.Controls.Add(this.pnlMenuBarLeft);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";

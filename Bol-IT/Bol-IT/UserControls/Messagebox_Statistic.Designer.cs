@@ -153,8 +153,8 @@
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel6.Controls.Add(this.lblArea, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.cbArea, 1, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -175,7 +175,7 @@
             this.lblArea.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.lblArea.Location = new System.Drawing.Point(3, 0);
             this.lblArea.Name = "lblArea";
-            this.lblArea.Size = new System.Drawing.Size(52, 30);
+            this.lblArea.Size = new System.Drawing.Size(64, 30);
             this.lblArea.TabIndex = 0;
             this.lblArea.Text = "Område";
             this.lblArea.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -186,9 +186,9 @@
             this.cbArea.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbArea.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.cbArea.FormattingEnabled = true;
-            this.cbArea.Location = new System.Drawing.Point(61, 3);
+            this.cbArea.Location = new System.Drawing.Point(73, 3);
             this.cbArea.Name = "cbArea";
-            this.cbArea.Size = new System.Drawing.Size(170, 21);
+            this.cbArea.Size = new System.Drawing.Size(158, 21);
             this.cbArea.TabIndex = 1;
             this.cbArea.Text = "Vælg";
             // 

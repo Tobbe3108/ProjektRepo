@@ -127,6 +127,8 @@ namespace Bol_IT
                         break;
                 }
 
+
+
                 dgvSearch.Invoke((MethodInvoker)delegate { dgvSearch.DataSource = dataTable; });
             }
             catch (Exception) { }
