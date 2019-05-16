@@ -33,10 +33,10 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.pbHouseImage = new System.Windows.Forms.PictureBox();
             this.rtbHouseDescription = new System.Windows.Forms.RichTextBox();
+            this.lvHouseFiles = new System.Windows.Forms.ListView();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.lvHouseFiles = new System.Windows.Forms.ListView();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbAddress = new System.Windows.Forms.RichTextBox();
@@ -102,7 +102,7 @@
             this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
             this.btnToFile = new System.Windows.Forms.Button();
             this.btnCreateAd = new System.Windows.Forms.Button();
-            this.ofdOpenPicture = new System.Windows.Forms.OpenFileDialog();
+            this.ofdOpenFile = new System.Windows.Forms.OpenFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -175,8 +175,8 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.pbHouseImage, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.rtbHouseDescription, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.lvHouseFiles, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 3);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(624, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
@@ -215,6 +215,20 @@
             this.rtbHouseDescription.Size = new System.Drawing.Size(190, 132);
             this.rtbHouseDescription.TabIndex = 1;
             this.rtbHouseDescription.Text = "Indsæt tekst";
+            // 
+            // lvHouseFiles
+            // 
+            this.lvHouseFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(241)))), ((int)(((byte)(245)))));
+            this.lvHouseFiles.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lvHouseFiles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvHouseFiles.ForeColor = System.Drawing.Color.White;
+            this.lvHouseFiles.Location = new System.Drawing.Point(3, 279);
+            this.lvHouseFiles.Name = "lvHouseFiles";
+            this.lvHouseFiles.Size = new System.Drawing.Size(190, 132);
+            this.lvHouseFiles.TabIndex = 3;
+            this.lvHouseFiles.UseCompatibleStateImageBehavior = false;
+            this.lvHouseFiles.MouseCaptureChanged += new System.EventHandler(this.lvHouseFiles_MouseCaptureChanged);
+            this.lvHouseFiles.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvHouseFiles_MouseDown);
             // 
             // tableLayoutPanel4
             // 
@@ -264,18 +278,6 @@
             this.btnCancel.Text = "Annuller";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // lvHouseFiles
-            // 
-            this.lvHouseFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(241)))), ((int)(((byte)(245)))));
-            this.lvHouseFiles.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lvHouseFiles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvHouseFiles.ForeColor = System.Drawing.Color.White;
-            this.lvHouseFiles.Location = new System.Drawing.Point(3, 279);
-            this.lvHouseFiles.Name = "lvHouseFiles";
-            this.lvHouseFiles.Size = new System.Drawing.Size(190, 132);
-            this.lvHouseFiles.TabIndex = 3;
-            this.lvHouseFiles.UseCompatibleStateImageBehavior = false;
             // 
             // tableLayoutPanel5
             // 
@@ -1241,9 +1243,9 @@
             this.btnCreateAd.UseVisualStyleBackColor = false;
             this.btnCreateAd.Click += new System.EventHandler(this.btnCreateAd_Click);
             // 
-            // ofdOpenPicture
+            // ofdOpenFile
             // 
-            this.ofdOpenPicture.FileName = "openFileDialog1";
+            this.ofdOpenFile.FileName = "openFileDialog1";
             // 
             // Sag_Edit
             // 
@@ -1373,7 +1375,7 @@
         private System.Windows.Forms.Label lblFloors;
         private System.Windows.Forms.Label lblDesiredPrice;
         private System.Windows.Forms.ComboBox cbSellerId;
-        private System.Windows.Forms.OpenFileDialog ofdOpenPicture;
+        private System.Windows.Forms.OpenFileDialog ofdOpenFile;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel27;
         private System.Windows.Forms.RichTextBox rtbCaseNr;
         private System.Windows.Forms.Label lblCaseNr;

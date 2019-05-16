@@ -903,7 +903,7 @@
             this.cbSoldFlag.AutoSize = true;
             this.cbSoldFlag.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbSoldFlag.Location = new System.Drawing.Point(149, 2);
-            this.cbSoldFlag.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbSoldFlag.Margin = new System.Windows.Forms.Padding(2);
             this.cbSoldFlag.Name = "cbSoldFlag";
             this.cbSoldFlag.Size = new System.Drawing.Size(144, 37);
             this.cbSoldFlag.TabIndex = 10;
@@ -1160,7 +1160,7 @@
             this.cbGarageFlag.AutoSize = true;
             this.cbGarageFlag.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbGarageFlag.Location = new System.Drawing.Point(149, 2);
-            this.cbGarageFlag.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbGarageFlag.Margin = new System.Windows.Forms.Padding(2);
             this.cbGarageFlag.Name = "cbGarageFlag";
             this.cbGarageFlag.Size = new System.Drawing.Size(143, 37);
             this.cbGarageFlag.TabIndex = 8;

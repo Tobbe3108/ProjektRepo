@@ -330,7 +330,7 @@ namespace DataAccessLayer
         /// <returns></returns>
         public static propertyDataTable GetPropertyDataTableByLike(string searchParameters, bool soldFlag)
         {
-            return MethodsDataAccessLayer.GetPropertyDataTableByLike(searchParameters, soldFlag);
+            return MethodsDataAccessLayer.GetPropertyDataTableByLike(soldFlag, searchParameters);
         }
 
         //Christoffer

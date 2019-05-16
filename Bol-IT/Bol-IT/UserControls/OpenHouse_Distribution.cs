@@ -336,7 +336,7 @@ namespace Bol_IT
                 agentDistributionTable.Clear();
                 propDistributionTable.Clear();
 
-                //Kopier dataSourcen fra DataGridViewet med fordelingen, og clear det for data.
+                //Kopier dataSourcen fra DataGridViewet med fordelingen, og clear det for data. Dette gøres for ikke at fjerne collumns, men kun fjerne dataen.
                 DataTable data = (DataTable)dgvDistribution.DataSource;
                 data.Clear(); //Fjerner dataen fra kopien
                 dgvDistribution.DataSource = data;
