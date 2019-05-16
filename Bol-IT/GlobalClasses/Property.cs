@@ -29,39 +29,5 @@ namespace GlobalClasses
         public string Description { get; set; }
 
         #endregion
-
-        #region Constructors
-        
-        //Christoffer
-        public Property()
-        {
-
-        }
-
-        public Property(int caseNr, int netPrice, int grossPrice, int ownerExpenses, int cashPrice, int depositPrice,
-            string adress, int zipCode, int nrOfRooms, bool garageFlag, string builtRebuild, string houseType,
-            string energyRating, int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
-        {
-            CaseNr = caseNr;
-            NetPrice = netPrice;
-            GrossPrice = grossPrice;
-            OwnerExpenses = ownerExpenses;
-            CashPrice = cashPrice;
-            DepositPrice = depositPrice;
-            Address = adress;
-            ZipCode = zipCode;
-            NrOfRooms = nrOfRooms;
-            GarageFlag = garageFlag;
-            BuiltRebuild = builtRebuild;
-            HouseType = houseType;
-            EnergyRating = energyRating;
-            ResSquareMeters = resSquareMeters;
-            PropSquareMeters = propSquareMeters;
-            Floors = floors;
-            SoldFlag = soldFlag;
-            Description = description;
-        }
-
-        #endregion
     }
 }
