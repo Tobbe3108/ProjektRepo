@@ -89,19 +89,17 @@ namespace Bol_IT
 
                 DataTable dataTable = DataAccessLayerFacade.GetPersonalDataDataTableByLike(SearchParameters);
 
-                if (AgentTable.Rows.Count == 0 || SellerTable.Rows.Count == 0 || BuyerTable.Rows.Count == 0)
-                {
-                    AgentTable = DataAccessLayerFacade.GetAllAgentIds();
-                    SellerTable = DataAccessLayerFacade.GetAllSellerIds();
-                    BuyerTable = DataAccessLayerFacade.GetAllBuyerIds();
-                }
+                AgentTable = DataAccessLayerFacade.GetAllAgentIds();
+                SellerTable = DataAccessLayerFacade.GetAllSellerIds();
+                BuyerTable = DataAccessLayerFacade.GetAllBuyerIds();
+
 
                 for (int i = 0; i < dataTable.Rows.Count; i++)
                 {
                     int tempNum = (int)dataTable.Rows[i]["Id"];
                     if (AgentTable.Rows.Contains(tempNum))
                     {
-                        dataTable.Rows[i]["Persontype"] = "Mælger";
+                        dataTable.Rows[i]["Persontype"] = "Mægler";
                     }
                     else if (SellerTable.Rows.Contains(tempNum))
                     {
@@ -129,6 +127,7 @@ namespace Bol_IT
 
         public void StartDataLoad()
         {
+            // Hvis tråden er i gang med at køre, så sætter den et flag, som den nuværende thread tjekker når den er færdig med at køre, hvilket kører threaden igen
             if (ThreadRunning)
             {
                 ShouldRun = true;

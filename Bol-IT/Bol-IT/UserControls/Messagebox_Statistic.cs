@@ -133,6 +133,7 @@ namespace Bol_IT
                         dataTable.Columns["salesPrice"].SetOrdinal(7);
                     }
                     break;
+
                 case 1:
                     //Kvadratmeterpris salgsstatistik
                     dataTable = DataAccessLayerFacade.StatisticSquareMeterPrice(Decimal.Parse(cbYear.GetItemText(cbYear.SelectedItem)), (decimal)(cbMonth.SelectedIndex + 1));
@@ -165,8 +166,7 @@ namespace Bol_IT
                 Filter = "Tekst fil (*.txt)|*.txt|Excel (*.xlsx)|*.xlsx",
                 FilterIndex = 1,
                 CheckFileExists = false,
-                CheckPathExists = true,
-                RestoreDirectory = true
+                CheckPathExists = true
             };
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK) //Hvis det lykkedes for brugeren at vælge et sted at gemme filen

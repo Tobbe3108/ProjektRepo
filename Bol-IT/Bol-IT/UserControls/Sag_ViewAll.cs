@@ -117,6 +117,12 @@ namespace Bol_IT
                 dataTable.Columns.Remove("soldFlag");
                 dataTable.Columns.Remove("description");
 
+                dataTable.Columns["caseNr"].ColumnName = "Sags nummer";
+                dataTable.Columns["address"].ColumnName = "Adresse";
+                dataTable.Columns["zipcode"].ColumnName = "Postnummer";
+                dataTable.Columns["builtRebuild"].ColumnName = "Bygget/Ombygget";
+                dataTable.Columns["houseType"].ColumnName = "Hus type";
+
                 dgvSager.Invoke((MethodInvoker)delegate { dgvSager.DataSource = dataTable; });
 
             }
