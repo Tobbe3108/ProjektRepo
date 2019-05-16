@@ -21,7 +21,7 @@ namespace Bol_IT
 
         public string TypeChange { get; set; }
 
-        public int id { get; set; }
+        public int Id { get; set; }
 
         #endregion
 
@@ -90,31 +90,31 @@ namespace Bol_IT
         {
             if (DataAccessLayerFacade.CheckForSQLInjection(rtbFName.Text, rtbMName.Text, rtbLName.Text, rtbPhoneNr.Text, rtbAddress.Text, rtbZipcode.Text, rtbMail.Text, rtbTypeChainging.Text))
             {
-                MessageBox.Show("Felterne må ikke indeholde ';' Ret venligst dette", "Felj!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Felterne må ikke indeholde ';' Ret venligst dette", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             if (rtbAddress.Text == string.Empty || rtbFName.Text == string.Empty || rtbLName.Text == string.Empty || rtbMail.Text == string.Empty || rtbMName.Text == string.Empty || rtbPhoneNr.Text == string.Empty || rtbTypeChainging.Text == string.Empty || rtbZipcode.Text == string.Empty)
             {
-                MessageBox.Show("Der må ikke være nogle tomme felter. Ret vejligt dette", "Felj!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Der må ikke være nogle tomme felter. Ret venligst dette", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             if (!rtbMail.Text.ToString().Contains('@') || !rtbMail.Text.ToString().Contains('.'))
             {
-                MessageBox.Show("Mailadressen skal indeholde '@' og '.' Ret venligt dette", "Felj!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Mailadressen skal indeholde '@' og '.' Ret venligst dette", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             if (rtbZipcode.Text.Length != 4 || !rtbZipcode.Text.All(char.IsDigit))
             {
-                MessageBox.Show("Postnummeret skal bestå af 4 tal. Ret venligst dette", "Felj!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Postnummeret skal bestå af 4 tal. Ret venligst dette", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             if (rtbPhoneNr.Text.Length != 8 || !rtbPhoneNr.Text.All(char.IsDigit))
             {
-                MessageBox.Show("Telefonnummeret skal bestå af 8 tal. Ret venligst dette", "Felj!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Telefonnummeret skal bestå af 8 tal. Ret venligst dette", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -123,11 +123,11 @@ namespace Bol_IT
                 switch (cbType.SelectedIndex)
                 {
                     case 0:
-                        MessageBox.Show("Antal salg skal være et tal. Ret venligst dette", "Felj!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Antal salg skal være et tal. Ret venligst dette", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                     case 1:
                     case 2:
-                        MessageBox.Show("Mægler nummer skal være et tal. Ret venligst dette", "Felj!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Mægler nummer skal være et tal. Ret venligst dette", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
                 return false;
@@ -138,10 +138,10 @@ namespace Bol_IT
         //Tobias
         private void LoadData()
         {
-            switch (DataAccessLayerFacade.GetPersonTypeById(id))
+            switch (DataAccessLayerFacade.GetPersonTypeById(Id))
             {
                 case "Mægler":
-                    Agent agent = DataAccessLayerFacade.GetAgentById(id);
+                    Agent agent = DataAccessLayerFacade.GetAgentById(Id);
                     cbType.Invoke((MethodInvoker)delegate { cbType.SelectedIndex = 0; });
                     rtbAddress.Invoke((MethodInvoker)delegate { rtbAddress.Text = agent.Address; });
                     rtbFName.Invoke((MethodInvoker)delegate { rtbFName.Text = agent.FName; });
@@ -156,7 +156,7 @@ namespace Bol_IT
 
 
                 case "Sælger":
-                    Seller seller = DataAccessLayerFacade.GetSellerById(id);
+                    Seller seller = DataAccessLayerFacade.GetSellerById(Id);
                     cbType.Invoke((MethodInvoker)delegate { cbType.SelectedIndex = 1; });
                     rtbAddress.Invoke((MethodInvoker)delegate { rtbAddress.Text = seller.Address; });
                     rtbFName.Invoke((MethodInvoker)delegate { rtbFName.Text = seller.FName; });
@@ -171,7 +171,7 @@ namespace Bol_IT
 
 
                 case "Køber":
-                    Buyer buyer = DataAccessLayerFacade.GetBuyerById(id);
+                    Buyer buyer = DataAccessLayerFacade.GetBuyerById(Id);
                     cbType.Invoke((MethodInvoker)delegate { cbType.SelectedIndex = 2; });
                     rtbAddress.Invoke((MethodInvoker)delegate { rtbAddress.Text = buyer.Address; });
                     rtbFName.Invoke((MethodInvoker)delegate { rtbFName.Text = buyer.FName; });
@@ -349,13 +349,13 @@ namespace Bol_IT
                         switch (cbType.SelectedIndex)
                         {
                             case 0:
-                                DataAccessLayerFacade.AgentUpdateData(id, rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
+                                DataAccessLayerFacade.AgentUpdateData(Id, rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
                                 break;
                             case 1:
-                                DataAccessLayerFacade.SellerUpdateData(id, rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
+                                DataAccessLayerFacade.SellerUpdateData(Id, rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
                                 break;
                             case 2:
-                                DataAccessLayerFacade.BuyerUpdateData(id, rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
+                                DataAccessLayerFacade.BuyerUpdateData(Id, rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbPhoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
                                 break;
                         }
 

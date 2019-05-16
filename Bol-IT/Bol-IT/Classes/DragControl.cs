@@ -34,6 +34,7 @@ namespace Bol_IT
 
         //Defination til brud af externe funktion SendMessage fra user32.dll
         public static extern int SendMessage(IntPtr a, int msg, int wParam, int lParam);
+
         [DllImport("user32.dll")]
 
         //Defination til brud af externe funktion ReleaseCapture fra user32.dll som benyttes til at frigive mouse capture fra et åbent vindue

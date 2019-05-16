@@ -16,7 +16,7 @@ namespace Bol_IT
 {
     public partial class Person_ViewAll : UserControl
     {
-        #region Init
+        #region Fields
 
         DataTable AgentTable = new DataTable();
         DataTable SellerTable = new DataTable();
@@ -24,6 +24,11 @@ namespace Bol_IT
 
         public bool ThreadRunning { get; set; }
         public bool ShouldRun { get; set; }
+
+        #endregion
+
+        #region Init
+
 
         //Tobias
         //Singleton instance af Person_ViewAll
@@ -125,7 +130,6 @@ namespace Bol_IT
                 ShouldRun = false;
             }
         }
-
 
         public void StartDataLoad()
         {
@@ -320,7 +324,7 @@ namespace Bol_IT
 
                     Person_Create.Instance.TypeChange = "Update";
 
-                    Person_Create.Instance.id = Convert.ToInt32(dgvPerson.Rows[e.RowIndex].Cells[e.ColumnIndex + 1].Value.ToString());
+                    Person_Create.Instance.Id = Convert.ToInt32(dgvPerson.Rows[e.RowIndex].Cells[e.ColumnIndex + 1].Value.ToString());
 
                     Person_Create.Instance.StartLoadData();
                 }

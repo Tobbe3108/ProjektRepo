@@ -109,7 +109,7 @@
             this.rtbSearch.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.rtbSearch.Location = new System.Drawing.Point(11, 96);
-            this.rtbSearch.Margin = new System.Windows.Forms.Padding(11, 11, 11, 11);
+            this.rtbSearch.Margin = new System.Windows.Forms.Padding(11);
             this.rtbSearch.Name = "rtbSearch";
             this.rtbSearch.Size = new System.Drawing.Size(710, 63);
             this.rtbSearch.TabIndex = 2;
@@ -127,7 +127,7 @@
             this.Tilføj});
             this.dgvSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSearch.Location = new System.Drawing.Point(6, 176);
-            this.dgvSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dgvSearch.Margin = new System.Windows.Forms.Padding(6);
             this.dgvSearch.Name = "dgvSearch";
             this.dgvSearch.ReadOnly = true;
             this.dgvSearch.Size = new System.Drawing.Size(720, 499);
@@ -181,7 +181,7 @@
             "Efter pris",
             "Tilfældigt"});
             this.cbDistribution.Location = new System.Drawing.Point(189, 6);
-            this.cbDistribution.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cbDistribution.Margin = new System.Windows.Forms.Padding(6);
             this.cbDistribution.Name = "cbDistribution";
             this.cbDistribution.Size = new System.Drawing.Size(537, 31);
             this.cbDistribution.TabIndex = 1;
@@ -211,7 +211,7 @@
             this.btnReset.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.btnReset.Location = new System.Drawing.Point(372, 6);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(6);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(354, 74);
             this.btnReset.TabIndex = 6;
@@ -227,7 +227,7 @@
             this.btnDistribute.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDistribute.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.btnDistribute.Location = new System.Drawing.Point(6, 6);
-            this.btnDistribute.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnDistribute.Margin = new System.Windows.Forms.Padding(6);
             this.btnDistribute.Name = "btnDistribute";
             this.btnDistribute.Size = new System.Drawing.Size(354, 74);
             this.btnDistribute.TabIndex = 5;
@@ -277,7 +277,7 @@
             "Mægler",
             "Sager"});
             this.cbSearchParam.Location = new System.Drawing.Point(372, 35);
-            this.cbSearchParam.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cbSearchParam.Margin = new System.Windows.Forms.Padding(6);
             this.cbSearchParam.Name = "cbSearchParam";
             this.cbSearchParam.Size = new System.Drawing.Size(354, 31);
             this.cbSearchParam.TabIndex = 2;
@@ -326,7 +326,7 @@
             this.Slet});
             this.dgvDistribution.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDistribution.Location = new System.Drawing.Point(6, 91);
-            this.dgvDistribution.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dgvDistribution.Margin = new System.Windows.Forms.Padding(6);
             this.dgvDistribution.Name = "dgvDistribution";
             this.dgvDistribution.ReadOnly = true;
             this.dgvDistribution.Size = new System.Drawing.Size(720, 669);
@@ -367,7 +367,7 @@
             this.btnToFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnToFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
             this.btnToFile.Location = new System.Drawing.Point(189, 6);
-            this.btnToFile.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnToFile.Margin = new System.Windows.Forms.Padding(6);
             this.btnToFile.Name = "btnToFile";
             this.btnToFile.Size = new System.Drawing.Size(354, 74);
             this.btnToFile.TabIndex = 0;
@@ -381,7 +381,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "OpenHouse_Distribution";
             this.Size = new System.Drawing.Size(1584, 897);
             this.Load += new System.EventHandler(this.OpenHouse_Distribution_Load);

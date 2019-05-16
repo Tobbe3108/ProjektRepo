@@ -56,7 +56,7 @@ namespace Bol_IT
         {
             if (ZipcodeEmpty())
             {
-                MessageBox.Show("Der er ikke valgt et postnummer. Vælg et post nummer og prøv igen.", "Felj!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Der er ikke valgt et postnummer. Vælg et post nummer og prøv igen.", "fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             int cashPrice = BusinessLayerFacade.CalculateCashPrice(PropSquareMeter, (int)cbZipcode.SelectedItem, (string)cbCondition.SelectedItem, (string)cbInteriorDesign.SelectedItem, (string)cbStyle.SelectedItem, (string)cbKitchen.SelectedItem, (string)cbBathroom.SelectedItem, cbGardenFlag.Checked);

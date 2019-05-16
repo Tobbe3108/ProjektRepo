@@ -66,12 +66,6 @@ namespace Bol_IT
 
         #endregion
 
-        #region Methods
-
-
-
-        #endregion
-
         #region Events
 
         //Tobias
@@ -166,7 +160,6 @@ namespace Bol_IT
                 FilterIndex = 1,
                 CheckFileExists = false,
                 CheckPathExists = true,
-                RestoreDirectory = true
             };
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK) //Hvis det lykkedes for brugeren at vælge et sted at gemme filen

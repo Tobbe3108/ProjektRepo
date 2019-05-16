@@ -174,7 +174,6 @@ namespace Bol_IT
             StartDataLoad();
         }
 
-
         private void dgvSager_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //---Hvis trykket på knap Rediger inde i datagridview---//
