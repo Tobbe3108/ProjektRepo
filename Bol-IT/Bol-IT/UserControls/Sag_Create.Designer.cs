@@ -31,12 +31,16 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel27 = new System.Windows.Forms.TableLayoutPanel();
+            this.lvHouseFiles = new System.Windows.Forms.ListView();
+            this.btnAddFile = new System.Windows.Forms.Button();
+            this.btnDeleteFile = new System.Windows.Forms.Button();
+            this.btnShowFile = new System.Windows.Forms.Button();
             this.pbHouseImage = new System.Windows.Forms.PictureBox();
             this.rtbHouseDescription = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.lvHouseFiles = new System.Windows.Forms.ListView();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbAddress = new System.Windows.Forms.RichTextBox();
@@ -100,10 +104,11 @@
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbEnergyRating = new System.Windows.Forms.RichTextBox();
             this.lblEnergyRating = new System.Windows.Forms.Label();
-            this.ofdOpenPicture = new System.Windows.Forms.OpenFileDialog();
+            this.ofdOpenFile = new System.Windows.Forms.OpenFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel27.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHouseImage)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -170,10 +175,10 @@
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel27, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.pbHouseImage, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.rtbHouseDescription, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 3);
-            this.tableLayoutPanel3.Controls.Add(this.lvHouseFiles, 0, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(624, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
@@ -184,9 +189,91 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(196, 461);
             this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // tableLayoutPanel27
+            // 
+            this.tableLayoutPanel27.ColumnCount = 3;
+            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel27.Controls.Add(this.lvHouseFiles, 0, 0);
+            this.tableLayoutPanel27.Controls.Add(this.btnAddFile, 2, 1);
+            this.tableLayoutPanel27.Controls.Add(this.btnDeleteFile, 0, 1);
+            this.tableLayoutPanel27.Controls.Add(this.btnShowFile, 1, 1);
+            this.tableLayoutPanel27.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel27.Location = new System.Drawing.Point(0, 276);
+            this.tableLayoutPanel27.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel27.Name = "tableLayoutPanel27";
+            this.tableLayoutPanel27.RowCount = 2;
+            this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel27.Size = new System.Drawing.Size(196, 138);
+            this.tableLayoutPanel27.TabIndex = 4;
+            // 
+            // lvHouseFiles
+            // 
+            this.lvHouseFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(241)))), ((int)(((byte)(245)))));
+            this.lvHouseFiles.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableLayoutPanel27.SetColumnSpan(this.lvHouseFiles, 3);
+            this.lvHouseFiles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvHouseFiles.ForeColor = System.Drawing.Color.White;
+            this.lvHouseFiles.Location = new System.Drawing.Point(3, 3);
+            this.lvHouseFiles.Name = "lvHouseFiles";
+            this.lvHouseFiles.Size = new System.Drawing.Size(190, 104);
+            this.lvHouseFiles.TabIndex = 4;
+            this.lvHouseFiles.UseCompatibleStateImageBehavior = false;
+            this.lvHouseFiles.DoubleClick += new System.EventHandler(this.lvHouseFiles_DoubleClick);
+            // 
+            // btnAddFile
+            // 
+            this.btnAddFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.btnAddFile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAddFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
+            this.btnAddFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.btnAddFile.Location = new System.Drawing.Point(133, 113);
+            this.btnAddFile.Name = "btnAddFile";
+            this.btnAddFile.Size = new System.Drawing.Size(60, 22);
+            this.btnAddFile.TabIndex = 2;
+            this.btnAddFile.Text = "Tilføj";
+            this.btnAddFile.UseVisualStyleBackColor = false;
+            this.btnAddFile.Click += new System.EventHandler(this.btnAddFile_Click);
+            // 
+            // btnDeleteFile
+            // 
+            this.btnDeleteFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.btnDeleteFile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDeleteFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
+            this.btnDeleteFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.btnDeleteFile.Location = new System.Drawing.Point(3, 113);
+            this.btnDeleteFile.Name = "btnDeleteFile";
+            this.btnDeleteFile.Size = new System.Drawing.Size(59, 22);
+            this.btnDeleteFile.TabIndex = 1;
+            this.btnDeleteFile.Text = "Slet";
+            this.btnDeleteFile.UseVisualStyleBackColor = false;
+            this.btnDeleteFile.Click += new System.EventHandler(this.btnDeleteFile_Click);
+            // 
+            // btnShowFile
+            // 
+            this.btnShowFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.btnShowFile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnShowFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
+            this.btnShowFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.btnShowFile.Location = new System.Drawing.Point(68, 113);
+            this.btnShowFile.Name = "btnShowFile";
+            this.btnShowFile.Size = new System.Drawing.Size(59, 22);
+            this.btnShowFile.TabIndex = 5;
+            this.btnShowFile.Text = "Vis";
+            this.btnShowFile.UseVisualStyleBackColor = false;
+            this.btnShowFile.Click += new System.EventHandler(this.btnShowFile_Click);
             // 
             // pbHouseImage
             // 
@@ -263,18 +350,6 @@
             this.btnCancel.Text = "Annuller";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // lvHouseFiles
-            // 
-            this.lvHouseFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(241)))), ((int)(((byte)(245)))));
-            this.lvHouseFiles.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lvHouseFiles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvHouseFiles.ForeColor = System.Drawing.Color.White;
-            this.lvHouseFiles.Location = new System.Drawing.Point(3, 279);
-            this.lvHouseFiles.Name = "lvHouseFiles";
-            this.lvHouseFiles.Size = new System.Drawing.Size(190, 132);
-            this.lvHouseFiles.TabIndex = 3;
-            this.lvHouseFiles.UseCompatibleStateImageBehavior = false;
             // 
             // tableLayoutPanel5
             // 
@@ -1222,6 +1297,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel27.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbHouseImage)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -1280,70 +1356,74 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.OpenFileDialog ofdOpenFile;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel27;
         private System.Windows.Forms.ListView lvHouseFiles;
+        private System.Windows.Forms.Button btnAddFile;
+        private System.Windows.Forms.Button btnDeleteFile;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel26;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel25;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel24;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel23;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel22;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel20;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel19;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
         private System.Windows.Forms.RichTextBox rtbAddress;
         private System.Windows.Forms.Label lblAddress;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Button btnCalculatePrice;
-        private System.Windows.Forms.RichTextBox rtbZipCode;
-        private System.Windows.Forms.Label lblZipCode;
-        private System.Windows.Forms.RichTextBox rtbCashPrice;
-        private System.Windows.Forms.Label lblCashPrice;
-        private System.Windows.Forms.RichTextBox rtbDepositPrice;
-        private System.Windows.Forms.Label lblDepositPrice;
-        private System.Windows.Forms.RichTextBox rtbOwnerExpences;
-        private System.Windows.Forms.Label lblOwnerExpense;
-        private System.Windows.Forms.RichTextBox rtbNetPrice;
-        private System.Windows.Forms.Label lblNetPrice;
-        private System.Windows.Forms.RichTextBox rtbGrossPrice;
-        private System.Windows.Forms.Label lblGrossPrice;
-        private System.Windows.Forms.Label lblDesiredPrice;
-        private System.Windows.Forms.Label lblSeller;
-        private System.Windows.Forms.Label lblSoldFlag;
-        private System.Windows.Forms.Label lblResSquareMeters;
-        private System.Windows.Forms.RichTextBox rtbResSquareMeters;
-        private System.Windows.Forms.RichTextBox rtbPropSquareMeters;
-        private System.Windows.Forms.Label lblPropSquareMeters;
-        private System.Windows.Forms.RichTextBox rtbBuiltRebuilt;
-        private System.Windows.Forms.Label lblBuiltRebuilt;
-        private System.Windows.Forms.RichTextBox rtbNrOfRooms;
-        private System.Windows.Forms.Label lblNrOfRooms;
-        private System.Windows.Forms.RichTextBox rtbFloors;
-        private System.Windows.Forms.Label lblFloors;
-        private System.Windows.Forms.Label lblGarageFlag;
-        private System.Windows.Forms.Label lblEnergyRating;
-        private System.Windows.Forms.ComboBox cbSellerId;
-        private System.Windows.Forms.CheckBox cbSoldFlag;
-        private System.Windows.Forms.CheckBox cbGarageFlag;
-        private System.Windows.Forms.OpenFileDialog ofdOpenPicture;
-        private System.Windows.Forms.Label lblTimeFrame;
-        private System.Windows.Forms.RichTextBox rtbTimeFrame;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel26;
         private System.Windows.Forms.RichTextBox rtbCaseNr;
         private System.Windows.Forms.Label lblCaseNr;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel25;
+        private System.Windows.Forms.RichTextBox rtbZipCode;
+        private System.Windows.Forms.Label lblZipCode;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel24;
+        private System.Windows.Forms.RichTextBox rtbCashPrice;
+        private System.Windows.Forms.Label lblCashPrice;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel23;
+        private System.Windows.Forms.RichTextBox rtbDepositPrice;
+        private System.Windows.Forms.Label lblDepositPrice;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel22;
+        private System.Windows.Forms.RichTextBox rtbOwnerExpences;
+        private System.Windows.Forms.Label lblOwnerExpense;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
+        private System.Windows.Forms.RichTextBox rtbNetPrice;
+        private System.Windows.Forms.Label lblNetPrice;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel20;
+        private System.Windows.Forms.RichTextBox rtbGrossPrice;
+        private System.Windows.Forms.Label lblGrossPrice;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel19;
+        private System.Windows.Forms.RichTextBox rtbTimeFrame;
+        private System.Windows.Forms.Label lblTimeFrame;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
+        private System.Windows.Forms.RichTextBox rtbDesiredPrice;
+        private System.Windows.Forms.Label lblDesiredPrice;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
+        private System.Windows.Forms.Label lblSeller;
+        private System.Windows.Forms.ComboBox cbSellerId;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.RichTextBox rtbHouseType;
         private System.Windows.Forms.Label lblHouseType;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
+        private System.Windows.Forms.Label lblSoldFlag;
+        private System.Windows.Forms.CheckBox cbSoldFlag;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        private System.Windows.Forms.Label lblResSquareMeters;
+        private System.Windows.Forms.RichTextBox rtbResSquareMeters;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
+        private System.Windows.Forms.RichTextBox rtbPropSquareMeters;
+        private System.Windows.Forms.Label lblPropSquareMeters;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
+        private System.Windows.Forms.RichTextBox rtbBuiltRebuilt;
+        private System.Windows.Forms.Label lblBuiltRebuilt;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
+        private System.Windows.Forms.RichTextBox rtbNrOfRooms;
+        private System.Windows.Forms.Label lblNrOfRooms;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
+        private System.Windows.Forms.RichTextBox rtbFloors;
+        private System.Windows.Forms.Label lblFloors;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
+        private System.Windows.Forms.Label lblGarageFlag;
+        private System.Windows.Forms.CheckBox cbGarageFlag;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
         private System.Windows.Forms.RichTextBox rtbEnergyRating;
-        private System.Windows.Forms.RichTextBox rtbDesiredPrice;
+        private System.Windows.Forms.Label lblEnergyRating;
+        private System.Windows.Forms.Button btnShowFile;
     }
 }

@@ -18,7 +18,7 @@ namespace BusinessLayer
         }
 
         //Christoffer
-        public static byte[] GetPhotoFromPath(string path)
+        public static byte[] GetFileFromPath(string path)
         {
             return File.ReadAllBytes(path);
         }
@@ -99,6 +99,16 @@ namespace BusinessLayer
         public static DataTable DistributeHouses(DataTable agentDataTable, DataTable propertyDataTable, int sortMethod)
         {
             return BusinessLayer.OpenHouseMethods.DistributeHouses(agentDataTable, propertyDataTable, sortMethod);
+        }
+
+        public static void ShowFile(string path)
+        {
+            FileMethods.ShowFile(path);
+        }
+
+        public static void CopyFile(string fileName)
+        {
+            FileMethods.CopyFile(fileName);
         }
     }
 }

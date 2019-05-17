@@ -33,10 +33,13 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.pbHouseImage = new System.Windows.Forms.PictureBox();
             this.rtbHouseDescription = new System.Windows.Forms.RichTextBox();
-            this.lvHouseFiles = new System.Windows.Forms.ListView();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.tableLayoutPanel28 = new System.Windows.Forms.TableLayoutPanel();
+            this.lvHouseFiles = new System.Windows.Forms.ListView();
+            this.btnAddFile = new System.Windows.Forms.Button();
+            this.btnDeleteFile = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbAddress = new System.Windows.Forms.RichTextBox();
@@ -103,11 +106,13 @@
             this.btnToFile = new System.Windows.Forms.Button();
             this.btnCreateAd = new System.Windows.Forms.Button();
             this.ofdOpenFile = new System.Windows.Forms.OpenFileDialog();
+            this.btnShowFile = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHouseImage)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel28.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -175,8 +180,8 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.pbHouseImage, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.rtbHouseDescription, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.lvHouseFiles, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel28, 0, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(624, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
@@ -186,6 +191,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(196, 461);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
@@ -215,20 +221,6 @@
             this.rtbHouseDescription.Size = new System.Drawing.Size(190, 132);
             this.rtbHouseDescription.TabIndex = 1;
             this.rtbHouseDescription.Text = "Indsæt tekst";
-            // 
-            // lvHouseFiles
-            // 
-            this.lvHouseFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(241)))), ((int)(((byte)(245)))));
-            this.lvHouseFiles.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lvHouseFiles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvHouseFiles.ForeColor = System.Drawing.Color.White;
-            this.lvHouseFiles.Location = new System.Drawing.Point(3, 279);
-            this.lvHouseFiles.Name = "lvHouseFiles";
-            this.lvHouseFiles.Size = new System.Drawing.Size(190, 132);
-            this.lvHouseFiles.TabIndex = 3;
-            this.lvHouseFiles.UseCompatibleStateImageBehavior = false;
-            this.lvHouseFiles.MouseCaptureChanged += new System.EventHandler(this.lvHouseFiles_MouseCaptureChanged);
-            this.lvHouseFiles.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvHouseFiles_MouseDown);
             // 
             // tableLayoutPanel4
             // 
@@ -278,6 +270,73 @@
             this.btnCancel.Text = "Annuller";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // tableLayoutPanel28
+            // 
+            this.tableLayoutPanel28.ColumnCount = 3;
+            this.tableLayoutPanel28.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel28.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel28.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel28.Controls.Add(this.btnShowFile, 1, 1);
+            this.tableLayoutPanel28.Controls.Add(this.lvHouseFiles, 0, 0);
+            this.tableLayoutPanel28.Controls.Add(this.btnAddFile, 2, 1);
+            this.tableLayoutPanel28.Controls.Add(this.btnDeleteFile, 0, 1);
+            this.tableLayoutPanel28.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel28.Location = new System.Drawing.Point(0, 276);
+            this.tableLayoutPanel28.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel28.Name = "tableLayoutPanel28";
+            this.tableLayoutPanel28.RowCount = 2;
+            this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel28.Size = new System.Drawing.Size(196, 138);
+            this.tableLayoutPanel28.TabIndex = 4;
+            // 
+            // lvHouseFiles
+            // 
+            this.lvHouseFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(241)))), ((int)(((byte)(245)))));
+            this.lvHouseFiles.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableLayoutPanel28.SetColumnSpan(this.lvHouseFiles, 3);
+            this.lvHouseFiles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvHouseFiles.ForeColor = System.Drawing.Color.White;
+            this.lvHouseFiles.Location = new System.Drawing.Point(3, 3);
+            this.lvHouseFiles.Name = "lvHouseFiles";
+            this.lvHouseFiles.Size = new System.Drawing.Size(190, 104);
+            this.lvHouseFiles.TabIndex = 3;
+            this.lvHouseFiles.UseCompatibleStateImageBehavior = false;
+            this.lvHouseFiles.DoubleClick += new System.EventHandler(this.lvHouseFiles_DoubleClick);
+            // 
+            // btnAddFile
+            // 
+            this.btnAddFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.btnAddFile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAddFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
+            this.btnAddFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.btnAddFile.Location = new System.Drawing.Point(133, 113);
+            this.btnAddFile.Name = "btnAddFile";
+            this.btnAddFile.Size = new System.Drawing.Size(60, 22);
+            this.btnAddFile.TabIndex = 2;
+            this.btnAddFile.Text = "Tilføj";
+            this.btnAddFile.UseVisualStyleBackColor = false;
+            this.btnAddFile.Click += new System.EventHandler(this.btnAddFile_Click);
+            // 
+            // btnDeleteFile
+            // 
+            this.btnDeleteFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.btnDeleteFile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDeleteFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
+            this.btnDeleteFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.btnDeleteFile.Location = new System.Drawing.Point(3, 113);
+            this.btnDeleteFile.Name = "btnDeleteFile";
+            this.btnDeleteFile.Size = new System.Drawing.Size(59, 22);
+            this.btnDeleteFile.TabIndex = 1;
+            this.btnDeleteFile.Text = "Slet";
+            this.btnDeleteFile.UseVisualStyleBackColor = false;
+            this.btnDeleteFile.Click += new System.EventHandler(this.btnDeleteFile_Click);
             // 
             // tableLayoutPanel5
             // 
@@ -1247,6 +1306,22 @@
             // 
             this.ofdOpenFile.FileName = "openFileDialog1";
             // 
+            // btnShowFile
+            // 
+            this.btnShowFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.btnShowFile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnShowFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
+            this.btnShowFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.btnShowFile.Location = new System.Drawing.Point(68, 113);
+            this.btnShowFile.Name = "btnShowFile";
+            this.btnShowFile.Size = new System.Drawing.Size(59, 22);
+            this.btnShowFile.TabIndex = 4;
+            this.btnShowFile.Text = "Vis";
+            this.btnShowFile.UseVisualStyleBackColor = false;
+            this.btnShowFile.Click += new System.EventHandler(this.btnShowFile_Click);
+            // 
             // Sag_Edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1262,6 +1337,7 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbHouseImage)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel28.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
@@ -1386,5 +1462,9 @@
         private System.Windows.Forms.Label lblTimeFrame;
         private System.Windows.Forms.RichTextBox rtbEnergyRating;
         private System.Windows.Forms.RichTextBox rtbDesiredPrice;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel28;
+        private System.Windows.Forms.Button btnAddFile;
+        private System.Windows.Forms.Button btnDeleteFile;
+        private System.Windows.Forms.Button btnShowFile;
     }
 }

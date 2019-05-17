@@ -17,11 +17,16 @@ namespace Bol_IT
 {
     public partial class Sag_Edit : UserControl
     {
-        #region Init
+        #region Properties
 
         private string NameOfPhoto;
         private string ExtOfPhoto;
         private byte[] Photo;
+        private List<Document> Documents; //
+
+        #endregion
+        #region Init
+
 
         //Tobias
         //Singleton instance af Sag_Edit
@@ -162,6 +167,13 @@ namespace Bol_IT
             Instance.pbHouseImage.Image = BusinessLayerFacade.ConvertBinaryArrayToImage(photo);
             Instance.NameOfPhoto = DataAccessLayerFacade.GetPhotoNameFromIdAndPhoto(int.Parse(id), photo);
             Instance.ExtOfPhoto = DataAccessLayerFacade.GetPhotoExtFromName(Instance.NameOfPhoto);
+
+            Instance.Documents = DataAccessLayerFacade.GetDocumentsByCaseNr(int.Parse(id));
+            Instance.lvHouseFiles.Clear();
+            foreach (Document document in Instance.Documents)
+            {
+                Instance.lvHouseFiles.Items.Add(Path.ChangeExtension(document.Name, document.Extention));
+            }
         }
 
         #endregion
@@ -230,7 +242,7 @@ namespace Bol_IT
             }
         }
 
-        
+
 
         //Christoffer og Tobias
         private void btnSave_Click(object sender, EventArgs e)
@@ -238,6 +250,11 @@ namespace Bol_IT
             if (AnyBoxIsEmpty())
             {
                 MessageBox.Show($"Fejl i indtastning. Du har ikke udfyldt alle felter. Prøv igen..", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (CheckForDuplicateFiles())
+            {
+                MessageBox.Show($"Der må ikke være dubletter af et dokument. Sørg for at alle filer er unikke og prøv igen.", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
@@ -291,20 +308,20 @@ namespace Bol_IT
                     rtbHouseDescription.Text
                     );
 
-                string fileName;
-                string extName;
+                string photoName;
+                string photoExtName;
                 byte[] photo;
                 if (pbHouseImage.ImageLocation == null)
                 {
-                    fileName = NameOfPhoto;
-                    extName = ExtOfPhoto;
+                    photoName = NameOfPhoto;
+                    photoExtName = ExtOfPhoto;
                     photo = Photo;
                 }
                 else
                 {
-                    fileName = Path.GetFileNameWithoutExtension(pbHouseImage.ImageLocation);
-                    extName = Path.GetExtension(pbHouseImage.ImageLocation).Replace(".", "");
-                    photo = BusinessLayerFacade.GetPhotoFromPath(pbHouseImage.ImageLocation);
+                    photoName = Path.GetFileNameWithoutExtension(pbHouseImage.ImageLocation);
+                    photoExtName = Path.GetExtension(pbHouseImage.ImageLocation).Replace(".", "");
+                    photo = BusinessLayerFacade.GetFileFromPath(pbHouseImage.ImageLocation);
                 }
 
 
@@ -312,10 +329,46 @@ namespace Bol_IT
                     (
                     NameOfPhoto,
                     int.Parse(rtbCaseNr.Text),
-                    fileName,
-                    extName,
+                    photoName,
+                    photoExtName,
                     photo
                     );
+
+
+                // Hvis der mangler et dokument i listview, slettes det fra databasen
+                foreach (Document document in Documents)
+                {
+                    if (!ListViewContainsDocument(document))
+                    {
+                        DataAccessLayerFacade.RemoveFiles(document.Name);
+                    }
+                }
+
+
+                foreach (ListViewItem item in lvHouseFiles.Items)
+                {
+                    string originalFileName = null;
+                    string fileName = Path.GetFileNameWithoutExtension(item.Text);
+                    string extName = Path.GetExtension(item.Text);
+                    byte[] data = File.ReadAllBytes(Path.GetTempPath() + item.Text);
+
+                    //Kontrollerer om dokumentet eksisterer i databasen på forhånd
+
+                    Document matchingDocument = Documents.Find(document => Path.ChangeExtension(document.Name, document.Extention) == item.Text);
+                    if (matchingDocument != null)
+                    {
+                        originalFileName = matchingDocument.Name;
+                    }
+
+                    DataAccessLayerFacade.UpdateFiles
+                        (
+                        originalFileName,
+                        int.Parse(rtbCaseNr.Text),
+                        fileName,
+                        extName,
+                        data
+                        );
+                }
 
                 MessageBox.Show("Bolig er gemt.");
 
@@ -328,6 +381,42 @@ namespace Bol_IT
                 Form1.Instance.PnlContainer.Controls["Sag_ViewAll"].BringToFront();
                 Sag_ViewAll.Instance.StartDataLoad();
             }
+        }
+
+        /// <summary>
+        /// Tjekker om der er filer der har samme navn, da navnet jo er primary key i databasen
+        /// </summary>
+        /// <returns></returns>
+        private bool CheckForDuplicateFiles()
+        {
+            foreach (ListViewItem item in lvHouseFiles.Items)
+            {
+                foreach (ListViewItem itemCheck in lvHouseFiles.Items)
+                {
+                    //Sørger for ikke at sammenligne sig med sig selv
+                    if (item == itemCheck)
+                    {
+                        continue;
+                    }
+                    if (item.Text == itemCheck.Text)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        private bool ListViewContainsDocument(Document document)
+        {
+            foreach (ListViewItem item in lvHouseFiles.Items)
+            {
+                if (item.Text == Path.ChangeExtension(document.Name, document.Extention))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         /// <summary>
@@ -510,23 +599,35 @@ namespace Bol_IT
         {
             //Klar til at implementere API fra annonce sider
         }
-        #endregion
+        
         //Christoffer
-        private void lvHouseFiles_MouseDown(object sender, MouseEventArgs e)
+        private void lvHouseFiles_DoubleClick(object sender, EventArgs e)
         {
-            return;
-            
+            BusinessLayerFacade.ShowFile(lvHouseFiles.SelectedItems[0].Text);
         }
-
-        private void lvHouseFiles_MouseCaptureChanged(object sender, EventArgs e)
+        private void btnShowFile_Click(object sender, EventArgs e)
+        {
+            BusinessLayerFacade.ShowFile(lvHouseFiles.SelectedItems[0].Text);
+        }
+        private void btnAddFile_Click(object sender, EventArgs e)
+        {
+            AddFile();
+        }
+        private void AddFile()
         {
             if (ofdOpenFile.ShowDialog() == DialogResult.OK)
             {
-                foreach (var f in ofdOpenFile.FileNames)
-                {
-                    lvHouseFiles.Items.Add(Path.GetFileName(f));
-                }
+                lvHouseFiles.Items.Add(Path.GetFileName(ofdOpenFile.FileName));
+                BusinessLayerFacade.CopyFile(ofdOpenFile.FileName);
             }
         }
+        private void btnDeleteFile_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in lvHouseFiles.SelectedItems)
+            {
+                lvHouseFiles.Items.Remove(item);
+            }
+        }
+        #endregion
     }
 }

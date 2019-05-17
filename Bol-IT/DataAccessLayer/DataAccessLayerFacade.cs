@@ -49,6 +49,11 @@ namespace DataAccessLayer
             return MethodsDataAccessLayer.GetPersonTypeById(id);
         }
 
+        public static List<Document> GetDocumentsByCaseNr(int id)
+        {
+            return MethodsDataAccessLayer.GetDocumentsByCaseNr(id);
+        }
+
         #region Seller
 
         //Christoffer
@@ -376,6 +381,8 @@ namespace DataAccessLayer
             return MethodsDataAccessLayer.GetZipcodes();
         }
 
+        
+
         //Tobias
         public static saleDataTable StatisticsSoldArea(int zipcode)
         {
@@ -406,7 +413,15 @@ namespace DataAccessLayer
         }
         public static void UpdatePhoto(string originalFileName, int caseNr, string fileName, string extName, byte[] photo)
         {
-            MethodsDataAccessLayer.UpdatePhoto(originalFileName, caseNr, fileName, extName, photo);
+            MethodsDataAccessLayer.UpdateData(originalFileName, caseNr, fileName, extName, photo);
+        }
+        public static void UpdateFiles(string originalFileName, int caseNr, string fileName, string extName, byte[] data)
+        {
+            MethodsDataAccessLayer.UpdateData(originalFileName, caseNr, fileName, extName, data);
+        }
+        public static void RemoveFiles(string fileName)
+        {
+            MethodsDataAccessLayer.RemoveData(fileName);
         }
         public static string GetPhotoExtFromName(string nameOfPhoto)
         {
@@ -423,6 +438,11 @@ namespace DataAccessLayer
         public static personalDataDataTable GetPersonalDataDataTableByLike(string searchParameters)
         {
             return MethodsDataAccessLayer.GetPersonalDataDataTableByLike(searchParameters);
+        }
+
+        public static Document GetDocumentByName(string name)
+        {
+            return MethodsDataAccessLayer.GetDocumentByName(name);
         }
 
         #endregion

@@ -184,11 +184,11 @@ namespace Bol_IT
 
         private void pbHouseImage_Click(object sender, EventArgs e)
         {
-            if (ofdOpenPicture.ShowDialog() == DialogResult.OK)
+            if (ofdOpenFile.ShowDialog() == DialogResult.OK)
             {
-                Image image = Image.FromFile(ofdOpenPicture.FileName);
+                Image image = Image.FromFile(ofdOpenFile.FileName);
                 pbHouseImage.Image = image;
-                pbHouseImage.ImageLocation = ofdOpenPicture.FileName;
+                pbHouseImage.ImageLocation = ofdOpenFile.FileName;
             }
         }
 
@@ -261,9 +261,26 @@ namespace Bol_IT
                         caseNr,
                         fileName,
                         extName,
-                        BusinessLayerFacade.GetPhotoFromPath(pbHouseImage.ImageLocation)
+                        BusinessLayerFacade.GetFileFromPath(pbHouseImage.ImageLocation)
                         );
                 }
+
+                foreach (ListViewItem item in lvHouseFiles.Items)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(item.Text);
+                    string extName = Path.GetExtension(item.Text);
+                    byte[] data = File.ReadAllBytes(Path.GetTempPath() + item.Text);
+
+                    DataAccessLayerFacade.CreateFile
+                        (
+                        caseNr,
+                        fileName,
+                        extName,
+                        data
+                        );
+                }
+
+
                 MessageBox.Show("Bolig er gemt.");
 
                 //Load Sag_ViewAll User control når tryk på knap
@@ -361,6 +378,34 @@ namespace Bol_IT
             priceCalculator.LoadData(int.Parse(rtbPropSquareMeters.Text), int.Parse(rtbZipCode.Text));
         }
 
+        //Christoffer
+        private void lvHouseFiles_DoubleClick(object sender, EventArgs e)
+        {
+            BusinessLayerFacade.ShowFile(lvHouseFiles.SelectedItems[0].Text);
+        }
+        private void btnShowFile_Click(object sender, EventArgs e)
+        {
+            BusinessLayerFacade.ShowFile(lvHouseFiles.SelectedItems[0].Text);
+        }
+        private void btnAddFile_Click(object sender, EventArgs e)
+        {
+            AddFile();
+        }
+        private void AddFile()
+        {
+            if (ofdOpenFile.ShowDialog() == DialogResult.OK)
+            {
+                lvHouseFiles.Items.Add(Path.GetFileName(ofdOpenFile.FileName));
+                BusinessLayerFacade.CopyFile(ofdOpenFile.FileName);
+            }
+        }
+        private void btnDeleteFile_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in lvHouseFiles.SelectedItems)
+            {
+                lvHouseFiles.Items.Remove(item);
+            }
+        }
         #endregion
     }
 }

@@ -39,6 +39,39 @@ namespace DataAccessLayer
         public static propertyTableAdapter propertyTableAdapter = new propertyTableAdapter();
         public static worksWithTableAdapter worksWithTableAdapter = new worksWithTableAdapter();
         public static assesmentTableAdapter assesmentTableAdapter = new assesmentTableAdapter();
+
+        public static List<Document> GetDocumentsByCaseNr(int id)
+        {
+            filesDataTable fdt = new filesDataTable();
+            filesTableAdapter.FillByCaseNr(fdt, id);
+            
+            List<Document> documents = new List<Document>();
+            for (int i = 0; i < fdt.Rows.Count; i++)
+            {
+                if ((string)fdt.Rows[i][2] != "jpg" && (string)fdt.Rows[i][2] != "jpeg" && (string)fdt.Rows[i][2] != "png") //Kontrollerer at det ikke er et billede
+                {
+                Document document = new Document
+                {
+                    CaseNr = id,
+                    Name = (string)fdt.Rows[i][1],
+                    Extention = (string)fdt.Rows[i][2]
+                };
+                documents.Add(document);
+                }
+            }
+            return documents;
+        }
+
+        public static Document GetDocumentByName(string name)
+        {
+            return new Document
+            {
+                Name = name,
+                Data = filesTableAdapter.GetFileByName(name)
+            };
+
+        }
+
         public static wantsToSellTableAdapter wantsToSellTableAdapter = new wantsToSellTableAdapter();
         public static personalDataTableAdapter personalDataTableAdapter = new personalDataTableAdapter();
         public static externalContactsTableAdapter externalContactsTableAdapter = new externalContactsTableAdapter();
@@ -401,6 +434,8 @@ namespace DataAccessLayer
             return pdt;
         }
 
+        
+
         //Christoffer
         public static propertyDataTable GetPropertyDataTableByLikeAll(string searchParameters)
         {
@@ -567,19 +602,25 @@ namespace DataAccessLayer
         }
 
         //Christoffer
-        public static void UpdatePhoto(string originalFileName, int caseNr, string fileName, string extName, byte[] photo)
+        public static void UpdateData(string originalFileName, int caseNr, string fileName, string extName, byte[] data)
         {
             if (originalFileName == null)
             {
-                if (photo == null)
+                if (data == null)
                 {
                     return;
                 }
-                filesTableAdapter.InsertData(caseNr, fileName, extName, photo);
+                filesTableAdapter.InsertData(caseNr, fileName, extName, data);
             }
             else
             {
-                filesTableAdapter.UpdateData(fileName, extName, photo, originalFileName);
+                filesTableAdapter.UpdateData(fileName, extName, data, originalFileName);
+            }
+        }
+        public static void RemoveData(string fileName)
+        {
+            {
+                filesTableAdapter.DeleteData(fileName);
             }
         }
 
@@ -614,7 +655,7 @@ namespace DataAccessLayer
         }
 
         #endregion
-        
+
     }
 
 }
