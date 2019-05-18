@@ -74,13 +74,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLayerFacade.cs" />
-    <Compile Include="Classes\CalculateDistanceMethod.cs" />
-    <Compile Include="Classes\Encryption.cs" />
-    <Compile Include="Classes\LoginMethods.cs" />
-    <Compile Include="Classes\OpenHouseMethods.cs" />
-    <Compile Include="Classes\PriceCalculator.cs" />
-    <Compile Include="Classes\SloganThread.cs" />
-    <Compile Include="Classes\FileMethods.cs" />
+    <Compile Include="CalculateDistanceMethod.cs" />
+    <Compile Include="Classes\Agent.cs" />
+    <Compile Include="Classes\Buyer.cs" />
+    <Compile Include="Classes\Document.cs" />
+    <Compile Include="Classes\Person.cs" />
+    <Compile Include="Classes\Property.cs" />
+    <Compile Include="Classes\Seller.cs" />
+    <Compile Include="Classes\WantsToSell.cs" />
+    <Compile Include="Encryption.cs" />
+    <Compile Include="LoginMethods.cs" />
+    <Compile Include="OpenHouseMethods.cs" />
+    <Compile Include="PriceCalculator.cs" />
+    <Compile Include="SloganThread.cs" />
+    <Compile Include="FileMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
