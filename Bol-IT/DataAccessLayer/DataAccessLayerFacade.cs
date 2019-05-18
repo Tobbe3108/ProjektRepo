@@ -34,6 +34,8 @@ namespace DataAccessLayer
             return new SqlConnection(ConfigurationManager.ConnectionStrings["AzureDB"].ConnectionString);
         }
 
+        
+
         #endregion
 
         #region Person
@@ -54,6 +56,7 @@ namespace DataAccessLayer
             return MethodsDataAccessLayer.GetDocumentsByCaseNr(id);
         }
 
+        
         #region Seller
 
         //Christoffer
@@ -73,6 +76,8 @@ namespace DataAccessLayer
             MethodsDataAccessLayer.CreateSeller(fName, mName, lName, phoneNr, address, zipcode, mail, aId);
         }
 
+        
+
         /// <summary>
         /// Returnerer et objekt som giver informationer omkring relationen mellem en sælger og et hus
         /// </summary>
@@ -91,6 +96,8 @@ namespace DataAccessLayer
         {
             return MethodsDataAccessLayer.GetSellers();
         }
+
+        
 
         //Tobias
         /// <summary>
@@ -446,5 +453,35 @@ namespace DataAccessLayer
         }
 
         #endregion
+
+        #region Login
+        public static DataTable GetEncryptionByUsername(string testUsername)
+        {
+            return MethodsDataAccessLayer.GetEncryptionByUsername(testUsername);
+        }
+
+        public static void CreateNewUser(string username, string encryptedPassword, byte[] salt, byte[] hash)
+        {
+            MethodsDataAccessLayer.CreateNewUser(username, encryptedPassword, salt, hash);
+        }
+
+        public static void UpdateUser(string username, string encryptedPassword, byte[] salt, byte[] hash)
+        {
+            MethodsDataAccessLayer.UpdateUser(username, encryptedPassword, salt, hash);
+        }
+
+        public static bool UserExists(string username)
+        {
+            if (MethodsDataAccessLayer.GetEncryptionByUsername(username) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
+
     }
 }

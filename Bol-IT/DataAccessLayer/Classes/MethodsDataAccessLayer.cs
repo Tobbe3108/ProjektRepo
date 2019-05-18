@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using GlobalClasses;
 using DataAccessLayer.mydatabasetobbeDataSetTableAdapters;
 using static DataAccessLayer.mydatabasetobbeDataSet;
+using System.Data.SqlClient;
 
 namespace DataAccessLayer
 {
@@ -39,39 +40,6 @@ namespace DataAccessLayer
         public static propertyTableAdapter propertyTableAdapter = new propertyTableAdapter();
         public static worksWithTableAdapter worksWithTableAdapter = new worksWithTableAdapter();
         public static assesmentTableAdapter assesmentTableAdapter = new assesmentTableAdapter();
-
-        public static List<Document> GetDocumentsByCaseNr(int id)
-        {
-            filesDataTable fdt = new filesDataTable();
-            filesTableAdapter.FillByCaseNr(fdt, id);
-            
-            List<Document> documents = new List<Document>();
-            for (int i = 0; i < fdt.Rows.Count; i++)
-            {
-                if ((string)fdt.Rows[i][2] != "jpg" && (string)fdt.Rows[i][2] != "jpeg" && (string)fdt.Rows[i][2] != "png") //Kontrollerer at det ikke er et billede
-                {
-                Document document = new Document
-                {
-                    CaseNr = id,
-                    Name = (string)fdt.Rows[i][1],
-                    Extention = (string)fdt.Rows[i][2]
-                };
-                documents.Add(document);
-                }
-            }
-            return documents;
-        }
-
-        public static Document GetDocumentByName(string name)
-        {
-            return new Document
-            {
-                Name = name,
-                Data = filesTableAdapter.GetFileByName(name)
-            };
-
-        }
-
         public static wantsToSellTableAdapter wantsToSellTableAdapter = new wantsToSellTableAdapter();
         public static personalDataTableAdapter personalDataTableAdapter = new personalDataTableAdapter();
         public static externalContactsTableAdapter externalContactsTableAdapter = new externalContactsTableAdapter();
@@ -434,7 +402,7 @@ namespace DataAccessLayer
             return pdt;
         }
 
-        
+
 
         //Christoffer
         public static propertyDataTable GetPropertyDataTableByLikeAll(string searchParameters)
@@ -540,6 +508,8 @@ namespace DataAccessLayer
             return properties;
         }
 
+
+
         public static void UpdateProperty(int caseNr, int sId, int desiredPrice, int timeFrame, int netPrice, int grossPrice, int ownerExpenses, int cashPrice,
             int depositPrice, string address, int zipcode, int nrOfRooms, bool garageFlag, string builtRebuild, string houseType, string energyRating,
              int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
@@ -624,6 +594,41 @@ namespace DataAccessLayer
             }
         }
 
+        public static List<Document> GetDocumentsByCaseNr(int id)
+        {
+            filesDataTable fdt = new filesDataTable();
+            filesTableAdapter.FillByCaseNr(fdt, id);
+
+            List<Document> documents = new List<Document>();
+            for (int i = 0; i < fdt.Rows.Count; i++)
+            {
+                if ((string)fdt.Rows[i][2] != "jpg" && (string)fdt.Rows[i][2] != "jpeg" && (string)fdt.Rows[i][2] != "png") //Kontrollerer at det ikke er et billede
+                {
+                    Document document = new Document
+                    {
+                        CaseNr = id,
+                        Name = (string)fdt.Rows[i][1],
+                        Extention = (string)fdt.Rows[i][2]
+                    };
+                    documents.Add(document);
+                }
+            }
+            return documents;
+        }
+
+        public static Document GetDocumentByName(string name)
+        {
+            return new Document
+            {
+                Name = name,
+                Data = filesTableAdapter.GetFileByName(name)
+            };
+
+        }
+
+
+
+
         #endregion
 
         #region Sale
@@ -656,6 +661,72 @@ namespace DataAccessLayer
 
         #endregion
 
+        #region Login
+        public static DataTable GetEncryptionByUsername(string testUsername)
+        {
+            try
+            {
+                string connectionString = "Data Source = tonur.database.windows.net; Initial Catalog = EAL; User ID = SpecOpticAps; Password = Ole12345; Connect Timeout = 60; Encrypt = True; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False;";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string query = $"SELECT * FROM Login WHERE username = '{testUsername}'";
+
+                    SqlDataAdapter sda = new SqlDataAdapter(query, connection);
+
+                    DataTable dataTable = new DataTable();
+
+                    sda.Fill(dataTable);
+
+                    return dataTable;
+                }
+            }
+            catch { return null; }
+        }
+
+        public static void CreateNewUser(string username, string encryptedPassword, byte[] salt, byte[] hash)
+        {
+            string connectionString = "Data Source = tonur.database.windows.net; Initial Catalog = EAL; User ID = SpecOpticAps; Password = Ole12345; Connect Timeout = 60; Encrypt = True; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = $"INSERT INTO Login VALUES ( @username, @password, @salt, @hash )";
+                    command.Parameters.AddWithValue("username", username);
+                    command.Parameters.AddWithValue("password", encryptedPassword);
+                    command.Parameters.AddWithValue("salt", salt);
+                    command.Parameters.AddWithValue("hash", hash);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static void UpdateUser(string username, string encryptedPassword, byte[] salt, byte[] hash)
+        {
+            string connectionString = "Data Source = tonur.database.windows.net; Initial Catalog = EAL; User ID = SpecOpticAps; Password = Ole12345; Connect Timeout = 60; Encrypt = True; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = $"UPDATE Login SET password = @password, salt = @salt, hash = @hash WHERE username = @username";
+                    command.Parameters.AddWithValue("username", username);
+                    command.Parameters.AddWithValue("password", encryptedPassword);
+                    command.Parameters.AddWithValue("salt", salt);
+                    command.Parameters.AddWithValue("hash", hash);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        #endregion
     }
 
 }

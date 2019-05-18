@@ -37,6 +37,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.tableLayoutPanel28 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnShowFile = new System.Windows.Forms.Button();
             this.lvHouseFiles = new System.Windows.Forms.ListView();
             this.btnAddFile = new System.Windows.Forms.Button();
             this.btnDeleteFile = new System.Windows.Forms.Button();
@@ -106,7 +107,6 @@
             this.btnToFile = new System.Windows.Forms.Button();
             this.btnCreateAd = new System.Windows.Forms.Button();
             this.ofdOpenFile = new System.Windows.Forms.OpenFileDialog();
-            this.btnShowFile = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -291,6 +291,22 @@
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel28.Size = new System.Drawing.Size(196, 138);
             this.tableLayoutPanel28.TabIndex = 4;
+            // 
+            // btnShowFile
+            // 
+            this.btnShowFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.btnShowFile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnShowFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
+            this.btnShowFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.btnShowFile.Location = new System.Drawing.Point(68, 113);
+            this.btnShowFile.Name = "btnShowFile";
+            this.btnShowFile.Size = new System.Drawing.Size(59, 22);
+            this.btnShowFile.TabIndex = 4;
+            this.btnShowFile.Text = "Vis";
+            this.btnShowFile.UseVisualStyleBackColor = false;
+            this.btnShowFile.Click += new System.EventHandler(this.btnShowFile_Click);
             // 
             // lvHouseFiles
             // 
@@ -1305,22 +1321,6 @@
             // ofdOpenFile
             // 
             this.ofdOpenFile.FileName = "openFileDialog1";
-            // 
-            // btnShowFile
-            // 
-            this.btnShowFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.btnShowFile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnShowFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
-            this.btnShowFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnShowFile.Location = new System.Drawing.Point(68, 113);
-            this.btnShowFile.Name = "btnShowFile";
-            this.btnShowFile.Size = new System.Drawing.Size(59, 22);
-            this.btnShowFile.TabIndex = 4;
-            this.btnShowFile.Text = "Vis";
-            this.btnShowFile.UseVisualStyleBackColor = false;
-            this.btnShowFile.Click += new System.EventHandler(this.btnShowFile_Click);
             // 
             // Sag_Edit
             // 

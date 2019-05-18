@@ -176,7 +176,7 @@
             "Sælger",
             "Køber"});
             this.cbType.Location = new System.Drawing.Point(166, 2);
-            this.cbType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbType.Margin = new System.Windows.Forms.Padding(2);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(242, 21);
             this.cbType.TabIndex = 12;
@@ -626,7 +626,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Person_Create";
             this.Size = new System.Drawing.Size(864, 486);
             this.SizeChanged += new System.EventHandler(this.Person_Create_SizeChanged);

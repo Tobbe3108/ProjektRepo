@@ -56,6 +56,8 @@ namespace Bol_IT
             ParentForm.Close();
         }
 
+        
+
         //Tobias
         private void btnMaximize_Click(object sender, EventArgs e)
         {
@@ -83,7 +85,24 @@ namespace Bol_IT
             lblDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
 
+        private void btnOpenUserManagment_Click(object sender, EventArgs e)
+        {
+            Form userManagment = new Messagebox_UserManagment();
+            userManagment.Show();
+        }
+
+        public void ShowButtons()
+        {
+            btnOpenUserManagment.Show();
+        }
+
+        public void HideButtons()
+        {
+            btnOpenUserManagment.Hide();
+        }
+
         #endregion
+
 
     }
 }

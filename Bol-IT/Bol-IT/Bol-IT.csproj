@@ -76,6 +76,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\LoginPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\LoginPage.Designer.cs">
+      <DependentUpon>LoginPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Messagebox_UserManagment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\Messagebox_UserManagment.Designer.cs">
+      <DependentUpon>Messagebox_UserManagment.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Person_ViewAll.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -151,6 +163,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\LoginPage.resx">
+      <DependentUpon>LoginPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MenuBar_Left.resx">
       <DependentUpon>MenuBar_Left.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Messagebox_Statistic.resx">
       <DependentUpon>Messagebox_Statistic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Messagebox_UserManagment.resx">
+      <DependentUpon>Messagebox_UserManagment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\OpenHouse_Distribution.resx">
       <DependentUpon>OpenHouse_Distribution.cs</DependentUpon>

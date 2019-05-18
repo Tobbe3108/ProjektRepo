@@ -60,6 +60,42 @@ namespace Bol_IT
             Form1.Instance.PnlContainer.Controls["Sag_ViewAll"].BringToFront();
         }
 
+        public void SignOff()
+        {
+            tlpSager.Hide();
+            tlpPersonData.Hide();
+            tlpOpenHouse.Hide();
+            MenuBar_Top.Instance.HideButtons();
+
+            lblSignOut.Text = "Login";
+
+            //Load LoginPage User control når tryk på knap
+            if (!Form1.Instance.PnlContainer.Controls.ContainsKey("LoginPage"))
+            {
+                LoginPage.Instance.Dock = DockStyle.Fill;
+                Form1.Instance.PnlContainer.Controls.Add(LoginPage.Instance);
+            }
+            Form1.Instance.PnlContainer.Controls["LoginPage"].BringToFront();
+        }
+
+        public void ShowButtons()
+        {
+            tlpSager.Show();
+            tlpPersonData.Show();
+            tlpOpenHouse.Show();
+
+            tlpSignOut.Show();
+            lblSignOut.Text = "Log af";
+
+            //Load Sag_ViewAll User control når tryk på knap
+            if (!Form1.Instance.PnlContainer.Controls.ContainsKey("OpenHouse_Distribution"))
+            {
+                OpenHouse_Distribution.Instance.Dock = DockStyle.Fill;
+                Form1.Instance.PnlContainer.Controls.Add(OpenHouse_Distribution.Instance);
+            }
+            Form1.Instance.PnlContainer.Controls["OpenHouse_Distribution"].BringToFront();
+        }
+
         private void LoadOpenHouse()
         {
             //Load Sag_ViewAll User control når tryk på knap
@@ -70,6 +106,8 @@ namespace Bol_IT
             }
             Form1.Instance.PnlContainer.Controls["OpenHouse_Distribution"].BringToFront();
         }
+
+
 
         private void LoadPersonalData()
         {
@@ -116,6 +154,8 @@ namespace Bol_IT
             tlpPersonData.BackColor = ColorTranslator.FromHtml("#2368A2");
 
             tlpSignOut.BackColor = ColorTranslator.FromHtml("#1A4971");
+
+            LoginPage.Instance.SignOff();
         }
 
         private void pbSager_Click(object sender, EventArgs e)
@@ -147,6 +187,8 @@ namespace Bol_IT
             tlpPersonData.BackColor = ColorTranslator.FromHtml("#2368A2");
 
             tlpSignOut.BackColor = ColorTranslator.FromHtml("#1A4971");
+
+            LoginPage.Instance.SignOff();
         }
 
         private void pbPersonData_Click(object sender, EventArgs e)
