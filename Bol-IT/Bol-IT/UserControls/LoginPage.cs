@@ -74,14 +74,6 @@ namespace Bol_IT
             {
                 MenuBar_Left.Instance.ShowButtons();
                 MenuBar_Top.Instance.ShowButtons();
-                //Load Sag_ViewAll User control når tryk på knap
-                if (!Form1.Instance.PnlContainer.Controls.ContainsKey("Sag_ViewAll"))
-                {
-                    Sag_ViewAll.Instance.Dock = DockStyle.Fill;
-                    Form1.Instance.PnlContainer.Controls.Add(Sag_ViewAll.Instance);
-                }
-                Form1.Instance.PnlContainer.Controls["Sag_ViewAll"].BringToFront();
-
             }
             else
             {

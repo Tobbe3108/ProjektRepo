@@ -74,6 +74,11 @@ namespace BusinessLayer
         {
             Encryption encryption = GetEncryptionFromDB(DataAccessLayerFacade.GetEncryptionByUsername(testUsername));
 
+            if (encryption == null)
+            {
+                return false;
+            }
+
             var pbkdf2 = new Rfc2898DeriveBytes(testPassword, encryption.Salt, 10000);
             
             byte[] hashBytes = new byte[36];
@@ -95,6 +100,10 @@ namespace BusinessLayer
 
         private static Encryption GetEncryptionFromDB(DataTable dataTable)
         {
+            if (dataTable.Rows.Count == 0)
+            {
+                return null;
+            }
             return new Encryption
             {
                 Hash = (byte[])dataTable.Rows[0]["hash"],
