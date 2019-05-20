@@ -133,6 +133,10 @@ namespace Bol_IT
                 btnDeleteFile.Font = new Font(btnDeleteFile.Font.FontFamily, this.Size.Height / 50);
                 #endregion
                 lvHouseFiles.Font = new Font(lvHouseFiles.Font.FontFamily, this.Size.Height / 50);
+
+                TableLayoutPanelCellPosition pos = ((TableLayoutPanel)cbSellerId.Parent).GetCellPosition(cbSellerId);
+                int height = (((TableLayoutPanel)cbSellerId.Parent).GetRowHeights()[pos.Row] - cbSellerId.Height) / 2;
+                cbSellerId.Margin = new Padding(6, height, 6, height);
             }
             catch { }
         }

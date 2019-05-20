@@ -629,6 +629,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Person_Create";
             this.Size = new System.Drawing.Size(864, 486);
+            this.Load += new System.EventHandler(this.Person_Create_Load);
             this.SizeChanged += new System.EventHandler(this.Person_Create_SizeChanged);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);

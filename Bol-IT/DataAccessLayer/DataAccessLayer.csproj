@@ -75,7 +75,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="App.Config" />
     <None Include="mydatabasetobbeDataSet.xsc">
       <DependentUpon>mydatabasetobbeDataSet.xsd</DependentUpon>
     </None>

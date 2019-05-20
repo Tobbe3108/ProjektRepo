@@ -45,8 +45,16 @@ namespace Bol_IT
         public Person_Create()
         {
             InitializeComponent();
+
+            //Form autosize
+            Person_Create_SizeChanged(null, null);
         }
 
+        private void Person_Create_Load(object sender, EventArgs e)
+        {
+            //Eager initialization af singleton instance
+            _instance = this;
+        }
         #endregion
 
         #region FormAutoSize
@@ -77,6 +85,11 @@ namespace Bol_IT
                 rtbPhoneNr.Font = new Font(rtbPhoneNr.Font.FontFamily, this.Size.Height / 50);
                 rtbTypeChainging.Font = new Font(rtbTypeChainging.Font.FontFamily, this.Size.Height / 50);
                 rtbZipcode.Font = new Font(rtbZipcode.Font.FontFamily, this.Size.Height / 50);
+
+                cbType.Font = new Font(cbType.Font.FontFamily, this.Size.Height / 50);
+                TableLayoutPanelCellPosition pos = ((TableLayoutPanel)cbType.Parent).GetCellPosition(cbType);
+                int height = (((TableLayoutPanel)cbType.Parent).GetRowHeights()[pos.Row] - cbType.Height) / 2;
+                cbType.Margin = new Padding(6, height, 6, height);
             }
             catch{}
         }
@@ -416,5 +429,7 @@ namespace Bol_IT
         }
 
         #endregion
+
+        
     }
 }

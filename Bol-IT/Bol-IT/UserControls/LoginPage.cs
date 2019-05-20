@@ -33,6 +33,7 @@ namespace Bol_IT
         {
             InitializeComponent();
 
+            
 
             //Form autosize
             LoginPage_SizeChanged(this, new EventArgs());
@@ -48,24 +49,30 @@ namespace Bol_IT
             tbUsername.Focus();
         }
 
-        private void LoginPage_SizeChanged(object sender, EventArgs eventArgs)
-        {
-            foreach (var lbl in tableLayoutPanel1.Controls.OfType<Label>())
-            {
-                lbl.Font = new Font(lbl.Font.FontFamily, this.Size.Height / 50);
-            }
-            //Special title
-            lblTitleLogin.Font = new Font(lblTitleLogin.Font.FontFamily, this.Size.Height / 25);
-            foreach (var tb in tableLayoutPanel1.Controls.OfType<TextBox>())
-            {
-                tb.Font = new Font(tb.Font.FontFamily, this.Size.Height / 50);
-            }
-            foreach (var btn in tableLayoutPanel1.Controls.OfType<Button>())
-            {
-                btn.Font = new Font(btn.Font.FontFamily, this.Size.Height / 50);
-            }
-        }
+        #endregion
 
+        #region AutoSize
+        public void LoginPage_SizeChanged(object sender, EventArgs eventArgs)
+        {
+            try
+            {
+                foreach (Control item in tableLayoutPanel1.Controls.Cast<Control>())
+                {
+                    if (item.Name.ToLowerInvariant().Contains("title"))
+                    {
+                        item.Font = new Font(item.Font.FontFamily, this.Size.Height / 25);
+                    }
+                    else
+                    {
+                        item.Font = new Font(item.Font.FontFamily, this.Size.Height / 50);
+                    }
+                    TableLayoutPanelCellPosition pos = ((TableLayoutPanel)item.Parent).GetCellPosition(item);
+                    int height = (((TableLayoutPanel)item.Parent).GetRowHeights()[pos.Row] - item.Height) / 2;
+                    item.Margin = new Padding(6, height, 6, height);
+                }
+            }
+            catch{ }
+        }
         #endregion
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -78,6 +85,8 @@ namespace Bol_IT
             {
                 MenuBar_Left.Instance.ShowButtons();
                 MenuBar_Top.Instance.ShowButtons();
+
+                Form1.Instance.AcceptButton = null;
             }
             else
             {
@@ -92,14 +101,8 @@ namespace Bol_IT
 
             tbUsername.Text = string.Empty;
             tbPassword.Text = string.Empty;
-        }
 
-        private void tb_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Return)
-            {
-                btnLogin_Click(null, null);
-            }
+            Form1.Instance.AcceptButton = btnLogin;
         }
     }
 }

@@ -94,6 +94,14 @@ namespace Bol_IT
                 btnReset.Font = new Font(btnReset.Font.FontFamily, this.Size.Height / 50);
                 dgvSearch.Font = new Font(dgvSearch.Font.FontFamily, this.Size.Height / 60);
                 dgvDistribution.Font = new Font(dgvDistribution.Font.FontFamily, this.Size.Height / 60);
+
+                TableLayoutPanelCellPosition spPos = tableLayoutPanel8.GetCellPosition(cbSearchParam);
+                int spHeight = (tableLayoutPanel8.GetRowHeights()[spPos.Row] - cbSearchParam.Height) / 2;
+                cbSearchParam.Margin = new Padding(6, spHeight, 6, spHeight);
+
+                TableLayoutPanelCellPosition dPos = tableLayoutPanel6.GetCellPosition(cbDistribution);
+                int dHeight = (tableLayoutPanel6.GetRowHeights()[dPos.Row] - cbDistribution.Height) / 2;
+                cbDistribution.Margin = new Padding(6, dHeight, 6, dHeight);
             }
             catch{}
         }

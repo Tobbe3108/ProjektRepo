@@ -49,24 +49,17 @@ namespace BusinessLayer
             //Salt
             byte[] salt;
 
-            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+            new RNGCryptoServiceProvider().GetBytes(salt = new byte[64]);
 
-            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000);
+            Rfc2898DeriveBytes rfc = new Rfc2898DeriveBytes(password, salt, 10000);
 
             //Hash
-            byte[] hash = pbkdf2.GetBytes(20);
-
-            byte[] hashBytes = new byte[36];
-
-            Array.Copy(salt, 0, hashBytes, 0, 16);
-            Array.Copy(hash, 0, hashBytes, 16, 20);
-
-
+            byte[] hash = rfc.GetBytes(256);
+            
             return new Encryption
             {
                 Salt = salt,
-                Hash = hash,
-                EncryptedPassword = Convert.ToBase64String(hashBytes)
+                Hash = hash
             };
         }
 
@@ -79,20 +72,13 @@ namespace BusinessLayer
                 return false;
             }
 
-            byte[] savedHash = Convert.FromBase64String(encryption.EncryptedPassword);
+            Rfc2898DeriveBytes rfc = new Rfc2898DeriveBytes(testPassword, encryption.Salt, 10000);
 
-            if (encryption == null)
+            byte[] hash = rfc.GetBytes(256);
+
+            for (int i = 0; i < hash.Length; i++)
             {
-                return false;
-            }
-
-            var pbkdf2 = new Rfc2898DeriveBytes(testPassword, encryption.Salt, 10000);
-
-            byte[] hash = pbkdf2.GetBytes(20);
-
-            for (int i = 16; i < hash.Length; i++)
-            {
-                if (savedHash[i + 16] != hash[i])
+                if (encryption.Hash[i] != hash[i])
                 {
                     return false;
                 }
@@ -108,9 +94,9 @@ namespace BusinessLayer
             }
             return new Encryption
             {
+                Username = (string)dataTable.Rows[0]["username"],
                 Hash = (byte[])dataTable.Rows[0]["hash"],
-                Salt = (byte[])dataTable.Rows[0]["salt"],
-                EncryptedPassword = (string)dataTable.Rows[0]["password"]
+                Salt = (byte[])dataTable.Rows[0]["salt"]
             };
         }
     }

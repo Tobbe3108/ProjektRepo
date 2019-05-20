@@ -24,16 +24,7 @@ namespace DataAccessLayer
 
         #region SQL
 
-        //Christoffer
-        /// <summary>
-        /// Returnerer en SqlConnection til brug af testing
-        /// </summary>
-        /// <returns></returns>
-        public static SqlConnection GetConnection()
-        {
-            return new SqlConnection(ConfigurationManager.ConnectionStrings["AzureDB"].ConnectionString);
-        }
-
+        
         
 
         #endregion
@@ -460,14 +451,14 @@ namespace DataAccessLayer
             return MethodsDataAccessLayer.GetEncryptionByUsername(testUsername);
         }
 
-        public static void CreateNewUser(string username, string encryptedPassword, byte[] salt, byte[] hash)
+        public static void CreateNewUser(string username, byte[] salt, byte[] hash)
         {
-            MethodsDataAccessLayer.CreateNewUser(username, encryptedPassword, salt, hash);
+            MethodsDataAccessLayer.CreateNewUser(username, salt, hash);
         }
 
-        public static void UpdateUser(string username, string encryptedPassword, byte[] salt, byte[] hash)
+        public static void UpdateUser(string username, byte[] salt, byte[] hash)
         {
-            MethodsDataAccessLayer.UpdateUser(username, encryptedPassword, salt, hash);
+            MethodsDataAccessLayer.UpdateUser(username, salt, hash);
         }
 
         public static bool UserExists(string username)

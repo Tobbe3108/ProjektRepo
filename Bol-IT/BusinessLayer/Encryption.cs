@@ -8,8 +8,8 @@ namespace BusinessLayer
 {
     public class Encryption
     {
+        public string Username { get; set; }
         public byte[] Salt { get; set; }
         public byte[] Hash { get; set; }
-        public string EncryptedPassword { get; set; }
     }
 }

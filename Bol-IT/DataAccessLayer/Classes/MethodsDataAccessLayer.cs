@@ -10,6 +10,7 @@ using GlobalClasses;
 using DataAccessLayer.mydatabasetobbeDataSetTableAdapters;
 using static DataAccessLayer.mydatabasetobbeDataSet;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace DataAccessLayer
 {
@@ -27,6 +28,17 @@ namespace DataAccessLayer
             }
             return false;
         }
+
+        //Christoffer
+        /// <summary>
+        /// Returnerer en SqlConnection til brug af testing
+        /// </summary>
+        /// <returns></returns>
+        public static SqlConnection GetConnection()
+        {
+            return new SqlConnection(Properties.Settings.Default.mydatabasetobbeConnectionString);
+        }
+
 
         #region TableAdapters
 
@@ -666,9 +678,7 @@ namespace DataAccessLayer
         {
             try
             {
-                string connectionString = "Data Source = tonur.database.windows.net; Initial Catalog = EAL; User ID = SpecOpticAps; Password = Ole12345; Connect Timeout = 60; Encrypt = True; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False;";
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = GetConnection())
                 {
                     string query = $"SELECT * FROM Login WHERE username = '{testUsername}'";
 
@@ -684,18 +694,15 @@ namespace DataAccessLayer
             catch { return null; }
         }
 
-        public static void CreateNewUser(string username, string encryptedPassword, byte[] salt, byte[] hash)
+        public static void CreateNewUser(string username, byte[] salt, byte[] hash)
         {
-            string connectionString = "Data Source = tonur.database.windows.net; Initial Catalog = EAL; User ID = SpecOpticAps; Password = Ole12345; Connect Timeout = 60; Encrypt = True; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False;";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = GetConnection())
             {
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = $"INSERT INTO Login VALUES ( @username, @password, @salt, @hash )";
+                    command.CommandText = $"INSERT INTO login VALUES ( @username, @salt, @hash)";
                     command.Parameters.AddWithValue("username", username);
-                    command.Parameters.AddWithValue("password", encryptedPassword);
                     command.Parameters.AddWithValue("salt", salt);
                     command.Parameters.AddWithValue("hash", hash);
 
@@ -705,18 +712,15 @@ namespace DataAccessLayer
             }
         }
 
-        public static void UpdateUser(string username, string encryptedPassword, byte[] salt, byte[] hash)
+        public static void UpdateUser(string username, byte[] salt, byte[] hash)
         {
-            string connectionString = "Data Source = tonur.database.windows.net; Initial Catalog = EAL; User ID = SpecOpticAps; Password = Ole12345; Connect Timeout = 60; Encrypt = True; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False;";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AzureDB"].ConnectionString))
             {
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = $"UPDATE Login SET password = @password, salt = @salt, hash = @hash WHERE username = @username";
+                    command.CommandText = $"UPDATE login SET salt = @salt, hash = @hash WHERE username = @username";
                     command.Parameters.AddWithValue("username", username);
-                    command.Parameters.AddWithValue("password", encryptedPassword);
                     command.Parameters.AddWithValue("salt", salt);
                     command.Parameters.AddWithValue("hash", hash);
 

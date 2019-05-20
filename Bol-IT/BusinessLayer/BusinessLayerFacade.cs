@@ -90,12 +90,12 @@ namespace BusinessLayer
         public static void CreateNewUser(string username, string password)
         {
             Encryption encryption = EncryptString(password);
-            DataAccessLayerFacade.CreateNewUser(username, encryption.EncryptedPassword, encryption.Salt, encryption.Hash);
+            DataAccessLayerFacade.CreateNewUser(username, encryption.Salt, encryption.Hash);
         }
         public static void UpdateUser(string username, string password)
         {
             Encryption encryption = EncryptString(password);
-            DataAccessLayerFacade.UpdateUser(username, encryption.EncryptedPassword, encryption.Salt, encryption.Hash);
+            DataAccessLayerFacade.UpdateUser(username, encryption.Salt, encryption.Hash);
         }
 
         public static bool TryLogon(string username, string password)
