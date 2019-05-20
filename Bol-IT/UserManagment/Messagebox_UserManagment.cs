@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using BusinessLayer;
 using DataAccessLayer;
 
-namespace Bol_IT
+namespace UserManagment
 {
     public partial class Messagebox_UserManagment : Form
     {

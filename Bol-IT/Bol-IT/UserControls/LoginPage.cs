@@ -33,6 +33,7 @@ namespace Bol_IT
         {
             InitializeComponent();
 
+
             //Form autosize
             LoginPage_SizeChanged(this, new EventArgs());
         }
@@ -42,8 +43,7 @@ namespace Bol_IT
             //Eager initialization af singleton instance
             _instance = this;
 
-            rtbUsername.SelectionAlignment = HorizontalAlignment.Center;
-            rtbPassword.SelectionAlignment = HorizontalAlignment.Center;
+            tbPassword.PasswordChar = '*';
 
             SignOff();
         }
@@ -56,9 +56,9 @@ namespace Bol_IT
             }
             //Special title
             lblTitleLogin.Font = new Font(lblTitleLogin.Font.FontFamily, this.Size.Height / 25);
-            foreach (var rtb in tableLayoutPanel1.Controls.OfType<RichTextBox>())
+            foreach (var tb in tableLayoutPanel1.Controls.OfType<TextBox>())
             {
-                rtb.Font = new Font(rtb.Font.FontFamily, this.Size.Height / 50);
+                tb.Font = new Font(tb.Font.FontFamily, this.Size.Height / 50);
             }
             foreach (var btn in tableLayoutPanel1.Controls.OfType<Button>())
             {
@@ -70,7 +70,11 @@ namespace Bol_IT
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (BusinessLayerFacade.TryLogon(rtbUsername.Text, rtbPassword.Text))
+            if (DataAccessLayer.DataAccessLayerFacade.CheckForSQLInjection(tbUsername.Text, tbPassword.Text))
+            {
+                return;
+            }
+            if (BusinessLayerFacade.TryLogon(tbUsername.Text, tbPassword.Text))
             {
                 MenuBar_Left.Instance.ShowButtons();
                 MenuBar_Top.Instance.ShowButtons();
@@ -94,8 +98,16 @@ namespace Bol_IT
             MenuBar_Left.Instance.SignOff();
             MenuBar_Top.Instance.HideButtons();
 
-            rtbUsername.Text = string.Empty;
-            rtbPassword.Text = string.Empty;
+            tbUsername.Text = string.Empty;
+            tbPassword.Text = string.Empty;
+        }
+
+        private void tb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                btnLogin_Click(null, null);
+            }
         }
     }
 }

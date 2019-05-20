@@ -20,7 +20,11 @@ namespace UnitTestProject
         [TestMethod]
         public void TestMethod1()
         {
-            GetLatLongFromAddress("Engblommevej 19", "Horsens", "Midtjylland", "8700");
+
+            Form Messagebox_UserManagment = new Form();
+            Messagebox_UserManagment.Show();
+
+            //GetLatLongFromAddress("Engblommevej 19", "Horsens", "Midtjylland", "8700");
 
 
             //Console.WriteLine(CalculateDistanceMethod.GetDistanceByAddresses("Jellingvej 15A, 7100", "Østerbrogade 20 2. Th., 7100"));

@@ -33,10 +33,10 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.rtbUsername = new System.Windows.Forms.RichTextBox();
-            this.rtbPassword = new System.Windows.Forms.RichTextBox();
             this.lblMessage = new System.Windows.Forms.Label();
             this.lblForgotPassword = new System.Windows.Forms.Label();
+            this.tbUsername = new System.Windows.Forms.TextBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,10 +51,10 @@
             this.tableLayoutPanel1.Controls.Add(this.lblUsername, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.btnLogin, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.lblPassword, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.rtbUsername, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.rtbPassword, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.lblMessage, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.lblForgotPassword, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.tbUsername, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.tbPassword, 2, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -121,26 +121,6 @@
             this.lblPassword.Text = "Kodeord";
             this.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // rtbUsername
-            // 
-            this.rtbUsername.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbUsername.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbUsername.Location = new System.Drawing.Point(434, 221);
-            this.rtbUsername.Name = "rtbUsername";
-            this.rtbUsername.Size = new System.Drawing.Size(166, 23);
-            this.rtbUsername.TabIndex = 5;
-            this.rtbUsername.Text = "";
-            // 
-            // rtbPassword
-            // 
-            this.rtbPassword.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbPassword.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbPassword.Location = new System.Drawing.Point(434, 250);
-            this.rtbPassword.Name = "rtbPassword";
-            this.rtbPassword.Size = new System.Drawing.Size(166, 23);
-            this.rtbPassword.TabIndex = 6;
-            this.rtbPassword.Text = "";
-            // 
             // lblMessage
             // 
             this.lblMessage.AutoSize = true;
@@ -166,6 +146,24 @@
             this.lblForgotPassword.Text = "Glemt kodeord? Tryk her for et kodeords reset.";
             this.lblForgotPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // tbUsername
+            // 
+            this.tbUsername.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbUsername.Location = new System.Drawing.Point(434, 221);
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(166, 20);
+            this.tbUsername.TabIndex = 9;
+            this.tbUsername.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
+            // 
+            // tbPassword
+            // 
+            this.tbPassword.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbPassword.Location = new System.Drawing.Point(434, 250);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(166, 20);
+            this.tbPassword.TabIndex = 10;
+            this.tbPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
+            // 
             // LoginPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -188,9 +186,9 @@
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.RichTextBox rtbUsername;
-        private System.Windows.Forms.RichTextBox rtbPassword;
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.Label lblForgotPassword;
+        private System.Windows.Forms.TextBox tbUsername;
+        private System.Windows.Forms.TextBox tbPassword;
     }
 }

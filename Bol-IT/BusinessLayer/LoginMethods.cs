@@ -74,18 +74,25 @@ namespace BusinessLayer
         {
             Encryption encryption = GetEncryptionFromDB(DataAccessLayerFacade.GetEncryptionByUsername(testUsername));
 
-            var pbkdf2 = new Rfc2898DeriveBytes(testPassword, encryption.Salt, 10000);
-            
-            byte[] hashBytes = new byte[36];
-
-            Array.Copy(encryption.Salt, 0, hashBytes, 0, 16);
-            Array.Copy(encryption.Hash, 0, hashBytes, 16, 20);
-
-            string encryptedTestPassword = Convert.ToBase64String(hashBytes);
-
-            for (int i = 16; i < encryptedTestPassword.Length; i++)
+            if (encryption == null)
             {
-                if (encryption.EncryptedPassword[i] != encryptedTestPassword[i])
+                return false;
+            }
+
+            byte[] savedHash = Convert.FromBase64String(encryption.EncryptedPassword);
+
+            if (encryption == null)
+            {
+                return false;
+            }
+
+            var pbkdf2 = new Rfc2898DeriveBytes(testPassword, encryption.Salt, 10000);
+
+            byte[] hash = pbkdf2.GetBytes(20);
+
+            for (int i = 16; i < hash.Length; i++)
+            {
+                if (savedHash[i + 16] != hash[i])
                 {
                     return false;
                 }
@@ -95,6 +102,11 @@ namespace BusinessLayer
 
         private static Encryption GetEncryptionFromDB(DataTable dataTable)
         {
+            if (dataTable.Rows.Count == 0)
+            {
+                return null;
+            }
+
             return new Encryption
             {
                 Hash = (byte[])dataTable.Rows[0]["hash"],

@@ -472,7 +472,7 @@ namespace DataAccessLayer
 
         public static bool UserExists(string username)
         {
-            if (MethodsDataAccessLayer.GetEncryptionByUsername(username) != null)
+            if (MethodsDataAccessLayer.GetEncryptionByUsername(username).Rows.Count != 0)
             {
                 return true;
             }

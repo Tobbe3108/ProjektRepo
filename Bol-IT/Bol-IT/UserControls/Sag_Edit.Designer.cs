@@ -314,12 +314,13 @@
             this.lvHouseFiles.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableLayoutPanel28.SetColumnSpan(this.lvHouseFiles, 3);
             this.lvHouseFiles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvHouseFiles.ForeColor = System.Drawing.Color.White;
+            this.lvHouseFiles.ForeColor = System.Drawing.Color.Black;
             this.lvHouseFiles.Location = new System.Drawing.Point(3, 3);
             this.lvHouseFiles.Name = "lvHouseFiles";
             this.lvHouseFiles.Size = new System.Drawing.Size(190, 104);
             this.lvHouseFiles.TabIndex = 3;
             this.lvHouseFiles.UseCompatibleStateImageBehavior = false;
+            this.lvHouseFiles.View = System.Windows.Forms.View.List;
             this.lvHouseFiles.DoubleClick += new System.EventHandler(this.lvHouseFiles_DoubleClick);
             // 
             // btnAddFile
