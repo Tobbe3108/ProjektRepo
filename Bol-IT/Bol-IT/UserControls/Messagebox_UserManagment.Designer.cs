@@ -160,6 +160,8 @@
             // 
             // tbUsername
             // 
+            this.tbUsername.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.tbUsername.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
             this.tbUsername.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbUsername.Location = new System.Drawing.Point(386, 151);
             this.tbUsername.Name = "tbUsername";
@@ -168,6 +170,8 @@
             // 
             // tbPassword
             // 
+            this.tbPassword.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.tbPassword.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
             this.tbPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbPassword.Location = new System.Drawing.Point(386, 204);
             this.tbPassword.Name = "tbPassword";

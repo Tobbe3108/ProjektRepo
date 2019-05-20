@@ -617,17 +617,24 @@ namespace Bol_IT
         //Tobias
         private void btnCreateAd_Click(object sender, EventArgs e)
         {
-            //BusinessLayerFacade.GenerateMailAd();
             //Klar til at implementere API fra annonce sider
         }
         
         //Christoffer
         private void lvHouseFiles_DoubleClick(object sender, EventArgs e)
         {
+            if (lvHouseFiles.Items.Count == 0)
+            {
+                return;
+            }
             BusinessLayerFacade.ShowFile(lvHouseFiles.SelectedItems[0].Text);
         }
         private void btnShowFile_Click(object sender, EventArgs e)
         {
+            if (lvHouseFiles.Items.Count == 0)
+            {
+                return;
+            }
             BusinessLayerFacade.ShowFile(lvHouseFiles.SelectedItems[0].Text);
         }
         private void btnAddFile_Click(object sender, EventArgs e)

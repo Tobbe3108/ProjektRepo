@@ -412,10 +412,18 @@ namespace Bol_IT
         //Christoffer
         private void lvHouseFiles_DoubleClick(object sender, EventArgs e)
         {
+            if (lvHouseFiles.Items.Count == 0)
+            {
+                return;
+            }
             BusinessLayerFacade.ShowFile(lvHouseFiles.SelectedItems[0].Text);
         }
         private void btnShowFile_Click(object sender, EventArgs e)
         {
+            if (lvHouseFiles.Items.Count == 0)
+            {
+                return;
+            }
             BusinessLayerFacade.ShowFile(lvHouseFiles.SelectedItems[0].Text);
         }
         private void btnAddFile_Click(object sender, EventArgs e)
