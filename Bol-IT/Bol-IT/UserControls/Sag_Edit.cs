@@ -23,6 +23,7 @@ namespace Bol_IT
         private string ExtOfPhoto;
         private byte[] Photo;
         private List<Document> Documents; //
+        public ImageList ListViewImages = new ImageList();
 
         #endregion
         #region Init
@@ -42,6 +43,7 @@ namespace Bol_IT
                 return _instance;
             }
         }
+
 
         private Sag_Edit()
         {
@@ -175,74 +177,6 @@ namespace Bol_IT
                 Instance.lvHouseFiles.Items.Add(Path.ChangeExtension(document.Name, document.Extention));
             }
         }
-
-        #endregion
-
-        #region Events
-
-        //Tobias
-        private void pbHouseImage_DragEnter(object sender, DragEventArgs e)
-        {
-            e.Effect = DragDropEffects.Copy;
-        }
-
-        private void pbHouseImage_DragDrop(object sender, DragEventArgs e)
-        {
-            if ((string[])e.Data.GetData(DataFormats.FileDrop) != null)
-            {
-                foreach (string pic in ((string[])e.Data.GetData(DataFormats.FileDrop)))
-                {
-                    Image image = Image.FromFile(pic);
-                    pbHouseImage.Image = image;
-                    if (e.Data.GetDataPresent(DataFormats.FileDrop))
-                    {
-                        var path = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
-                        pbHouseImage.ImageLocation = (string)path;
-                    }
-                }
-            }
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            //Load Sag_ViewAll User control når tryk på knap
-            if (!Form1.Instance.PnlContainer.Controls.ContainsKey("Sag_ViewAll"))
-            {
-                Sag_ViewAll.Instance.Dock = DockStyle.Fill;
-                Form1.Instance.PnlContainer.Controls.Add(Sag_ViewAll.Instance);
-            }
-            Form1.Instance.PnlContainer.Controls["Sag_ViewAll"].BringToFront();
-        }
-
-        //Christoffer
-        private void CheckKeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsNumber(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void CheckKeyPressDigit(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsNumber(e.KeyChar) && !(e.KeyChar == '/'))
-            {
-                e.Handled = true;
-            }
-        }
-
-        //Christoffer
-        private void pbHouseImage_Click(object sender, EventArgs e)
-        {
-            if (ofdOpenFile.ShowDialog() == DialogResult.OK)
-            {
-                pbHouseImage.ImageLocation = ofdOpenFile.FileName;
-                Image image = Image.FromFile(ofdOpenFile.FileName);
-                pbHouseImage.Image = image;
-            }
-        }
-
-
 
         //Christoffer og Tobias
         private void btnSave_Click(object sender, EventArgs e)
@@ -418,7 +352,19 @@ namespace Bol_IT
             }
             return false;
         }
-
+        private void AddFile()
+        {
+            if (ofdOpenFile.ShowDialog() == DialogResult.OK)
+            {
+                //Tilføj information til listview
+                Icon fileIcon = Icon.ExtractAssociatedIcon(ofdOpenFile.FileName);
+                ListViewImages.Images.Add(fileIcon);
+                ListViewItem listViewItem = lvHouseFiles.Items.Add(Path.GetFileName(ofdOpenFile.FileName));
+                listViewItem.ImageIndex = ListViewImages.Images.Count - 1;
+                //Kopier til temp placering
+                BusinessLayerFacade.CopyFile(ofdOpenFile.FileName);
+            }
+        }
         /// <summary>
         /// Kontrollerer at alle tekstfelter er udfyldte, sådan at der ikke sker fejl ved indsætningen i databasen
         /// </summary>
@@ -467,6 +413,72 @@ namespace Bol_IT
             }
             return false;
         }
+        #endregion
+
+        #region Events
+
+        //Tobias
+        private void pbHouseImage_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+        }
+
+        private void pbHouseImage_DragDrop(object sender, DragEventArgs e)
+        {
+            if ((string[])e.Data.GetData(DataFormats.FileDrop) != null)
+            {
+                foreach (string pic in ((string[])e.Data.GetData(DataFormats.FileDrop)))
+                {
+                    Image image = Image.FromFile(pic);
+                    pbHouseImage.Image = image;
+                    if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                    {
+                        var path = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
+                        pbHouseImage.ImageLocation = (string)path;
+                    }
+                }
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            //Load Sag_ViewAll User control når tryk på knap
+            if (!Form1.Instance.PnlContainer.Controls.ContainsKey("Sag_ViewAll"))
+            {
+                Sag_ViewAll.Instance.Dock = DockStyle.Fill;
+                Form1.Instance.PnlContainer.Controls.Add(Sag_ViewAll.Instance);
+            }
+            Form1.Instance.PnlContainer.Controls["Sag_ViewAll"].BringToFront();
+        }
+
+        //Christoffer
+        private void CheckKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void CheckKeyPressDigit(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar) && !(e.KeyChar == '/'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        //Christoffer
+        private void pbHouseImage_Click(object sender, EventArgs e)
+        {
+            if (ofdOpenFile.ShowDialog() == DialogResult.OK)
+            {
+                pbHouseImage.ImageLocation = ofdOpenFile.FileName;
+                Image image = Image.FromFile(ofdOpenFile.FileName);
+                pbHouseImage.Image = image;
+            }
+        }
+        
 
         //Tobias
         private void btnToFile_Click(object sender, EventArgs e)
@@ -612,14 +624,6 @@ namespace Bol_IT
         private void btnAddFile_Click(object sender, EventArgs e)
         {
             AddFile();
-        }
-        private void AddFile()
-        {
-            if (ofdOpenFile.ShowDialog() == DialogResult.OK)
-            {
-                lvHouseFiles.Items.Add(Path.GetFileName(ofdOpenFile.FileName));
-                BusinessLayerFacade.CopyFile(ofdOpenFile.FileName);
-            }
         }
         private void btnDeleteFile_Click(object sender, EventArgs e)
         {
