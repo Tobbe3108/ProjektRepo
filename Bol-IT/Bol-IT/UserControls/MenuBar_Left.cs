@@ -88,12 +88,7 @@ namespace Bol_IT
             lblSignOut.Text = "Log af";
 
             //Load Sag_ViewAll User control når tryk på knap
-            if (!Form1.Instance.PnlContainer.Controls.ContainsKey("OpenHouse_Distribution"))
-            {
-                OpenHouse_Distribution.Instance.Dock = DockStyle.Fill;
-                Form1.Instance.PnlContainer.Controls.Add(OpenHouse_Distribution.Instance);
-            }
-            Form1.Instance.PnlContainer.Controls["OpenHouse_Distribution"].BringToFront();
+            pbSager_Click(null, null);
         }
 
         private void LoadOpenHouse()

@@ -106,7 +106,6 @@ namespace BusinessLayer
             {
                 return null;
             }
-
             return new Encryption
             {
                 Hash = (byte[])dataTable.Rows[0]["hash"],
