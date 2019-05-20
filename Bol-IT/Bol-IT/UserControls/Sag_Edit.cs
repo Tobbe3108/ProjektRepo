@@ -613,6 +613,7 @@ namespace Bol_IT
         //Tobias
         private void btnCreateAd_Click(object sender, EventArgs e)
         {
+            //BusinessLayerFacade.GenerateMailAd();
             //Klar til at implementere API fra annonce sider
         }
         
