@@ -43,9 +43,9 @@ namespace Bol_IT
             //Eager initialization af singleton instance
             _instance = this;
 
-            tbPassword.PasswordChar = '*';
-
             SignOff();
+            tbPassword.PasswordChar = '*';
+            tbUsername.Focus();
         }
 
         private void LoginPage_SizeChanged(object sender, EventArgs eventArgs)
