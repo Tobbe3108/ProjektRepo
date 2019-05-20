@@ -97,6 +97,10 @@ namespace BusinessLayer
                 default:
                     break;
             }
+            distribution.Columns["AId"].ColumnName = "Mægler Id";
+            distribution.Columns["CaseNr"].ColumnName = "Sagsnummer";
+            distribution.Columns["CashPrice"].ColumnName = "Kontant pris";
+
             //Returner fordelingen som et datatable.
             return distribution;
         }

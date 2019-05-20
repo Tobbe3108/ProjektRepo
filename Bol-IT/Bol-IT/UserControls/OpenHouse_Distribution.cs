@@ -55,17 +55,17 @@ namespace Bol_IT
             cbDistribution.SelectedIndex = 0;
 
             //tilføjer kolonner til de 2 datatables til brug i dgvDistribution
-            agentDistributionTable.Columns.Add("aId", typeof(int));
-            agentDistributionTable.Columns.Add("nrOfSales", typeof(int));
-            agentDistributionTable.Columns["aId"].Unique = true;
+            agentDistributionTable.Columns.Add("Mægler Id", typeof(int));
+            agentDistributionTable.Columns.Add("Antal salg", typeof(int));
+            agentDistributionTable.Columns["Mægler Id"].Unique = true;
             dgvDistribution.DataSource = agentDistributionTable;
 
-            propDistributionTable.Columns.Add("caseNr", typeof(int));
-            propDistributionTable.Columns.Add("address");
-            propDistributionTable.Columns.Add("zipcode", typeof(int));
-            propDistributionTable.Columns.Add("builtRebuild");
-            propDistributionTable.Columns.Add("houseType");
-            propDistributionTable.Columns["caseNr"].Unique = true;
+            propDistributionTable.Columns.Add("Sagsnummer", typeof(int));
+            propDistributionTable.Columns.Add("Adresse");
+            propDistributionTable.Columns.Add("Postnummer", typeof(int));
+            propDistributionTable.Columns.Add("Bygget/Ombygget");
+            propDistributionTable.Columns.Add("Bolig type");
+            propDistributionTable.Columns["Sagsnummer"].Unique = true;
         }
 
         private void OpenHouse_Distribution_Load(object sender, EventArgs e)
@@ -118,12 +118,19 @@ namespace Bol_IT
                         rtbSearch.Invoke((MethodInvoker)delegate { int.TryParse(rtbSearch.Text, out agentSearchParameters); });
 
                         dataTable = DataAccessLayerFacade.GetAgentDataTableByLike(agentSearchParameters);
+                        dataTable.Columns["aId"].ColumnName = "Mægler Id"; 
+                        dataTable.Columns["nrOfSales"].ColumnName = "Antal salg"; 
                         break;
                     case 1:
                         string propertySearchParameters = "";
                         rtbSearch.Invoke((MethodInvoker)delegate { propertySearchParameters = rtbSearch.Text; });
 
                         dataTable = RemoveColumns(DataAccessLayerFacade.GetPropertyDataTableByLike(propertySearchParameters, false));
+                        dataTable.Columns["caseNr"].ColumnName = "Sagsnummer";
+                        dataTable.Columns["address"].ColumnName = "Adresse";
+                        dataTable.Columns["zipcode"].ColumnName = "Postnummer";
+                        dataTable.Columns["builtRebuild"].ColumnName = "Bygget/Ombygget";
+                        dataTable.Columns["houseType"].ColumnName = "Bolig type";
                         break;
                 }
 
@@ -176,7 +183,10 @@ namespace Bol_IT
             {
                 try
                 {
-                    dgvSearch.DataSource = DataAccessLayerFacade.GetAgentDataTable();
+                    DataTable dataTable = DataAccessLayerFacade.GetAgentDataTable();
+                    dataTable.Columns["aId"].ColumnName = "Mægler Id";
+                    dataTable.Columns["nrOfSales"].ColumnName = "Antal salg";
+                    dgvSearch.DataSource = dataTable;
                 }
                 catch (Exception){}
             }
@@ -243,12 +253,22 @@ namespace Bol_IT
             {
                 case 0:
                     dgvDistribution.DataSource = agentDistributionTable;
-                    dgvSearch.DataSource = DataAccessLayerFacade.GetAgentDataTable();
+                    DataTable agentDataTable = DataAccessLayerFacade.GetAgentDataTable();
+                    dgvSearch.DataSource = agentDataTable;
+                    agentDataTable.Columns["aId"].ColumnName = "Mægler Id";
+                    agentDataTable.Columns["nrOfSales"].ColumnName = "Antal salg";
+                    
                     fordelt = false;
                     break;
                 case 1:
                     dgvDistribution.DataSource = propDistributionTable;
-                    dgvSearch.DataSource = RemoveColumns(DataAccessLayerFacade.GetPropertyDataTable());
+                    DataTable propertyDataTable = RemoveColumns(DataAccessLayerFacade.GetPropertyDataTable());
+                    dgvSearch.DataSource = propertyDataTable;
+                    propertyDataTable.Columns["caseNr"].ColumnName = "Sagsnummer";
+                    propertyDataTable.Columns["address"].ColumnName = "Adresse";
+                    propertyDataTable.Columns["zipcode"].ColumnName = "Postnummer";
+                    propertyDataTable.Columns["builtRebuild"].ColumnName = "Bygget/Ombygget";
+                    propertyDataTable.Columns["houseType"].ColumnName = "Bolig type";
                     fordelt = false;
                     break;
             }
@@ -311,7 +331,7 @@ namespace Bol_IT
                     }
                     dgvDistribution.DataSource = null;
                     dgvDistribution.DataSource = BusinessLayerFacade.DistributeHouses(agentDistributionTable, propDistributionTable, cbDistribution.SelectedIndex);//Sætter datasourcen til det datatable metoden returnerer.
-                    dgvDistribution.Sort(dgvDistribution.Columns["AId"], ListSortDirection.Ascending);//Sorterer DataGridViewet efter Agent Id.
+                    dgvDistribution.Sort(dgvDistribution.Columns["Mægler Id"], ListSortDirection.Ascending);//Sorterer DataGridViewet efter Agent Id.
                     fordelt = true;
                 }
                 else
