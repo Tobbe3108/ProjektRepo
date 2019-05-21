@@ -69,7 +69,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(864, 486);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.TabIndex = 900;
             // 
             // lblTitleLogin
             // 
@@ -142,7 +142,7 @@
             this.tbUsername.Location = new System.Drawing.Point(434, 221);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(166, 20);
-            this.tbUsername.TabIndex = 9;
+            this.tbUsername.TabIndex = 0;
             // 
             // tbPassword
             // 
@@ -152,7 +152,7 @@
             this.tbPassword.Location = new System.Drawing.Point(434, 250);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(166, 20);
-            this.tbPassword.TabIndex = 10;
+            this.tbPassword.TabIndex = 1;
             // 
             // lklPasswordReset
             // 
@@ -162,7 +162,7 @@
             this.lklPasswordReset.Location = new System.Drawing.Point(262, 314);
             this.lklPasswordReset.Name = "lklPasswordReset";
             this.lklPasswordReset.Size = new System.Drawing.Size(338, 48);
-            this.lklPasswordReset.TabIndex = 11;
+            this.lklPasswordReset.TabIndex = 3;
             this.lklPasswordReset.TabStop = true;
             this.lklPasswordReset.Text = "Glemt login? Klik her for at bede administratoren om en kodeords nulstilning.";
             this.lklPasswordReset.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

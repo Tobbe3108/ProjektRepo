@@ -61,7 +61,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.5F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(864, 486);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.tableLayoutPanel1.TabIndex = 1000001;
             // 
             // tableLayoutPanel2
             // 
@@ -79,7 +79,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(820, 461);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.tableLayoutPanel2.TabIndex = 1000000;
             // 
             // dgvPerson
             // 
@@ -95,7 +95,7 @@
             this.dgvPerson.Name = "dgvPerson";
             this.dgvPerson.ReadOnly = true;
             this.dgvPerson.Size = new System.Drawing.Size(814, 339);
-            this.dgvPerson.TabIndex = 0;
+            this.dgvPerson.TabIndex = 3;
             this.dgvPerson.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSager_CellContentClick);
             // 
             // Rediger
@@ -123,7 +123,7 @@
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(820, 47);
-            this.tableLayoutPanel3.TabIndex = 1;
+            this.tableLayoutPanel3.TabIndex = 1000001;
             // 
             // btnCreatePerson
             // 
@@ -136,7 +136,7 @@
             this.btnCreatePerson.Location = new System.Drawing.Point(3, 3);
             this.btnCreatePerson.Name = "btnCreatePerson";
             this.btnCreatePerson.Size = new System.Drawing.Size(158, 41);
-            this.btnCreatePerson.TabIndex = 0;
+            this.btnCreatePerson.TabIndex = 1;
             this.btnCreatePerson.Text = "Tilføj person";
             this.btnCreatePerson.UseVisualStyleBackColor = false;
             this.btnCreatePerson.Click += new System.EventHandler(this.btnCreatePerson_Click);
@@ -152,7 +152,7 @@
             this.btnToFile.Location = new System.Drawing.Point(167, 3);
             this.btnToFile.Name = "btnToFile";
             this.btnToFile.Size = new System.Drawing.Size(158, 41);
-            this.btnToFile.TabIndex = 1;
+            this.btnToFile.TabIndex = 2;
             this.btnToFile.Text = "Udskriv fil";
             this.btnToFile.UseVisualStyleBackColor = false;
             this.btnToFile.Click += new System.EventHandler(this.btnToFile_Click);
@@ -173,7 +173,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(820, 69);
-            this.tableLayoutPanel4.TabIndex = 2;
+            this.tableLayoutPanel4.TabIndex = 1000002;
             // 
             // rtbSearch
             // 
@@ -182,7 +182,7 @@
             this.rtbSearch.Location = new System.Drawing.Point(3, 26);
             this.rtbSearch.Name = "rtbSearch";
             this.rtbSearch.Size = new System.Drawing.Size(404, 40);
-            this.rtbSearch.TabIndex = 1;
+            this.rtbSearch.TabIndex = 0;
             this.rtbSearch.Text = "";
             this.rtbSearch.TextChanged += new System.EventHandler(this.rtbSearch_TextChanged);
             // 
@@ -195,7 +195,7 @@
             this.lblSearch.Location = new System.Drawing.Point(3, 0);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(404, 23);
-            this.lblSearch.TabIndex = 2;
+            this.lblSearch.TabIndex = 1000002;
             this.lblSearch.Text = "Søg efter person informationer:";
             this.lblSearch.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 

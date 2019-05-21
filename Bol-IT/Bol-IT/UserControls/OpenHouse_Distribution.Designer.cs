@@ -78,7 +78,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.5F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(864, 486);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.TabIndex = 1000000;
             // 
             // tableLayoutPanel2
             // 
@@ -101,7 +101,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(399, 461);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.tableLayoutPanel2.TabIndex = 1000000;
             // 
             // rtbSearch
             // 
@@ -112,7 +112,7 @@
             this.rtbSearch.Margin = new System.Windows.Forms.Padding(6);
             this.rtbSearch.Name = "rtbSearch";
             this.rtbSearch.Size = new System.Drawing.Size(387, 34);
-            this.rtbSearch.TabIndex = 2;
+            this.rtbSearch.TabIndex = 0;
             this.rtbSearch.Text = "";
             this.rtbSearch.TextChanged += new System.EventHandler(this.rtbSearch_TextChanged);
             // 
@@ -130,7 +130,7 @@
             this.dgvSearch.Name = "dgvSearch";
             this.dgvSearch.ReadOnly = true;
             this.dgvSearch.Size = new System.Drawing.Size(393, 270);
-            this.dgvSearch.TabIndex = 2;
+            this.dgvSearch.TabIndex = 5;
             this.dgvSearch.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearch_CellContentClick);
             // 
             // Tilføj
@@ -155,7 +155,7 @@
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(399, 46);
-            this.tableLayoutPanel6.TabIndex = 3;
+            this.tableLayoutPanel6.TabIndex = 1000003;
             // 
             // lblDistribute
             // 
@@ -166,7 +166,7 @@
             this.lblDistribute.Location = new System.Drawing.Point(3, 0);
             this.lblDistribute.Name = "lblDistribute";
             this.lblDistribute.Size = new System.Drawing.Size(55, 46);
-            this.lblDistribute.TabIndex = 0;
+            this.lblDistribute.TabIndex = 1000000;
             this.lblDistribute.Text = "Fordeling:";
             this.lblDistribute.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -183,7 +183,7 @@
             this.cbDistribution.Margin = new System.Windows.Forms.Padding(0, 12, 12, 12);
             this.cbDistribution.Name = "cbDistribution";
             this.cbDistribution.Size = new System.Drawing.Size(288, 21);
-            this.cbDistribution.TabIndex = 1;
+            this.cbDistribution.TabIndex = 2;
             // 
             // tableLayoutPanel7
             // 
@@ -200,7 +200,7 @@
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(399, 47);
-            this.tableLayoutPanel7.TabIndex = 4;
+            this.tableLayoutPanel7.TabIndex = 1000004;
             // 
             // btnReset
             // 
@@ -213,7 +213,7 @@
             this.btnReset.Margin = new System.Windows.Forms.Padding(6);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(188, 35);
-            this.btnReset.TabIndex = 6;
+            this.btnReset.TabIndex = 4;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -229,7 +229,7 @@
             this.btnDistribute.Margin = new System.Windows.Forms.Padding(6);
             this.btnDistribute.Name = "btnDistribute";
             this.btnDistribute.Size = new System.Drawing.Size(187, 35);
-            this.btnDistribute.TabIndex = 5;
+            this.btnDistribute.TabIndex = 3;
             this.btnDistribute.Text = "Fordel";
             this.btnDistribute.UseVisualStyleBackColor = true;
             this.btnDistribute.Click += new System.EventHandler(this.btnDistribute_Click);
@@ -249,7 +249,7 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(399, 46);
-            this.tableLayoutPanel8.TabIndex = 5;
+            this.tableLayoutPanel8.TabIndex = 1000005;
             // 
             // lblSearch
             // 
@@ -263,7 +263,7 @@
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblSearch.Size = new System.Drawing.Size(187, 30);
-            this.lblSearch.TabIndex = 1;
+            this.lblSearch.TabIndex = 1000001;
             this.lblSearch.Text = "Hvad vil du søge efter";
             this.lblSearch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -279,7 +279,7 @@
             this.cbSearchParam.Margin = new System.Windows.Forms.Padding(6);
             this.cbSearchParam.Name = "cbSearchParam";
             this.cbSearchParam.Size = new System.Drawing.Size(188, 21);
-            this.cbSearchParam.TabIndex = 2;
+            this.cbSearchParam.TabIndex = 1;
             this.cbSearchParam.SelectedIndexChanged += new System.EventHandler(this.cbSearchParam_SelectedIndexChanged);
             // 
             // tableLayoutPanel3
@@ -298,7 +298,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(399, 461);
-            this.tableLayoutPanel3.TabIndex = 1;
+            this.tableLayoutPanel3.TabIndex = 1000001;
             // 
             // lblDistribution
             // 
@@ -309,7 +309,7 @@
             this.lblDistribution.Location = new System.Drawing.Point(3, 0);
             this.lblDistribution.Name = "lblDistribution";
             this.lblDistribution.Size = new System.Drawing.Size(393, 46);
-            this.lblDistribution.TabIndex = 0;
+            this.lblDistribution.TabIndex = 1000000;
             this.lblDistribution.Text = "Fordeling";
             this.lblDistribution.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
@@ -328,7 +328,7 @@
             this.dgvDistribution.Name = "dgvDistribution";
             this.dgvDistribution.ReadOnly = true;
             this.dgvDistribution.Size = new System.Drawing.Size(387, 356);
-            this.dgvDistribution.TabIndex = 1;
+            this.dgvDistribution.TabIndex = 7;
             this.dgvDistribution.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDistribution_CellContentClick);
             // 
             // Slet
@@ -355,7 +355,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(399, 47);
-            this.tableLayoutPanel4.TabIndex = 2;
+            this.tableLayoutPanel4.TabIndex = 1000002;
             // 
             // btnToFile
             // 
@@ -368,7 +368,7 @@
             this.btnToFile.Margin = new System.Windows.Forms.Padding(6);
             this.btnToFile.Name = "btnToFile";
             this.btnToFile.Size = new System.Drawing.Size(187, 35);
-            this.btnToFile.TabIndex = 0;
+            this.btnToFile.TabIndex = 6;
             this.btnToFile.Text = "Udskriv fil";
             this.btnToFile.UseVisualStyleBackColor = true;
             this.btnToFile.Click += new System.EventHandler(this.btnToFile_Click);

@@ -98,7 +98,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.5F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(864, 486);
-            this.tableLayoutPanel1.TabIndex = 2;
+            this.tableLayoutPanel1.TabIndex = 1000002;
             // 
             // tableLayoutPanel3
             // 
@@ -114,7 +114,7 @@
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(820, 400);
-            this.tableLayoutPanel3.TabIndex = 5;
+            this.tableLayoutPanel3.TabIndex = 1000005;
             // 
             // tableLayoutPanel4
             // 
@@ -135,7 +135,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(410, 400);
-            this.tableLayoutPanel4.TabIndex = 7;
+            this.tableLayoutPanel4.TabIndex = 1000007;
             // 
             // tableLayoutPanel10
             // 
@@ -151,7 +151,7 @@
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel10.Size = new System.Drawing.Size(410, 57);
-            this.tableLayoutPanel10.TabIndex = 1;
+            this.tableLayoutPanel10.TabIndex = 1000001;
             // 
             // lblType
             // 
@@ -163,7 +163,7 @@
             this.lblType.Location = new System.Drawing.Point(3, 0);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(158, 57);
-            this.lblType.TabIndex = 11;
+            this.lblType.TabIndex = 10000011;
             this.lblType.Text = "Type";
             this.lblType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -179,7 +179,7 @@
             this.cbType.Margin = new System.Windows.Forms.Padding(2);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(242, 21);
-            this.cbType.TabIndex = 12;
+            this.cbType.TabIndex = 7;
             this.cbType.SelectedIndexChanged += new System.EventHandler(this.cbType_SelectedIndexChanged);
             // 
             // tableLayoutPanel9
@@ -196,7 +196,7 @@
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(410, 57);
-            this.tableLayoutPanel9.TabIndex = 1;
+            this.tableLayoutPanel9.TabIndex = 1000001;
             // 
             // rtbTypeChainging
             // 
@@ -207,7 +207,7 @@
             this.rtbTypeChainging.Location = new System.Drawing.Point(167, 3);
             this.rtbTypeChainging.Name = "rtbTypeChainging";
             this.rtbTypeChainging.Size = new System.Drawing.Size(240, 51);
-            this.rtbTypeChainging.TabIndex = 13;
+            this.rtbTypeChainging.TabIndex = 8;
             this.rtbTypeChainging.Text = "";
             this.rtbTypeChainging.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressDigit);
             // 
@@ -221,7 +221,7 @@
             this.lblTypeChainging.Location = new System.Drawing.Point(3, 0);
             this.lblTypeChainging.Name = "lblTypeChainging";
             this.lblTypeChainging.Size = new System.Drawing.Size(158, 57);
-            this.lblTypeChainging.TabIndex = 12;
+            this.lblTypeChainging.TabIndex = 10000012;
             this.lblTypeChainging.Text = "Temp";
             this.lblTypeChainging.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -249,7 +249,7 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(410, 400);
-            this.tableLayoutPanel7.TabIndex = 6;
+            this.tableLayoutPanel7.TabIndex = 1000006;
             // 
             // tableLayoutPanel22
             // 
@@ -265,7 +265,7 @@
             this.tableLayoutPanel22.RowCount = 1;
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel22.Size = new System.Drawing.Size(410, 57);
-            this.tableLayoutPanel22.TabIndex = 1;
+            this.tableLayoutPanel22.TabIndex = 1000001;
             // 
             // rtbAddress
             // 
@@ -276,7 +276,7 @@
             this.rtbAddress.Location = new System.Drawing.Point(167, 3);
             this.rtbAddress.Name = "rtbAddress";
             this.rtbAddress.Size = new System.Drawing.Size(240, 51);
-            this.rtbAddress.TabIndex = 14;
+            this.rtbAddress.TabIndex = 4;
             this.rtbAddress.Text = "";
             this.rtbAddress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressDigitOrChar);
             // 
@@ -290,7 +290,7 @@
             this.lblAddress.Location = new System.Drawing.Point(3, 0);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(158, 57);
-            this.lblAddress.TabIndex = 13;
+            this.lblAddress.TabIndex = 10000013;
             this.lblAddress.Text = "Adresse";
             this.lblAddress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -308,7 +308,7 @@
             this.tableLayoutPanel21.RowCount = 1;
             this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel21.Size = new System.Drawing.Size(410, 57);
-            this.tableLayoutPanel21.TabIndex = 1;
+            this.tableLayoutPanel21.TabIndex = 1000001;
             // 
             // rtbPhoneNr
             // 
@@ -319,7 +319,7 @@
             this.rtbPhoneNr.Location = new System.Drawing.Point(167, 3);
             this.rtbPhoneNr.Name = "rtbPhoneNr";
             this.rtbPhoneNr.Size = new System.Drawing.Size(240, 51);
-            this.rtbPhoneNr.TabIndex = 13;
+            this.rtbPhoneNr.TabIndex = 3;
             this.rtbPhoneNr.Text = "";
             this.rtbPhoneNr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressDigit);
             // 
@@ -333,7 +333,7 @@
             this.lblPhoneNr.Location = new System.Drawing.Point(3, 0);
             this.lblPhoneNr.Name = "lblPhoneNr";
             this.lblPhoneNr.Size = new System.Drawing.Size(158, 57);
-            this.lblPhoneNr.TabIndex = 12;
+            this.lblPhoneNr.TabIndex = 10000012;
             this.lblPhoneNr.Text = "Telefonnummer";
             this.lblPhoneNr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -351,7 +351,7 @@
             this.tableLayoutPanel20.RowCount = 1;
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel20.Size = new System.Drawing.Size(410, 57);
-            this.tableLayoutPanel20.TabIndex = 1;
+            this.tableLayoutPanel20.TabIndex = 1000001;
             // 
             // rtbLName
             // 
@@ -362,7 +362,7 @@
             this.rtbLName.Location = new System.Drawing.Point(167, 3);
             this.rtbLName.Name = "rtbLName";
             this.rtbLName.Size = new System.Drawing.Size(240, 51);
-            this.rtbLName.TabIndex = 12;
+            this.rtbLName.TabIndex = 2;
             this.rtbLName.Text = "";
             this.rtbLName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressChar);
             // 
@@ -376,7 +376,7 @@
             this.lblLName.Location = new System.Drawing.Point(3, 0);
             this.lblLName.Name = "lblLName";
             this.lblLName.Size = new System.Drawing.Size(158, 57);
-            this.lblLName.TabIndex = 11;
+            this.lblLName.TabIndex = 10000011;
             this.lblLName.Text = "Efternavn";
             this.lblLName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -394,7 +394,7 @@
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel11.Size = new System.Drawing.Size(410, 58);
-            this.tableLayoutPanel11.TabIndex = 1;
+            this.tableLayoutPanel11.TabIndex = 1000001;
             // 
             // rtbMail
             // 
@@ -405,7 +405,7 @@
             this.rtbMail.Location = new System.Drawing.Point(167, 3);
             this.rtbMail.Name = "rtbMail";
             this.rtbMail.Size = new System.Drawing.Size(240, 52);
-            this.rtbMail.TabIndex = 12;
+            this.rtbMail.TabIndex = 6;
             this.rtbMail.Text = "";
             // 
             // lblMail
@@ -418,7 +418,7 @@
             this.lblMail.Location = new System.Drawing.Point(3, 0);
             this.lblMail.Name = "lblMail";
             this.lblMail.Size = new System.Drawing.Size(158, 58);
-            this.lblMail.TabIndex = 11;
+            this.lblMail.TabIndex = 10000011;
             this.lblMail.Text = "Mail";
             this.lblMail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -436,7 +436,7 @@
             this.tableLayoutPanel19.RowCount = 1;
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel19.Size = new System.Drawing.Size(410, 57);
-            this.tableLayoutPanel19.TabIndex = 1;
+            this.tableLayoutPanel19.TabIndex = 1000001;
             // 
             // rtbMName
             // 
@@ -447,7 +447,7 @@
             this.rtbMName.Location = new System.Drawing.Point(167, 3);
             this.rtbMName.Name = "rtbMName";
             this.rtbMName.Size = new System.Drawing.Size(240, 51);
-            this.rtbMName.TabIndex = 12;
+            this.rtbMName.TabIndex = 1;
             this.rtbMName.Text = "";
             this.rtbMName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressChar);
             // 
@@ -461,7 +461,7 @@
             this.lblMName.Location = new System.Drawing.Point(3, 0);
             this.lblMName.Name = "lblMName";
             this.lblMName.Size = new System.Drawing.Size(158, 57);
-            this.lblMName.TabIndex = 11;
+            this.lblMName.TabIndex = 10000011;
             this.lblMName.Text = "Mellemnavn";
             this.lblMName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -479,7 +479,7 @@
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel12.Size = new System.Drawing.Size(410, 57);
-            this.tableLayoutPanel12.TabIndex = 1;
+            this.tableLayoutPanel12.TabIndex = 1000001;
             // 
             // rtbZipcode
             // 
@@ -490,7 +490,7 @@
             this.rtbZipcode.Location = new System.Drawing.Point(167, 3);
             this.rtbZipcode.Name = "rtbZipcode";
             this.rtbZipcode.Size = new System.Drawing.Size(240, 51);
-            this.rtbZipcode.TabIndex = 11;
+            this.rtbZipcode.TabIndex = 5;
             this.rtbZipcode.Text = "";
             this.rtbZipcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressDigit);
             // 
@@ -504,7 +504,7 @@
             this.lblZipcode.Location = new System.Drawing.Point(3, 0);
             this.lblZipcode.Name = "lblZipcode";
             this.lblZipcode.Size = new System.Drawing.Size(158, 57);
-            this.lblZipcode.TabIndex = 10;
+            this.lblZipcode.TabIndex = 10000010;
             this.lblZipcode.Text = "Postnummer";
             this.lblZipcode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -522,7 +522,7 @@
             this.tableLayoutPanel18.RowCount = 1;
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel18.Size = new System.Drawing.Size(410, 57);
-            this.tableLayoutPanel18.TabIndex = 1;
+            this.tableLayoutPanel18.TabIndex = 1000001;
             // 
             // rtbFName
             // 
@@ -533,7 +533,7 @@
             this.rtbFName.Location = new System.Drawing.Point(167, 3);
             this.rtbFName.Name = "rtbFName";
             this.rtbFName.Size = new System.Drawing.Size(240, 51);
-            this.rtbFName.TabIndex = 11;
+            this.rtbFName.TabIndex = 0;
             this.rtbFName.Text = "";
             this.rtbFName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressChar);
             // 
@@ -547,7 +547,7 @@
             this.lblFName.Location = new System.Drawing.Point(3, 0);
             this.lblFName.Name = "lblFName";
             this.lblFName.Size = new System.Drawing.Size(158, 57);
-            this.lblFName.TabIndex = 10;
+            this.lblFName.TabIndex = 10000010;
             this.lblFName.Text = "Fornavn";
             this.lblFName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -570,7 +570,7 @@
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(820, 48);
-            this.tableLayoutPanel2.TabIndex = 6;
+            this.tableLayoutPanel2.TabIndex = 1000006;
             // 
             // btnSave
             // 
@@ -583,7 +583,7 @@
             this.btnSave.Location = new System.Drawing.Point(549, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(185, 42);
-            this.btnSave.TabIndex = 4;
+            this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Gem";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -599,7 +599,7 @@
             this.btnCancel.Location = new System.Drawing.Point(358, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(185, 42);
-            this.btnCancel.TabIndex = 5;
+            this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Annuller";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -615,7 +615,7 @@
             this.btnSaveToFile.Location = new System.Drawing.Point(85, 3);
             this.btnSaveToFile.Name = "btnSaveToFile";
             this.btnSaveToFile.Size = new System.Drawing.Size(185, 42);
-            this.btnSaveToFile.TabIndex = 6;
+            this.btnSaveToFile.TabIndex = 9;
             this.btnSaveToFile.Text = "Gem fil";
             this.btnSaveToFile.UseVisualStyleBackColor = false;
             this.btnSaveToFile.Click += new System.EventHandler(this.btnSaveToFile_Click);

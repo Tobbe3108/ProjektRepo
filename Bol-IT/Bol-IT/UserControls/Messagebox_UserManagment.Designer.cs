@@ -33,7 +33,6 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblMessage = new System.Windows.Forms.Label();
-            this.lblForgotPassword = new System.Windows.Forms.Label();
             this.btnUpdateUser = new System.Windows.Forms.Button();
             this.btnMakeNewUser = new System.Windows.Forms.Button();
             this.tbUsername = new System.Windows.Forms.TextBox();
@@ -52,7 +51,6 @@
             this.tableLayoutPanel1.Controls.Add(this.lblUsername, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblPassword, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.lblMessage, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.lblForgotPassword, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.btnUpdateUser, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.btnMakeNewUser, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.tbUsername, 2, 3);
@@ -70,7 +68,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(769, 381);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.tableLayoutPanel1.TabIndex = 1000001;
             // 
             // lblTitleLogin
             // 
@@ -81,7 +79,7 @@
             this.lblTitleLogin.Location = new System.Drawing.Point(79, 38);
             this.lblTitleLogin.Name = "lblTitleLogin";
             this.lblTitleLogin.Size = new System.Drawing.Size(608, 57);
-            this.lblTitleLogin.TabIndex = 0;
+            this.lblTitleLogin.TabIndex = 1000000;
             this.lblTitleLogin.Text = "Brugerhåndtering";
             this.lblTitleLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -93,7 +91,7 @@
             this.lblUsername.Location = new System.Drawing.Point(79, 148);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(301, 53);
-            this.lblUsername.TabIndex = 1;
+            this.lblUsername.TabIndex = 1000001;
             this.lblUsername.Text = "Brugernavn";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -105,7 +103,7 @@
             this.lblPassword.Location = new System.Drawing.Point(79, 201);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(301, 53);
-            this.lblPassword.TabIndex = 4;
+            this.lblPassword.TabIndex = 1000004;
             this.lblPassword.Text = "Kodeord";
             this.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -117,22 +115,10 @@
             this.lblMessage.Location = new System.Drawing.Point(79, 95);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(608, 53);
-            this.lblMessage.TabIndex = 7;
+            this.lblMessage.TabIndex = 1000007;
             this.lblMessage.Text = "Forkert brugernavn eller kodeord. Prøv igen.";
             this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblMessage.Visible = false;
-            // 
-            // lblForgotPassword
-            // 
-            this.lblForgotPassword.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.lblForgotPassword, 2);
-            this.lblForgotPassword.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblForgotPassword.Location = new System.Drawing.Point(79, 299);
-            this.lblForgotPassword.Name = "lblForgotPassword";
-            this.lblForgotPassword.Size = new System.Drawing.Size(608, 41);
-            this.lblForgotPassword.TabIndex = 8;
-            this.lblForgotPassword.Text = "Glemt kodeord? Tryk her for et kodeords reset.";
-            this.lblForgotPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnUpdateUser
             // 
@@ -141,7 +127,7 @@
             this.btnUpdateUser.Location = new System.Drawing.Point(79, 257);
             this.btnUpdateUser.Name = "btnUpdateUser";
             this.btnUpdateUser.Size = new System.Drawing.Size(301, 39);
-            this.btnUpdateUser.TabIndex = 9;
+            this.btnUpdateUser.TabIndex = 2;
             this.btnUpdateUser.Text = "Opdater bruger";
             this.btnUpdateUser.UseVisualStyleBackColor = true;
             this.btnUpdateUser.Click += new System.EventHandler(this.btnUpdateUser_Click);
@@ -153,7 +139,7 @@
             this.btnMakeNewUser.Location = new System.Drawing.Point(386, 257);
             this.btnMakeNewUser.Name = "btnMakeNewUser";
             this.btnMakeNewUser.Size = new System.Drawing.Size(301, 39);
-            this.btnMakeNewUser.TabIndex = 10;
+            this.btnMakeNewUser.TabIndex = 3;
             this.btnMakeNewUser.Text = "Lav ny bruger";
             this.btnMakeNewUser.UseVisualStyleBackColor = true;
             this.btnMakeNewUser.Click += new System.EventHandler(this.btnMakeNewUser_Click);
@@ -166,7 +152,7 @@
             this.tbUsername.Location = new System.Drawing.Point(386, 151);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(301, 20);
-            this.tbUsername.TabIndex = 11;
+            this.tbUsername.TabIndex = 0;
             // 
             // tbPassword
             // 
@@ -176,7 +162,7 @@
             this.tbPassword.Location = new System.Drawing.Point(386, 204);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(301, 20);
-            this.tbPassword.TabIndex = 12;
+            this.tbPassword.TabIndex = 1;
             // 
             // Messagebox_UserManagment
             // 
@@ -201,7 +187,6 @@
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblMessage;
-        private System.Windows.Forms.Label lblForgotPassword;
         private System.Windows.Forms.Button btnUpdateUser;
         private System.Windows.Forms.Button btnMakeNewUser;
         private System.Windows.Forms.TextBox tbUsername;

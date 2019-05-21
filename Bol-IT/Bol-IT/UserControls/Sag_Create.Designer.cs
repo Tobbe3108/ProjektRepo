@@ -151,7 +151,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.5F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(864, 486);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.TabIndex = 1000000;
             // 
             // tableLayoutPanel2
             // 
@@ -169,7 +169,7 @@
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(820, 461);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.tableLayoutPanel2.TabIndex = 1000000;
             // 
             // tableLayoutPanel3
             // 
@@ -190,7 +190,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(196, 461);
-            this.tableLayoutPanel3.TabIndex = 0;
+            this.tableLayoutPanel3.TabIndex = 1000000;
             // 
             // tableLayoutPanel27
             // 
@@ -211,7 +211,7 @@
             this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel27.Size = new System.Drawing.Size(196, 138);
-            this.tableLayoutPanel27.TabIndex = 4;
+            this.tableLayoutPanel27.TabIndex = 1000004;
             // 
             // lvHouseFiles
             // 
@@ -223,7 +223,7 @@
             this.lvHouseFiles.Location = new System.Drawing.Point(3, 3);
             this.lvHouseFiles.Name = "lvHouseFiles";
             this.lvHouseFiles.Size = new System.Drawing.Size(190, 104);
-            this.lvHouseFiles.TabIndex = 4;
+            this.lvHouseFiles.TabIndex = 1000004;
             this.lvHouseFiles.UseCompatibleStateImageBehavior = false;
             this.lvHouseFiles.View = System.Windows.Forms.View.List;
             this.lvHouseFiles.DoubleClick += new System.EventHandler(this.lvHouseFiles_DoubleClick);
@@ -239,7 +239,7 @@
             this.btnAddFile.Location = new System.Drawing.Point(133, 113);
             this.btnAddFile.Name = "btnAddFile";
             this.btnAddFile.Size = new System.Drawing.Size(60, 22);
-            this.btnAddFile.TabIndex = 2;
+            this.btnAddFile.TabIndex = 21;
             this.btnAddFile.Text = "Tilføj";
             this.btnAddFile.UseVisualStyleBackColor = false;
             this.btnAddFile.Click += new System.EventHandler(this.btnAddFile_Click);
@@ -255,7 +255,7 @@
             this.btnDeleteFile.Location = new System.Drawing.Point(3, 113);
             this.btnDeleteFile.Name = "btnDeleteFile";
             this.btnDeleteFile.Size = new System.Drawing.Size(59, 22);
-            this.btnDeleteFile.TabIndex = 1;
+            this.btnDeleteFile.TabIndex = 23;
             this.btnDeleteFile.Text = "Slet";
             this.btnDeleteFile.UseVisualStyleBackColor = false;
             this.btnDeleteFile.Click += new System.EventHandler(this.btnDeleteFile_Click);
@@ -271,7 +271,7 @@
             this.btnShowFile.Location = new System.Drawing.Point(68, 113);
             this.btnShowFile.Name = "btnShowFile";
             this.btnShowFile.Size = new System.Drawing.Size(59, 22);
-            this.btnShowFile.TabIndex = 5;
+            this.btnShowFile.TabIndex = 22;
             this.btnShowFile.Text = "Vis";
             this.btnShowFile.UseVisualStyleBackColor = false;
             this.btnShowFile.Click += new System.EventHandler(this.btnShowFile_Click);
@@ -283,7 +283,7 @@
             this.pbHouseImage.Name = "pbHouseImage";
             this.pbHouseImage.Size = new System.Drawing.Size(190, 132);
             this.pbHouseImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbHouseImage.TabIndex = 0;
+            this.pbHouseImage.TabIndex = 1000000;
             this.pbHouseImage.TabStop = false;
             this.pbHouseImage.Click += new System.EventHandler(this.pbHouseImage_Click);
             this.pbHouseImage.DragDrop += new System.Windows.Forms.DragEventHandler(this.pbHouseImage_DragDrop);
@@ -300,7 +300,7 @@
             this.rtbHouseDescription.Name = "rtbHouseDescription";
             this.rtbHouseDescription.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.rtbHouseDescription.Size = new System.Drawing.Size(190, 132);
-            this.rtbHouseDescription.TabIndex = 1;
+            this.rtbHouseDescription.TabIndex = 20;
             this.rtbHouseDescription.Text = "Indsæt tekst";
             // 
             // tableLayoutPanel4
@@ -318,7 +318,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(196, 47);
-            this.tableLayoutPanel4.TabIndex = 2;
+            this.tableLayoutPanel4.TabIndex = 1000002;
             // 
             // btnSave
             // 
@@ -331,7 +331,7 @@
             this.btnSave.Location = new System.Drawing.Point(101, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(92, 41);
-            this.btnSave.TabIndex = 2;
+            this.btnSave.TabIndex = 24;
             this.btnSave.Text = "Gem";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -347,7 +347,7 @@
             this.btnCancel.Location = new System.Drawing.Point(3, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(92, 41);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 25;
             this.btnCancel.Text = "Annuller";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -366,7 +366,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(604, 461);
-            this.tableLayoutPanel5.TabIndex = 1;
+            this.tableLayoutPanel5.TabIndex = 1000001;
             // 
             // tableLayoutPanel6
             // 
@@ -382,7 +382,7 @@
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(604, 46);
-            this.tableLayoutPanel6.TabIndex = 0;
+            this.tableLayoutPanel6.TabIndex = 1000000;
             // 
             // rtbAddress
             // 
@@ -393,7 +393,7 @@
             this.rtbAddress.Location = new System.Drawing.Point(150, 3);
             this.rtbAddress.Name = "rtbAddress";
             this.rtbAddress.Size = new System.Drawing.Size(451, 40);
-            this.rtbAddress.TabIndex = 3;
+            this.rtbAddress.TabIndex = 0;
             this.rtbAddress.Text = "";
             // 
             // lblAddress
@@ -406,7 +406,7 @@
             this.lblAddress.Location = new System.Drawing.Point(3, 0);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(141, 46);
-            this.lblAddress.TabIndex = 4;
+            this.lblAddress.TabIndex = 1000004;
             this.lblAddress.Text = "Adresse";
             this.lblAddress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -452,7 +452,7 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(604, 415);
-            this.tableLayoutPanel7.TabIndex = 1;
+            this.tableLayoutPanel7.TabIndex = 1000001;
             // 
             // btnCalculatePrice
             // 
@@ -465,7 +465,7 @@
             this.btnCalculatePrice.Location = new System.Drawing.Point(312, 372);
             this.btnCalculatePrice.Name = "btnCalculatePrice";
             this.btnCalculatePrice.Size = new System.Drawing.Size(289, 40);
-            this.btnCalculatePrice.TabIndex = 3;
+            this.btnCalculatePrice.TabIndex = 19;
             this.btnCalculatePrice.Text = "Beregn pris";
             this.btnCalculatePrice.UseVisualStyleBackColor = false;
             this.btnCalculatePrice.Click += new System.EventHandler(this.btnCalculatePrice_Click);
@@ -484,7 +484,7 @@
             this.tableLayoutPanel26.RowCount = 1;
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel26.Size = new System.Drawing.Size(294, 46);
-            this.tableLayoutPanel26.TabIndex = 1;
+            this.tableLayoutPanel26.TabIndex = 1000001;
             // 
             // rtbCaseNr
             // 
@@ -496,7 +496,7 @@
             this.rtbCaseNr.Name = "rtbCaseNr";
             this.rtbCaseNr.ReadOnly = true;
             this.rtbCaseNr.Size = new System.Drawing.Size(141, 40);
-            this.rtbCaseNr.TabIndex = 15;
+            this.rtbCaseNr.TabIndex = 10000015;
             this.rtbCaseNr.Text = "";
             // 
             // lblCaseNr
@@ -509,7 +509,7 @@
             this.lblCaseNr.Location = new System.Drawing.Point(3, 0);
             this.lblCaseNr.Name = "lblCaseNr";
             this.lblCaseNr.Size = new System.Drawing.Size(141, 46);
-            this.lblCaseNr.TabIndex = 5;
+            this.lblCaseNr.TabIndex = 1000005;
             this.lblCaseNr.Text = "Sags nummer";
             this.lblCaseNr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -528,7 +528,7 @@
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel25.Size = new System.Drawing.Size(294, 41);
-            this.tableLayoutPanel25.TabIndex = 1;
+            this.tableLayoutPanel25.TabIndex = 1000001;
             // 
             // rtbZipCode
             // 
@@ -553,7 +553,7 @@
             this.lblZipCode.Location = new System.Drawing.Point(3, 0);
             this.lblZipCode.Name = "lblZipCode";
             this.lblZipCode.Size = new System.Drawing.Size(141, 41);
-            this.lblZipCode.TabIndex = 8;
+            this.lblZipCode.TabIndex = 1000008;
             this.lblZipCode.Text = "Postnummer";
             this.lblZipCode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -571,7 +571,7 @@
             this.tableLayoutPanel24.RowCount = 1;
             this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel24.Size = new System.Drawing.Size(295, 41);
-            this.tableLayoutPanel24.TabIndex = 1;
+            this.tableLayoutPanel24.TabIndex = 1000001;
             // 
             // rtbCashPrice
             // 
@@ -582,7 +582,7 @@
             this.rtbCashPrice.Location = new System.Drawing.Point(150, 3);
             this.rtbCashPrice.Name = "rtbCashPrice";
             this.rtbCashPrice.Size = new System.Drawing.Size(142, 35);
-            this.rtbCashPrice.TabIndex = 3;
+            this.rtbCashPrice.TabIndex = 18;
             this.rtbCashPrice.Text = "";
             this.rtbCashPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
@@ -596,7 +596,7 @@
             this.lblCashPrice.Location = new System.Drawing.Point(3, 0);
             this.lblCashPrice.Name = "lblCashPrice";
             this.lblCashPrice.Size = new System.Drawing.Size(141, 41);
-            this.lblCashPrice.TabIndex = 4;
+            this.lblCashPrice.TabIndex = 1000004;
             this.lblCashPrice.Text = "Kontantpris";
             this.lblCashPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -614,7 +614,7 @@
             this.tableLayoutPanel23.RowCount = 1;
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel23.Size = new System.Drawing.Size(295, 41);
-            this.tableLayoutPanel23.TabIndex = 1;
+            this.tableLayoutPanel23.TabIndex = 1000001;
             // 
             // rtbDepositPrice
             // 
@@ -625,7 +625,7 @@
             this.rtbDepositPrice.Location = new System.Drawing.Point(150, 3);
             this.rtbDepositPrice.Name = "rtbDepositPrice";
             this.rtbDepositPrice.Size = new System.Drawing.Size(142, 35);
-            this.rtbDepositPrice.TabIndex = 15;
+            this.rtbDepositPrice.TabIndex = 17;
             this.rtbDepositPrice.Text = "";
             this.rtbDepositPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
@@ -639,7 +639,7 @@
             this.lblDepositPrice.Location = new System.Drawing.Point(3, 0);
             this.lblDepositPrice.Name = "lblDepositPrice";
             this.lblDepositPrice.Size = new System.Drawing.Size(141, 41);
-            this.lblDepositPrice.TabIndex = 14;
+            this.lblDepositPrice.TabIndex = 10000014;
             this.lblDepositPrice.Text = "Udbetaling";
             this.lblDepositPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -657,7 +657,7 @@
             this.tableLayoutPanel22.RowCount = 1;
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel22.Size = new System.Drawing.Size(295, 41);
-            this.tableLayoutPanel22.TabIndex = 1;
+            this.tableLayoutPanel22.TabIndex = 1000001;
             // 
             // rtbOwnerExpences
             // 
@@ -668,7 +668,7 @@
             this.rtbOwnerExpences.Location = new System.Drawing.Point(150, 3);
             this.rtbOwnerExpences.Name = "rtbOwnerExpences";
             this.rtbOwnerExpences.Size = new System.Drawing.Size(142, 35);
-            this.rtbOwnerExpences.TabIndex = 14;
+            this.rtbOwnerExpences.TabIndex = 16;
             this.rtbOwnerExpences.Text = "";
             this.rtbOwnerExpences.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
@@ -682,7 +682,7 @@
             this.lblOwnerExpense.Location = new System.Drawing.Point(3, 0);
             this.lblOwnerExpense.Name = "lblOwnerExpense";
             this.lblOwnerExpense.Size = new System.Drawing.Size(141, 41);
-            this.lblOwnerExpense.TabIndex = 13;
+            this.lblOwnerExpense.TabIndex = 10000013;
             this.lblOwnerExpense.Text = "Ejerudgift";
             this.lblOwnerExpense.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -700,7 +700,7 @@
             this.tableLayoutPanel21.RowCount = 1;
             this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel21.Size = new System.Drawing.Size(295, 41);
-            this.tableLayoutPanel21.TabIndex = 1;
+            this.tableLayoutPanel21.TabIndex = 1000001;
             // 
             // rtbNetPrice
             // 
@@ -711,7 +711,7 @@
             this.rtbNetPrice.Location = new System.Drawing.Point(150, 3);
             this.rtbNetPrice.Name = "rtbNetPrice";
             this.rtbNetPrice.Size = new System.Drawing.Size(142, 35);
-            this.rtbNetPrice.TabIndex = 13;
+            this.rtbNetPrice.TabIndex = 15;
             this.rtbNetPrice.Text = "";
             this.rtbNetPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
@@ -725,7 +725,7 @@
             this.lblNetPrice.Location = new System.Drawing.Point(3, 0);
             this.lblNetPrice.Name = "lblNetPrice";
             this.lblNetPrice.Size = new System.Drawing.Size(141, 41);
-            this.lblNetPrice.TabIndex = 12;
+            this.lblNetPrice.TabIndex = 10000012;
             this.lblNetPrice.Text = "Netto";
             this.lblNetPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -743,7 +743,7 @@
             this.tableLayoutPanel20.RowCount = 1;
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel20.Size = new System.Drawing.Size(295, 41);
-            this.tableLayoutPanel20.TabIndex = 1;
+            this.tableLayoutPanel20.TabIndex = 1000001;
             // 
             // rtbGrossPrice
             // 
@@ -754,7 +754,7 @@
             this.rtbGrossPrice.Location = new System.Drawing.Point(150, 3);
             this.rtbGrossPrice.Name = "rtbGrossPrice";
             this.rtbGrossPrice.Size = new System.Drawing.Size(142, 35);
-            this.rtbGrossPrice.TabIndex = 12;
+            this.rtbGrossPrice.TabIndex = 14;
             this.rtbGrossPrice.Text = "";
             this.rtbGrossPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
@@ -768,7 +768,7 @@
             this.lblGrossPrice.Location = new System.Drawing.Point(3, 0);
             this.lblGrossPrice.Name = "lblGrossPrice";
             this.lblGrossPrice.Size = new System.Drawing.Size(141, 41);
-            this.lblGrossPrice.TabIndex = 11;
+            this.lblGrossPrice.TabIndex = 10000011;
             this.lblGrossPrice.Text = "Brutto";
             this.lblGrossPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -786,7 +786,7 @@
             this.tableLayoutPanel19.RowCount = 1;
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel19.Size = new System.Drawing.Size(295, 41);
-            this.tableLayoutPanel19.TabIndex = 1;
+            this.tableLayoutPanel19.TabIndex = 1000001;
             // 
             // rtbTimeFrame
             // 
@@ -797,7 +797,7 @@
             this.rtbTimeFrame.Location = new System.Drawing.Point(150, 3);
             this.rtbTimeFrame.Name = "rtbTimeFrame";
             this.rtbTimeFrame.Size = new System.Drawing.Size(142, 35);
-            this.rtbTimeFrame.TabIndex = 11;
+            this.rtbTimeFrame.TabIndex = 13;
             this.rtbTimeFrame.Text = "";
             this.rtbTimeFrame.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
@@ -811,7 +811,7 @@
             this.lblTimeFrame.Location = new System.Drawing.Point(3, 0);
             this.lblTimeFrame.Name = "lblTimeFrame";
             this.lblTimeFrame.Size = new System.Drawing.Size(141, 41);
-            this.lblTimeFrame.TabIndex = 10;
+            this.lblTimeFrame.TabIndex = 10000010;
             this.lblTimeFrame.Text = "Boligsalgs tidsramme i dage";
             this.lblTimeFrame.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -829,7 +829,7 @@
             this.tableLayoutPanel18.RowCount = 1;
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel18.Size = new System.Drawing.Size(295, 41);
-            this.tableLayoutPanel18.TabIndex = 1;
+            this.tableLayoutPanel18.TabIndex = 1000001;
             // 
             // rtbDesiredPrice
             // 
@@ -840,7 +840,7 @@
             this.rtbDesiredPrice.Location = new System.Drawing.Point(150, 3);
             this.rtbDesiredPrice.Name = "rtbDesiredPrice";
             this.rtbDesiredPrice.Size = new System.Drawing.Size(142, 35);
-            this.rtbDesiredPrice.TabIndex = 10;
+            this.rtbDesiredPrice.TabIndex = 12;
             this.rtbDesiredPrice.Text = "";
             this.rtbDesiredPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
@@ -854,7 +854,7 @@
             this.lblDesiredPrice.Location = new System.Drawing.Point(3, 0);
             this.lblDesiredPrice.Name = "lblDesiredPrice";
             this.lblDesiredPrice.Size = new System.Drawing.Size(141, 41);
-            this.lblDesiredPrice.TabIndex = 9;
+            this.lblDesiredPrice.TabIndex = 1000009;
             this.lblDesiredPrice.Text = "Sælgers ønskede pris";
             this.lblDesiredPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -872,7 +872,7 @@
             this.tableLayoutPanel17.RowCount = 1;
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel17.Size = new System.Drawing.Size(295, 41);
-            this.tableLayoutPanel17.TabIndex = 1;
+            this.tableLayoutPanel17.TabIndex = 1000001;
             // 
             // lblSeller
             // 
@@ -884,7 +884,7 @@
             this.lblSeller.Location = new System.Drawing.Point(3, 0);
             this.lblSeller.Name = "lblSeller";
             this.lblSeller.Size = new System.Drawing.Size(141, 41);
-            this.lblSeller.TabIndex = 9;
+            this.lblSeller.TabIndex = 1000009;
             this.lblSeller.Text = "Sælger";
             this.lblSeller.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -898,7 +898,7 @@
             this.cbSellerId.Location = new System.Drawing.Point(150, 3);
             this.cbSellerId.Name = "cbSellerId";
             this.cbSellerId.Size = new System.Drawing.Size(142, 21);
-            this.cbSellerId.TabIndex = 10;
+            this.cbSellerId.TabIndex = 11;
             this.cbSellerId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPress);
             // 
             // tableLayoutPanel8
@@ -915,7 +915,7 @@
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(294, 41);
-            this.tableLayoutPanel8.TabIndex = 0;
+            this.tableLayoutPanel8.TabIndex = 1000000;
             // 
             // rtbHouseType
             // 
@@ -926,7 +926,7 @@
             this.rtbHouseType.Location = new System.Drawing.Point(150, 3);
             this.rtbHouseType.Name = "rtbHouseType";
             this.rtbHouseType.Size = new System.Drawing.Size(141, 35);
-            this.rtbHouseType.TabIndex = 13;
+            this.rtbHouseType.TabIndex = 1;
             this.rtbHouseType.Text = "";
             // 
             // lblHouseType
@@ -939,7 +939,7 @@
             this.lblHouseType.Location = new System.Drawing.Point(3, 0);
             this.lblHouseType.Name = "lblHouseType";
             this.lblHouseType.Size = new System.Drawing.Size(141, 41);
-            this.lblHouseType.TabIndex = 12;
+            this.lblHouseType.TabIndex = 10000012;
             this.lblHouseType.Text = "Boligtype";
             this.lblHouseType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -957,7 +957,7 @@
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(295, 41);
-            this.tableLayoutPanel9.TabIndex = 1;
+            this.tableLayoutPanel9.TabIndex = 1000001;
             // 
             // lblSoldFlag
             // 
@@ -969,7 +969,7 @@
             this.lblSoldFlag.Location = new System.Drawing.Point(3, 0);
             this.lblSoldFlag.Name = "lblSoldFlag";
             this.lblSoldFlag.Size = new System.Drawing.Size(141, 41);
-            this.lblSoldFlag.TabIndex = 8;
+            this.lblSoldFlag.TabIndex = 1000008;
             this.lblSoldFlag.Text = "Solgt";
             this.lblSoldFlag.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -998,7 +998,7 @@
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel10.Size = new System.Drawing.Size(294, 41);
-            this.tableLayoutPanel10.TabIndex = 2;
+            this.tableLayoutPanel10.TabIndex = 1000002;
             // 
             // lblResSquareMeters
             // 
@@ -1010,7 +1010,7 @@
             this.lblResSquareMeters.Location = new System.Drawing.Point(3, 0);
             this.lblResSquareMeters.Name = "lblResSquareMeters";
             this.lblResSquareMeters.Size = new System.Drawing.Size(141, 41);
-            this.lblResSquareMeters.TabIndex = 1;
+            this.lblResSquareMeters.TabIndex = 1000001;
             this.lblResSquareMeters.Text = "Boligareal";
             this.lblResSquareMeters.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -1041,7 +1041,7 @@
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel11.Size = new System.Drawing.Size(294, 41);
-            this.tableLayoutPanel11.TabIndex = 3;
+            this.tableLayoutPanel11.TabIndex = 1000003;
             // 
             // rtbPropSquareMeters
             // 
@@ -1066,7 +1066,7 @@
             this.lblPropSquareMeters.Location = new System.Drawing.Point(3, 0);
             this.lblPropSquareMeters.Name = "lblPropSquareMeters";
             this.lblPropSquareMeters.Size = new System.Drawing.Size(141, 41);
-            this.lblPropSquareMeters.TabIndex = 2;
+            this.lblPropSquareMeters.TabIndex = 1000002;
             this.lblPropSquareMeters.Text = "Grundareal";
             this.lblPropSquareMeters.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -1084,7 +1084,7 @@
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel12.Size = new System.Drawing.Size(294, 41);
-            this.tableLayoutPanel12.TabIndex = 4;
+            this.tableLayoutPanel12.TabIndex = 1000004;
             // 
             // rtbBuiltRebuilt
             // 
@@ -1109,7 +1109,7 @@
             this.lblBuiltRebuilt.Location = new System.Drawing.Point(3, 0);
             this.lblBuiltRebuilt.Name = "lblBuiltRebuilt";
             this.lblBuiltRebuilt.Size = new System.Drawing.Size(141, 41);
-            this.lblBuiltRebuilt.TabIndex = 3;
+            this.lblBuiltRebuilt.TabIndex = 1000003;
             this.lblBuiltRebuilt.Text = "Bygget/ombygget";
             this.lblBuiltRebuilt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -1128,7 +1128,7 @@
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel13.Size = new System.Drawing.Size(294, 41);
-            this.tableLayoutPanel13.TabIndex = 5;
+            this.tableLayoutPanel13.TabIndex = 1000005;
             // 
             // rtbNrOfRooms
             // 
@@ -1153,7 +1153,7 @@
             this.lblNrOfRooms.Location = new System.Drawing.Point(3, 0);
             this.lblNrOfRooms.Name = "lblNrOfRooms";
             this.lblNrOfRooms.Size = new System.Drawing.Size(141, 41);
-            this.lblNrOfRooms.TabIndex = 4;
+            this.lblNrOfRooms.TabIndex = 1000004;
             this.lblNrOfRooms.Text = "Antal rum";
             this.lblNrOfRooms.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -1171,7 +1171,7 @@
             this.tableLayoutPanel14.RowCount = 1;
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel14.Size = new System.Drawing.Size(294, 41);
-            this.tableLayoutPanel14.TabIndex = 6;
+            this.tableLayoutPanel14.TabIndex = 1000006;
             // 
             // rtbFloors
             // 
@@ -1196,7 +1196,7 @@
             this.lblFloors.Location = new System.Drawing.Point(3, 0);
             this.lblFloors.Name = "lblFloors";
             this.lblFloors.Size = new System.Drawing.Size(141, 41);
-            this.lblFloors.TabIndex = 5;
+            this.lblFloors.TabIndex = 1000005;
             this.lblFloors.Text = "Etager";
             this.lblFloors.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -1214,7 +1214,7 @@
             this.tableLayoutPanel15.RowCount = 1;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel15.Size = new System.Drawing.Size(294, 41);
-            this.tableLayoutPanel15.TabIndex = 7;
+            this.tableLayoutPanel15.TabIndex = 1000007;
             // 
             // lblGarageFlag
             // 
@@ -1226,7 +1226,7 @@
             this.lblGarageFlag.Location = new System.Drawing.Point(3, 0);
             this.lblGarageFlag.Name = "lblGarageFlag";
             this.lblGarageFlag.Size = new System.Drawing.Size(141, 41);
-            this.lblGarageFlag.TabIndex = 6;
+            this.lblGarageFlag.TabIndex = 1000006;
             this.lblGarageFlag.Text = "Garage";
             this.lblGarageFlag.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -1238,7 +1238,7 @@
             this.cbGarageFlag.Margin = new System.Windows.Forms.Padding(2);
             this.cbGarageFlag.Name = "cbGarageFlag";
             this.cbGarageFlag.Size = new System.Drawing.Size(143, 37);
-            this.cbGarageFlag.TabIndex = 8;
+            this.cbGarageFlag.TabIndex = 7;
             this.cbGarageFlag.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel16
@@ -1256,7 +1256,7 @@
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel16.Size = new System.Drawing.Size(294, 41);
-            this.tableLayoutPanel16.TabIndex = 8;
+            this.tableLayoutPanel16.TabIndex = 1000008;
             // 
             // rtbEnergyRating
             // 
@@ -1280,7 +1280,7 @@
             this.lblEnergyRating.Location = new System.Drawing.Point(3, 0);
             this.lblEnergyRating.Name = "lblEnergyRating";
             this.lblEnergyRating.Size = new System.Drawing.Size(141, 41);
-            this.lblEnergyRating.TabIndex = 7;
+            this.lblEnergyRating.TabIndex = 1000007;
             this.lblEnergyRating.Text = "Energimærke";
             this.lblEnergyRating.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 

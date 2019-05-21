@@ -36,13 +36,13 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnMaximize = new System.Windows.Forms.Button();
+            this.btnOpenUserManagment = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dragControl1 = new Bol_IT.DragControl();
             this.dragControl2 = new Bol_IT.DragControl();
             this.dragControl3 = new Bol_IT.DragControl();
-            this.btnOpenUserManagment = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -130,7 +130,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnClose.Size = new System.Drawing.Size(46, 47);
-            this.btnClose.TabIndex = 3;
+            this.btnClose.TabIndex = 30;
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -145,7 +145,7 @@
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(43, 47);
-            this.btnMinimize.TabIndex = 4;
+            this.btnMinimize.TabIndex = 32;
             this.btnMinimize.UseVisualStyleBackColor = true;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
@@ -160,9 +160,20 @@
             this.btnMaximize.Margin = new System.Windows.Forms.Padding(0);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(43, 47);
-            this.btnMaximize.TabIndex = 5;
+            this.btnMaximize.TabIndex = 31;
             this.btnMaximize.UseVisualStyleBackColor = true;
             this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
+            // 
+            // btnOpenUserManagment
+            // 
+            this.btnOpenUserManagment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnOpenUserManagment.Location = new System.Drawing.Point(396, 3);
+            this.btnOpenUserManagment.Name = "btnOpenUserManagment";
+            this.btnOpenUserManagment.Size = new System.Drawing.Size(104, 41);
+            this.btnOpenUserManagment.TabIndex = 33;
+            this.btnOpenUserManagment.Text = "Brugerhåndtering";
+            this.btnOpenUserManagment.UseVisualStyleBackColor = true;
+            this.btnOpenUserManagment.Click += new System.EventHandler(this.btnOpenUserManagment_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -206,17 +217,6 @@
             // dragControl3
             // 
             this.dragControl3.SelectControl = this.lblTime;
-            // 
-            // btnOpenUserManagment
-            // 
-            this.btnOpenUserManagment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnOpenUserManagment.Location = new System.Drawing.Point(396, 3);
-            this.btnOpenUserManagment.Name = "btnOpenUserManagment";
-            this.btnOpenUserManagment.Size = new System.Drawing.Size(104, 41);
-            this.btnOpenUserManagment.TabIndex = 6;
-            this.btnOpenUserManagment.Text = "Brugerhåndtering";
-            this.btnOpenUserManagment.UseVisualStyleBackColor = true;
-            this.btnOpenUserManagment.Click += new System.EventHandler(this.btnOpenUserManagment_Click);
             // 
             // MenuBar_Top
             // 

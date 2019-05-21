@@ -77,7 +77,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(176, 997);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.TabIndex = 100000000;
             // 
             // tlpSignOut
             // 
@@ -94,7 +94,7 @@
             this.tlpSignOut.RowCount = 1;
             this.tlpSignOut.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpSignOut.Size = new System.Drawing.Size(176, 201);
-            this.tlpSignOut.TabIndex = 6;
+            this.tlpSignOut.TabIndex = 28;
             // 
             // pbSignOut
             // 
@@ -105,7 +105,7 @@
             this.pbSignOut.Name = "pbSignOut";
             this.pbSignOut.Size = new System.Drawing.Size(44, 193);
             this.pbSignOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbSignOut.TabIndex = 0;
+            this.pbSignOut.TabIndex = 100000;
             this.pbSignOut.TabStop = false;
             this.pbSignOut.Click += new System.EventHandler(this.pbSignOut_Click);
             // 
@@ -120,7 +120,7 @@
             this.lblSignOut.Name = "lblSignOut";
             this.lblSignOut.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblSignOut.Size = new System.Drawing.Size(108, 201);
-            this.lblSignOut.TabIndex = 1;
+            this.lblSignOut.TabIndex = 10000000;
             this.lblSignOut.Text = "Log af";
             this.lblSignOut.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblSignOut.Click += new System.EventHandler(this.lblSignOut_Click);
@@ -140,7 +140,7 @@
             this.tlpOpenHouse.RowCount = 1;
             this.tlpOpenHouse.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpOpenHouse.Size = new System.Drawing.Size(176, 199);
-            this.tlpOpenHouse.TabIndex = 4;
+            this.tlpOpenHouse.TabIndex = 27;
             // 
             // pbOpenHouse
             // 
@@ -151,7 +151,7 @@
             this.pbOpenHouse.Name = "pbOpenHouse";
             this.pbOpenHouse.Size = new System.Drawing.Size(44, 191);
             this.pbOpenHouse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbOpenHouse.TabIndex = 0;
+            this.pbOpenHouse.TabIndex = 100000;
             this.pbOpenHouse.TabStop = false;
             this.pbOpenHouse.Click += new System.EventHandler(this.pbOpenHouse_Click);
             // 
@@ -166,7 +166,7 @@
             this.lblOpenHouse.Name = "lblOpenHouse";
             this.lblOpenHouse.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblOpenHouse.Size = new System.Drawing.Size(108, 199);
-            this.lblOpenHouse.TabIndex = 1;
+            this.lblOpenHouse.TabIndex = 10000;
             this.lblOpenHouse.Text = "Åbent hus";
             this.lblOpenHouse.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblOpenHouse.Click += new System.EventHandler(this.lblOpenHouse_Click);
@@ -186,7 +186,7 @@
             this.tlpSager.RowCount = 1;
             this.tlpSager.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpSager.Size = new System.Drawing.Size(176, 199);
-            this.tlpSager.TabIndex = 3;
+            this.tlpSager.TabIndex = 26;
             // 
             // pbSager
             // 
@@ -197,7 +197,7 @@
             this.pbSager.Name = "pbSager";
             this.pbSager.Size = new System.Drawing.Size(44, 191);
             this.pbSager.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbSager.TabIndex = 0;
+            this.pbSager.TabIndex = 1000000;
             this.pbSager.TabStop = false;
             this.pbSager.Click += new System.EventHandler(this.pbSager_Click);
             // 
@@ -212,7 +212,7 @@
             this.lblSager.Name = "lblSager";
             this.lblSager.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblSager.Size = new System.Drawing.Size(108, 199);
-            this.lblSager.TabIndex = 1;
+            this.lblSager.TabIndex = 1000000;
             this.lblSager.Text = "Sager";
             this.lblSager.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblSager.Click += new System.EventHandler(this.lblSager_Click);
@@ -226,7 +226,7 @@
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(158, 181);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabIndex = 71000000;
             this.pictureBox1.TabStop = false;
             // 
             // tlpPersonData
@@ -244,7 +244,7 @@
             this.tlpPersonData.RowCount = 1;
             this.tlpPersonData.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpPersonData.Size = new System.Drawing.Size(176, 199);
-            this.tlpPersonData.TabIndex = 5;
+            this.tlpPersonData.TabIndex = 28;
             // 
             // pbPersonData
             // 
@@ -255,7 +255,7 @@
             this.pbPersonData.Name = "pbPersonData";
             this.pbPersonData.Size = new System.Drawing.Size(44, 191);
             this.pbPersonData.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPersonData.TabIndex = 0;
+            this.pbPersonData.TabIndex = 10000000;
             this.pbPersonData.TabStop = false;
             this.pbPersonData.Click += new System.EventHandler(this.pbPersonData_Click);
             // 
@@ -270,7 +270,7 @@
             this.lblPersonData.Name = "lblPersonData";
             this.lblPersonData.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblPersonData.Size = new System.Drawing.Size(108, 199);
-            this.lblPersonData.TabIndex = 1;
+            this.lblPersonData.TabIndex = 10000000;
             this.lblPersonData.Text = "Person data";
             this.lblPersonData.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblPersonData.Click += new System.EventHandler(this.lblPersonData_Click);

@@ -54,7 +54,7 @@
             this.btnCalculate.Location = new System.Drawing.Point(3, 220);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(287, 32);
-            this.btnCalculate.TabIndex = 0;
+            this.btnCalculate.TabIndex = 7;
             this.btnCalculate.Text = "Beregn pris";
             this.btnCalculate.UseVisualStyleBackColor = true;
             this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
@@ -101,7 +101,7 @@
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 31);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 1000000;
             this.label1.Text = "Postnummer";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -112,7 +112,7 @@
             this.label2.Location = new System.Drawing.Point(3, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 31);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 1000001;
             this.label2.Text = "Stand";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -123,7 +123,7 @@
             this.label3.Location = new System.Drawing.Point(3, 62);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 31);
-            this.label3.TabIndex = 2;
+            this.label3.TabIndex = 1000002;
             this.label3.Text = "Indretning";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -134,7 +134,7 @@
             this.label4.Location = new System.Drawing.Point(3, 93);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 31);
-            this.label4.TabIndex = 3;
+            this.label4.TabIndex = 1000003;
             this.label4.Text = "Stil";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -145,7 +145,7 @@
             this.label5.Location = new System.Drawing.Point(3, 124);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 31);
-            this.label5.TabIndex = 4;
+            this.label5.TabIndex = 1000004;
             this.label5.Text = "Køkken";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -156,7 +156,7 @@
             this.label6.Location = new System.Drawing.Point(3, 155);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 31);
-            this.label6.TabIndex = 5;
+            this.label6.TabIndex = 1000005;
             this.label6.Text = "Badeværelse(r)";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -167,7 +167,7 @@
             this.label7.Location = new System.Drawing.Point(3, 186);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(91, 31);
-            this.label7.TabIndex = 6;
+            this.label7.TabIndex = 1000006;
             this.label7.Text = "Have";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -178,7 +178,7 @@
             this.cbZipcode.Location = new System.Drawing.Point(100, 3);
             this.cbZipcode.Name = "cbZipcode";
             this.cbZipcode.Size = new System.Drawing.Size(190, 21);
-            this.cbZipcode.TabIndex = 8;
+            this.cbZipcode.TabIndex = 0;
             // 
             // cbCondition
             // 
@@ -191,7 +191,7 @@
             this.cbCondition.Location = new System.Drawing.Point(100, 34);
             this.cbCondition.Name = "cbCondition";
             this.cbCondition.Size = new System.Drawing.Size(190, 21);
-            this.cbCondition.TabIndex = 9;
+            this.cbCondition.TabIndex = 1000009;
             // 
             // cbInteriorDesign
             // 
@@ -204,7 +204,7 @@
             this.cbInteriorDesign.Location = new System.Drawing.Point(100, 65);
             this.cbInteriorDesign.Name = "cbInteriorDesign";
             this.cbInteriorDesign.Size = new System.Drawing.Size(190, 21);
-            this.cbInteriorDesign.TabIndex = 10;
+            this.cbInteriorDesign.TabIndex = 2;
             // 
             // cbStyle
             // 
@@ -217,7 +217,7 @@
             this.cbStyle.Location = new System.Drawing.Point(100, 96);
             this.cbStyle.Name = "cbStyle";
             this.cbStyle.Size = new System.Drawing.Size(190, 21);
-            this.cbStyle.TabIndex = 11;
+            this.cbStyle.TabIndex = 3;
             // 
             // cbKitchen
             // 
@@ -230,7 +230,7 @@
             this.cbKitchen.Location = new System.Drawing.Point(100, 127);
             this.cbKitchen.Name = "cbKitchen";
             this.cbKitchen.Size = new System.Drawing.Size(190, 21);
-            this.cbKitchen.TabIndex = 12;
+            this.cbKitchen.TabIndex = 4;
             // 
             // cbBathroom
             // 
@@ -243,7 +243,7 @@
             this.cbBathroom.Location = new System.Drawing.Point(100, 158);
             this.cbBathroom.Name = "cbBathroom";
             this.cbBathroom.Size = new System.Drawing.Size(190, 21);
-            this.cbBathroom.TabIndex = 13;
+            this.cbBathroom.TabIndex = 5;
             // 
             // cbGardenFlag
             // 
@@ -252,7 +252,7 @@
             this.cbGardenFlag.Location = new System.Drawing.Point(100, 189);
             this.cbGardenFlag.Name = "cbGardenFlag";
             this.cbGardenFlag.Size = new System.Drawing.Size(190, 25);
-            this.cbGardenFlag.TabIndex = 7;
+            this.cbGardenFlag.TabIndex = 6;
             this.cbGardenFlag.UseVisualStyleBackColor = true;
             // 
             // Messagebox_PriceCalculator
