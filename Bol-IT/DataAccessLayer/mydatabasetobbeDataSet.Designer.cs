@@ -9978,14 +9978,11 @@ WHERE (DATEPART(yy, sale.salesDate) = @SearchYear) AND (DATEPART(mm, sale.salesD
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SearchMonth", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = @"SELECT AVG (a.kvmPrice) 
-FROM (
-SELECT CAST(sale.salesPrice AS DECIMAL) / CAST(property.propSquareMeters AS DECIMAL) AS kvmPrice
-FROM   sale INNER JOIN
-           property ON property.caseNr = sale.caseNr
-WHERE property.zipcode = @Zipcode AND property.soldFlag = 1
-) a
-";
+            this._commandCollection[6].CommandText = @"SELECT        AVG(kvmPrice) AS avgPrice
+FROM            (SELECT        CAST(sale.salesPrice AS DECIMAL) / CAST(property.propSquareMeters AS DECIMAL) AS kvmPrice
+                          FROM            sale INNER JOIN
+                                                    property ON property.caseNr = sale.caseNr
+                          WHERE        (property.zipcode = @Zipcode) AND (property.soldFlag = 1)) AS temp";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Zipcode", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

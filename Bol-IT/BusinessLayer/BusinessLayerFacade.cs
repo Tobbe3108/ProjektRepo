@@ -110,5 +110,11 @@ namespace BusinessLayer
         {
             FileMethods.CopyFile(fileName);
         }
+
+        //Tobias
+        public static bool Sanitizer(RichTextBox rtbFName, RichTextBox rtbMName, RichTextBox rtbLName, RichTextBox rtbPhoneNr, RichTextBox rtbAddress, RichTextBox rtbZipcode, RichTextBox rtbMail, RichTextBox rtbTypeChainging, ComboBox cbType)
+        {
+            return SanitizerMethod.Sanitizer(rtbFName, rtbMName, rtbLName, rtbPhoneNr, rtbAddress, rtbZipcode, rtbMail, rtbTypeChainging, cbType);
+        }
     }
 }

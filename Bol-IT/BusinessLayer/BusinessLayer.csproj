@@ -77,6 +77,7 @@
     <Compile Include="Classes\CalculateDistanceMethod.cs" />
     <Compile Include="Classes\OpenHouseMethods.cs" />
     <Compile Include="Classes\PriceCalculator.cs" />
+    <Compile Include="Classes\SanitizerMethod.cs" />
     <Compile Include="Classes\SloganThread.cs" />
     <Compile Include="FileMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

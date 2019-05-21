@@ -12,6 +12,7 @@ using System.Threading;
 using ClosedXML.Excel;
 using System.IO;
 using GlobalClasses;
+using BusinessLayer;
 
 namespace Bol_IT
 {
@@ -85,56 +86,6 @@ namespace Bol_IT
 
         #region Methods
 
-        //Christoffer og Tobias
-        private bool Sanitizer()
-        {
-            if (DataAccessLayerFacade.CheckForSQLInjection(rtbFName.Text, rtbMName.Text, rtbLName.Text, rtbPhoneNr.Text, rtbAddress.Text, rtbZipcode.Text, rtbMail.Text, rtbTypeChainging.Text))
-            {
-                MessageBox.Show("Felterne må ikke indeholde ';' Ret venligst dette", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            if (rtbAddress.Text == string.Empty || rtbFName.Text == string.Empty || rtbLName.Text == string.Empty || rtbMail.Text == string.Empty || rtbMName.Text == string.Empty || rtbPhoneNr.Text == string.Empty || rtbTypeChainging.Text == string.Empty || rtbZipcode.Text == string.Empty)
-            {
-                MessageBox.Show("Der må ikke være nogle tomme felter. Ret venligst dette", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            if (!rtbMail.Text.ToString().Contains('@') || !rtbMail.Text.ToString().Contains('.'))
-            {
-                MessageBox.Show("Mailadressen skal indeholde '@' og '.' Ret venligst dette", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            if (rtbZipcode.Text.Length != 4 || !rtbZipcode.Text.All(char.IsDigit))
-            {
-                MessageBox.Show("Postnummeret skal bestå af 4 tal. Ret venligst dette", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            if (rtbPhoneNr.Text.Length != 8 || !rtbPhoneNr.Text.All(char.IsDigit))
-            {
-                MessageBox.Show("Telefonnummeret skal bestå af 8 tal. Ret venligst dette", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            if (!rtbTypeChainging.Text.All(char.IsDigit))
-            {
-                switch (cbType.SelectedIndex)
-                {
-                    case 0:
-                        MessageBox.Show("Antal salg skal være et tal. Ret venligst dette", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        break;
-                    case 1:
-                    case 2:
-                        MessageBox.Show("Mægler nummer skal være et tal. Ret venligst dette", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        break;
-                }
-                return false;
-            }
-
-            return true;
-        }
         //Tobias
         private void LoadData()
         {
@@ -197,7 +148,7 @@ namespace Bol_IT
         //Tobias
         private void btnSaveToFile_Click(object sender, EventArgs e)
         {
-            if (Sanitizer())
+            if (BusinessLayerFacade.Sanitizer(rtbFName, rtbMName, rtbLName, rtbPhoneNr, rtbAddress, rtbZipcode, rtbMail, rtbTypeChainging, cbType))
             {
                 List<string> propInfoList = new List<string>
                 {
@@ -306,7 +257,7 @@ namespace Bol_IT
         //Tobias
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (Sanitizer())
+            if (BusinessLayerFacade.Sanitizer(rtbFName, rtbMName, rtbLName, rtbPhoneNr, rtbAddress, rtbZipcode, rtbMail, rtbTypeChainging, cbType))
             {
                 if (TypeChange == "Create")
                 {
