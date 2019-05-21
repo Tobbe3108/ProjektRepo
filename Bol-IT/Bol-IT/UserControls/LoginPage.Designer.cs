@@ -34,9 +34,9 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblMessage = new System.Windows.Forms.Label();
-            this.lblForgotPassword = new System.Windows.Forms.Label();
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
+            this.lklPasswordReset = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,9 +52,9 @@
             this.tableLayoutPanel1.Controls.Add(this.btnLogin, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.lblPassword, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.lblMessage, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.lblForgotPassword, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.tbUsername, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.tbPassword, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.lklPasswordReset, 1, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -134,18 +134,6 @@
             this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblMessage.Visible = false;
             // 
-            // lblForgotPassword
-            // 
-            this.lblForgotPassword.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.lblForgotPassword, 2);
-            this.lblForgotPassword.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblForgotPassword.Location = new System.Drawing.Point(262, 314);
-            this.lblForgotPassword.Name = "lblForgotPassword";
-            this.lblForgotPassword.Size = new System.Drawing.Size(338, 48);
-            this.lblForgotPassword.TabIndex = 8;
-            this.lblForgotPassword.Text = "Glemt kodeord? Tryk her for et kodeords reset.";
-            this.lblForgotPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // tbUsername
             // 
             this.tbUsername.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -165,6 +153,20 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(166, 20);
             this.tbPassword.TabIndex = 10;
+            // 
+            // lklPasswordReset
+            // 
+            this.lklPasswordReset.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.lklPasswordReset, 2);
+            this.lklPasswordReset.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lklPasswordReset.Location = new System.Drawing.Point(262, 314);
+            this.lklPasswordReset.Name = "lklPasswordReset";
+            this.lklPasswordReset.Size = new System.Drawing.Size(338, 48);
+            this.lklPasswordReset.TabIndex = 11;
+            this.lklPasswordReset.TabStop = true;
+            this.lklPasswordReset.Text = "Glemt login? Klik her for at bede administratoren om en kodeords nulstilning.";
+            this.lklPasswordReset.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lklPasswordReset.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklPasswordReset_LinkClicked);
             // 
             // LoginPage
             // 
@@ -189,8 +191,8 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblMessage;
-        private System.Windows.Forms.Label lblForgotPassword;
         private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.LinkLabel lklPasswordReset;
     }
 }

@@ -113,6 +113,8 @@ namespace DataAccessLayer
             return MethodsDataAccessLayer.GetSellerById(id);
         }
 
+        
+
         #endregion
 
         #region Buyer

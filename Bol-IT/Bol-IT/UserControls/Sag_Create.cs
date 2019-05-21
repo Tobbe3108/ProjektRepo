@@ -141,17 +141,25 @@ namespace Bol_IT
         #endregion
 
         #region Methods
-        private void AddFile()
+        //Simone
+        public void UpdatePrice(int grossPrice, int netPrice, int ownerExpences, int depositPrice, int cashPrice)
         {
-            if (ofdOpenFile.ShowDialog() == DialogResult.OK)
+            Instance.rtbGrossPrice.Text = grossPrice.ToString();
+            Instance.rtbNetPrice.Text = netPrice.ToString();
+            Instance.rtbOwnerExpences.Text = ownerExpences.ToString();
+            Instance.rtbDepositPrice.Text = depositPrice.ToString();
+            Instance.rtbCashPrice.Text = cashPrice.ToString();
+
+        }
+        private bool PropSquareMetersEmpty()
+        {
+            if (rtbPropSquareMeters.Text == string.Empty)
             {
-                //Tilføj information til listview
-                Icon fileIcon = Icon.ExtractAssociatedIcon(ofdOpenFile.FileName);
-                ListViewImages.Images.Add(fileIcon);
-                ListViewItem listViewItem = lvHouseFiles.Items.Add(Path.GetFileName(ofdOpenFile.FileName));
-                listViewItem.ImageIndex = ListViewImages.Images.Count - 1;
-                //Kopier til temp placering
-                BusinessLayerFacade.CopyFile(ofdOpenFile.FileName);
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
         //Christoffer
@@ -196,6 +204,19 @@ namespace Bol_IT
                 return true;
             }
             return false;
+        }
+        private void AddFile()
+        {
+            if (ofdOpenFile.ShowDialog() == DialogResult.OK)
+            {
+                //Tilføj information til listview
+                Icon fileIcon = Icon.ExtractAssociatedIcon(ofdOpenFile.FileName);
+                ListViewImages.Images.Add(fileIcon);
+                ListViewItem listViewItem = lvHouseFiles.Items.Add(Path.GetFileName(ofdOpenFile.FileName));
+                listViewItem.ImageIndex = ListViewImages.Images.Count - 1;
+                //Kopier til temp placering
+                BusinessLayerFacade.CopyFile(ofdOpenFile.FileName);
+            }
         }
         #endregion
 
@@ -367,28 +388,6 @@ namespace Bol_IT
             }
         }
 
-
-        //Simone
-        public void UpdatePrice(int grossPrice, int netPrice, int ownerExpences, int depositPrice, int cashPrice)
-        {
-            Instance.rtbGrossPrice.Text = grossPrice.ToString();
-            Instance.rtbNetPrice.Text = netPrice.ToString();
-            Instance.rtbOwnerExpences.Text = ownerExpences.ToString();
-            Instance.rtbDepositPrice.Text = depositPrice.ToString();
-            Instance.rtbCashPrice.Text = cashPrice.ToString();
-
-        }
-        private bool PropSquareMetersEmpty()
-        {
-            if (rtbPropSquareMeters.Text == string.Empty)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
         private void btnCalculatePrice_Click(object sender, EventArgs e)
         {
             if (PropSquareMetersEmpty())

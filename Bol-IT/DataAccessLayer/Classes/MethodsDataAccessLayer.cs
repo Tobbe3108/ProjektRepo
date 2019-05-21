@@ -105,6 +105,8 @@ namespace DataAccessLayer
             return persontypes;
         }
 
+        
+
         public static personalDataDataTable GetPersonalDataDataTableByLike(string searchParameters)
         {
             string[] dataTableColumnNames = { "Fornavn", "Efternavn", "Telefon nr.", "Adresse", "Postnummer", "E-mail" };

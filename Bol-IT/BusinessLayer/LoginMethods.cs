@@ -15,12 +15,12 @@ namespace BusinessLayer
 {
     class LoginMethods
     {
-        public static void StartNotifyAboutFailedLogin(Label label)
+        public static void StartNotifyAboutMessage(Label label)
         {
-            Thread ShowNotification = new Thread(() => NotifyAboutFailedLogin(label));
+            Thread ShowNotification = new Thread(() => NotifyAboutMessage(label));
             ShowNotification.Start();
         }
-        private static void NotifyAboutFailedLogin(Label label)
+        private static void NotifyAboutMessage(Label label)
         {
             if (label.InvokeRequired)
             {

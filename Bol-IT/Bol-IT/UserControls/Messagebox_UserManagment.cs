@@ -70,13 +70,13 @@ namespace Bol_IT
             if (!UserExists(tbUsername.Text))
             {
                 lblMessage.Text = "Brugernavnet eksisterer ikke. Lav en ny bruger istedet.";
-                BusinessLayerFacade.NotifyAboutFailMessage(lblMessage);
+                BusinessLayerFacade.NotifyAboutMessage(lblMessage);
                 return;
             }
             BusinessLayerFacade.UpdateUser(tbUsername.Text, tbPassword.Text);
 
             lblMessage.Text = "Brugeren blev successfuldt opdateret.";
-            BusinessLayerFacade.NotifyAboutFailMessage(lblMessage);
+            BusinessLayerFacade.NotifyAboutMessage(lblMessage);
         }
 
         private void btnMakeNewUser_Click(object sender, EventArgs e)
@@ -88,13 +88,13 @@ namespace Bol_IT
             if (UserExists(tbUsername.Text))
             {
                 lblMessage.Text = "Brugernavnet eksisterer allerede. Vælg et andet brugernavn.";
-                BusinessLayerFacade.NotifyAboutFailMessage(lblMessage);
+                BusinessLayerFacade.NotifyAboutMessage(lblMessage);
                 return;
             }
             BusinessLayerFacade.CreateNewUser(tbUsername.Text, tbPassword.Text);
 
             lblMessage.Text = "Brugeren blev successfuldt oprettet.";
-            BusinessLayerFacade.NotifyAboutFailMessage(lblMessage);
+            BusinessLayerFacade.NotifyAboutMessage(lblMessage);
         }
 
         #endregion

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
+using DataAccessLayer;
+using Microsoft.VisualBasic;
 
 namespace Bol_IT
 {
@@ -33,7 +35,7 @@ namespace Bol_IT
         {
             InitializeComponent();
 
-            
+
 
             //Form autosize
             LoginPage_SizeChanged(this, new EventArgs());
@@ -71,13 +73,13 @@ namespace Bol_IT
                     item.Margin = new Padding(6, height, 6, height);
                 }
             }
-            catch{ }
+            catch { }
         }
         #endregion
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (DataAccessLayer.DataAccessLayerFacade.CheckForSQLInjection(tbUsername.Text, tbPassword.Text))
+            if (DataAccessLayerFacade.CheckForSQLInjection(tbUsername.Text, tbPassword.Text))
             {
                 return;
             }
@@ -90,7 +92,8 @@ namespace Bol_IT
             }
             else
             {
-                BusinessLayerFacade.NotifyAboutFailMessage(lblMessage);
+                lblMessage.Text = "Forkert brugernavn eller kodeord. Prøv igen.";
+                BusinessLayerFacade.NotifyAboutMessage(lblMessage);
             }
         }
 
@@ -103,6 +106,26 @@ namespace Bol_IT
             tbPassword.Text = string.Empty;
 
             Form1.Instance.AcceptButton = btnLogin;
+        }
+
+        private void lklPasswordReset_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (tbUsername.Text == string.Empty)
+            {
+                lblMessage.Text = "Der er ikke indtastet et brugernavn. Prøv igen.";
+                BusinessLayerFacade.NotifyAboutMessage(lblMessage);
+                return;
+
+            }
+            if (!DataAccessLayerFacade.UserExists(tbUsername.Text))
+            {
+                lblMessage.Text = "Der findes ikke en bruger med dette brugernavn. Prøv igen.";
+                BusinessLayerFacade.NotifyAboutMessage(lblMessage);
+                return;
+            }
+            lblMessage.Text = "Administratoren er blevet underrettet. Dit kodeord bliver nulstillet inden for 15 minutter.";
+            BusinessLayerFacade.NotifyAboutMessage(lblMessage);
+            BusinessLayerFacade.NotifyAdminAboutPasswordReset(tbUsername.Text);
         }
     }
 }

@@ -196,7 +196,7 @@
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(404, 23);
             this.lblSearch.TabIndex = 2;
-            this.lblSearch.Text = "Søg efter: Navn (Mangler resten)";
+            this.lblSearch.Text = "Søg efter person informationer:";
             this.lblSearch.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // Person_ViewAll

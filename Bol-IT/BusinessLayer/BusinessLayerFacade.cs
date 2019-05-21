@@ -18,9 +18,9 @@ namespace BusinessLayer
             SloganThread.SloganThreadsStart(label);
         }
 
-        public static void NotifyAboutFailMessage(Label lblMessage)
+        public static void NotifyAboutMessage(Label lblMessage)
         {
-            LoginMethods.StartNotifyAboutFailedLogin(lblMessage);
+            LoginMethods.StartNotifyAboutMessage(lblMessage);
         }
         #endregion
 
@@ -107,6 +107,13 @@ namespace BusinessLayer
         {
             return LoginMethods.Encrypt(password);
         }
+        public static void NotifyAdminAboutPasswordReset(string username)
+        {
+            //Klar til at implementere et password reset system
+            Encryption encryption = EncryptString("");
+            MethodsDataAccessLayer.UpdateUser(username, encryption.Salt, encryption.Hash);
+        }
+
         #endregion
 
         #region Files
