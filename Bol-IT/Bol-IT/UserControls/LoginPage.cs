@@ -48,7 +48,6 @@ namespace Bol_IT
 
             SignOff();
             tbPassword.PasswordChar = '*';
-            tbUsername.Focus();
         }
 
         #endregion
@@ -104,6 +103,7 @@ namespace Bol_IT
 
             tbUsername.Text = string.Empty;
             tbPassword.Text = string.Empty;
+            tbUsername.Focus();
 
             Form1.Instance.AcceptButton = btnLogin;
         }
