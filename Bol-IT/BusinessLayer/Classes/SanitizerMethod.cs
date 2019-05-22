@@ -24,10 +24,14 @@ namespace BusinessLayer
                 return false;
             }
 
-            if (!rtbMail.Text.ToString().Contains('@') || !rtbMail.Text.ToString().Contains('.'))
+            //Hvis emailen er tom, skip dette step
+            if (rtbMail.Text != " ")
             {
-                MessageBox.Show("Mailadressen skal indeholde '@' og '.' Ret venligst dette", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                if (!rtbMail.Text.ToString().Contains('@') || !rtbMail.Text.ToString().Contains('.'))
+                {
+                    MessageBox.Show("Mailadressen skal indeholde '@' og '.' Ret venligst dette", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
             }
 
             if (rtbZipcode.Text.Length != 4 || !rtbZipcode.Text.All(char.IsDigit))
@@ -36,10 +40,14 @@ namespace BusinessLayer
                 return false;
             }
 
-            if (rtbPhoneNr.Text.Length != 8 || !rtbPhoneNr.Text.All(char.IsDigit))
+            //Hvis emailen er tom, skip dette step
+            if (rtbPhoneNr.Text != "0")
             {
-                MessageBox.Show("Telefonnummeret skal bestå af 8 tal. Ret venligst dette", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                if (rtbPhoneNr.Text.Length != 8 || !rtbPhoneNr.Text.All(char.IsDigit))
+                {
+                    MessageBox.Show("Telefonnummeret skal bestå af 8 tal. Ret venligst dette", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
             }
 
             if (!rtbTypeChainging.Text.All(char.IsDigit))
