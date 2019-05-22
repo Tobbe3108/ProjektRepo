@@ -457,7 +457,7 @@ namespace DataAccessLayer
         }
 
         //Christoffer
-        public static Property GetProperty(int id)
+        public static Property GetPropertyById(int id)
         {
             propertyDataTable pdt = new propertyDataTable();
             propertyTableAdapter.FillById(pdt, id);
@@ -558,7 +558,7 @@ namespace DataAccessLayer
         }
 
         //Christoffer
-        public static byte[] GetPhotoFromId(int id)
+        public static byte[] GetPhotoFromCaseNr(int id)
         {
             filesDataTable files = filesTableAdapter.GetDataByCaseNr(id);
 
@@ -572,7 +572,7 @@ namespace DataAccessLayer
 
             return null;
         }
-        public static string GetPhotoNameFromIdAndPhoto(int id, byte[] photo)
+        public static string GetPhotoNameFromCaseNrAndPhoto(int id, byte[] photo)
         {
             try
             {

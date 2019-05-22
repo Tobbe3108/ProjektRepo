@@ -148,7 +148,7 @@ namespace Bol_IT
         //Tobias
         public static void LoadData(string id)
         {
-            Property property = DataAccessLayerFacade.GetProperty(Convert.ToInt32(id));
+            Property property = DataAccessLayerFacade.GetPropertyById(Convert.ToInt32(id));
             WantsToSell wantsToSell = DataAccessLayerFacade.GetSellerInformationByCaseNr(Convert.ToInt32(id));
 
             Instance.rtbAddress.Text = property.Address;
@@ -173,10 +173,10 @@ namespace Bol_IT
             Instance.cbSellerId.Text = wantsToSell.SId.ToString();
             Instance.rtbDesiredPrice.Text = wantsToSell.DesiredPrice.ToString();
             Instance.rtbTimeFrame.Text = wantsToSell.TimeFrame.ToString();
-            byte[] photo = DataAccessLayerFacade.GetPhotoFromId(int.Parse(id));
+            byte[] photo = DataAccessLayerFacade.GetPhotoFromCaseNr(int.Parse(id));
             Instance.Photo = photo;
             Instance.pbHouseImage.Image = BusinessLayerFacade.ConvertBinaryArrayToImage(photo);
-            Instance.NameOfPhoto = DataAccessLayerFacade.GetPhotoNameFromIdAndPhoto(int.Parse(id), photo);
+            Instance.NameOfPhoto = DataAccessLayerFacade.GetPhotoNameFromCaseNrAndPhoto(int.Parse(id), photo);
             Instance.ExtOfPhoto = DataAccessLayerFacade.GetPhotoExtFromName(Instance.NameOfPhoto);
 
             Instance.Documents = DataAccessLayerFacade.GetDocumentsByCaseNr(int.Parse(id));

@@ -29,7 +29,7 @@ namespace BusinessLayer
             //-||-
             for (int i = 0; i <= propertyDataTable.Rows.Count - 1; i++)
             {
-                propertiesArray[i] = DataAccessLayerFacade.GetProperty((int)propertyDataTable.Rows[i][0]);
+                propertiesArray[i] = DataAccessLayerFacade.GetPropertyById((int)propertyDataTable.Rows[i][0]);
             }
 
             //Datatable som indeholder fordelingen.
