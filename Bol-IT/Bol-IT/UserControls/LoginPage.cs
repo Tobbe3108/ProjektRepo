@@ -85,7 +85,6 @@ namespace Bol_IT
             if (BusinessLayerFacade.TryLogon(tbUsername.Text, tbPassword.Text))
             {
                 MenuBar_Left.Instance.ShowButtons();
-                MenuBar_Top.Instance.ShowButtons();
 
                 Form1.Instance.AcceptButton = null;
             }
@@ -99,7 +98,6 @@ namespace Bol_IT
         public void SignOff()
         {
             MenuBar_Left.Instance.SignOff();
-            MenuBar_Top.Instance.HideButtons();
 
             tbUsername.Text = string.Empty;
             tbPassword.Text = string.Empty;

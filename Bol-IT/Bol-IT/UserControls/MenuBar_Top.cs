@@ -84,23 +84,6 @@ namespace Bol_IT
             lblTime.Text = DateTime.Now.ToString("HH:mm");
             lblDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
-
-        private void btnOpenUserManagment_Click(object sender, EventArgs e)
-        {
-            Form userManagment = new Messagebox_UserManagment();
-            userManagment.Show();
-        }
-
-        public void ShowButtons()
-        {
-            btnOpenUserManagment.Show();
-        }
-
-        public void HideButtons()
-        {
-            btnOpenUserManagment.Hide();
-        }
-
         #endregion
 
 

@@ -65,7 +65,6 @@ namespace Bol_IT
             tlpSager.Hide();
             tlpPersonData.Hide();
             tlpOpenHouse.Hide();
-            MenuBar_Top.Instance.HideButtons();
 
             lblSignOut.Text = "Login";
 

@@ -36,7 +36,6 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnMaximize = new System.Windows.Forms.Button();
-            this.btnOpenUserManagment = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -49,21 +48,20 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 7;
+            this.tableLayoutPanel1.ColumnCount = 6;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tableLayoutPanel1.Controls.Add(this.lblDate, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblTime, 3, 0);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.lblDate, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblTime, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblSlogan, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnClose, 6, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnMinimize, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnMaximize, 5, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnOpenUserManagment, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnClose, 5, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnMinimize, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnMaximize, 4, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 2);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
@@ -113,7 +111,7 @@
             this.lblSlogan.Location = new System.Drawing.Point(2, 0);
             this.lblSlogan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSlogan.Name = "lblSlogan";
-            this.lblSlogan.Size = new System.Drawing.Size(389, 47);
+            this.lblSlogan.Size = new System.Drawing.Size(499, 47);
             this.lblSlogan.TabIndex = 2;
             this.lblSlogan.Text = "Vi har nøglen til dit drømmehus!";
             this.lblSlogan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -163,17 +161,6 @@
             this.btnMaximize.TabIndex = 31;
             this.btnMaximize.UseVisualStyleBackColor = true;
             this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
-            // 
-            // btnOpenUserManagment
-            // 
-            this.btnOpenUserManagment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnOpenUserManagment.Location = new System.Drawing.Point(396, 3);
-            this.btnOpenUserManagment.Name = "btnOpenUserManagment";
-            this.btnOpenUserManagment.Size = new System.Drawing.Size(104, 41);
-            this.btnOpenUserManagment.TabIndex = 33;
-            this.btnOpenUserManagment.Text = "Brugerhåndtering";
-            this.btnOpenUserManagment.UseVisualStyleBackColor = true;
-            this.btnOpenUserManagment.Click += new System.EventHandler(this.btnOpenUserManagment_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -249,6 +236,5 @@
         private DragControl dragControl2;
         private DragControl dragControl3;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button btnOpenUserManagment;
     }
 }
