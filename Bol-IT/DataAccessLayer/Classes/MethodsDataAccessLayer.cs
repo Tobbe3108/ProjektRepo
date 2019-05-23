@@ -506,9 +506,10 @@ namespace DataAccessLayer
         }
 
         //Caspar
+        //Sletter en ejendom fra databasen vha. dens caseNr.
         public static void DeleteProperty(int caseNr)
         {
-            MessageBox.Show("Funktionalitet ikke tilføjet endnu.", "Fejl.", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            propertyTableAdapter.DeleteProperty(caseNr);
         }
 
         //Christoffer

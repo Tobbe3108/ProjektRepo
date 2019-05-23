@@ -316,6 +316,7 @@ namespace DataAccessLayer
         }
 
         //Caspar
+        //Sletter en ejendom fra databasen vha. dens caseNr.
         public static void DeleteProperty(int caseNr)
         {
             MethodsDataAccessLayer.DeleteProperty(caseNr);
