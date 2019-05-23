@@ -23,6 +23,11 @@ namespace DataAccessLayer
             return MethodsDataAccessLayer.CheckForSQLInjection(checkString);
         }
 
+        public static SqlConnection GetConnection()
+        {
+            return MethodsDataAccessLayer.GetConnection();
+        }
+
         #region SQL
 
 
@@ -31,7 +36,7 @@ namespace DataAccessLayer
         #endregion
 
         #region Personer
-        
+
         #region PersonalData
         //Tobias
         /// <summary>
