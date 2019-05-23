@@ -505,6 +505,12 @@ namespace DataAccessLayer
             return property;
         }
 
+        //Caspar
+        public static void DeleteProperty(int caseNr)
+        {
+            MessageBox.Show("Funktionalitet ikke tilføjet endnu.", "Fejl.", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+        }
+
         //Christoffer
         public static List<Property> GetProperties()
         {

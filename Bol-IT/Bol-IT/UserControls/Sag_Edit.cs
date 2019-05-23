@@ -632,6 +632,20 @@ namespace Bol_IT
                 lvHouseFiles.Items.Remove(item);
             }
         }
+        private void btnDeleteCase_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int.TryParse(rtbCaseNr.Text, out int caseNr);
+                DataAccessLayerFacade.DeleteProperty(caseNr);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show($"Der skete en uventet fejl under sletning af sagen. Fejlbesked: {exception}.", "Fejl.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         #endregion
+
+
     }
 }

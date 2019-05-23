@@ -315,6 +315,12 @@ namespace DataAccessLayer
                 address, zipcode, nrOfRooms, garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description);
         }
 
+        //Caspar
+        public static void DeleteProperty(int caseNr)
+        {
+            MethodsDataAccessLayer.DeleteProperty(caseNr);
+        }
+
         //Tobias
         /// <summary>
         /// Returnerer alle boliger i et data table
