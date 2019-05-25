@@ -298,7 +298,12 @@ namespace Bol_IT
             }
             Form1.Instance.PnlContainer.Controls["Person_Create"].BringToFront();
 
+            //Loads empty data
             Person_Create.Instance.TypeChange = "Create";
+
+            Person_Create.Instance.Id = 0;
+
+            Person_Create.Instance.StartLoadData();
         }
 
         private void rtbSearch_TextChanged(object sender, EventArgs e)
