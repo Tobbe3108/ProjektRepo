@@ -481,7 +481,7 @@ namespace Bol_IT
                             DataTable dtFromGrid = new DataTable();
 
                             //Tilføjer alle kolonner fra dataGridViewDataSet til det nyt datatable
-                            for (int i = 1; i < dgvDistribution.Columns.Count; i++)
+                            for (int i = 0; i < dgvDistribution.Columns.Count; i++)
                             {
                                 dtFromGrid.Columns.Add(dgvDistribution.Columns[i].HeaderText);
                             }
@@ -496,11 +496,11 @@ namespace Bol_IT
                                     {
                                         try
                                         {
-                                            dtFromGrid.Rows[dtFromGrid.Rows.Count - 1][cell.ColumnIndex - 1] = cell.Value.ToString();
+                                            dtFromGrid.Rows[dtFromGrid.Rows.Count - 1][cell.ColumnIndex] = cell.Value.ToString();
                                         }
                                         catch (Exception)
                                         {
-                                            dtFromGrid.Rows[dtFromGrid.Rows.Count - 1][cell.ColumnIndex - 1] = " ";
+                                            dtFromGrid.Rows[dtFromGrid.Rows.Count - 1][cell.ColumnIndex] = " ";
                                         }
                                     }
                                 }
