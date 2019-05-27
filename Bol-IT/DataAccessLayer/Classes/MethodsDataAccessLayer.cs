@@ -39,6 +39,44 @@ namespace DataAccessLayer
             return new SqlConnection(Properties.Settings.Default.mydatabasetobbeConnectionString);
         }
 
+        public static void StartTransactionLevel(SqlConnection connection)
+        {
+            string transactionText;
+            transactionText = "SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;";
+
+            using (SqlCommand command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = transactionText;
+                command.ExecuteNonQuery();
+            }
+
+            transactionText = "BEGIN TRANSACTION;";
+
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.Connection = connection;
+                command.CommandText = transactionText;
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public static void EndTransactionLevel(SqlConnection connection)
+        {
+            string transactionText;
+            transactionText = "COMMIT TRANSACTION;";
+
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.Connection = connection;
+                command.CommandText = transactionText;
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+
+        }
+
 
         #region TableAdapters
 
@@ -63,6 +101,8 @@ namespace DataAccessLayer
         //Christoffer
         public static string GetPersonTypeById(int id)
         {
+            SqlConnection transactionConnection = agentTableAdapter.Connection;
+            StartTransactionLevel(transactionConnection);
             string persontype = "";
             if (agentTableAdapter.GetDataById(id).Rows.Count != 0)
             {
@@ -76,6 +116,7 @@ namespace DataAccessLayer
             {
                 persontype = "Køber";
             }
+            EndTransactionLevel(transactionConnection);
             return persontype;
         }
 
@@ -105,7 +146,7 @@ namespace DataAccessLayer
             return persontypes;
         }
 
-        
+
 
         public static personalDataDataTable GetPersonalDataDataTableByLike(string searchParameters)
         {
@@ -548,7 +589,7 @@ namespace DataAccessLayer
             try
             {
 
-                return filesTableAdapter.GetPhotoExtFromName(nameOfPhoto);
+                return (string)filesTableAdapter.GetPhotoExtFromName(nameOfPhoto);
             }
             catch (Exception)
             {
@@ -635,7 +676,7 @@ namespace DataAccessLayer
             return new Document
             {
                 Name = name,
-                Data = filesTableAdapter.GetFileByName(name)
+                Data = (byte[])filesTableAdapter.GetFileByName(name)
             };
 
         }
@@ -678,6 +719,8 @@ namespace DataAccessLayer
         #region Login
         public static DataTable GetEncryptionByUsername(string testUsername)
         {
+            SqlConnection transactionConnection = GetConnection();
+            StartTransactionLevel(transactionConnection);
             try
             {
                 using (SqlConnection connection = GetConnection())
@@ -689,7 +732,7 @@ namespace DataAccessLayer
                     DataTable dataTable = new DataTable();
 
                     sda.Fill(dataTable);
-
+                    EndTransactionLevel(transactionConnection);
                     return dataTable;
                 }
             }
