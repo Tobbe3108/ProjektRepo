@@ -195,6 +195,17 @@ namespace Bol_IT
                     rtbTypeChainging.Invoke((MethodInvoker)delegate { rtbTypeChainging.Text = buyer.AId.ToString(); });
                     rtbZipcode.Invoke((MethodInvoker)delegate { rtbZipcode.Text = buyer.Zipcode.ToString(); });
                     break;
+                default:
+                    cbType.Invoke((MethodInvoker)delegate { cbType.SelectedIndex = 0; });
+                    rtbAddress.Invoke((MethodInvoker)delegate { rtbAddress.Text = string.Empty; });
+                    rtbFName.Invoke((MethodInvoker)delegate { rtbFName.Text = string.Empty; });
+                    rtbLName.Invoke((MethodInvoker)delegate { rtbLName.Text = string.Empty; });
+                    rtbMail.Invoke((MethodInvoker)delegate { rtbMail.Text = string.Empty; });
+                    rtbMName.Invoke((MethodInvoker)delegate { rtbMName.Text = string.Empty; });
+                    rtbPhoneNr.Invoke((MethodInvoker)delegate { rtbPhoneNr.Text = string.Empty; });
+                    rtbTypeChainging.Invoke((MethodInvoker)delegate { rtbTypeChainging.Text = string.Empty; });
+                    rtbZipcode.Invoke((MethodInvoker)delegate { rtbZipcode.Text = string.Empty; });
+                    break;
             }
         }
         public void StartLoadData()
