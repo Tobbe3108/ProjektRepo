@@ -22,6 +22,11 @@ namespace Bol_IT
         public static DataTable propDistributionTable = new DataTable();
         public static bool fordelt = false;//Flag for at se om der er lavet en fordeling.
 
+        //Christoffer
+        //Til brug af thread håndtering
+        public bool ThreadRunning { get; set; }
+        public bool ShouldRun { get; set; }
+
         #endregion
 
         #region Init
@@ -49,6 +54,8 @@ namespace Bol_IT
             OpenHouse_Distribution_SizeChanged(this, new EventArgs());
 
             //Gør at cbSearchParam starter på mægler istedet for blank
+            //Starter også "cbSearchParam_SelectedIndexChanged", sådan 
+            //at den henter informationer til at starte med
             cbSearchParam.SelectedIndex = 0;
 
             //Sætter fordelingen efter pris som standard.
@@ -103,17 +110,32 @@ namespace Bol_IT
                 int dHeight = (tableLayoutPanel6.GetRowHeights()[dPos.Row] - cbDistribution.Height) / 2;
                 cbDistribution.Margin = new Padding(6, dHeight, 6, dHeight);
             }
-            catch{}
+            catch { }
         }
 
         #endregion
 
         #region Methods
+        private void StartDataLoad()
+        {
+            // Hvis tråden er i gang med at køre, så sætter den et flag, som den nuværende thread tjekker når den er færdig med at køre, hvilket kører threaden igen
+            if (ThreadRunning)
+            {
+                ShouldRun = true;
+            }
+            else
+            {
+                Thread LoadDataThread = new Thread(() => LoadData());
+                LoadDataThread.IsBackground = true;
+                LoadDataThread.Start();
+            }
+        }
 
         //Tobias
         //Kalder fasaden til DAL laget for at få fat i data fra agent og property tabellerne samt lidt data formatering
         private void LoadData()
         {
+            ThreadRunning = true;
             try
             {
                 DataTable dataTable = new DataTable();
@@ -126,8 +148,8 @@ namespace Bol_IT
                         rtbSearch.Invoke((MethodInvoker)delegate { int.TryParse(rtbSearch.Text, out agentSearchParameters); });
 
                         dataTable = DataAccessLayerFacade.GetAgentDataTableByLike(agentSearchParameters);
-                        dataTable.Columns["aId"].ColumnName = "Mægler Id"; 
-                        dataTable.Columns["nrOfSales"].ColumnName = "Antal salg"; 
+                        dataTable.Columns["aId"].ColumnName = "Mægler Id";
+                        dataTable.Columns["nrOfSales"].ColumnName = "Antal salg";
                         break;
                     case 1:
                         string propertySearchParameters = "";
@@ -147,6 +169,14 @@ namespace Bol_IT
                 dgvSearch.Invoke((MethodInvoker)delegate { dgvSearch.DataSource = dataTable; });
             }
             catch (Exception) { }
+            ThreadRunning = false;
+
+            if (ShouldRun)
+            {
+                //Call the method to run the thread again
+                StartDataLoad();
+                ShouldRun = false;
+            }
         }
 
         //Caspar
@@ -164,7 +194,6 @@ namespace Bol_IT
                     btn.Text = "Slet";
                     btn.ToolTipText = "Slet fra tabel.";
                     btn.UseColumnTextForButtonValue = true;
-                    btn.UseColumnTextForButtonValue = true;
                     dgvDistribution.Columns.Insert(0, btn);//Indsætter knappen på den 0'te plads med ovenstående værdier.
                 }
             }
@@ -172,6 +201,27 @@ namespace Bol_IT
             {
                 MessageBox.Show($"Der er sket en uventet fejl af typen {exception.GetType()}.", "Fejlmeddelelse:", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        //Caspar
+        //Sletter de nedenstående columns fra datatablet, således at det står overskueligt i DataGridViewet.
+        private DataTable RemoveColumns(DataTable dataTable)
+        {
+            dataTable.Columns.Remove("netPrice");
+            dataTable.Columns.Remove("grossPrice");
+            dataTable.Columns.Remove("ownerExpenses");
+            dataTable.Columns.Remove("cashPrice");
+            dataTable.Columns.Remove("depositPrice");
+            dataTable.Columns.Remove("nrOfRooms");
+            dataTable.Columns.Remove("garageFlag");
+            dataTable.Columns.Remove("energyRating");
+            dataTable.Columns.Remove("resSquareMeters");
+            dataTable.Columns.Remove("propSquareMeters");
+            dataTable.Columns.Remove("floors");
+            dataTable.Columns.Remove("soldFlag");
+            dataTable.Columns.Remove("description");
+
+            return dataTable;
         }
         #endregion
 
@@ -183,10 +233,10 @@ namespace Bol_IT
         {
             if (rtbSearch.Text.Length > 0)
             {
-                Thread LoadDataThread = new Thread(() => LoadData());
-                LoadDataThread.IsBackground = true;
-                LoadDataThread.Start();
+                StartDataLoad();
             }
+            //Hvis der ikke står noget, så henter den alle entries i databasen
+            //Henter alle mæglerer her
             else if (cbSearchParam.SelectedIndex == 0)
             {
                 try
@@ -196,15 +246,51 @@ namespace Bol_IT
                     dataTable.Columns["nrOfSales"].ColumnName = "Antal salg";
                     dgvSearch.DataSource = dataTable;
                 }
-                catch (Exception){}
+                catch (Exception) { }
             }
+            //Henter alle sager her
             else
             {
                 try
                 {
                     dgvSearch.DataSource = RemoveColumns(DataAccessLayerFacade.GetPropertyDataTable());
                 }
-                catch (Exception){}
+                catch (Exception) { }
+            }
+        }
+
+        //Tobias
+        //Skift binding source ved skrift mellem mægler og sag
+        private void cbSearchParam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dgvSearch.DataSource = null;
+
+            ButtonDeleted();
+
+            switch (cbSearchParam.SelectedIndex)
+            {
+                case 0:
+                    dgvDistribution.DataSource = agentDistributionTable;
+                    //Får alle agenter til visning her
+                    DataTable agentDataTable = DataAccessLayerFacade.GetAgentDataTable();
+                    dgvSearch.DataSource = agentDataTable;
+                    agentDataTable.Columns["aId"].ColumnName = "Mægler Id";
+                    agentDataTable.Columns["nrOfSales"].ColumnName = "Antal salg";
+
+                    fordelt = false;
+                    break;
+                case 1:
+                    dgvDistribution.DataSource = propDistributionTable;
+                    //Får alle sager til visning her
+                    DataTable propertyDataTable = RemoveColumns(DataAccessLayerFacade.GetPropertyDataTable());
+                    dgvSearch.DataSource = propertyDataTable;
+                    propertyDataTable.Columns["caseNr"].ColumnName = "Sagsnummer";
+                    propertyDataTable.Columns["address"].ColumnName = "Adresse";
+                    propertyDataTable.Columns["zipcode"].ColumnName = "Postnummer";
+                    propertyDataTable.Columns["builtRebuild"].ColumnName = "Bygget/Ombygget";
+                    propertyDataTable.Columns["houseType"].ColumnName = "Bolig type";
+                    fordelt = false;
+                    break;
             }
         }
 
@@ -222,8 +308,8 @@ namespace Bol_IT
                     {
                         try
                         {
-                                agentDistributionTable.Rows.Add(dgvSearch.Rows[e.RowIndex].Cells[1].Value.ToString(),
-                                    dgvSearch.Rows[e.RowIndex].Cells[2].Value.ToString());
+                            agentDistributionTable.Rows.Add(dgvSearch.Rows[e.RowIndex].Cells[1].Value.ToString(),
+                                dgvSearch.Rows[e.RowIndex].Cells[2].Value.ToString());
                         }
                         catch (Exception)
                         {
@@ -248,61 +334,7 @@ namespace Bol_IT
                 }
             }
         }
-
-        //Tobias
-        //Skift binding source ved skrift mellem mægler og sag
-        private void cbSearchParam_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            dgvSearch.DataSource = null;
-
-            ButtonDeleted();
-
-            switch (cbSearchParam.SelectedIndex)
-            {
-                case 0:
-                    dgvDistribution.DataSource = agentDistributionTable;
-                    DataTable agentDataTable = DataAccessLayerFacade.GetAgentDataTable();
-                    dgvSearch.DataSource = agentDataTable;
-                    agentDataTable.Columns["aId"].ColumnName = "Mægler Id";
-                    agentDataTable.Columns["nrOfSales"].ColumnName = "Antal salg";
-                    
-                    fordelt = false;
-                    break;
-                case 1:
-                    dgvDistribution.DataSource = propDistributionTable;
-                    DataTable propertyDataTable = RemoveColumns(DataAccessLayerFacade.GetPropertyDataTable());
-                    dgvSearch.DataSource = propertyDataTable;
-                    propertyDataTable.Columns["caseNr"].ColumnName = "Sagsnummer";
-                    propertyDataTable.Columns["address"].ColumnName = "Adresse";
-                    propertyDataTable.Columns["zipcode"].ColumnName = "Postnummer";
-                    propertyDataTable.Columns["builtRebuild"].ColumnName = "Bygget/Ombygget";
-                    propertyDataTable.Columns["houseType"].ColumnName = "Bolig type";
-                    fordelt = false;
-                    break;
-            }
-        }
-
-        //Caspar
-        //Sletter de nedenstående columns fra datatablet, således at det står overskueligt i DataGridViewet.
-        private DataTable RemoveColumns(DataTable dataTable)
-        {
-            dataTable.Columns.Remove("netPrice");
-            dataTable.Columns.Remove("grossPrice");
-            dataTable.Columns.Remove("ownerExpenses");
-            dataTable.Columns.Remove("cashPrice");
-            dataTable.Columns.Remove("depositPrice");
-            dataTable.Columns.Remove("nrOfRooms");
-            dataTable.Columns.Remove("garageFlag");
-            dataTable.Columns.Remove("energyRating");
-            dataTable.Columns.Remove("resSquareMeters");
-            dataTable.Columns.Remove("propSquareMeters");
-            dataTable.Columns.Remove("floors");
-            dataTable.Columns.Remove("soldFlag");
-            dataTable.Columns.Remove("description");
-
-            return dataTable;
-        }
-
+        
         //Tobias
         //Slette en mægler(agent) eller en sag(property) fra fordelings tabellen ved tryk på knappen tilføj
         private void dgvDistribution_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -368,8 +400,6 @@ namespace Bol_IT
                 DataTable data = (DataTable)dgvDistribution.DataSource;
                 data.Clear(); //Fjerner dataen fra kopien
                 dgvDistribution.DataSource = data;
-
-                ButtonDeleted();
 
                 //Resetter valgene for search og fordeling.
                 cbSearchParam.SelectedIndex = 0;

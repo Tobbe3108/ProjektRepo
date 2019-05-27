@@ -36,9 +36,9 @@ namespace BusinessLayer
             DataTable distribution = new DataTable();
 
             //Tilføjer kolonner til datatablet distrubution.
-            distribution.Columns.Add("AId", typeof (int));
-            distribution.Columns.Add("CaseNr", typeof (int));
-            distribution.Columns.Add("CashPrice", typeof (int));
+            distribution.Columns.Add("Mægler Id", typeof (int));
+            distribution.Columns.Add("Sagsnummer", typeof (int));
+            distribution.Columns.Add("Kontant pris", typeof (int));
 
             //Switch case til hvilken metode der skal bruges til fordelingen.
             switch (sortMethod)
@@ -97,9 +97,6 @@ namespace BusinessLayer
                 default:
                     break;
             }
-            distribution.Columns["AId"].ColumnName = "Mægler Id";
-            distribution.Columns["CaseNr"].ColumnName = "Sagsnummer";
-            distribution.Columns["CashPrice"].ColumnName = "Kontant pris";
 
             //Returner fordelingen som et datatable.
             return distribution;
