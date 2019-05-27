@@ -180,9 +180,7 @@ namespace Bol_IT
                     rtbTypeChainging.Invoke((MethodInvoker)delegate { rtbTypeChainging.Text = seller.AId.ToString(); });
                     rtbZipcode.Invoke((MethodInvoker)delegate { rtbZipcode.Text = seller.Zipcode.ToString(); });
                     break;
-
-
-
+                    
                 case "Køber":
                     Buyer buyer = DataAccessLayerFacade.GetBuyerById(Id);
                     cbType.Invoke((MethodInvoker)delegate { cbType.SelectedIndex = 2; });
@@ -195,6 +193,7 @@ namespace Bol_IT
                     rtbTypeChainging.Invoke((MethodInvoker)delegate { rtbTypeChainging.Text = buyer.AId.ToString(); });
                     rtbZipcode.Invoke((MethodInvoker)delegate { rtbZipcode.Text = buyer.Zipcode.ToString(); });
                     break;
+
                 default:
                     cbType.Invoke((MethodInvoker)delegate { cbType.SelectedIndex = 0; });
                     rtbAddress.Invoke((MethodInvoker)delegate { rtbAddress.Text = string.Empty; });

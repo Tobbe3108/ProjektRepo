@@ -13,8 +13,14 @@ namespace BusinessLayer
     {
         //List som skal fungere som HOB.
         private static List<Property> maxHob = new List<Property>();
-
-        //Metoden som kalses gennem knappen til fordeling i Open_House_Distribution UI.
+        
+        /// <summary>
+        /// Metoden som kalses gennem knappen til fordeling i Open_House_Distribution UI. 
+        /// Tager 2 datatables ind, det første værende et agent table og det andet værende 
+        /// et sags table samt et sorteringsvalg mellem 1, efter pris, eller 2, tilfældigt. 
+        /// Returnerer et sorteret data table.
+        /// 
+        /// </summary>
         public static DataTable DistributeHouses(DataTable agentDataTable, DataTable propertyDataTable, int sortMethod)
         {
             //Laver to arrays af hver objekt.
@@ -36,9 +42,9 @@ namespace BusinessLayer
             DataTable distribution = new DataTable();
 
             //Tilføjer kolonner til datatablet distrubution.
-            distribution.Columns.Add("AId", typeof (int));
-            distribution.Columns.Add("CaseNr", typeof (int));
-            distribution.Columns.Add("CashPrice", typeof (int));
+            distribution.Columns.Add("Mægler Id", typeof (int));
+            distribution.Columns.Add("Sagsnummer", typeof (int));
+            distribution.Columns.Add("Kontant pris", typeof (int));
 
             //Switch case til hvilken metode der skal bruges til fordelingen.
             switch (sortMethod)
@@ -97,28 +103,31 @@ namespace BusinessLayer
                 default:
                     break;
             }
-            distribution.Columns["AId"].ColumnName = "Mægler Id";
-            distribution.Columns["CaseNr"].ColumnName = "Sagsnummer";
-            distribution.Columns["CashPrice"].ColumnName = "Kontant pris";
 
             //Returner fordelingen som et datatable.
             return distribution;
         }
 
+        /// <summary>
+        /// Indsætter en sag i list-hoben og sorterer den.
+        /// </summary>
         private static void Insert(Property property)
         {
             maxHob.Add(property);//Tilføjer værdien til listen.
 
             MaxHobSort(maxHob.Count - 1);//Kalder metoden for sortering af hoben.
-        } //Indsætter en værdi i list-hoben og sorterer det.
+        }
 
+        /// <summary>
+        /// Sorterer arrayet på input parameterens placering
+        /// </summary>
         private static void MaxHobSort(int child)
         {
             if (child > 0)
             {
                 if (maxHob[child].CashPrice > maxHob[Parent(child)].CashPrice)//Kontrollerer om child er større end parent til child.
                 {
-                    Property temp = maxHob[child];//Opretter midlertidig int.
+                    Property temp = maxHob[child];//Opretter midlertidig property.
 
                     maxHob[child] = maxHob[Parent(child)];//Child bliver = parent.
 
@@ -128,8 +137,11 @@ namespace BusinessLayer
                 }
             }
 
-        } //Sorterer arrayet.
+        }
 
+        /// <summary>
+        /// Fjerner den første node i hoben, og returnerer dens værdi i form af et property objekt.
+        /// </summary>
         private static Property DeleteFirstNode()
         {
             Property rootValue = FirstNodeValue();
@@ -141,8 +153,11 @@ namespace BusinessLayer
             MaxHobSortDeletion(0);//Kalder metoden med ansvaret for at sortere oppe fra og ned.
 
             return rootValue;//returnerer den største værdi i hoben.
-        } //Fjerner den første node i hoben, og returnerer dens værdi.
+        }
 
+        /// <summary>
+        /// Sorterer træet oppe fra og ned på input parameterens placeringen
+        /// </summary>
         private static void MaxHobSortDeletion(int parent)
         {
             if (LeftChild(parent) < maxHob.Count - 1 || RightChild(parent) < maxHob.Count - 1)//Kontrollerer at child index er mindre end længden på arrayet.
@@ -151,9 +166,13 @@ namespace BusinessLayer
                 int rightChildInt = maxHob[RightChild(parent)].CashPrice;//Finder værdien på det højre child.
                 int parentInt = maxHob[parent].CashPrice;
 
-                bool leftChildBigger = parentInt < leftChildInt && leftChildInt >= rightChildInt; //Kontrollerer om venstre child er større end parent, og at den er større end, eller = med højre child.
-                                                                                               //Dette gøres fordi hvis begge childs er større end parenten, men de begge er lige store, er det den venstre der rykkes op.
-                bool rightChildBigger = parentInt < rightChildInt && leftChildInt < rightChildInt;//Kontrollerer om højre child er større end parent og venstre child. 
+                //Kontrollerer om venstre child er større end parent, og at den er større end, eller = med højre child.
+                bool leftChildBigger = parentInt < leftChildInt && leftChildInt >= rightChildInt; 
+                
+                //Kontrollerer om højre child er større end parent og venstre child. 
+                bool rightChildBigger = parentInt < rightChildInt && leftChildInt < rightChildInt;
+
+                //Dette gøres fordi hvis begge childs er større end parenten, men de begge er lige store, er det den venstre der rykkes op.
 
                 if (leftChildBigger)
                 {
@@ -177,15 +196,38 @@ namespace BusinessLayer
                 }
             }
             MaxHobSort(maxHob.Count - 1);
-        } //Sorterer træet oppe fra og ned.
+        }
 
-        private static Property FirstNodeValue() => maxHob[0]; //Finder den første værdi i hoben.
-        private static Property LastLeafValue() => maxHob[maxHob.Count - 1]; //Finder den sidste værdi i hoben.
+        /// <summary>
+        /// Finder den første værdi i hoben.
+        /// </summary>
+        private static Property FirstNodeValue() => maxHob[0];
+
+
+        /// <summary>
+        /// Finder den sidste værdi i hoben.
+        /// </summary>
+        private static Property LastLeafValue() => maxHob[maxHob.Count - 1];
+
+
+        /// <summary>
+        /// Finder parent indexet på parameterens node
+        /// </summary>
         private static int Parent(int node)
         {
             return (node - 1) / 2;
-        } //Finder parent indexet.
-        private static int LeftChild(int node) => 2 * node + 1; //Finder det venstre childs index.
-        private static int RightChild(int node) => 2 * node + 2; //Finder det højre childs index.
+        }
+
+
+        /// <summary>
+        /// Finder det venstre childs index.
+        /// </summary>
+        private static int LeftChild(int node) => 2 * node + 1;
+
+
+        /// <summary>
+        /// Finder det højre childs index.
+        /// </summary>
+        private static int RightChild(int node) => 2 * node + 2;
     }
 }

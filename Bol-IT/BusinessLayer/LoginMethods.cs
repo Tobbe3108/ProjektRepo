@@ -86,6 +86,9 @@ namespace BusinessLayer
             return true;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private static Encryption GetEncryptionFromDB(DataTable dataTable)
         {
             if (dataTable.Rows.Count == 0)
