@@ -270,7 +270,15 @@ namespace Bol_IT
             }
         }
 
+        //Tobias
         private void btnCancel_Click(object sender, EventArgs e)
+        {
+            ReloadPrievous();
+        }
+
+        //Caspar
+        //Genindlæser den forrige UserControl, og beder den om at genindlæse den releveante data.
+        private static void ReloadPrievous()
         {
             //Load Sag_ViewAll User control når tryk på knap
             if (!Form1.Instance.PnlContainer.Controls.ContainsKey("Sag_ViewAll"))
@@ -279,6 +287,7 @@ namespace Bol_IT
                 Form1.Instance.PnlContainer.Controls.Add(Sag_ViewAll.Instance);
             }
             Form1.Instance.PnlContainer.Controls["Sag_ViewAll"].BringToFront();
+            Sag_ViewAll.Instance.StartDataLoad();
         }
 
         //Christoffer
@@ -646,6 +655,31 @@ namespace Bol_IT
             foreach (ListViewItem item in lvHouseFiles.SelectedItems)
             {
                 lvHouseFiles.Items.Remove(item);
+            }
+        }
+
+        //Caspar
+        //Sletter en ejendom fra databasen ved tryk på Slet knappen.
+        private void btnDeleteCase_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Sagen bliver slettet for evigt. Ønsker du at fortsætte?", "Slet sag.", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    int.TryParse(rtbCaseNr.Text, out int caseNr);
+                    DataAccessLayerFacade.DeleteProperty(caseNr);
+                    ReloadPrievous();
+
+                }
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show($"Der skete en uventet fejl under sletning af sagen. Fejlbesked: {exception}.", "Fejl.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         #endregion
