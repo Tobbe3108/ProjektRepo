@@ -61,8 +61,8 @@ namespace Bol_IT
             MenuBar_Top.Instance.Dock = DockStyle.Fill;
             pnlMenuBarTop.Controls.Add(MenuBar_Top.Instance);
 
-            Sag_ViewAll.Instance.Dock = DockStyle.Fill;
-            pnlContainer.Controls.Add(Sag_ViewAll.Instance);
+            LoginPage.Instance.Dock = DockStyle.Fill;
+            pnlContainer.Controls.Add(LoginPage.Instance);
         }
 
         #endregion

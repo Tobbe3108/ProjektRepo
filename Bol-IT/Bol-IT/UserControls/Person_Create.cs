@@ -46,8 +46,16 @@ namespace Bol_IT
         public Person_Create()
         {
             InitializeComponent();
+
+            //Form autosize
+            Person_Create_SizeChanged(null, null);
         }
 
+        private void Person_Create_Load(object sender, EventArgs e)
+        {
+            //Eager initialization af singleton instance
+            _instance = this;
+        }
         #endregion
 
         #region FormAutoSize
@@ -77,7 +85,12 @@ namespace Bol_IT
                 rtbMName.Font = new Font(rtbMName.Font.FontFamily, this.Size.Height / 50);
                 rtbAddress.Font = new Font(rtbAddress.Font.FontFamily, this.Size.Height / 50);
                 rtbTypeChainging.Font = new Font(rtbTypeChainging.Font.FontFamily, this.Size.Height / 50);
-                rtbTelephoneNr.Font = new Font(rtbTelephoneNr.Font.FontFamily, this.Size.Height / 50);
+                rtbZipcode.Font = new Font(rtbZipcode.Font.FontFamily, this.Size.Height / 50);
+
+                cbType.Font = new Font(cbType.Font.FontFamily, this.Size.Height / 50);
+                TableLayoutPanelCellPosition pos = ((TableLayoutPanel)cbType.Parent).GetCellPosition(cbType);
+                int height = (((TableLayoutPanel)cbType.Parent).GetRowHeights()[pos.Row] - cbType.Height) / 2;
+                cbType.Margin = new Padding(6, height, 6, height);
             }
             catch { }
         }
@@ -118,9 +131,7 @@ namespace Bol_IT
                     rtbTypeChainging.Invoke((MethodInvoker)delegate { rtbTypeChainging.Text = seller.AId.ToString(); });
                     rtbTelephoneNr.Invoke((MethodInvoker)delegate { rtbTelephoneNr.Text = seller.Zipcode.ToString(); });
                     break;
-
-
-
+                    
                 case "Køber":
                     Buyer buyer = DataAccessLayerFacade.GetBuyerById(Id);
                     cbType.Invoke((MethodInvoker)delegate { cbType.SelectedIndex = 2; });
@@ -132,6 +143,18 @@ namespace Bol_IT
                     rtbAddress.Invoke((MethodInvoker)delegate { rtbAddress.Text = buyer.PhoneNr.ToString(); });
                     rtbTypeChainging.Invoke((MethodInvoker)delegate { rtbTypeChainging.Text = buyer.AId.ToString(); });
                     rtbTelephoneNr.Invoke((MethodInvoker)delegate { rtbTelephoneNr.Text = buyer.Zipcode.ToString(); });
+                    break;
+
+                default:
+                    cbType.Invoke((MethodInvoker)delegate { cbType.SelectedIndex = 0; });
+                    rtbAddress.Invoke((MethodInvoker)delegate { rtbAddress.Text = string.Empty; });
+                    rtbFName.Invoke((MethodInvoker)delegate { rtbFName.Text = string.Empty; });
+                    rtbLName.Invoke((MethodInvoker)delegate { rtbLName.Text = string.Empty; });
+                    rtbMail.Invoke((MethodInvoker)delegate { rtbMail.Text = string.Empty; });
+                    rtbMName.Invoke((MethodInvoker)delegate { rtbMName.Text = string.Empty; });
+                    rtbTelephoneNr.Invoke((MethodInvoker)delegate { rtbTelephoneNr.Text = string.Empty; });
+                    rtbTypeChainging.Invoke((MethodInvoker)delegate { rtbTypeChainging.Text = string.Empty; });
+                    rtbZipcode.Invoke((MethodInvoker)delegate { rtbZipcode.Text = string.Empty; });
                     break;
             }
         }
@@ -432,5 +455,7 @@ namespace Bol_IT
         }
 
         #endregion
+
+        
     }
 }

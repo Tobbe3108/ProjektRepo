@@ -21,6 +21,24 @@ namespace Bol_IT
             InitializeComponent();
         }
 
+
+        #region AutoSize
+        public void Messagebox_PriceCalculator_SizeChanged(object sender, EventArgs eventArgs)
+        {
+            try
+            {
+                foreach (Control item in tableLayoutPanel1.Controls.Cast<Control>())
+                {
+                    item.Font = new Font(item.Font.FontFamily, this.Size.Height / 50);
+                    TableLayoutPanelCellPosition pos = ((TableLayoutPanel)item.Parent).GetCellPosition(item);
+                    int height = (((TableLayoutPanel)item.Parent).GetRowHeights()[pos.Row] - item.Height) / 2;
+                    item.Margin = new Padding(6, height, 6, height);
+                }
+            }
+            catch { }
+        }
+        #endregion
+
         public void LoadData(int propSquareMeter, int zipcode)
         {
             cbCondition.SelectedIndex = 1;
@@ -32,7 +50,7 @@ namespace Bol_IT
 
             foreach (int zipcodeItem in cbZipcode.Items)
             {
-                if(zipcodeItem == zipcode)
+                if (zipcodeItem == zipcode)
                 {
                     cbZipcode.SelectedItem = zipcodeItem;
                 }

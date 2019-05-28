@@ -20,80 +20,64 @@ namespace UnitTestProject
         [TestMethod]
         public void TestMethod1()
         {
-            GetLatLongFromAddress("Engblommevej 19", "Horsens", "Midtjylland", "8700");
+            using (SqlConnection connection = DataAccessLayerFacade.GetConnection())
+            {
+                    SqlCommand command1 = new SqlCommand();
+                    command1.Connection = connection;
+                    command1.CommandText = "INSERT INTO personalData OUTPUT INSERTED.id VALUES (@fName, @mName, @lName, @phoneNr, @address, @zipcode, @mail)";
+                    command1.Parameters.AddWithValue("@fName", "Christoffwer");
+                    command1.Parameters.AddWithValue("@mName", "kraggh");
+                    command1.Parameters.AddWithValue("@lname", "Pwedersen");
+                    command1.Parameters.AddWithValue("@phoneNr", "53565529");
+                    command1.Parameters.AddWithValue("@address", "Her212");
+                    command1.Parameters.AddWithValue("@zipcode", "7100");
+                    command1.Parameters.AddWithValue("@mail", "Christoffwer@stuff.dk");
+                    connection.Open();
+                    int user1ID = (int)command1.ExecuteScalar();
+                    connection.Close();
 
+                    SqlCommand command2 = new SqlCommand();
+                    command2.Connection = connection;
+                    command2.CommandText = "INSERT INTO personalData OUTPUT INSERTED.id VALUES (@fName, @mName, @lName, @phoneNr, @address, @zipcode, @mail)";
+                    command2.Parameters.AddWithValue("@fName", "Simone");
+                    command2.Parameters.AddWithValue("@mName", "etellerandet");
+                    command2.Parameters.AddWithValue("@lname", "kanikkehuskehvadduhedder");
+                    command2.Parameters.AddWithValue("@phoneNr", 66642069);
+                    command2.Parameters.AddWithValue("@address", "Her222");
+                    command2.Parameters.AddWithValue("@zipcode", 7100);
+                    command2.Parameters.AddWithValue("@mail", "simone@stuff.dk");
+                    connection.Open();
+                    int user2ID = (int)command2.ExecuteScalar();
+                    connection.Close();
 
-            //Console.WriteLine(CalculateDistanceMethod.GetDistanceByAddresses("Jellingvej 15A, 7100", "Østerbrogade 20 2. Th., 7100"));
-            //DataTable dataTable = new DataTable();
+                    //USER 1
+                    SqlCommand command3 = new SqlCommand();
+                    command3.Connection = connection;
+                    command3.CommandText = "INSERT INTO agent VALUES (@aId, @nrOfSales)";
+                    command3.Parameters.AddWithValue("@aId", user2ID);
+                    command3.Parameters.AddWithValue("@nrOfSales", 4);
+                    connection.Open();
+                    command3.ExecuteNonQuery();
+                    connection.Close();
 
-            //dataTable.Columns.Add("Adresse");
-            //dataTable.Columns.Add("Brutto pris");
-            //dataTable.Columns.Add("Netto pris");
-            //dataTable.Columns.Add("Ejerudgift");
-            //dataTable.Columns.Add("Udbetalingspris");
-            //dataTable.Columns.Add("Kontantpris");
-
-            //DataTable dt = new DataTable();
-            //using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AzureDB"].ConnectionString))
-            //{
-            //    using (SqlCommand command = new SqlCommand())
-            //    {
-            //        command.Connection = connection;
-            //        command.CommandText = "SELECT (address, grossPrice, netPrice, ownerExpenses, depositPrice, cashPrice) FROM property";
-            //        connection.Open();
-            //        SqlDataReader reader = command.ExecuteReader();
-            //        dt.Load(reader);
-            //        connection.Close();
-            //    }
-
-            //}
-            //object[] values = new object[6];
-            //for (int j = 0; j < dt.Rows.Count; j++)
-            //{
-            //    for (int i = 0; i <= values.Length - 1; i++)
-            //    {
-            //        values[i] = dt.Rows[j][i];
-            //    }
-            //    dataTable.Rows.Add(values);
-            //}
-
-
-            ////Laver en save dialog hvor brugeren kan vælge hvor filen skal gemmes
-            //SaveFileDialog saveFileDialog = new SaveFileDialog
-            //{
-            //    InitialDirectory = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}",
-            //    Title = "Gem til fil",
-            //    DefaultExt = "txt",
-            //    Filter = "Tekst fil (*.txt)|*.txt|Excel (*.xlsx)|*.xlsx",
-            //    FilterIndex = 1,
-            //    CheckFileExists = false,
-            //    CheckPathExists = true,
-            //    RestoreDirectory = true
-            //};
-
-            //if (saveFileDialog.ShowDialog() == DialogResult.OK) //Hvis det lykkedes for brugeren at vælge et sted at gemme filen
-            //{
-            //    //Hent extensionen af filen Fx .txt
-            //    var extension = Path.GetExtension(saveFileDialog.FileName);
-
-            //    switch (extension.ToLower()) //Tjekker hvilken filtype du har gemt i
-            //    {
-            //        case ".xlsx":
-            //            var wb = new XLWorkbook(); //Laver en ny XLWorkbook som kommer fra en NuGet package der hedder closedXML man kan benytte til at oprette Excel dokumenter
-            //            wb.Worksheets.Add(dataTable); //Opretter et nyt worksheet på baggrund af det oprettede datatable
-            //            wb.SaveAs(Path.GetFullPath(saveFileDialog.FileName)); //Gemmer den oprettede XLWorkbook til filen som brugeren oprettede via savedialog
-            //            break;
-
-
-
-            //        default:
-            //            //Hvis det ikke er muligt at gemme vis fejlbesked til brugeren
-            //            MessageBox.Show($"Det var ikke muligt at gemme filen: {saveFileDialog.FileName} Prøv igen.", "Fejl!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //            break;
-            //    }
-            //}
+                    //USER 2
+                    SqlCommand command4 = new SqlCommand();
+                    command4.Connection = connection;
+                    command4.CommandText = "INSERT INTO seller VALUES (@sId, @aId)";
+                    command4.Parameters.AddWithValue("@sId", user2ID);
+                    command4.Parameters.AddWithValue("@aId", 120);
+                    connection.Open();
+                    command4.ExecuteNonQuery();
+                    connection.Close();
+                
+            }
+            
+            //GetLatLongFromAddress("Engblommevej 19", "Horsens", "Midtjylland", "8700");
 
         }
+
+
+
         static string GetLatLongFromAddress(string street, string city, string state, string zip)
         {
             string bingMapsUri = string.Format(@"http://dev.virtualearth.net/REST/v1/Locations/DK/" + Regex.Replace

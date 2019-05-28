@@ -23,9 +23,10 @@ namespace Bol_IT
         private string ExtOfPhoto;
         private byte[] Photo;
         private List<Document> Documents; //
-        public ImageList ListViewImages = new ImageList();
+        private ImageList ListViewImages = new ImageList();
 
         #endregion
+
         #region Init
 
 
@@ -62,6 +63,7 @@ namespace Bol_IT
             List<Seller> sellers = DataAccessLayerFacade.GetSellers();
             sellers.ForEach(seller => cbSellerId.Items.Add(seller.SId));
 
+            lvHouseFiles.SmallImageList = ListViewImages;
         }
 
         #endregion
@@ -127,7 +129,15 @@ namespace Bol_IT
                 btnCancel.Font = new Font(btnCancel.Font.FontFamily, this.Size.Height / 50);
                 btnSave.Font = new Font(btnSave.Font.FontFamily, this.Size.Height / 50);
                 btnToFile.Font = new Font(btnToFile.Font.FontFamily, this.Size.Height / 50);
+                btnAddFile.Font = new Font(btnAddFile.Font.FontFamily, this.Size.Height / 50);
+                btnShowFile.Font = new Font(btnShowFile.Font.FontFamily, this.Size.Height / 50);
+                btnDeleteFile.Font = new Font(btnDeleteFile.Font.FontFamily, this.Size.Height / 50);
                 #endregion
+                lvHouseFiles.Font = new Font(lvHouseFiles.Font.FontFamily, this.Size.Height / 50);
+
+                TableLayoutPanelCellPosition pos = ((TableLayoutPanel)cbSellerId.Parent).GetCellPosition(cbSellerId);
+                int height = (((TableLayoutPanel)cbSellerId.Parent).GetRowHeights()[pos.Row] - cbSellerId.Height) / 2;
+                cbSellerId.Margin = new Padding(6, height, 6, height);
             }
             catch { }
         }
@@ -139,7 +149,7 @@ namespace Bol_IT
         //Tobias
         public static void LoadData(string id)
         {
-            Property property = DataAccessLayerFacade.GetProperty(Convert.ToInt32(id));
+            Property property = DataAccessLayerFacade.GetPropertyById(Convert.ToInt32(id));
             WantsToSell wantsToSell = DataAccessLayerFacade.GetSellerInformationByCaseNr(Convert.ToInt32(id));
 
             Instance.rtbAddress.Text = property.Address;
@@ -164,10 +174,10 @@ namespace Bol_IT
             Instance.cbSellerId.Text = wantsToSell.SId.ToString();
             Instance.rtbDesiredPrice.Text = wantsToSell.DesiredPrice.ToString();
             Instance.rtbTimeFrame.Text = wantsToSell.TimeFrame.ToString();
-            byte[] photo = DataAccessLayerFacade.GetPhotoFromId(int.Parse(id));
+            byte[] photo = DataAccessLayerFacade.GetPhotoFromCaseNr(int.Parse(id));
             Instance.Photo = photo;
             Instance.pbHouseImage.Image = BusinessLayerFacade.ConvertBinaryArrayToImage(photo);
-            Instance.NameOfPhoto = DataAccessLayerFacade.GetPhotoNameFromIdAndPhoto(int.Parse(id), photo);
+            Instance.NameOfPhoto = DataAccessLayerFacade.GetPhotoNameFromCaseNrAndPhoto(int.Parse(id), photo);
             Instance.ExtOfPhoto = DataAccessLayerFacade.GetPhotoExtFromName(Instance.NameOfPhoto);
 
             Instance.Documents = DataAccessLayerFacade.GetDocumentsByCaseNr(int.Parse(id));
@@ -175,6 +185,128 @@ namespace Bol_IT
             foreach (Document document in Instance.Documents)
             {
                 Instance.lvHouseFiles.Items.Add(Path.ChangeExtension(document.Name, document.Extention));
+            }
+        }
+
+        private void AddFile()
+        {
+            if (ofdOpenFile.ShowDialog() == DialogResult.OK)
+            {
+                //Tilføj information til listview
+                Icon fileIcon = Icon.ExtractAssociatedIcon(ofdOpenFile.FileName);
+                ListViewImages.Images.Add(fileIcon);
+                ListViewItem listViewItem = lvHouseFiles.Items.Add(Path.GetFileName(ofdOpenFile.FileName));
+                listViewItem.ImageIndex = ListViewImages.Images.Count - 1;
+                //Kopier til temp placering
+                BusinessLayerFacade.CopyFile(ofdOpenFile.FileName);
+            }
+        }
+        //Christoffer
+        private bool AnyBoxIsEmpty()
+        {
+            if (rtbTimeFrame.Text == string.Empty)
+            { rtbTimeFrame.Text = "0"; }
+            if (rtbDesiredPrice.Text == string.Empty)
+            { rtbDesiredPrice.Text = "0"; }
+            if (rtbCaseNr.Text == string.Empty)
+            { rtbCaseNr.Text = "0"; }
+            if (rtbNetPrice.Text == string.Empty)
+            { rtbNetPrice.Text = "0"; }
+            if (rtbGrossPrice.Text == string.Empty)
+            { rtbGrossPrice.Text = "0"; }
+            if (rtbOwnerExpences.Text == string.Empty)
+            { rtbOwnerExpences.Text = "0"; }
+            if (rtbCashPrice.Text == string.Empty)
+            { rtbCashPrice.Text = "0"; }
+            if (rtbDepositPrice.Text == string.Empty)
+            { rtbDepositPrice.Text = "0"; }
+            if (rtbFloors.Text == string.Empty)
+            { rtbFloors.Text = "0"; }
+            if (rtbNrOfRooms.Text == string.Empty)
+            { rtbNrOfRooms.Text = "0"; }
+            if (rtbResSquareMeters.Text == string.Empty)
+            { rtbResSquareMeters.Text = "0"; }
+            if (rtbZipCode.Text == string.Empty)
+            { rtbZipCode.Text = "0"; }
+            if (rtbPropSquareMeters.Text == string.Empty)
+            { rtbPropSquareMeters.Text = "0"; }
+            if (rtbBuiltRebuilt.Text == string.Empty)
+            { rtbBuiltRebuilt.Text = "0"; }
+            if (rtbHouseDescription.Text == string.Empty)
+            { rtbHouseDescription.Text = "Ingen tekst"; }
+
+            if (pbHouseImage.Image == null)
+            { }
+
+            if (cbSellerId.Text == string.Empty || rtbAddress.Text == string.Empty)
+            {
+                return true;
+            }
+            return false;
+        }
+        #endregion
+
+        #region Events
+
+        //Tobias
+        private void pbHouseImage_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+        }
+
+        private void pbHouseImage_DragDrop(object sender, DragEventArgs e)
+        {
+            if ((string[])e.Data.GetData(DataFormats.FileDrop) != null)
+            {
+                foreach (string pic in ((string[])e.Data.GetData(DataFormats.FileDrop)))
+                {
+                    Image image = Image.FromFile(pic);
+                    pbHouseImage.Image = image;
+                    if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                    {
+                        var path = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
+                        pbHouseImage.ImageLocation = (string)path;
+                    }
+                }
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            //Load Sag_ViewAll User control når tryk på knap
+            if (!Form1.Instance.PnlContainer.Controls.ContainsKey("Sag_ViewAll"))
+            {
+                Sag_ViewAll.Instance.Dock = DockStyle.Fill;
+                Form1.Instance.PnlContainer.Controls.Add(Sag_ViewAll.Instance);
+            }
+            Form1.Instance.PnlContainer.Controls["Sag_ViewAll"].BringToFront();
+        }
+
+        //Christoffer
+        private void CheckKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void CheckKeyPressDigit(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar) && !(e.KeyChar == '/'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        //Christoffer
+        private void pbHouseImage_Click(object sender, EventArgs e)
+        {
+            if (ofdOpenFile.ShowDialog() == DialogResult.OK)
+            {
+                pbHouseImage.ImageLocation = ofdOpenFile.FileName;
+                Image image = Image.FromFile(ofdOpenFile.FileName);
+                pbHouseImage.Image = image;
             }
         }
 
@@ -352,141 +484,7 @@ namespace Bol_IT
             }
             return false;
         }
-        private void AddFile()
-        {
-            if (ofdOpenFile.ShowDialog() == DialogResult.OK)
-            {
-                //Tilføj information til listview
-                Icon fileIcon = Icon.ExtractAssociatedIcon(ofdOpenFile.FileName);
-                ListViewImages.Images.Add(fileIcon);
-                ListViewItem listViewItem = lvHouseFiles.Items.Add(Path.GetFileName(ofdOpenFile.FileName));
-                listViewItem.ImageIndex = ListViewImages.Images.Count - 1;
-                //Kopier til temp placering
-                BusinessLayerFacade.CopyFile(ofdOpenFile.FileName);
-            }
-        }
-        /// <summary>
-        /// Kontrollerer at alle tekstfelter er udfyldte, sådan at der ikke sker fejl ved indsætningen i databasen
-        /// </summary>
-        /// <returns>True if Boxes is empty, false if opposite</returns>
-        private bool AnyBoxIsEmpty()
-        {
-            if (rtbTimeFrame.Text == string.Empty)
-            { rtbTimeFrame.Text = "0"; }
-            if (rtbDesiredPrice.Text == string.Empty)
-            { rtbDesiredPrice.Text = "0"; }
-            if (rtbCaseNr.Text == string.Empty)
-            { rtbCaseNr.Text = "0"; }
-            if (rtbNetPrice.Text == string.Empty)
-            { rtbNetPrice.Text = "0"; }
-            if (rtbGrossPrice.Text == string.Empty)
-            { rtbGrossPrice.Text = "0"; }
-            if (rtbOwnerExpences.Text == string.Empty)
-            { rtbOwnerExpences.Text = "0"; }
-            if (rtbCashPrice.Text == string.Empty)
-            { rtbCashPrice.Text = "0"; }
-            if (rtbDepositPrice.Text == string.Empty)
-            { rtbDepositPrice.Text = "0"; }
-            if (rtbFloors.Text == string.Empty)
-            { rtbFloors.Text = "0"; }
-            if (rtbNrOfRooms.Text == string.Empty)
-            { rtbNrOfRooms.Text = "0"; }
-            if (rtbResSquareMeters.Text == string.Empty)
-            { rtbResSquareMeters.Text = "0"; }
-            if (rtbZipCode.Text == string.Empty)
-            { rtbZipCode.Text = "0"; }
-            if (rtbPropSquareMeters.Text == string.Empty)
-            { rtbPropSquareMeters.Text = "0"; }
-            if (rtbBuiltRebuilt.Text == string.Empty)
-            { rtbBuiltRebuilt.Text = "0"; }
-            if (rtbFloors.Text == string.Empty)
-            { rtbFloors.Text = "0"; }
-            if (rtbHouseDescription.Text == string.Empty)
-            { rtbHouseDescription.Text = "Ingen tekst"; }
 
-            if (pbHouseImage.Image == null)
-            { }
-
-            if (cbSellerId.Text == string.Empty && rtbAddress.Text == string.Empty)
-            {
-                return true;
-            }
-            return false;
-        }
-        #endregion
-
-        #region Events
-
-        //Tobias
-        private void pbHouseImage_DragEnter(object sender, DragEventArgs e)
-        {
-            e.Effect = DragDropEffects.Copy;
-        }
-
-        private void pbHouseImage_DragDrop(object sender, DragEventArgs e)
-        {
-            if ((string[])e.Data.GetData(DataFormats.FileDrop) != null)
-            {
-                foreach (string pic in ((string[])e.Data.GetData(DataFormats.FileDrop)))
-                {
-                    Image image = Image.FromFile(pic);
-                    pbHouseImage.Image = image;
-                    if (e.Data.GetDataPresent(DataFormats.FileDrop))
-                    {
-                        var path = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
-                        pbHouseImage.ImageLocation = (string)path;
-                    }
-                }
-            }
-        }
-
-        //Tobias
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            ReloadPrievous();
-        }
-
-        //Caspar
-        //Genindlæser den forrige UserControl, og beder den om at genindlæse den releveante data.
-        private static void ReloadPrievous()
-        {
-            //Load Sag_ViewAll User control når tryk på knap
-            if (!Form1.Instance.PnlContainer.Controls.ContainsKey("Sag_ViewAll"))
-            {
-                Sag_ViewAll.Instance.Dock = DockStyle.Fill;
-                Form1.Instance.PnlContainer.Controls.Add(Sag_ViewAll.Instance);
-            }
-            Form1.Instance.PnlContainer.Controls["Sag_ViewAll"].BringToFront();
-            Sag_ViewAll.Instance.StartDataLoad();
-        }
-
-        //Christoffer
-        private void CheckKeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsNumber(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void CheckKeyPressDigit(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsNumber(e.KeyChar) && !(e.KeyChar == '/'))
-            {
-                e.Handled = true;
-            }
-        }
-
-        //Christoffer
-        private void pbHouseImage_Click(object sender, EventArgs e)
-        {
-            if (ofdOpenFile.ShowDialog() == DialogResult.OK)
-            {
-                pbHouseImage.ImageLocation = ofdOpenFile.FileName;
-                Image image = Image.FromFile(ofdOpenFile.FileName);
-                pbHouseImage.Image = image;
-            }
-        }
         
 
         //Tobias
@@ -624,10 +622,18 @@ namespace Bol_IT
         //Christoffer
         private void lvHouseFiles_DoubleClick(object sender, EventArgs e)
         {
+            if (lvHouseFiles.Items.Count == 0)
+            {
+                return;
+            }
             BusinessLayerFacade.ShowFile(lvHouseFiles.SelectedItems[0].Text);
         }
         private void btnShowFile_Click(object sender, EventArgs e)
         {
+            if (lvHouseFiles.Items.Count == 0)
+            {
+                return;
+            }
             BusinessLayerFacade.ShowFile(lvHouseFiles.SelectedItems[0].Text);
         }
         private void btnAddFile_Click(object sender, EventArgs e)
@@ -637,31 +643,6 @@ namespace Bol_IT
         private void btnDeleteFile_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem item in lvHouseFiles.SelectedItems)
-            {
-                lvHouseFiles.Items.Remove(item);
-            }
-        }
-
-        //Caspar
-        //Sletter en ejendom fra databasen ved tryk på Slet knappen.
-        private void btnDeleteCase_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (MessageBox.Show("Sagen bliver slettet for evigt. Ønsker du at fortsætte?", "Slet sag.", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
-                {
-                    return;
-                }
-                else
-                {
-                    int.TryParse(rtbCaseNr.Text, out int caseNr);
-                    DataAccessLayerFacade.DeleteProperty(caseNr);
-                    ReloadPrievous();
-
-                }
-
-            }
-            catch (Exception exception)
             {
                 MessageBox.Show($"Der skete en uventet fejl under sletning af sagen. Fejlbesked: {exception}.", "Fejl.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

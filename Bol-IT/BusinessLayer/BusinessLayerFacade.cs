@@ -4,6 +4,8 @@ using System.Drawing;
 using GlobalClasses;
 using System.Windows.Forms;
 using System.Data;
+using GlobalClasses;
+using DataAccessLayer;
 
 namespace BusinessLayer
 {
@@ -17,25 +19,13 @@ namespace BusinessLayer
             SloganThread.SloganThreadsStart(label);
         }
 
-        //Christoffer
-        public static byte[] GetFileFromPath(string path)
+        public static void NotifyAboutMessage(Label lblMessage)
         {
-            return File.ReadAllBytes(path);
-        }
-
-        //Christoffer
-        public static Image ConvertBinaryArrayToImage(byte[] photo)
-        {
-            if (photo == null)
-            {
-                return null;
-            }
-            using (MemoryStream ms = new MemoryStream(photo))
-            {
-                return Image.FromStream(ms);
-            }
+            LoginMethods.StartNotifyAboutMessage(lblMessage);
         }
         #endregion
+
+        #region PriceCalculation
 
         //Simone
         /// <summary>
@@ -46,6 +36,23 @@ namespace BusinessLayer
         public static int CalculateGrossPrice(int cashPrice)
         {
             return PriceCalculator.CalculateGrossPrice(cashPrice);
+        }
+
+        /// <summary>
+        /// Beregner total prisen ud fra grund areal, postnummer, stand, indretning, stil, køkken, badeværelse og have
+        /// </summary>
+        /// <param name="propSquareMeter"></param>
+        /// <param name="zipcode"></param>
+        /// <param name="condition"></param>
+        /// <param name="interiorDesign"></param>
+        /// <param name="style"></param>
+        /// <param name="kitchen"></param>
+        /// <param name="bathroom"></param>
+        /// <param name="gardenFlag"></param>
+        /// <returns></returns>
+        public static int CalculateCashPrice(int propSquareMeter, int zipcode, string condition, string interiorDesign, string style, string kitchen, string bathroom, bool gardenFlag)
+        {
+            return PriceCalculator.CalculateCashPrice(propSquareMeter, zipcode, condition, interiorDesign, style, kitchen, bathroom, gardenFlag);
         }
 
         /// <summary>
@@ -78,29 +85,39 @@ namespace BusinessLayer
             return PriceCalculator.CalculateDepositPrice(cashPrice);
         }
 
-        /// <summary>
-        /// Beregner total prisen ud fra grund areal, postnummer, stand, indretning, stil, køkken, badeværelse og have
-        /// </summary>
-        /// <param name="propSquareMeter"></param>
-        /// <param name="zipcode"></param>
-        /// <param name="condition"></param>
-        /// <param name="interiorDesign"></param>
-        /// <param name="style"></param>
-        /// <param name="kitchen"></param>
-        /// <param name="bathroom"></param>
-        /// <param name="gardenFlag"></param>
-        /// <returns></returns>
-        public static int CalculateCashPrice(int propSquareMeter, int zipcode, string condition, string interiorDesign, string style, string kitchen, string bathroom, bool gardenFlag)
+        #endregion
+
+        #region Login
+        public static void CreateNewUser(string username, string password)
         {
-            return PriceCalculator.CalculateCashPrice(propSquareMeter, zipcode, condition, interiorDesign, style, kitchen, bathroom, gardenFlag);
+            Encryption encryption = EncryptString(password);
+            DataAccessLayerFacade.CreateNewUser(username, encryption.Salt, encryption.Hash);
+        }
+        public static void UpdateUser(string username, string password)
+        {
+            Encryption encryption = EncryptString(password);
+            DataAccessLayerFacade.UpdateUser(username, encryption.Salt, encryption.Hash);
         }
 
-        //Caspar
-        public static DataTable DistributeHouses(DataTable agentDataTable, DataTable propertyDataTable, int sortMethod)
+        public static bool TryLogon(string username, string password)
         {
-            return BusinessLayer.OpenHouseMethods.DistributeHouses(agentDataTable, propertyDataTable, sortMethod);
+            return LoginMethods.TestPassword(username, password);
         }
 
+        public static Encryption EncryptString(string password)
+        {
+            return LoginMethods.Encrypt(password);
+        }
+        public static void NotifyAdminAboutPasswordReset(string username)
+        {
+            //Klar til at implementere et password reset system
+            Encryption encryption = EncryptString("");
+            MethodsDataAccessLayer.UpdateUser(username, encryption.Salt, encryption.Hash);
+        }
+
+        #endregion
+
+        #region Files
         public static void ShowFile(string path)
         {
             FileMethods.ShowFile(path);
@@ -110,6 +127,35 @@ namespace BusinessLayer
         {
             FileMethods.CopyFile(fileName);
         }
+
+        //Christoffer
+        public static byte[] GetFileFromPath(string path)
+        {
+            return File.ReadAllBytes(path);
+        }
+
+        //Christoffer
+        public static Image ConvertBinaryArrayToImage(byte[] photo)
+        {
+            if (photo == null)
+            {
+                return null;
+            }
+            using (MemoryStream ms = new MemoryStream(photo))
+            {
+                return Image.FromStream(ms);
+            }
+        }
+        #endregion
+
+        #region HouseDistribution
+        //Caspar
+        public static DataTable DistributeHouses(DataTable agentDataTable, DataTable propertyDataTable, int sortMethod)
+        {
+            return BusinessLayer.OpenHouseMethods.DistributeHouses(agentDataTable, propertyDataTable, sortMethod);
+        }
+        #endregion
+        
 
         //Tobias
         public static bool Sanitizer(RichTextBox rtbFName, RichTextBox rtbMName, RichTextBox rtbLName, RichTextBox rtbPhoneNr, RichTextBox rtbAddress, RichTextBox rtbZipcode, RichTextBox rtbMail, RichTextBox rtbTypeChainging, ComboBox cbType)

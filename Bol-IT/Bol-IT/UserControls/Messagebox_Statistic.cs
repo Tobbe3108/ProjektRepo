@@ -60,8 +60,21 @@ namespace Bol_IT
                 cbMonth.Font = new Font(cbMonth.Font.FontFamily, this.Size.Height / 15);
                 cbYear.Font = new Font(cbYear.Font.FontFamily, this.Size.Height / 15);
                 lblYear.Font = new Font(lblYear.Font.FontFamily, this.Size.Height / 15);
+
+                foreach (var tableLayoutPanel in tableLayoutPanel2.Controls.Cast<TableLayoutPanel>())
+                {
+                    foreach (System.Windows.Forms.Control item in tableLayoutPanel.Controls.Cast<System.Windows.Forms.Control>())
+                    {
+                        if (item.GetType().Name == "ComboBox")
+                        {
+                            TableLayoutPanelCellPosition pos = ((TableLayoutPanel)item.Parent).GetCellPosition(item);
+                            int height = (((TableLayoutPanel)item.Parent).GetRowHeights()[pos.Row] - item.Height) / 2;
+                            item.Margin = new Padding(6, height, 6, height);
+                        }
+                    }
+                }
             }
-            catch{}
+            catch { }
         }
 
         #endregion

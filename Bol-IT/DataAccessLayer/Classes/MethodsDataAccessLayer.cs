@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using GlobalClasses;
 using DataAccessLayer.mydatabasetobbeDataSetTableAdapters;
 using static DataAccessLayer.mydatabasetobbeDataSet;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace DataAccessLayer
 {
@@ -27,6 +29,55 @@ namespace DataAccessLayer
             return false;
         }
 
+        //Christoffer
+        /// <summary>
+        /// Returnerer en SqlConnection til brug af testing
+        /// </summary>
+        /// <returns></returns>
+        public static SqlConnection GetConnection()
+        {
+            return new SqlConnection(Properties.Settings.Default.mydatabasetobbeConnectionString);
+        }
+
+        public static void StartTransactionLevel(SqlConnection connection)
+        {
+            string transactionText;
+            transactionText = "SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;";
+
+            using (SqlCommand command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = transactionText;
+                command.ExecuteNonQuery();
+            }
+
+            transactionText = "BEGIN TRANSACTION;";
+
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.Connection = connection;
+                command.CommandText = transactionText;
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public static void EndTransactionLevel(SqlConnection connection)
+        {
+            string transactionText;
+            transactionText = "COMMIT TRANSACTION;";
+
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.Connection = connection;
+                command.CommandText = transactionText;
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+
+        }
+
+
         #region TableAdapters
 
         //Christoffer
@@ -39,39 +90,6 @@ namespace DataAccessLayer
         public static propertyTableAdapter propertyTableAdapter = new propertyTableAdapter();
         public static worksWithTableAdapter worksWithTableAdapter = new worksWithTableAdapter();
         public static assesmentTableAdapter assesmentTableAdapter = new assesmentTableAdapter();
-
-        public static List<Document> GetDocumentsByCaseNr(int id)
-        {
-            filesDataTable fdt = new filesDataTable();
-            filesTableAdapter.FillByCaseNr(fdt, id);
-            
-            List<Document> documents = new List<Document>();
-            for (int i = 0; i < fdt.Rows.Count; i++)
-            {
-                if ((string)fdt.Rows[i][2] != "jpg" && (string)fdt.Rows[i][2] != "jpeg" && (string)fdt.Rows[i][2] != "png") //Kontrollerer at det ikke er et billede
-                {
-                Document document = new Document
-                {
-                    CaseNr = id,
-                    Name = (string)fdt.Rows[i][1],
-                    Extention = (string)fdt.Rows[i][2]
-                };
-                documents.Add(document);
-                }
-            }
-            return documents;
-        }
-
-        public static Document GetDocumentByName(string name)
-        {
-            return new Document
-            {
-                Name = name,
-                Data = filesTableAdapter.GetFileByName(name)
-            };
-
-        }
-
         public static wantsToSellTableAdapter wantsToSellTableAdapter = new wantsToSellTableAdapter();
         public static personalDataTableAdapter personalDataTableAdapter = new personalDataTableAdapter();
         public static externalContactsTableAdapter externalContactsTableAdapter = new externalContactsTableAdapter();
@@ -83,6 +101,8 @@ namespace DataAccessLayer
         //Christoffer
         public static string GetPersonTypeById(int id)
         {
+            SqlConnection transactionConnection = agentTableAdapter.Connection;
+            StartTransactionLevel(transactionConnection);
             string persontype = "";
             if (agentTableAdapter.GetDataById(id).Rows.Count != 0)
             {
@@ -96,6 +116,7 @@ namespace DataAccessLayer
             {
                 persontype = "Køber";
             }
+            EndTransactionLevel(transactionConnection);
             return persontype;
         }
 
@@ -124,6 +145,8 @@ namespace DataAccessLayer
 
             return persontypes;
         }
+
+
 
         public static personalDataDataTable GetPersonalDataDataTableByLike(string searchParameters)
         {
@@ -434,7 +457,7 @@ namespace DataAccessLayer
             return pdt;
         }
 
-        
+
 
         //Christoffer
         public static propertyDataTable GetPropertyDataTableByLikeAll(string searchParameters)
@@ -475,7 +498,7 @@ namespace DataAccessLayer
         }
 
         //Christoffer
-        public static Property GetProperty(int id)
+        public static Property GetPropertyById(int id)
         {
             propertyDataTable pdt = new propertyDataTable();
             propertyTableAdapter.FillById(pdt, id);
@@ -547,6 +570,8 @@ namespace DataAccessLayer
             return properties;
         }
 
+
+
         public static void UpdateProperty(int caseNr, int sId, int desiredPrice, int timeFrame, int netPrice, int grossPrice, int ownerExpenses, int cashPrice,
             int depositPrice, string address, int zipcode, int nrOfRooms, bool garageFlag, string builtRebuild, string houseType, string energyRating,
              int resSquareMeters, int propSquareMeters, int floors, bool soldFlag, string description)
@@ -571,7 +596,7 @@ namespace DataAccessLayer
             try
             {
 
-                return filesTableAdapter.GetPhotoExtFromName(nameOfPhoto);
+                return (string)filesTableAdapter.GetPhotoExtFromName(nameOfPhoto);
             }
             catch (Exception)
             {
@@ -581,7 +606,7 @@ namespace DataAccessLayer
         }
 
         //Christoffer
-        public static byte[] GetPhotoFromId(int id)
+        public static byte[] GetPhotoFromCaseNr(int id)
         {
             filesDataTable files = filesTableAdapter.GetDataByCaseNr(id);
 
@@ -595,7 +620,7 @@ namespace DataAccessLayer
 
             return null;
         }
-        public static string GetPhotoNameFromIdAndPhoto(int id, byte[] photo)
+        public static string GetPhotoNameFromCaseNrAndPhoto(int id, byte[] photo)
         {
             try
             {
@@ -631,6 +656,41 @@ namespace DataAccessLayer
             }
         }
 
+        public static List<Document> GetDocumentsByCaseNr(int id)
+        {
+            filesDataTable fdt = new filesDataTable();
+            filesTableAdapter.FillByCaseNr(fdt, id);
+
+            List<Document> documents = new List<Document>();
+            for (int i = 0; i < fdt.Rows.Count; i++)
+            {
+                if ((string)fdt.Rows[i][2] != "jpg" && (string)fdt.Rows[i][2] != "jpeg" && (string)fdt.Rows[i][2] != "png") //Kontrollerer at det ikke er et billede
+                {
+                    Document document = new Document
+                    {
+                        CaseNr = id,
+                        Name = (string)fdt.Rows[i][1],
+                        Extention = (string)fdt.Rows[i][2]
+                    };
+                    documents.Add(document);
+                }
+            }
+            return documents;
+        }
+
+        public static Document GetDocumentByName(string name)
+        {
+            return new Document
+            {
+                Name = name,
+                Data = (byte[])filesTableAdapter.GetFileByName(name)
+            };
+
+        }
+
+
+
+
         #endregion
 
         #region Sale
@@ -663,6 +723,66 @@ namespace DataAccessLayer
 
         #endregion
 
+        #region Login
+        public static DataTable GetEncryptionByUsername(string testUsername)
+        {
+            SqlConnection transactionConnection = GetConnection();
+            StartTransactionLevel(transactionConnection);
+            try
+            {
+                using (SqlConnection connection = GetConnection())
+                {
+                    string query = $"SELECT * FROM Login WHERE username = '{testUsername}'";
+
+                    SqlDataAdapter sda = new SqlDataAdapter(query, connection);
+
+                    DataTable dataTable = new DataTable();
+
+                    sda.Fill(dataTable);
+                    EndTransactionLevel(transactionConnection);
+                    return dataTable;
+                }
+            }
+            catch { return null; }
+        }
+
+        public static void CreateNewUser(string username, byte[] salt, byte[] hash)
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = $"INSERT INTO login VALUES ( @username, @salt, @hash)";
+                    command.Parameters.AddWithValue("username", username);
+                    command.Parameters.AddWithValue("salt", salt);
+                    command.Parameters.AddWithValue("hash", hash);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static void UpdateUser(string username, byte[] salt, byte[] hash)
+        {
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AzureDB"].ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = $"UPDATE login SET salt = @salt, hash = @hash WHERE username = @username";
+                    command.Parameters.AddWithValue("username", username);
+                    command.Parameters.AddWithValue("salt", salt);
+                    command.Parameters.AddWithValue("hash", hash);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        #endregion
     }
 
 }
