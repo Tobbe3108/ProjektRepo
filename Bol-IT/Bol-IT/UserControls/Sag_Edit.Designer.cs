@@ -1339,7 +1339,7 @@
             this.btnDeleteCase.TabIndex = 4;
             this.btnDeleteCase.Text = "Slet sag";
             this.btnDeleteCase.UseVisualStyleBackColor = false;
-            this.btnDeleteCase.Click += new System.EventHandler(this.btnDeleteCase_Click);
+            this.btnDeleteCase.Click += new System.EventHandler(this.btnDeleteFile_Click);
             // 
             // Sag_Edit
             // 

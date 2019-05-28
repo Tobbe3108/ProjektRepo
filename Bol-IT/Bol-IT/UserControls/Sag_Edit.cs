@@ -45,6 +45,7 @@ namespace Bol_IT
             }
         }
 
+
         private Sag_Edit()
         {
             InitializeComponent();
@@ -308,8 +309,6 @@ namespace Bol_IT
                 pbHouseImage.Image = image;
             }
         }
-
-
 
         //Christoffer og Tobias
         private void btnSave_Click(object sender, EventArgs e)
@@ -645,9 +644,11 @@ namespace Bol_IT
         {
             foreach (ListViewItem item in lvHouseFiles.SelectedItems)
             {
-                lvHouseFiles.Items.Remove(item);
+                item.Remove();
             }
         }
         #endregion
+
+
     }
 }

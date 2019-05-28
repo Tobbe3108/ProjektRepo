@@ -8015,6 +8015,7 @@ COMMIT TRANSACTION;";
 BEGIN TRANSACTION;  
 
 SELECT caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms, garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description
+COMMIT TRANSACTION;";
             this._commandCollection[2].CommandText = @"SELECT caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms, garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description FROM dbo.property WHERE caseNR = @id;";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "caseNr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -8062,8 +8063,7 @@ WHERE        (address LIKE '%' + @searchParameters + '%') OR
                          (energyRating LIKE '%' + @searchParameters + '%') OR
                          (resSquareMeters LIKE '%' + @searchParameters + '%') OR
                          (propSquareMeters LIKE '%' + @searchParameters + '%') OR
-                         (floors LIKE '%' + @searchParameters + '%')";
-                         (floors LIKE '%' + @searchParameters + '%');
+                         (floors LIKE '%' + @searchParameters + '%')
 
 COMMIT TRANSACTION;";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
