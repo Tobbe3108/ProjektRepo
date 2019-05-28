@@ -220,6 +220,88 @@ namespace Bol_IT
         }
         #endregion
 
+        #region Methods
+
+        //Simone
+        public void UpdatePrice(int grossPrice, int netPrice, int ownerExpences, int depositPrice, int cashPrice)
+        {
+            Instance.rtbGrossPrice.Text = grossPrice.ToString();
+            Instance.rtbNetPrice.Text = netPrice.ToString();
+            Instance.rtbOwnerExpences.Text = ownerExpences.ToString();
+            Instance.rtbDepositPrice.Text = depositPrice.ToString();
+            Instance.rtbCashPrice.Text = cashPrice.ToString();
+
+        }
+        private bool PropSquareMetersEmpty()
+        {
+            if (rtbPropSquareMeters.Text == string.Empty)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void AddFile()
+        {
+            if (ofdOpenFile.ShowDialog() == DialogResult.OK)
+            {
+                //Tilføj information til listview
+                Icon fileIcon = Icon.ExtractAssociatedIcon(ofdOpenFile.FileName);
+                ListViewImages.Images.Add(fileIcon);
+                ListViewItem listViewItem = lvHouseFiles.Items.Add(Path.GetFileName(ofdOpenFile.FileName));
+                listViewItem.ImageIndex = ListViewImages.Images.Count - 1;
+                //Kopier til temp placering
+                BusinessLayerFacade.CopyFile(ofdOpenFile.FileName);
+            }
+        }
+        //Christoffer
+        private bool AnyBoxIsEmpty()
+        {
+            if (rtbTimeFrame.Text == string.Empty)
+            { rtbTimeFrame.Text = "0"; }
+            if (rtbDesiredPrice.Text == string.Empty)
+            { rtbDesiredPrice.Text = "0"; }
+            if (rtbCaseNr.Text == string.Empty)
+            { rtbCaseNr.Text = "0"; }
+            if (rtbNetPrice.Text == string.Empty)
+            { rtbNetPrice.Text = "0"; }
+            if (rtbGrossPrice.Text == string.Empty)
+            { rtbGrossPrice.Text = "0"; }
+            if (rtbOwnerExpences.Text == string.Empty)
+            { rtbOwnerExpences.Text = "0"; }
+            if (rtbCashPrice.Text == string.Empty)
+            { rtbCashPrice.Text = "0"; }
+            if (rtbDepositPrice.Text == string.Empty)
+            { rtbDepositPrice.Text = "0"; }
+            if (rtbFloors.Text == string.Empty)
+            { rtbFloors.Text = "0"; }
+            if (rtbNrOfRooms.Text == string.Empty)
+            { rtbNrOfRooms.Text = "0"; }
+            if (rtbResSquareMeters.Text == string.Empty)
+            { rtbResSquareMeters.Text = "0"; }
+            if (rtbZipCode.Text == string.Empty)
+            { rtbZipCode.Text = "0"; }
+            if (rtbPropSquareMeters.Text == string.Empty)
+            { rtbPropSquareMeters.Text = "0"; }
+            if (rtbBuiltRebuilt.Text == string.Empty)
+            { rtbBuiltRebuilt.Text = "0"; }
+            if (rtbHouseDescription.Text == string.Empty)
+            { rtbHouseDescription.Text = "Ingen tekst"; }
+
+            if (pbHouseImage.Image == null)
+            { }
+
+            if (cbSellerId.Text == string.Empty || rtbAddress.Text == string.Empty)
+            {
+                return true;
+            }
+            return false;
+        }
+        #endregion
+
         #region Events
 
         //Tobias
@@ -387,7 +469,11 @@ namespace Bol_IT
                 Sag_ViewAll.Instance.StartDataLoad();
             }
         }
+<<<<<<< HEAD
 
+=======
+        //Simone
+>>>>>>> master
         private void btnCalculatePrice_Click(object sender, EventArgs e)
         {
             if (PropSquareMetersEmpty())
@@ -429,6 +515,10 @@ namespace Bol_IT
         {
             AddFile();
         }
+<<<<<<< HEAD
+=======
+        
+>>>>>>> master
         private void btnDeleteFile_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem item in lvHouseFiles.SelectedItems)
