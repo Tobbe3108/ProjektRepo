@@ -59,7 +59,7 @@
             this.pnlContainer.Location = new System.Drawing.Point(96, 54);
             this.pnlContainer.Name = "pnlContainer";
             this.pnlContainer.Size = new System.Drawing.Size(859, 481);
-            this.pnlContainer.TabIndex = 25;
+            this.pnlContainer.TabIndex = 3;
             // 
             // pnlSizerBottom
             // 

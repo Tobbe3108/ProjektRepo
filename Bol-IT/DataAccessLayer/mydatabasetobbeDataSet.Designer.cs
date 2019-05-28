@@ -7990,7 +7990,7 @@ COMMIT TRANSACTION;";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[7];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[8];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;  
@@ -8002,18 +8002,25 @@ COMMIT TRANSACTION;";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "DELETE\r\nFROM property\r\nWHERE caseNr = @caseNr;";
             this._commandCollection[1].CommandText = @"SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;  
 BEGIN TRANSACTION;  
 SELECT caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms, garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description FROM dbo.property WHERE caseNR = @id;
 COMMIT TRANSACTION;";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "caseNr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@caseNr", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "caseNr", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = @"SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;  
 BEGIN TRANSACTION;  
 
 SELECT caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms, garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description
+            this._commandCollection[2].CommandText = @"SELECT caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms, garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description FROM dbo.property WHERE caseNR = @id;";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "caseNr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"SELECT caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms, garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description
 FROM   property
 WHERE (soldFlag = @soldFlag) AND (address LIKE '%' + @searchParameters + '%') OR
            (soldFlag = @soldFlag) AND (caseNr LIKE '%' + @searchParameters + '%') OR
@@ -8036,6 +8043,13 @@ COMMIT TRANSACTION;";
 BEGIN TRANSACTION;  
 
 SELECT        caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms, garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, 
+           (soldFlag = @soldFlag) AND (floors LIKE '%' + @searchParameters + '%')";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@soldFlag", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "soldFlag", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@searchParameters", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"SELECT        caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms, garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, 
                          description
 FROM            property
 WHERE        (address LIKE '%' + @searchParameters + '%') OR
@@ -8048,6 +8062,7 @@ WHERE        (address LIKE '%' + @searchParameters + '%') OR
                          (energyRating LIKE '%' + @searchParameters + '%') OR
                          (resSquareMeters LIKE '%' + @searchParameters + '%') OR
                          (propSquareMeters LIKE '%' + @searchParameters + '%') OR
+                         (floors LIKE '%' + @searchParameters + '%')";
                          (floors LIKE '%' + @searchParameters + '%');
 
 COMMIT TRANSACTION;";
@@ -8058,6 +8073,7 @@ COMMIT TRANSACTION;";
             this._commandCollection[4].CommandText = "SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;  \r\nBEGIN TRANSACTION;  \r\n\r\nSELEC" +
                 "T DISTINCT zipcode\r\nFROM   property;\r\n\r\nCOMMIT TRANSACTION;";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@searchParameters", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
             this._commandCollection[5].CommandText = @"SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;  
@@ -8068,24 +8084,8 @@ OUTPUT Inserted.caseNr
 VALUES (@netPrice, @grossPrice, @ownerExpenses, @cashPrice, @depositPrice, @address, @zipcode, @nrOfRooms, @garageFlag, @builtRebuild, @houseType, @energyRating, @resSquareMeters, @propSquareMeters, @floors, @soldFlag, @description);
 
 COMMIT TRANSACTION;";
+            this._commandCollection[5].CommandText = "SELECT DISTINCT zipcode\r\nFROM   property";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@netPrice", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "netPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@grossPrice", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "grossPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ownerExpenses", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ownerExpenses", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cashPrice", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "cashPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@depositPrice", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "depositPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zipcode", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "zipcode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nrOfRooms", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "nrOfRooms", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@garageFlag", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "garageFlag", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@builtRebuild", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "builtRebuild", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@houseType", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "houseType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@energyRating", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "energyRating", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@resSquareMeters", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "resSquareMeters", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@propSquareMeters", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "propSquareMeters", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@floors", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "floors", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@soldFlag", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "soldFlag", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@description", global::System.Data.SqlDbType.Text, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
             this._commandCollection[6].CommandText = @"SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;  
@@ -8112,7 +8112,28 @@ COMMIT TRANSACTION;";
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@floors", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "floors", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@soldFlag", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "soldFlag", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@description", global::System.Data.SqlDbType.Text, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@caseNr", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "caseNr", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[7].Connection = this.Connection;
+            this._commandCollection[7].CommandText = @"UPDATE [dbo].[property] SET [netPrice] = @netPrice, [grossPrice] = @grossPrice, [ownerExpenses] = @ownerExpenses, [cashPrice] = @cashPrice, [depositPrice] = @depositPrice, [address] = @address, [zipcode] = @zipcode, [nrOfRooms] = @nrOfRooms, [garageFlag] = @garageFlag, [builtRebuild] = @builtRebuild, [houseType] = @houseType, [energyRating] = @energyRating, [resSquareMeters] = @resSquareMeters, [propSquareMeters] = @propSquareMeters, [floors] = @floors, [soldFlag] = @soldFlag, [description] = @description WHERE caseNr = @caseNr";
+            this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@netPrice", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "netPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@grossPrice", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "grossPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ownerExpenses", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ownerExpenses", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cashPrice", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "cashPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@depositPrice", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "depositPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zipcode", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "zipcode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nrOfRooms", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "nrOfRooms", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@garageFlag", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "garageFlag", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@builtRebuild", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "builtRebuild", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@houseType", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "houseType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@energyRating", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "energyRating", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@resSquareMeters", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "resSquareMeters", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@propSquareMeters", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "propSquareMeters", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@floors", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "floors", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@soldFlag", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "soldFlag", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@description", global::System.Data.SqlDbType.Text, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@caseNr", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "caseNr", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8144,7 +8165,7 @@ COMMIT TRANSACTION;";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillById(mydatabasetobbeDataSet.propertyDataTable dataTable, int id) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -8158,7 +8179,7 @@ COMMIT TRANSACTION;";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual mydatabasetobbeDataSet.propertyDataTable GetDataById(int id) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id));
             mydatabasetobbeDataSet.propertyDataTable dataTable = new mydatabasetobbeDataSet.propertyDataTable();
             this.Adapter.Fill(dataTable);
@@ -8170,7 +8191,7 @@ COMMIT TRANSACTION;";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByLike(mydatabasetobbeDataSet.propertyDataTable dataTable, bool soldFlag, string searchParameters) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((bool)(soldFlag));
             if ((searchParameters == null)) {
                 throw new global::System.ArgumentNullException("searchParameters");
@@ -8190,7 +8211,7 @@ COMMIT TRANSACTION;";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual mydatabasetobbeDataSet.propertyDataTable GetDataByLike(bool soldFlag, string searchParameters) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((bool)(soldFlag));
             if ((searchParameters == null)) {
                 throw new global::System.ArgumentNullException("searchParameters");
@@ -8208,7 +8229,7 @@ COMMIT TRANSACTION;";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByLikeAll(mydatabasetobbeDataSet.propertyDataTable dataTable, string searchParameters) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((searchParameters == null)) {
                 throw new global::System.ArgumentNullException("searchParameters");
             }
@@ -8227,7 +8248,7 @@ COMMIT TRANSACTION;";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual mydatabasetobbeDataSet.propertyDataTable GetDataByLikeAll(string searchParameters) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((searchParameters == null)) {
                 throw new global::System.ArgumentNullException("searchParameters");
             }
@@ -8244,7 +8265,7 @@ COMMIT TRANSACTION;";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int GetZipcodes(mydatabasetobbeDataSet.propertyDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[5];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -8257,10 +8278,396 @@ COMMIT TRANSACTION;";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual mydatabasetobbeDataSet.propertyDataTable GetDataBy1() {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[5];
             mydatabasetobbeDataSet.propertyDataTable dataTable = new mydatabasetobbeDataSet.propertyDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(mydatabasetobbeDataSet.propertyDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(mydatabasetobbeDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "property");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(
+                    int Original_caseNr, 
+                    int Original_netPrice, 
+                    int Original_grossPrice, 
+                    int Original_ownerExpenses, 
+                    int Original_cashPrice, 
+                    int Original_depositPrice, 
+                    string Original_address, 
+                    int Original_zipcode, 
+                    int Original_nrOfRooms, 
+                    bool Original_garageFlag, 
+                    string Original_builtRebuild, 
+                    string Original_houseType, 
+                    string Original_energyRating, 
+                    int Original_resSquareMeters, 
+                    int Original_propSquareMeters, 
+                    int Original_floors, 
+                    bool Original_soldFlag) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_caseNr));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_netPrice));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_grossPrice));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_ownerExpenses));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_cashPrice));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_depositPrice));
+            if ((Original_address == null)) {
+                throw new global::System.ArgumentNullException("Original_address");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_address));
+            }
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_zipcode));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_nrOfRooms));
+            this.Adapter.DeleteCommand.Parameters[9].Value = ((bool)(Original_garageFlag));
+            if ((Original_builtRebuild == null)) {
+                throw new global::System.ArgumentNullException("Original_builtRebuild");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_builtRebuild));
+            }
+            if ((Original_houseType == null)) {
+                throw new global::System.ArgumentNullException("Original_houseType");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_houseType));
+            }
+            if ((Original_energyRating == null)) {
+                throw new global::System.ArgumentNullException("Original_energyRating");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_energyRating));
+            }
+            this.Adapter.DeleteCommand.Parameters[13].Value = ((int)(Original_resSquareMeters));
+            this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_propSquareMeters));
+            this.Adapter.DeleteCommand.Parameters[15].Value = ((int)(Original_floors));
+            this.Adapter.DeleteCommand.Parameters[16].Value = ((bool)(Original_soldFlag));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(
+                    int netPrice, 
+                    int grossPrice, 
+                    int ownerExpenses, 
+                    int cashPrice, 
+                    int depositPrice, 
+                    string address, 
+                    int zipcode, 
+                    int nrOfRooms, 
+                    bool garageFlag, 
+                    string builtRebuild, 
+                    string houseType, 
+                    string energyRating, 
+                    int resSquareMeters, 
+                    int propSquareMeters, 
+                    int floors, 
+                    bool soldFlag, 
+                    string description) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(netPrice));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(grossPrice));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(ownerExpenses));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(cashPrice));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(depositPrice));
+            if ((address == null)) {
+                throw new global::System.ArgumentNullException("address");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(address));
+            }
+            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(zipcode));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((int)(nrOfRooms));
+            this.Adapter.InsertCommand.Parameters[8].Value = ((bool)(garageFlag));
+            if ((builtRebuild == null)) {
+                throw new global::System.ArgumentNullException("builtRebuild");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(builtRebuild));
+            }
+            if ((houseType == null)) {
+                throw new global::System.ArgumentNullException("houseType");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(houseType));
+            }
+            if ((energyRating == null)) {
+                throw new global::System.ArgumentNullException("energyRating");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(energyRating));
+            }
+            this.Adapter.InsertCommand.Parameters[12].Value = ((int)(resSquareMeters));
+            this.Adapter.InsertCommand.Parameters[13].Value = ((int)(propSquareMeters));
+            this.Adapter.InsertCommand.Parameters[14].Value = ((int)(floors));
+            this.Adapter.InsertCommand.Parameters[15].Value = ((bool)(soldFlag));
+            if ((description == null)) {
+                throw new global::System.ArgumentNullException("description");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(description));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    int netPrice, 
+                    int grossPrice, 
+                    int ownerExpenses, 
+                    int cashPrice, 
+                    int depositPrice, 
+                    string address, 
+                    int zipcode, 
+                    int nrOfRooms, 
+                    bool garageFlag, 
+                    string builtRebuild, 
+                    string houseType, 
+                    string energyRating, 
+                    int resSquareMeters, 
+                    int propSquareMeters, 
+                    int floors, 
+                    bool soldFlag, 
+                    string description, 
+                    int Original_caseNr, 
+                    int Original_netPrice, 
+                    int Original_grossPrice, 
+                    int Original_ownerExpenses, 
+                    int Original_cashPrice, 
+                    int Original_depositPrice, 
+                    string Original_address, 
+                    int Original_zipcode, 
+                    int Original_nrOfRooms, 
+                    bool Original_garageFlag, 
+                    string Original_builtRebuild, 
+                    string Original_houseType, 
+                    string Original_energyRating, 
+                    int Original_resSquareMeters, 
+                    int Original_propSquareMeters, 
+                    int Original_floors, 
+                    bool Original_soldFlag, 
+                    int caseNr) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(netPrice));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(grossPrice));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(ownerExpenses));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(cashPrice));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(depositPrice));
+            if ((address == null)) {
+                throw new global::System.ArgumentNullException("address");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(address));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(zipcode));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(nrOfRooms));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((bool)(garageFlag));
+            if ((builtRebuild == null)) {
+                throw new global::System.ArgumentNullException("builtRebuild");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(builtRebuild));
+            }
+            if ((houseType == null)) {
+                throw new global::System.ArgumentNullException("houseType");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(houseType));
+            }
+            if ((energyRating == null)) {
+                throw new global::System.ArgumentNullException("energyRating");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(energyRating));
+            }
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(resSquareMeters));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(propSquareMeters));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(floors));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((bool)(soldFlag));
+            if ((description == null)) {
+                throw new global::System.ArgumentNullException("description");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(description));
+            }
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_caseNr));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_netPrice));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_grossPrice));
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_ownerExpenses));
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_cashPrice));
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_depositPrice));
+            if ((Original_address == null)) {
+                throw new global::System.ArgumentNullException("Original_address");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_address));
+            }
+            this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_zipcode));
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_nrOfRooms));
+            this.Adapter.UpdateCommand.Parameters[26].Value = ((bool)(Original_garageFlag));
+            if ((Original_builtRebuild == null)) {
+                throw new global::System.ArgumentNullException("Original_builtRebuild");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_builtRebuild));
+            }
+            if ((Original_houseType == null)) {
+                throw new global::System.ArgumentNullException("Original_houseType");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_houseType));
+            }
+            if ((Original_energyRating == null)) {
+                throw new global::System.ArgumentNullException("Original_energyRating");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_energyRating));
+            }
+            this.Adapter.UpdateCommand.Parameters[30].Value = ((int)(Original_resSquareMeters));
+            this.Adapter.UpdateCommand.Parameters[31].Value = ((int)(Original_propSquareMeters));
+            this.Adapter.UpdateCommand.Parameters[32].Value = ((int)(Original_floors));
+            this.Adapter.UpdateCommand.Parameters[33].Value = ((bool)(Original_soldFlag));
+            this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(caseNr));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    int netPrice, 
+                    int grossPrice, 
+                    int ownerExpenses, 
+                    int cashPrice, 
+                    int depositPrice, 
+                    string address, 
+                    int zipcode, 
+                    int nrOfRooms, 
+                    bool garageFlag, 
+                    string builtRebuild, 
+                    string houseType, 
+                    string energyRating, 
+                    int resSquareMeters, 
+                    int propSquareMeters, 
+                    int floors, 
+                    bool soldFlag, 
+                    string description, 
+                    int Original_caseNr, 
+                    int Original_netPrice, 
+                    int Original_grossPrice, 
+                    int Original_ownerExpenses, 
+                    int Original_cashPrice, 
+                    int Original_depositPrice, 
+                    string Original_address, 
+                    int Original_zipcode, 
+                    int Original_nrOfRooms, 
+                    bool Original_garageFlag, 
+                    string Original_builtRebuild, 
+                    string Original_houseType, 
+                    string Original_energyRating, 
+                    int Original_resSquareMeters, 
+                    int Original_propSquareMeters, 
+                    int Original_floors, 
+                    bool Original_soldFlag) {
+            return this.Update(netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms, garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description, Original_caseNr, Original_netPrice, Original_grossPrice, Original_ownerExpenses, Original_cashPrice, Original_depositPrice, Original_address, Original_zipcode, Original_nrOfRooms, Original_garageFlag, Original_builtRebuild, Original_houseType, Original_energyRating, Original_resSquareMeters, Original_propSquareMeters, Original_floors, Original_soldFlag, Original_caseNr);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteProperty(int caseNr) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((int)(caseNr));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8285,7 +8692,7 @@ COMMIT TRANSACTION;";
                     int floors, 
                     bool soldFlag, 
                     string description) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
             command.Parameters[0].Value = ((int)(netPrice));
             command.Parameters[1].Value = ((int)(grossPrice));
             command.Parameters[2].Value = ((int)(ownerExpenses));
@@ -8368,7 +8775,7 @@ COMMIT TRANSACTION;";
                     bool soldFlag, 
                     string description, 
                     int caseNr) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];
             command.Parameters[0].Value = ((int)(netPrice));
             command.Parameters[1].Value = ((int)(grossPrice));
             command.Parameters[2].Value = ((int)(ownerExpenses));
@@ -8645,6 +9052,11 @@ WHERE property.zipcode = @Zipcode AND property.soldFlag = 1
 ) a;
 
 COMMIT TRANSACTION;";
+            this._commandCollection[6].CommandText = @"SELECT        AVG(kvmPrice) AS avgPrice
+FROM            (SELECT        CAST(sale.salesPrice AS DECIMAL) / CAST(property.propSquareMeters AS DECIMAL) AS kvmPrice
+                          FROM            sale INNER JOIN
+                                                    property ON property.caseNr = sale.caseNr
+                          WHERE        (property.zipcode = @Zipcode) AND (property.soldFlag = 1)) AS temp";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Zipcode", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

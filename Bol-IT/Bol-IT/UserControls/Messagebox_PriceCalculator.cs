@@ -94,5 +94,12 @@ namespace Bol_IT
                 cbZipcode.Items.Add(dataTable.Rows[i]["Zipcode"]);
             }
         }
+
+
+        protected override void OnLostFocus(EventArgs e)
+        {
+            base.OnLostFocus(e);
+            this.Focus();
+        }
     }
 }

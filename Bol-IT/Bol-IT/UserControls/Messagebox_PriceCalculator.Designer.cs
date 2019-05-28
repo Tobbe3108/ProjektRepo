@@ -255,6 +255,16 @@
             this.cbGardenFlag.TabIndex = 6;
             this.cbGardenFlag.UseVisualStyleBackColor = true;
             // 
+            // btnCalculate
+            // 
+            this.btnCalculate.Location = new System.Drawing.Point(3, 209);
+            this.btnCalculate.Name = "btnCalculate";
+            this.btnCalculate.Size = new System.Drawing.Size(265, 23);
+            this.btnCalculate.TabIndex = 0;
+            this.btnCalculate.Text = "Beregn pris";
+            this.btnCalculate.UseVisualStyleBackColor = true;
+            this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
+            // 
             // Messagebox_PriceCalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
