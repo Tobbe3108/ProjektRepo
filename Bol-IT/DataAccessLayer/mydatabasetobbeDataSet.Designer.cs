@@ -7986,7 +7986,7 @@ COMMIT TRANSACTION;";
             this._connection = new global::System.Data.SqlClient.SqlConnection();
             this._connection.ConnectionString = global::DataAccessLayer.Properties.Settings.Default.mydatabasetobbeConnectionString;
         }
-
+        
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
@@ -8012,10 +8012,10 @@ COMMIT TRANSACTION;";
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = @"SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;  
-BEGIN TRANSACTION; 
+BEGIN TRANSACTION;  
 
-SELECT caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms, garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description;";
-            this._commandCollection[2].CommandText = @"SELECT caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms, garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description FROM dbo.property WHERE caseNR = @id; ";
+SELECT caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms, garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description
+            this._commandCollection[2].CommandText = @"SELECT caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms, garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description FROM dbo.property WHERE caseNR = @id;";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "caseNr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
@@ -8049,9 +8049,7 @@ SELECT        caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPri
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@searchParameters", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = @"SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;  
-BEGIN TRANSACTION; 
-SELECT        caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms, garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, 
+            this._commandCollection[4].CommandText = @"SELECT        caseNr, netPrice, grossPrice, ownerExpenses, cashPrice, depositPrice, address, zipcode, nrOfRooms, garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, 
                          description
 FROM            property
 WHERE        (address LIKE '%' + @searchParameters + '%') OR
@@ -8064,8 +8062,9 @@ WHERE        (address LIKE '%' + @searchParameters + '%') OR
                          (energyRating LIKE '%' + @searchParameters + '%') OR
                          (resSquareMeters LIKE '%' + @searchParameters + '%') OR
                          (propSquareMeters LIKE '%' + @searchParameters + '%') OR
-                         (floors LIKE '%' + @searchParameters + '%')
-       
+                         (floors LIKE '%' + @searchParameters + '%')";
+                         (floors LIKE '%' + @searchParameters + '%');
+
 COMMIT TRANSACTION;";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@searchParameters", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

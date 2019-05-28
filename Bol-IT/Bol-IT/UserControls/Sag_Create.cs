@@ -468,6 +468,12 @@ namespace Bol_IT
                 Form1.Instance.PnlContainer.Controls["Sag_ViewAll"].BringToFront();
                 Sag_ViewAll.Instance.StartDataLoad();
             }
+        }
+<<<<<<< HEAD
+
+=======
+        //Simone
+>>>>>>> master
         private void btnCalculatePrice_Click(object sender, EventArgs e)
         {
             if (PropSquareMetersEmpty())
@@ -509,7 +515,10 @@ namespace Bol_IT
         {
             AddFile();
         }
-
+<<<<<<< HEAD
+=======
+        
+>>>>>>> master
         private void btnDeleteFile_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem item in lvHouseFiles.SelectedItems)

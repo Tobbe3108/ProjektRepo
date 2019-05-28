@@ -4,7 +4,6 @@ using System.Drawing;
 using GlobalClasses;
 using System.Windows.Forms;
 using System.Data;
-using GlobalClasses;
 using DataAccessLayer;
 
 namespace BusinessLayer
