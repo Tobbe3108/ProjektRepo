@@ -22,6 +22,11 @@ namespace Bol_IT
         public static DataTable propDistributionTable = new DataTable();
         public static bool fordelt = false;//Flag for at se om der er lavet en fordeling.
 
+        //Christoffer
+        //Til brug af thread håndtering
+        public bool ThreadRunning { get; set; }
+        public bool ShouldRun { get; set; }
+
         #endregion
 
         #region Init
@@ -49,6 +54,8 @@ namespace Bol_IT
             OpenHouse_Distribution_SizeChanged(this, new EventArgs());
 
             //Gør at cbSearchParam starter på mægler istedet for blank
+            //Starter også "cbSearchParam_SelectedIndexChanged", sådan 
+            //at den henter informationer til at starte med
             cbSearchParam.SelectedIndex = 0;
 
             //Sætter fordelingen efter pris som standard.
@@ -109,6 +116,20 @@ namespace Bol_IT
         #endregion
 
         #region Methods
+        private void StartDataLoad()
+        {
+            // Hvis tråden er i gang med at køre, så sætter den et flag, som den nuværende thread tjekker når den er færdig med at køre, hvilket kører threaden igen
+            if (ThreadRunning)
+            {
+                ShouldRun = true;
+            }
+            else
+            {
+                Thread LoadDataThread = new Thread(() => LoadData());
+                LoadDataThread.IsBackground = true;
+                LoadDataThread.Start();
+            }
+        }
 
         //Tobias
         /// <summary>
@@ -116,6 +137,7 @@ namespace Bol_IT
         /// </summary>
         private void LoadData()
         {
+            ThreadRunning = true;
             try
             {
                 DataTable dataTable = new DataTable();
@@ -149,6 +171,14 @@ namespace Bol_IT
                 dgvSearch.Invoke((MethodInvoker)delegate { dgvSearch.DataSource = dataTable; });
             }
             catch (Exception) { }
+            ThreadRunning = false;
+
+            if (ShouldRun)
+            {
+                //Call the method to run the thread again
+                StartDataLoad();
+                ShouldRun = false;
+            }
         }
 
         //Caspar
@@ -167,7 +197,6 @@ namespace Bol_IT
                     btn.Name = "Slet";
                     btn.Text = "Slet";
                     btn.ToolTipText = "Slet fra tabel.";
-                    btn.UseColumnTextForButtonValue = true;
                     btn.UseColumnTextForButtonValue = true;
                     dgvDistribution.Columns.Insert(0, btn);//Indsætter knappen på den 0'te plads med ovenstående værdier.
                 }
@@ -214,10 +243,10 @@ namespace Bol_IT
         {
             if (rtbSearch.Text.Length > 0)
             {
-                Thread LoadDataThread = new Thread(() => LoadData());
-                LoadDataThread.IsBackground = true;
-                LoadDataThread.Start();
+                StartDataLoad();
             }
+            //Hvis der ikke står noget, så henter den alle entries i databasen
+            //Henter alle mæglerer her
             else if (cbSearchParam.SelectedIndex == 0)
             {
                 try
@@ -229,13 +258,14 @@ namespace Bol_IT
                 }
                 catch (Exception) { }
             }
+            //Henter alle sager her
             else
             {
                 try
                 {
                     dgvSearch.DataSource = RemoveColumns(DataAccessLayerFacade.GetPropertyDataTable());
                 }
-                catch (Exception) { }
+                catch (Exception){}
             }
         }
 
@@ -392,8 +422,6 @@ namespace Bol_IT
                 DataTable data = (DataTable)dgvDistribution.DataSource;
                 data.Clear(); //Fjerner dataen fra kopien
                 dgvDistribution.DataSource = data;
-
-                ButtonDeleted();
 
                 //Resetter valgene for search og fordeling.
                 cbSearchParam.SelectedIndex = 0;
