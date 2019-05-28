@@ -15,6 +15,7 @@ namespace Bol_IT
         [STAThread]
         static void Main()
         {
+            //Test comment
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Form mainWindow = Form1.Instance;
