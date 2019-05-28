@@ -86,6 +86,7 @@ namespace Bol_IT
         {
             try
             {
+
                 DataTable dataTable = new DataTable();
 
                 string SearchParameters = "";
