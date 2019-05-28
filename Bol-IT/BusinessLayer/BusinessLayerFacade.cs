@@ -42,7 +42,6 @@ namespace BusinessLayer
         /// Beregner brutto prisen ud fra total prisen
         /// </summary>
         /// <param name="cashPrice"></param>
-        /// <returns></returns>
         public static int CalculateGrossPrice(int cashPrice)
         {
             return PriceCalculator.CalculateGrossPrice(cashPrice);
