@@ -39,11 +39,11 @@
             this.lblTypeChainging = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
-            this.rtbZipcode = new System.Windows.Forms.RichTextBox();
-            this.lblZipcode = new System.Windows.Forms.Label();
-            this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbAddress = new System.Windows.Forms.RichTextBox();
             this.lblAddress = new System.Windows.Forms.Label();
+            this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
+            this.rtbPhoneNr = new System.Windows.Forms.RichTextBox();
+            this.lblPhoneNr = new System.Windows.Forms.Label();
             this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbLName = new System.Windows.Forms.RichTextBox();
             this.lblLName = new System.Windows.Forms.Label();
@@ -54,8 +54,8 @@
             this.rtbMName = new System.Windows.Forms.RichTextBox();
             this.lblMName = new System.Windows.Forms.Label();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
-            this.rtbTelephoneNr = new System.Windows.Forms.RichTextBox();
-            this.lblTelephoneNr = new System.Windows.Forms.Label();
+            this.rtbZipcode = new System.Windows.Forms.RichTextBox();
+            this.lblZipcode = new System.Windows.Forms.Label();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbFName = new System.Windows.Forms.RichTextBox();
             this.lblFName = new System.Windows.Forms.Label();
@@ -256,8 +256,8 @@
             this.tableLayoutPanel22.ColumnCount = 2;
             this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel22.Controls.Add(this.rtbZipcode, 1, 0);
-            this.tableLayoutPanel22.Controls.Add(this.lblZipcode, 0, 0);
+            this.tableLayoutPanel22.Controls.Add(this.rtbAddress, 1, 0);
+            this.tableLayoutPanel22.Controls.Add(this.lblAddress, 0, 0);
             this.tableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel22.Location = new System.Drawing.Point(0, 228);
             this.tableLayoutPanel22.Margin = new System.Windows.Forms.Padding(0);
@@ -266,49 +266,6 @@
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel22.Size = new System.Drawing.Size(410, 57);
             this.tableLayoutPanel22.TabIndex = 1000001;
-            // 
-            // rtbZipcode
-            // 
-            this.rtbZipcode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.rtbZipcode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbZipcode.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbZipcode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.rtbZipcode.Location = new System.Drawing.Point(167, 3);
-            this.rtbZipcode.Name = "rtbZipcode";
-            this.rtbZipcode.Size = new System.Drawing.Size(240, 51);
-            this.rtbZipcode.TabIndex = 14;
-            this.rtbZipcode.Text = "";
-            this.rtbZipcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressDigit);
-            // 
-            // lblZipcode
-            // 
-            this.lblZipcode.AutoSize = true;
-            this.lblZipcode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.lblZipcode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblZipcode.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblZipcode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.lblZipcode.Location = new System.Drawing.Point(3, 0);
-            this.lblZipcode.Name = "lblZipcode";
-            this.lblZipcode.Size = new System.Drawing.Size(158, 57);
-            this.lblZipcode.TabIndex = 13;
-            this.lblZipcode.Text = "Postnummer";
-            this.lblZipcode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tableLayoutPanel21
-            // 
-            this.tableLayoutPanel21.ColumnCount = 2;
-            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel21.Controls.Add(this.rtbAddress, 1, 0);
-            this.tableLayoutPanel21.Controls.Add(this.lblAddress, 0, 0);
-            this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel21.Location = new System.Drawing.Point(0, 171);
-            this.tableLayoutPanel21.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel21.Name = "tableLayoutPanel21";
-            this.tableLayoutPanel21.RowCount = 1;
-            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel21.Size = new System.Drawing.Size(410, 57);
-            this.tableLayoutPanel21.TabIndex = 1;
             // 
             // rtbAddress
             // 
@@ -342,8 +299,8 @@
             this.tableLayoutPanel21.ColumnCount = 2;
             this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel21.Controls.Add(this.rtbTelephoneNr, 1, 0);
-            this.tableLayoutPanel21.Controls.Add(this.lblTelephoneNr, 0, 0);
+            this.tableLayoutPanel21.Controls.Add(this.rtbPhoneNr, 1, 0);
+            this.tableLayoutPanel21.Controls.Add(this.lblPhoneNr, 0, 0);
             this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel21.Location = new System.Drawing.Point(0, 171);
             this.tableLayoutPanel21.Margin = new System.Windows.Forms.Padding(0);
@@ -353,32 +310,32 @@
             this.tableLayoutPanel21.Size = new System.Drawing.Size(410, 57);
             this.tableLayoutPanel21.TabIndex = 1000001;
             // 
-            // rtbTelephoneNr
+            // rtbPhoneNr
             // 
-            this.rtbTelephoneNr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.rtbTelephoneNr.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbTelephoneNr.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbTelephoneNr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.rtbTelephoneNr.Location = new System.Drawing.Point(167, 3);
-            this.rtbTelephoneNr.Name = "rtbPhoneNr";
-            this.rtbTelephoneNr.Size = new System.Drawing.Size(240, 51);
-            this.rtbTelephoneNr.TabIndex = 3;
-            this.rtbTelephoneNr.Text = "";
-            this.rtbTelephoneNr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressDigit);
+            this.rtbPhoneNr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.rtbPhoneNr.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbPhoneNr.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbPhoneNr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.rtbPhoneNr.Location = new System.Drawing.Point(167, 3);
+            this.rtbPhoneNr.Name = "rtbPhoneNr";
+            this.rtbPhoneNr.Size = new System.Drawing.Size(240, 51);
+            this.rtbPhoneNr.TabIndex = 3;
+            this.rtbPhoneNr.Text = "";
+            this.rtbPhoneNr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressDigit);
             // 
-            // lblTelephoneNr
+            // lblPhoneNr
             // 
-            this.lblTelephoneNr.AutoSize = true;
-            this.lblTelephoneNr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.lblTelephoneNr.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTelephoneNr.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelephoneNr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.lblTelephoneNr.Location = new System.Drawing.Point(3, 0);
-            this.lblTelephoneNr.Name = "lblPhoneNr";
-            this.lblTelephoneNr.Size = new System.Drawing.Size(158, 57);
-            this.lblTelephoneNr.TabIndex = 10000012;
-            this.lblTelephoneNr.Text = "Telefonnummer";
-            this.lblTelephoneNr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblPhoneNr.AutoSize = true;
+            this.lblPhoneNr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.lblPhoneNr.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPhoneNr.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhoneNr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.lblPhoneNr.Location = new System.Drawing.Point(3, 0);
+            this.lblPhoneNr.Name = "lblPhoneNr";
+            this.lblPhoneNr.Size = new System.Drawing.Size(158, 57);
+            this.lblPhoneNr.TabIndex = 10000012;
+            this.lblPhoneNr.Text = "Telefonnummer";
+            this.lblPhoneNr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel20
             // 
@@ -513,8 +470,8 @@
             this.tableLayoutPanel12.ColumnCount = 2;
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel12.Controls.Add(this.rtbTelephoneNr, 0, 0);
-            this.tableLayoutPanel12.Controls.Add(this.lblTelephoneNr, 0, 0);
+            this.tableLayoutPanel12.Controls.Add(this.rtbZipcode, 0, 0);
+            this.tableLayoutPanel12.Controls.Add(this.lblZipcode, 0, 0);
             this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel12.Location = new System.Drawing.Point(0, 285);
             this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(0);
@@ -524,7 +481,7 @@
             this.tableLayoutPanel12.Size = new System.Drawing.Size(410, 57);
             this.tableLayoutPanel12.TabIndex = 1000001;
             // 
-            // rtbTelephoneNr
+            // rtbZipcode
             // 
             this.rtbZipcode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
             this.rtbZipcode.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -537,7 +494,7 @@
             this.rtbZipcode.Text = "";
             this.rtbZipcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressDigit);
             // 
-            // lblTelephoneNr
+            // lblZipcode
             // 
             this.lblZipcode.AutoSize = true;
             this.lblZipcode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
@@ -717,15 +674,15 @@
         private System.Windows.Forms.RichTextBox rtbMail;
         private System.Windows.Forms.Label lblMail;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
-        private System.Windows.Forms.RichTextBox rtbTelephoneNr;
-        private System.Windows.Forms.Label lblTelephoneNr;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel22;
         private System.Windows.Forms.RichTextBox rtbZipcode;
         private System.Windows.Forms.Label lblZipcode;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel22;
         private System.Windows.Forms.RichTextBox rtbAddress;
         private System.Windows.Forms.Label lblAddress;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
+        private System.Windows.Forms.RichTextBox rtbPhoneNr;
+        private System.Windows.Forms.Label lblPhoneNr;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel20;
         private System.Windows.Forms.RichTextBox rtbLName;
         private System.Windows.Forms.Label lblLName;

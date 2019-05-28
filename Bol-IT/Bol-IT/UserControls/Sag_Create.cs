@@ -219,7 +219,7 @@ namespace Bol_IT
             }
         }
         #endregion
-        
+
         #region Events
 
         //Tobias
@@ -387,7 +387,7 @@ namespace Bol_IT
                 Sag_ViewAll.Instance.StartDataLoad();
             }
         }
-        //Simone
+
         private void btnCalculatePrice_Click(object sender, EventArgs e)
         {
             if (PropSquareMetersEmpty())
@@ -437,6 +437,5 @@ namespace Bol_IT
             }
         }
         #endregion
-
     }
 }

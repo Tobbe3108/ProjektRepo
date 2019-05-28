@@ -242,13 +242,6 @@ namespace DataAccessLayer
                 address, zipcode, nrOfRooms, garageFlag, builtRebuild, houseType, energyRating, resSquareMeters, propSquareMeters, floors, soldFlag, description);
         }
 
-        //Caspar
-        //Sletter en ejendom fra databasen vha. dens caseNr.
-        public static void DeleteProperty(int caseNr)
-        {
-            MethodsDataAccessLayer.DeleteProperty(caseNr);
-        }
-
         //Tobias
         /// <summary>
         /// Får og returnerer alle boliger i et data table

@@ -62,17 +62,17 @@ namespace Bol_IT
             cbDistribution.SelectedIndex = 0;
 
             //tilføjer kolonner til de 2 datatables til brug i dgvDistribution
-            agentDistributionTable.Columns.Add("aId", typeof(int));
-            agentDistributionTable.Columns.Add("nrOfSales", typeof(int));
-            agentDistributionTable.Columns["aId"].Unique = true;
+            agentDistributionTable.Columns.Add("Mægler Id", typeof(int));
+            agentDistributionTable.Columns.Add("Antal salg", typeof(int));
+            agentDistributionTable.Columns["Mægler Id"].Unique = true;
             dgvDistribution.DataSource = agentDistributionTable;
 
-            propDistributionTable.Columns.Add("caseNr", typeof(int));
-            propDistributionTable.Columns.Add("address");
-            propDistributionTable.Columns.Add("zipcode", typeof(int));
-            propDistributionTable.Columns.Add("builtRebuild");
-            propDistributionTable.Columns.Add("houseType");
-            propDistributionTable.Columns["caseNr"].Unique = true;
+            propDistributionTable.Columns.Add("Sagsnummer", typeof(int));
+            propDistributionTable.Columns.Add("Adresse");
+            propDistributionTable.Columns.Add("Postnummer", typeof(int));
+            propDistributionTable.Columns.Add("Bygget/Ombygget");
+            propDistributionTable.Columns.Add("Bolig type");
+            propDistributionTable.Columns["Sagsnummer"].Unique = true;
         }
 
         private void OpenHouse_Distribution_Load(object sender, EventArgs e)
@@ -101,8 +101,16 @@ namespace Bol_IT
                 btnReset.Font = new Font(btnReset.Font.FontFamily, this.Size.Height / 50);
                 dgvSearch.Font = new Font(dgvSearch.Font.FontFamily, this.Size.Height / 60);
                 dgvDistribution.Font = new Font(dgvDistribution.Font.FontFamily, this.Size.Height / 60);
+
+                TableLayoutPanelCellPosition spPos = tableLayoutPanel8.GetCellPosition(cbSearchParam);
+                int spHeight = (tableLayoutPanel8.GetRowHeights()[spPos.Row] - cbSearchParam.Height) / 2;
+                cbSearchParam.Margin = new Padding(6, spHeight, 6, spHeight);
+
+                TableLayoutPanelCellPosition dPos = tableLayoutPanel6.GetCellPosition(cbDistribution);
+                int dHeight = (tableLayoutPanel6.GetRowHeights()[dPos.Row] - cbDistribution.Height) / 2;
+                cbDistribution.Margin = new Padding(6, dHeight, 6, dHeight);
             }
-            catch{}
+            catch { }
         }
 
         #endregion
@@ -140,12 +148,19 @@ namespace Bol_IT
                         rtbSearch.Invoke((MethodInvoker)delegate { int.TryParse(rtbSearch.Text, out agentSearchParameters); });
 
                         dataTable = DataAccessLayerFacade.GetAgentDataTableByLike(agentSearchParameters);
+                        dataTable.Columns["aId"].ColumnName = "Mægler Id";
+                        dataTable.Columns["nrOfSales"].ColumnName = "Antal salg";
                         break;
                     case 1:
                         string propertySearchParameters = "";
                         rtbSearch.Invoke((MethodInvoker)delegate { propertySearchParameters = rtbSearch.Text; });
 
                         dataTable = RemoveColumns(DataAccessLayerFacade.GetPropertyDataTableByLike(propertySearchParameters, false));
+                        dataTable.Columns["caseNr"].ColumnName = "Sagsnummer";
+                        dataTable.Columns["address"].ColumnName = "Adresse";
+                        dataTable.Columns["zipcode"].ColumnName = "Postnummer";
+                        dataTable.Columns["builtRebuild"].ColumnName = "Bygget/Ombygget";
+                        dataTable.Columns["houseType"].ColumnName = "Bolig type";
                         break;
                 }
 
@@ -189,10 +204,7 @@ namespace Bol_IT
         }
 
         //Caspar
-        /// <summary>
-        /// Sletter de nedenstående columns fra datatablet, således at det står overskueligt i DataGridViewet.
-        /// </summary>
-        /// <returns></returns>
+        //Sletter de nedenstående columns fra datatablet, således at det står overskueligt i DataGridViewet.
         private DataTable RemoveColumns(DataTable dataTable)
         {
             dataTable.Columns.Remove("netPrice");
@@ -211,7 +223,6 @@ namespace Bol_IT
 
             return dataTable;
         }
-
         #endregion
 
         #region Events
@@ -230,9 +241,12 @@ namespace Bol_IT
             {
                 try
                 {
-                    dgvSearch.DataSource = DataAccessLayerFacade.GetAgentDataTable();
+                    DataTable dataTable = DataAccessLayerFacade.GetAgentDataTable();
+                    dataTable.Columns["aId"].ColumnName = "Mægler Id";
+                    dataTable.Columns["nrOfSales"].ColumnName = "Antal salg";
+                    dgvSearch.DataSource = dataTable;
                 }
-                catch (Exception){}
+                catch (Exception) { }
             }
             //Henter alle sager her
             else
@@ -241,7 +255,42 @@ namespace Bol_IT
                 {
                     dgvSearch.DataSource = RemoveColumns(DataAccessLayerFacade.GetPropertyDataTable());
                 }
-                catch (Exception) { }
+                catch (Exception){}
+            }
+        }
+
+        //Tobias
+        //Skift binding source ved skrift mellem mægler og sag
+        private void cbSearchParam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dgvSearch.DataSource = null;
+
+            ButtonDeleted();
+
+            switch (cbSearchParam.SelectedIndex)
+            {
+                case 0:
+                    dgvDistribution.DataSource = agentDistributionTable;
+                    //Får alle agenter til visning her
+                    DataTable agentDataTable = DataAccessLayerFacade.GetAgentDataTable();
+                    dgvSearch.DataSource = agentDataTable;
+                    agentDataTable.Columns["aId"].ColumnName = "Mægler Id";
+                    agentDataTable.Columns["nrOfSales"].ColumnName = "Antal salg";
+
+                    fordelt = false;
+                    break;
+                case 1:
+                    dgvDistribution.DataSource = propDistributionTable;
+                    //Får alle sager til visning her
+                    DataTable propertyDataTable = RemoveColumns(DataAccessLayerFacade.GetPropertyDataTable());
+                    dgvSearch.DataSource = propertyDataTable;
+                    propertyDataTable.Columns["caseNr"].ColumnName = "Sagsnummer";
+                    propertyDataTable.Columns["address"].ColumnName = "Adresse";
+                    propertyDataTable.Columns["zipcode"].ColumnName = "Postnummer";
+                    propertyDataTable.Columns["builtRebuild"].ColumnName = "Bygget/Ombygget";
+                    propertyDataTable.Columns["houseType"].ColumnName = "Bolig type";
+                    fordelt = false;
+                    break;
             }
         }
 
@@ -259,8 +308,7 @@ namespace Bol_IT
                     {
                         try
                         {
-                            agentDistributionTable.Rows.Add(
-                                dgvSearch.Rows[e.RowIndex].Cells[1].Value.ToString(),
+                            agentDistributionTable.Rows.Add(dgvSearch.Rows[e.RowIndex].Cells[1].Value.ToString(),
                                 dgvSearch.Rows[e.RowIndex].Cells[2].Value.ToString());
                         }
                         catch (Exception)
@@ -286,44 +334,7 @@ namespace Bol_IT
                 }
             }
         }
-
-        //Tobias
-        /// <summary>
-        /// Skift binding source ved skrift mellem mægler og sag
-        /// </summary>
-        private void cbSearchParam_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            dgvSearch.DataSource = null;
-
-            ButtonDeleted();
-
-            switch (cbSearchParam.SelectedIndex)
-            {
-                case 0:
-                    dgvDistribution.DataSource = agentDistributionTable;
-                    DataTable agentDataTable = DataAccessLayerFacade.GetAgentDataTable();
-                    dgvSearch.DataSource = agentDataTable;
-                    agentDataTable.Columns["aId"].ColumnName = "Mægler Id";
-                    agentDataTable.Columns["nrOfSales"].ColumnName = "Antal salg";
-
-                    fordelt = false;
-                    break;
-                case 1:
-                    dgvDistribution.DataSource = propDistributionTable;
-                    DataTable propertyDataTable = RemoveColumns(DataAccessLayerFacade.GetPropertyDataTable());
-                    dgvSearch.DataSource = propertyDataTable;
-                    propertyDataTable.Columns["caseNr"].ColumnName = "Sagsnummer";
-                    propertyDataTable.Columns["address"].ColumnName = "Adresse";
-                    propertyDataTable.Columns["zipcode"].ColumnName = "Postnummer";
-                    propertyDataTable.Columns["builtRebuild"].ColumnName = "Bygget/Ombygget";
-                    propertyDataTable.Columns["houseType"].ColumnName = "Bolig type";
-                    fordelt = false;
-                    break;
-            }
-        }
-
-
-
+        
         //Tobias
         //Slette en mægler(agent) eller en sag(property) fra fordelings tabellen ved tryk på knappen tilføj
         private void dgvDistribution_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -360,7 +371,7 @@ namespace Bol_IT
                     }
                     dgvDistribution.DataSource = null;
                     dgvDistribution.DataSource = BusinessLayerFacade.DistributeHouses(agentDistributionTable, propDistributionTable, cbDistribution.SelectedIndex);//Sætter datasourcen til det datatable metoden returnerer.
-                    dgvDistribution.Sort(dgvDistribution.Columns["AId"], ListSortDirection.Ascending);//Sorterer DataGridViewet efter Agent Id.
+                    dgvDistribution.Sort(dgvDistribution.Columns["Mægler Id"], ListSortDirection.Ascending);//Sorterer DataGridViewet efter Agent Id.
                     fordelt = true;
                 }
                 else
@@ -500,7 +511,7 @@ namespace Bol_IT
                             DataTable dtFromGrid = new DataTable();
 
                             //Tilføjer alle kolonner fra dataGridViewDataSet til det nyt datatable
-                            for (int i = 1; i < dgvDistribution.Columns.Count; i++)
+                            for (int i = 0; i < dgvDistribution.Columns.Count; i++)
                             {
                                 dtFromGrid.Columns.Add(dgvDistribution.Columns[i].HeaderText);
                             }
@@ -515,11 +526,11 @@ namespace Bol_IT
                                     {
                                         try
                                         {
-                                            dtFromGrid.Rows[dtFromGrid.Rows.Count - 1][cell.ColumnIndex - 1] = cell.Value.ToString();
+                                            dtFromGrid.Rows[dtFromGrid.Rows.Count - 1][cell.ColumnIndex] = cell.Value.ToString();
                                         }
                                         catch (Exception)
                                         {
-                                            dtFromGrid.Rows[dtFromGrid.Rows.Count - 1][cell.ColumnIndex - 1] = " ";
+                                            dtFromGrid.Rows[dtFromGrid.Rows.Count - 1][cell.ColumnIndex] = " ";
                                         }
                                     }
                                 }

@@ -187,8 +187,6 @@ namespace Bol_IT
             Properties.Settings.Default.MainWindowState = this.WindowState;
             Properties.Settings.Default.Save();
         }
-
         #endregion
-
     }
 }
