@@ -79,7 +79,7 @@
     <Compile Include="Classes\PriceCalculator.cs" />
     <Compile Include="Classes\SanitizerMethod.cs" />
     <Compile Include="Classes\SloganThread.cs" />
-    <Compile Include="FileMethods.cs" />
+    <Compile Include="Classes\FileMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
