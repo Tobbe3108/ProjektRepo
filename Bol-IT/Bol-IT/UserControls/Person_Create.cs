@@ -94,14 +94,14 @@ namespace Bol_IT
                 case "Mægler":
                     Agent agent = DataAccessLayerFacade.GetAgentById(Id);
                     cbType.Invoke((MethodInvoker)delegate { cbType.SelectedIndex = 0; });
-                    rtbZipcode.Invoke((MethodInvoker)delegate { rtbZipcode.Text = agent.Address; });
+                    rtbAddress.Invoke((MethodInvoker)delegate { rtbAddress.Text = agent.Address; });
                     rtbFName.Invoke((MethodInvoker)delegate { rtbFName.Text = agent.FName; });
                     rtbLName.Invoke((MethodInvoker)delegate { rtbLName.Text = agent.LName; });
                     rtbMail.Invoke((MethodInvoker)delegate { rtbMail.Text = agent.Mail; });
                     rtbMName.Invoke((MethodInvoker)delegate { rtbMName.Text = agent.MName; });
-                    rtbAddress.Invoke((MethodInvoker)delegate { rtbAddress.Text = agent.PhoneNr.ToString(); });
+                    rtbZipcode.Invoke((MethodInvoker)delegate { rtbZipcode.Text = agent.Zipcode.ToString(); });
                     rtbTypeChainging.Invoke((MethodInvoker)delegate { rtbTypeChainging.Text = agent.NrOfSales.ToString(); });
-                    rtbTelephoneNr.Invoke((MethodInvoker)delegate { rtbTelephoneNr.Text = agent.Zipcode.ToString(); });
+                    rtbTelephoneNr.Invoke((MethodInvoker)delegate { rtbTelephoneNr.Text = agent.PhoneNr.ToString(); });
                     break;
 
 
@@ -109,14 +109,14 @@ namespace Bol_IT
                 case "Sælger":
                     Seller seller = DataAccessLayerFacade.GetSellerById(Id);
                     cbType.Invoke((MethodInvoker)delegate { cbType.SelectedIndex = 1; });
-                    rtbZipcode.Invoke((MethodInvoker)delegate { rtbZipcode.Text = seller.Address; });
+                    rtbAddress.Invoke((MethodInvoker)delegate { rtbAddress.Text = seller.Address; });
                     rtbFName.Invoke((MethodInvoker)delegate { rtbFName.Text = seller.FName; });
                     rtbLName.Invoke((MethodInvoker)delegate { rtbLName.Text = seller.LName; });
                     rtbMail.Invoke((MethodInvoker)delegate { rtbMail.Text = seller.Mail; });
                     rtbMName.Invoke((MethodInvoker)delegate { rtbMName.Text = seller.MName; });
-                    rtbAddress.Invoke((MethodInvoker)delegate { rtbAddress.Text = seller.PhoneNr.ToString(); });
+                    rtbZipcode.Invoke((MethodInvoker)delegate { rtbZipcode.Text = seller.Zipcode.ToString(); });
                     rtbTypeChainging.Invoke((MethodInvoker)delegate { rtbTypeChainging.Text = seller.AId.ToString(); });
-                    rtbTelephoneNr.Invoke((MethodInvoker)delegate { rtbTelephoneNr.Text = seller.Zipcode.ToString(); });
+                    rtbTelephoneNr.Invoke((MethodInvoker)delegate { rtbTelephoneNr.Text = seller.PhoneNr.ToString(); });
                     break;
 
 
@@ -124,14 +124,27 @@ namespace Bol_IT
                 case "Køber":
                     Buyer buyer = DataAccessLayerFacade.GetBuyerById(Id);
                     cbType.Invoke((MethodInvoker)delegate { cbType.SelectedIndex = 2; });
-                    rtbZipcode.Invoke((MethodInvoker)delegate { rtbZipcode.Text = buyer.Address; });
+                    rtbAddress.Invoke((MethodInvoker)delegate { rtbAddress.Text = buyer.Address; });
                     rtbFName.Invoke((MethodInvoker)delegate { rtbFName.Text = buyer.FName; });
                     rtbLName.Invoke((MethodInvoker)delegate { rtbLName.Text = buyer.LName; });
                     rtbMail.Invoke((MethodInvoker)delegate { rtbMail.Text = buyer.Mail; });
                     rtbMName.Invoke((MethodInvoker)delegate { rtbMName.Text = buyer.MName; });
-                    rtbAddress.Invoke((MethodInvoker)delegate { rtbAddress.Text = buyer.PhoneNr.ToString(); });
+                    rtbZipcode.Invoke((MethodInvoker)delegate { rtbZipcode.Text = buyer.Zipcode.ToString(); });
                     rtbTypeChainging.Invoke((MethodInvoker)delegate { rtbTypeChainging.Text = buyer.AId.ToString(); });
-                    rtbTelephoneNr.Invoke((MethodInvoker)delegate { rtbTelephoneNr.Text = buyer.Zipcode.ToString(); });
+                    rtbTelephoneNr.Invoke((MethodInvoker)delegate { rtbTelephoneNr.Text = buyer.PhoneNr.ToString(); });
+                    break;
+
+
+                default:
+                    cbType.Invoke((MethodInvoker)delegate { cbType.SelectedIndex = 0; });
+                    rtbAddress.Invoke((MethodInvoker)delegate { rtbAddress.Text = string.Empty; });
+                    rtbFName.Invoke((MethodInvoker)delegate { rtbFName.Text = string.Empty; });
+                    rtbLName.Invoke((MethodInvoker)delegate { rtbLName.Text = string.Empty; });
+                    rtbMail.Invoke((MethodInvoker)delegate { rtbMail.Text = string.Empty; });
+                    rtbMName.Invoke((MethodInvoker)delegate { rtbMName.Text = string.Empty; });
+                    rtbZipcode.Invoke((MethodInvoker)delegate { rtbZipcode.Text = string.Empty; });
+                    rtbTypeChainging.Invoke((MethodInvoker)delegate { rtbTypeChainging.Text = string.Empty; });
+                    rtbTelephoneNr.Invoke((MethodInvoker)delegate { rtbTelephoneNr.Text = string.Empty; });
                     break;
             }
         }
@@ -362,13 +375,13 @@ namespace Bol_IT
                         switch (cbType.SelectedIndex)
                         {
                             case 0:
-                                DataAccessLayerFacade.AgentUpdateData(Id, rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbAddress.Text), rtbZipcode.Text, Convert.ToInt32(rtbTelephoneNr.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
+                                DataAccessLayerFacade.AgentUpdateData(Id, rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbTelephoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
                                 break;
                             case 1:
-                                DataAccessLayerFacade.SellerUpdateData(Id, rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbAddress.Text), rtbZipcode.Text, Convert.ToInt32(rtbTelephoneNr.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
+                                DataAccessLayerFacade.SellerUpdateData(Id, rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbTelephoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
                                 break;
                             case 2:
-                                DataAccessLayerFacade.BuyerUpdateData(Id, rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbAddress.Text), rtbZipcode.Text, Convert.ToInt32(rtbTelephoneNr.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
+                                DataAccessLayerFacade.BuyerUpdateData(Id, rtbFName.Text, rtbMName.Text, rtbLName.Text, Convert.ToInt32(rtbTelephoneNr.Text), rtbAddress.Text, Convert.ToInt32(rtbZipcode.Text), rtbMail.Text, Convert.ToInt32(rtbTypeChainging.Text));
                                 break;
                         }
 
