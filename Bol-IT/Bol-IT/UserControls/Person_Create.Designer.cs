@@ -342,8 +342,8 @@
             this.tableLayoutPanel21.ColumnCount = 2;
             this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel21.Controls.Add(this.rtbPhoneNr, 1, 0);
-            this.tableLayoutPanel21.Controls.Add(this.lblPhoneNr, 0, 0);
+            this.tableLayoutPanel21.Controls.Add(this.rtbTelephoneNr, 1, 0);
+            this.tableLayoutPanel21.Controls.Add(this.lblTelephoneNr, 0, 0);
             this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel21.Location = new System.Drawing.Point(0, 171);
             this.tableLayoutPanel21.Margin = new System.Windows.Forms.Padding(0);
@@ -353,32 +353,32 @@
             this.tableLayoutPanel21.Size = new System.Drawing.Size(410, 57);
             this.tableLayoutPanel21.TabIndex = 1000001;
             // 
-            // rtbPhoneNr
+            // rtbTelephoneNr
             // 
-            this.rtbPhoneNr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.rtbPhoneNr.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbPhoneNr.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbPhoneNr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.rtbPhoneNr.Location = new System.Drawing.Point(167, 3);
-            this.rtbPhoneNr.Name = "rtbPhoneNr";
-            this.rtbPhoneNr.Size = new System.Drawing.Size(240, 51);
-            this.rtbPhoneNr.TabIndex = 3;
-            this.rtbPhoneNr.Text = "";
-            this.rtbPhoneNr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressDigit);
+            this.rtbTelephoneNr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.rtbTelephoneNr.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbTelephoneNr.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbTelephoneNr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.rtbTelephoneNr.Location = new System.Drawing.Point(167, 3);
+            this.rtbTelephoneNr.Name = "rtbPhoneNr";
+            this.rtbTelephoneNr.Size = new System.Drawing.Size(240, 51);
+            this.rtbTelephoneNr.TabIndex = 3;
+            this.rtbTelephoneNr.Text = "";
+            this.rtbTelephoneNr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckKeyPressDigit);
             // 
-            // lblPhoneNr
+            // lblTelephoneNr
             // 
-            this.lblPhoneNr.AutoSize = true;
-            this.lblPhoneNr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.lblPhoneNr.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPhoneNr.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhoneNr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.lblPhoneNr.Location = new System.Drawing.Point(3, 0);
-            this.lblPhoneNr.Name = "lblPhoneNr";
-            this.lblPhoneNr.Size = new System.Drawing.Size(158, 57);
-            this.lblPhoneNr.TabIndex = 10000012;
-            this.lblPhoneNr.Text = "Telefonnummer";
-            this.lblPhoneNr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTelephoneNr.AutoSize = true;
+            this.lblTelephoneNr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.lblTelephoneNr.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTelephoneNr.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelephoneNr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.lblTelephoneNr.Location = new System.Drawing.Point(3, 0);
+            this.lblTelephoneNr.Name = "lblPhoneNr";
+            this.lblTelephoneNr.Size = new System.Drawing.Size(158, 57);
+            this.lblTelephoneNr.TabIndex = 10000012;
+            this.lblTelephoneNr.Text = "Telefonnummer";
+            this.lblTelephoneNr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel20
             // 

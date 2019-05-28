@@ -644,7 +644,7 @@ namespace Bol_IT
         {
             foreach (ListViewItem item in lvHouseFiles.SelectedItems)
             {
-                MessageBox.Show($"Der skete en uventet fejl under sletning af sagen. Fejlbesked: {exception}.", "Fejl.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                item.Remove();
             }
         }
         #endregion
