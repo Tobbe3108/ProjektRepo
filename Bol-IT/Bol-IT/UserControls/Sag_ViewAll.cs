@@ -177,7 +177,10 @@ namespace Bol_IT
 
         private void rtbSearch_TextChanged(object sender, EventArgs e)
         {
-            StartDataLoad();
+            if (!DataAccessLayerFacade.CheckForSQLInjection(rtbSearch.Text))
+            {
+                StartDataLoad();
+            }
         }
 
         private void dgvSager_CellContentClick(object sender, DataGridViewCellEventArgs e)

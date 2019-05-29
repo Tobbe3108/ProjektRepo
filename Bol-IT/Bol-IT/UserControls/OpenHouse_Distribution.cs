@@ -231,31 +231,34 @@ namespace Bol_IT
         //Laver en thread der loader data fra databasen hver gang man ændre teksten i tekst boxen
         private void rtbSearch_TextChanged(object sender, EventArgs e)
         {
-            if (rtbSearch.Text.Length > 0)
+            if (!DataAccessLayerFacade.CheckForSQLInjection(rtbSearch.Text))
             {
-                StartDataLoad();
-            }
-            //Hvis der ikke står noget, så henter den alle entries i databasen
-            //Henter alle mæglerer her
-            else if (cbSearchParam.SelectedIndex == 0)
-            {
-                try
+                if (rtbSearch.Text.Length > 0)
                 {
-                    DataTable dataTable = DataAccessLayerFacade.GetAgentDataTable();
-                    dataTable.Columns["aId"].ColumnName = "Mægler Id";
-                    dataTable.Columns["nrOfSales"].ColumnName = "Antal salg";
-                    dgvSearch.DataSource = dataTable;
+                    StartDataLoad();
                 }
-                catch (Exception) { }
-            }
-            //Henter alle sager her
-            else
-            {
-                try
+                //Hvis der ikke står noget, så henter den alle entries i databasen
+                //Henter alle mæglerer her
+                else if (cbSearchParam.SelectedIndex == 0)
                 {
-                    dgvSearch.DataSource = RemoveColumns(DataAccessLayerFacade.GetPropertyDataTable());
+                    try
+                    {
+                        DataTable dataTable = DataAccessLayerFacade.GetAgentDataTable();
+                        dataTable.Columns["aId"].ColumnName = "Mægler Id";
+                        dataTable.Columns["nrOfSales"].ColumnName = "Antal salg";
+                        dgvSearch.DataSource = dataTable;
+                    }
+                    catch (Exception) { }
                 }
-                catch (Exception){}
+                //Henter alle sager her
+                else
+                {
+                    try
+                    {
+                        dgvSearch.DataSource = RemoveColumns(DataAccessLayerFacade.GetPropertyDataTable());
+                    }
+                    catch (Exception) { }
+                }
             }
         }
 

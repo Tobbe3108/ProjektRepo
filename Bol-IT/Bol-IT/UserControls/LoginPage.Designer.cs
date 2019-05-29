@@ -37,6 +37,7 @@
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.lklPasswordReset = new System.Windows.Forms.LinkLabel();
+            this.lblPasswordNotify = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +56,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tbUsername, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.tbPassword, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.lklPasswordReset, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.lblPasswordNotify, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -168,6 +170,18 @@
             this.lklPasswordReset.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lklPasswordReset.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklPasswordReset_LinkClicked);
             // 
+            // lblPasswordNotify
+            // 
+            this.lblPasswordNotify.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.lblPasswordNotify, 2);
+            this.lblPasswordNotify.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPasswordNotify.Location = new System.Drawing.Point(262, 0);
+            this.lblPasswordNotify.Name = "lblPasswordNotify";
+            this.lblPasswordNotify.Size = new System.Drawing.Size(338, 121);
+            this.lblPasswordNotify.TabIndex = 8;
+            this.lblPasswordNotify.Text = "Login: Brugernavn er \"test\" og der er ingen kode.";
+            this.lblPasswordNotify.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // LoginPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,5 +208,6 @@
         private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.LinkLabel lklPasswordReset;
+        private System.Windows.Forms.Label lblPasswordNotify;
     }
 }
