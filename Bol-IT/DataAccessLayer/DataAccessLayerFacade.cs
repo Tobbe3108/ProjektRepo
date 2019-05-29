@@ -78,7 +78,10 @@ namespace DataAccessLayer
             MethodsDataAccessLayer.CreateSeller(fName, mName, lName, phoneNr, address, zipcode, mail, aId);
         }
 
-        
+        public static void CreateWantsToSell(int sId, int caseNr, int desiredPrice, int timeFrame)
+        {
+            MethodsDataAccessLayer.CreateWantsToSell(sId, caseNr, desiredPrice, timeFrame);
+        }
 
         /// <summary>
         /// Returnerer et objekt som giver informationer omkring relationen mellem en sælger og et hus

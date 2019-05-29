@@ -97,17 +97,17 @@
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbFloors = new System.Windows.Forms.RichTextBox();
             this.lblFloors = new System.Windows.Forms.Label();
+            this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnDeleteCase = new System.Windows.Forms.Button();
+            this.btnToFile = new System.Windows.Forms.Button();
+            this.btnCreateAd = new System.Windows.Forms.Button();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.lblGarageFlag = new System.Windows.Forms.Label();
             this.cbGarageFlag = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbEnergyRating = new System.Windows.Forms.RichTextBox();
             this.lblEnergyRating = new System.Windows.Forms.Label();
-            this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnToFile = new System.Windows.Forms.Button();
-            this.btnCreateAd = new System.Windows.Forms.Button();
             this.ofdOpenFile = new System.Windows.Forms.OpenFileDialog();
-            this.btnDeleteCase = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -134,9 +134,9 @@
             this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
+            this.tableLayoutPanel26.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel16.SuspendLayout();
-            this.tableLayoutPanel26.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -287,9 +287,8 @@
             this.tableLayoutPanel28.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel28.Name = "tableLayoutPanel28";
             this.tableLayoutPanel28.RowCount = 2;
-            this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel28.Size = new System.Drawing.Size(196, 138);
             this.tableLayoutPanel28.TabIndex = 1000004;
             // 
@@ -301,9 +300,9 @@
             this.btnShowFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnShowFile.Location = new System.Drawing.Point(68, 113);
+            this.btnShowFile.Location = new System.Drawing.Point(68, 99);
             this.btnShowFile.Name = "btnShowFile";
-            this.btnShowFile.Size = new System.Drawing.Size(59, 22);
+            this.btnShowFile.Size = new System.Drawing.Size(59, 36);
             this.btnShowFile.TabIndex = 21;
             this.btnShowFile.Text = "Vis";
             this.btnShowFile.UseVisualStyleBackColor = false;
@@ -318,7 +317,7 @@
             this.lvHouseFiles.ForeColor = System.Drawing.Color.Black;
             this.lvHouseFiles.Location = new System.Drawing.Point(3, 3);
             this.lvHouseFiles.Name = "lvHouseFiles";
-            this.lvHouseFiles.Size = new System.Drawing.Size(190, 104);
+            this.lvHouseFiles.Size = new System.Drawing.Size(190, 90);
             this.lvHouseFiles.TabIndex = 1000003;
             this.lvHouseFiles.UseCompatibleStateImageBehavior = false;
             this.lvHouseFiles.View = System.Windows.Forms.View.List;
@@ -332,9 +331,9 @@
             this.btnAddFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnAddFile.Location = new System.Drawing.Point(133, 113);
+            this.btnAddFile.Location = new System.Drawing.Point(133, 99);
             this.btnAddFile.Name = "btnAddFile";
-            this.btnAddFile.Size = new System.Drawing.Size(60, 22);
+            this.btnAddFile.Size = new System.Drawing.Size(60, 36);
             this.btnAddFile.TabIndex = 20;
             this.btnAddFile.Text = "Tilføj";
             this.btnAddFile.UseVisualStyleBackColor = false;
@@ -348,9 +347,9 @@
             this.btnDeleteFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnDeleteFile.Location = new System.Drawing.Point(3, 113);
+            this.btnDeleteFile.Location = new System.Drawing.Point(3, 99);
             this.btnDeleteFile.Name = "btnDeleteFile";
-            this.btnDeleteFile.Size = new System.Drawing.Size(59, 22);
+            this.btnDeleteFile.Size = new System.Drawing.Size(59, 36);
             this.btnDeleteFile.TabIndex = 22;
             this.btnDeleteFile.Text = "Slet";
             this.btnDeleteFile.UseVisualStyleBackColor = false;
@@ -437,7 +436,6 @@
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel12, 0, 3);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel13, 0, 4);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel14, 0, 5);
-            this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel26, 3, 9);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel15, 0, 6);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel16, 0, 7);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel26, 2, 9);
@@ -1188,6 +1186,74 @@
             this.lblFloors.Text = "Etager";
             this.lblFloors.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // tableLayoutPanel26
+            // 
+            this.tableLayoutPanel26.ColumnCount = 3;
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33555F));
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33223F));
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33223F));
+            this.tableLayoutPanel26.Controls.Add(this.btnDeleteCase, 2, 0);
+            this.tableLayoutPanel26.Controls.Add(this.btnToFile, 0, 0);
+            this.tableLayoutPanel26.Controls.Add(this.btnCreateAd, 0, 0);
+            this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel26.Location = new System.Drawing.Point(309, 369);
+            this.tableLayoutPanel26.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel26.Name = "tableLayoutPanel26";
+            this.tableLayoutPanel26.RowCount = 1;
+            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tableLayoutPanel26.Size = new System.Drawing.Size(295, 46);
+            this.tableLayoutPanel26.TabIndex = 1000009;
+            // 
+            // btnDeleteCase
+            // 
+            this.btnDeleteCase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.btnDeleteCase.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDeleteCase.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
+            this.btnDeleteCase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteCase.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteCase.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.btnDeleteCase.Location = new System.Drawing.Point(199, 3);
+            this.btnDeleteCase.Name = "btnDeleteCase";
+            this.btnDeleteCase.Size = new System.Drawing.Size(93, 40);
+            this.btnDeleteCase.TabIndex = 4;
+            this.btnDeleteCase.Text = "Slet sag";
+            this.btnDeleteCase.UseVisualStyleBackColor = false;
+            this.btnDeleteCase.Click += new System.EventHandler(this.btnDeleteCase_Click);
+            // 
+            // btnToFile
+            // 
+            this.btnToFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.btnToFile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnToFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
+            this.btnToFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnToFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnToFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.btnToFile.Location = new System.Drawing.Point(101, 3);
+            this.btnToFile.Name = "btnToFile";
+            this.btnToFile.Size = new System.Drawing.Size(92, 40);
+            this.btnToFile.TabIndex = 18;
+            this.btnToFile.Text = "Udskriv fil";
+            this.btnToFile.UseVisualStyleBackColor = false;
+            this.btnToFile.Click += new System.EventHandler(this.btnToFile_Click);
+            // 
+            // btnCreateAd
+            // 
+            this.btnCreateAd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
+            this.btnCreateAd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCreateAd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
+            this.btnCreateAd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateAd.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateAd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
+            this.btnCreateAd.Location = new System.Drawing.Point(3, 3);
+            this.btnCreateAd.Name = "btnCreateAd";
+            this.btnCreateAd.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCreateAd.Size = new System.Drawing.Size(92, 40);
+            this.btnCreateAd.TabIndex = 17;
+            this.btnCreateAd.Text = "Opret annonce";
+            this.btnCreateAd.UseVisualStyleBackColor = false;
+            this.btnCreateAd.Click += new System.EventHandler(this.btnCreateAd_Click);
+            // 
             // tableLayoutPanel15
             // 
             this.tableLayoutPanel15.ColumnCount = 2;
@@ -1271,77 +1337,9 @@
             this.lblEnergyRating.Text = "Energimærke";
             this.lblEnergyRating.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // tableLayoutPanel26
-            // 
-            this.tableLayoutPanel26.ColumnCount = 3;
-            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33555F));
-            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33223F));
-            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33223F));
-            this.tableLayoutPanel26.Controls.Add(this.btnDeleteCase, 2, 0);
-            this.tableLayoutPanel26.Controls.Add(this.btnToFile, 0, 0);
-            this.tableLayoutPanel26.Controls.Add(this.btnCreateAd, 0, 0);
-            this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel26.Location = new System.Drawing.Point(309, 369);
-            this.tableLayoutPanel26.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel26.Name = "tableLayoutPanel26";
-            this.tableLayoutPanel26.RowCount = 1;
-            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel26.Size = new System.Drawing.Size(295, 46);
-            this.tableLayoutPanel26.TabIndex = 1000009;
-            // 
-            // btnToFile
-            // 
-            this.btnToFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.btnToFile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnToFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
-            this.btnToFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnToFile.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnToFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnToFile.Location = new System.Drawing.Point(101, 3);
-            this.btnToFile.Name = "btnToFile";
-            this.btnToFile.Size = new System.Drawing.Size(92, 40);
-            this.btnToFile.TabIndex = 18;
-            this.btnToFile.Text = "Udskriv fil";
-            this.btnToFile.UseVisualStyleBackColor = false;
-            this.btnToFile.Click += new System.EventHandler(this.btnToFile_Click);
-            // 
-            // btnCreateAd
-            // 
-            this.btnCreateAd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.btnCreateAd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCreateAd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
-            this.btnCreateAd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateAd.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateAd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnCreateAd.Location = new System.Drawing.Point(3, 3);
-            this.btnCreateAd.Name = "btnCreateAd";
-            this.btnCreateAd.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnCreateAd.Size = new System.Drawing.Size(92, 40);
-            this.btnCreateAd.TabIndex = 17;
-            this.btnCreateAd.Text = "Opret annonce";
-            this.btnCreateAd.UseVisualStyleBackColor = false;
-            this.btnCreateAd.Click += new System.EventHandler(this.btnCreateAd_Click);
-            // 
             // ofdOpenFile
             // 
             this.ofdOpenFile.FileName = "openFileDialog1";
-            // 
-            // btnDeleteCase
-            // 
-            this.btnDeleteCase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(251)))));
-            this.btnDeleteCase.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDeleteCase.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(217)))), ((int)(((byte)(228)))));
-            this.btnDeleteCase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteCase.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteCase.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(74)))), ((int)(((byte)(80)))));
-            this.btnDeleteCase.Location = new System.Drawing.Point(199, 3);
-            this.btnDeleteCase.Name = "btnDeleteCase";
-            this.btnDeleteCase.Size = new System.Drawing.Size(93, 40);
-            this.btnDeleteCase.TabIndex = 4;
-            this.btnDeleteCase.Text = "Slet sag";
-            this.btnDeleteCase.UseVisualStyleBackColor = false;
-            this.btnDeleteCase.Click += new System.EventHandler(this.btnDeleteCase_Click);
             // 
             // Sag_Edit
             // 
@@ -1397,11 +1395,11 @@
             this.tableLayoutPanel13.PerformLayout();
             this.tableLayoutPanel14.ResumeLayout(false);
             this.tableLayoutPanel14.PerformLayout();
+            this.tableLayoutPanel26.ResumeLayout(false);
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel15.PerformLayout();
             this.tableLayoutPanel16.ResumeLayout(false);
             this.tableLayoutPanel16.PerformLayout();
-            this.tableLayoutPanel26.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

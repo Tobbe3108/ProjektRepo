@@ -440,20 +440,33 @@ namespace DataAccessLayer
             return pdt;
         }
 
+        public static void CreateWantsToSell(int sId, int caseNr, int desiredPrice, int timeFrame)
+        {
+            wantsToSellTableAdapter.InsertData(sId, caseNr, desiredPrice, timeFrame);
+        }
+
         public static WantsToSell GetWantsToSellByCaseNr(int caseNr)
         {
             wantsToSellDataTable wtsdt = new wantsToSellDataTable();
             wantsToSellTableAdapter.FillByCaseNr(wtsdt, caseNr);
 
-            WantsToSell wantsToSell = new WantsToSell()
+            if (wtsdt.Rows.Count != 0)
             {
-                SId = (int)wtsdt.Rows[0][0],
-                CaseNr = (int)wtsdt.Rows[0][1],
-                DesiredPrice = (int)wtsdt.Rows[0][2],
-                TimeFrame = (int)wtsdt.Rows[0][3]
-            };
 
-            return wantsToSell;
+                WantsToSell wantsToSell = new WantsToSell()
+                {
+                    SId = (int)wtsdt.Rows[0][0],
+                    CaseNr = (int)wtsdt.Rows[0][1],
+                    DesiredPrice = (int)wtsdt.Rows[0][2],
+                    TimeFrame = (int)wtsdt.Rows[0][3]
+                };
+
+                return wantsToSell;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         //Christoffer
@@ -555,7 +568,7 @@ namespace DataAccessLayer
             try
             {
 
-                return filesTableAdapter.GetPhotoExtFromName(nameOfPhoto);
+                return (string)filesTableAdapter.GetPhotoExtFromName(nameOfPhoto);
             }
             catch (Exception)
             {
@@ -584,7 +597,7 @@ namespace DataAccessLayer
             try
             {
 
-                return filesTableAdapter.GetPhotoNameByCaseIdAndPhoto(id, photo);
+                return (string)filesTableAdapter.GetPhotoNameByCaseIdAndPhoto(id, photo);
             }
             catch (Exception)
             {
@@ -642,7 +655,7 @@ namespace DataAccessLayer
             return new Document
             {
                 Name = name,
-                Data = filesTableAdapter.GetFileByName(name)
+                Data = (byte[])filesTableAdapter.GetFileByName(name)
             };
 
         }

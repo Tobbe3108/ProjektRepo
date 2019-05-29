@@ -124,10 +124,11 @@ namespace Bol_IT
                 cbGarageFlag.Font = new Font(cbGarageFlag.Font.FontFamily, this.Size.Height / 50);
                 #endregion
                 #region Buttons
-                btnCreateAd.Font = new Font(btnCreateAd.Font.FontFamily, this.Size.Height / 50);
                 btnCancel.Font = new Font(btnCancel.Font.FontFamily, this.Size.Height / 50);
                 btnSave.Font = new Font(btnSave.Font.FontFamily, this.Size.Height / 50);
-                btnToFile.Font = new Font(btnToFile.Font.FontFamily, this.Size.Height / 50);
+                btnToFile.Font = new Font(btnToFile.Font.FontFamily, this.Size.Height / 60);
+                btnCreateAd.Font = new Font(btnCreateAd.Font.FontFamily, this.Size.Height / 60);
+                btnDeleteCase.Font = new Font(btnDeleteCase.Font.FontFamily, this.Size.Height / 60);
                 btnAddFile.Font = new Font(btnAddFile.Font.FontFamily, this.Size.Height / 50);
                 btnShowFile.Font = new Font(btnShowFile.Font.FontFamily, this.Size.Height / 50);
                 btnDeleteFile.Font = new Font(btnDeleteFile.Font.FontFamily, this.Size.Height / 50);

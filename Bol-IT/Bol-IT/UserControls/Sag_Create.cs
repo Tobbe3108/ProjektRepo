@@ -343,6 +343,13 @@ namespace Bol_IT
                         cbSoldFlag.Checked,
                         rtbHouseDescription.Text
                     );
+                DataAccessLayerFacade.CreateWantsToSell
+                    (
+                        int.Parse(cbSellerId.Text), 
+                        caseNr, 
+                        int.Parse(rtbDesiredPrice.Text), 
+                        int.Parse(rtbTimeFrame.Text)
+                    );
                 
                 if (!(pbHouseImage.ImageLocation == null))
                 {
