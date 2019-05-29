@@ -7738,7 +7738,7 @@ COMMIT TRANSACTION;";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertData(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail) {
+        public virtual object InsertData(string fName, string mName, string lName, int phoneNr, string address, int zipcode, string mail) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
             if ((fName == null)) {
                 throw new global::System.ArgumentNullException("fName");
@@ -7777,16 +7777,22 @@ COMMIT TRANSACTION;";
                         != global::System.Data.ConnectionState.Open)) {
                 command.Connection.Open();
             }
-            int returnValue;
+            object returnValue;
             try {
-                returnValue = command.ExecuteNonQuery();
+                returnValue = command.ExecuteScalar();
             }
             finally {
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
                     command.Connection.Close();
                 }
             }
-            return returnValue;
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

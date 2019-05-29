@@ -22,7 +22,7 @@ namespace DataAccessLayer
             {
                 if (item.Contains(";"))
                 {
-                    MessageBox.Show("Godt forsøgt Jens");
+                    MessageBox.Show("Forbudt tegn fundet. Venligst slet alle semikolonner.");
                     return true;
                 }
             }
